@@ -1,0 +1,34 @@
+src/*.exe
+src/bitcoin
+src/bitcoind
+src/test_bitcoin
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.bitcoin
+
+# Compilation and Qt preprocessor part
+*.qm
+Makefile
+bitcoin-qt
+Bitcoin-Qt.app
+
+# Unit-tests
+Makefile.test
+bitcoin-qt_test
+
+# Resources cpp
+qrc_*.cpp
+
+# Qt creator
+*.pro.user
+
+# Mac specific
+.DS_Store
+build
+
+!src/leveldb-*/Makefile
