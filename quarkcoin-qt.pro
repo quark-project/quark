@@ -1,7 +1,7 @@
 TEMPLATE = app
-TARGET = sifcoin-qt
-macx:TARGET = "Sifcoin-Qt"
-VERSION = 0.1.0
+TARGET = quarkcoin-qt
+macx:TARGET = "Quarkcoin-Qt"
+VERSION = 0.8.3
 INCLUDEPATH += src src/json src/qt
 QT += network
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
@@ -218,7 +218,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_keccak.h \
     src/sph_jh.h \
     src/sph_groestl.h \
-    src/sph_bmw.h
+    src/sph_bmw.h \
+    src/sph_types.h
 
 SOURCES += src/qt/bitcoin.cpp \
     src/qt/bitcoingui.cpp \

@@ -1,5 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2012 The Bitcoin developers
+// Copyright (c) 2009-2013 The Bitcoin developers
+// Copyright (c) 2013 The Sifcoin developers
+// Copyright (c) 2013 The Quarkcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,9 +34,9 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x0000000c82dce59baed4d2758240ec1d7faeb6b8289086f4826f3690fc7dc6e4");
-static const unsigned int timeGenesisBlock = 1371945600;
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 24);
+uint256 hashGenesisBlock("0x00000c257b93a36e9a4318a64398d661866341331a984e2b486414fc5bb16ccd");
+static const unsigned int timeGenesisBlock = 1374408079;
+static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20);
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -66,7 +68,7 @@ map<uint256, map<uint256, CDataStream*> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Bitcoin Signed Message:\n";
+const string strMessageMagic = "Quarkcoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -377,12 +379,16 @@ bool CTxOut::IsDust() const
 
 bool CTransaction::IsStandard() const
 {
-    if (nVersion > CTransaction::CURRENT_VERSION)
+    if (nVersion > CTransaction::TXCOMMENT_VERSION)
         return false;
 
     if (!IsFinal())
         return false;
 
+	// Disallow large transaction comments
+	if (strTxComment.length() > MAX_TX_COMMENT_LEN)
+		return false;
+        
     // Extremely large transactions with lots of inputs can cost the network
     // almost as much to process as they cost the sender in fees, because
     // computing signature hashes is O(ninputs*txsize). Limiting transactions
@@ -560,8 +566,8 @@ bool CTransaction::CheckTransaction(CValidationState &state) const
     {
         if (txout.nValue < 0)
             return state.DoS(100, error("CTransaction::CheckTransaction() : txout.nValue negative"));
-//        if (txout.nValue > MAX_MONEY)
-//            return state.DoS(100, error("CTransaction::CheckTransaction() : txout.nValue too high"));
+        if (txout.nValue > MAX_MONEY)
+            return state.DoS(100, error("CTransaction::CheckTransaction() : txout.nValue too high"));
         nValueOut += txout.nValue;
         if (!MoneyRange(nValueOut))
             return state.DoS(100, error("CTransaction::CheckTransaction() : txout total out of range"));
@@ -1070,40 +1076,34 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
+static const int64 nGenesisBlockRewardCoin = 1 * COIN;
+static const int64 nBlockRewardStartCoin = 2048 * COIN;
+static const int64 nBlockRewardMinimumCoin = 1 * COIN;
+
+static const int64 nTargetTimespan = 10 * 60; // 10 minutes
+static const int64 nTargetSpacing = 30; // 30 seconds
+static const int64 nInterval = nTargetTimespan / nTargetSpacing; // 20 blocks
+
 int64 static GetBlockValue(int nHeight, int64 nFees, unsigned int nBits)
 {
-    //int64 nSubsidy = 50 * COIN;
-    //CBigNum diff = bnProofOfWorkLimit;
-    //diff /= CBigNum().SetCompact(nNonce);
-    //int a = sqrt()
-    //Subsidy is cut in half every 210000 blocks, which will occur approximately every 4 years
-    //nSubsidy >>= (nHeight / 210000);
-
-    unsigned int basenBits = bnProofOfWorkLimit.GetCompact();
-    int nShift = int((basenBits >> 24) & 0xff) - int((nBits >> 24) & 0xff);
-
-    double dDiff =
-        (double)(basenBits & 0x007fffff) / (double)(nBits & 0x007fffff);
-    while (nShift > 0)
+    if (nHeight == 0)
     {
-        dDiff *= 256.0;
-        --nShift;
+        return nGenesisBlockRewardCoin;
     }
-    while (nShift < 0)
+    
+    int64 nSubsidy = nBlockRewardStartCoin;
+
+    // Subsidy is cut in half every 60480 blocks (21 days)
+    nSubsidy >>= (nHeight / 60480);
+    
+    // Minimum subsidy
+    if (nSubsidy < nBlockRewardMinimumCoin)
     {
-        dDiff /= 256.0;
-        ++nShift;
+        nSubsidy = nBlockRewardMinimumCoin;
     }
-    int64 nSubsidy = int64(sqrt(dDiff * nHeight)) + COIN;
 
     return nSubsidy + nFees;
 }
-
-static const int64 nTargetTimespan = 1 * 60 * 60; // hour
-static const int64 nTargetSpacing0 = 100;// 101/100 = 1,01
-static const int64 nTargetSpacing1 = 101;//
-static const int64 nTargetBlocks = 12;// blocks-in-timespan (exclusion start)
-
 
 //
 // minimum amount of work that could possibly be required nTime after
@@ -1113,22 +1113,17 @@ unsigned int ComputeMinWork(unsigned int nBase, int64 nTime)
 {
     // Testnet has min-difficulty blocks
     // after nTargetSpacing*2 time between blocks:
-    if (fTestNet)
+    if (fTestNet && nTime > nTargetSpacing*2)
         return bnProofOfWorkLimit.GetCompact();
 
     CBigNum bnResult;
     bnResult.SetCompact(nBase);
     while (nTime > 0 && bnResult < bnProofOfWorkLimit)
     {
-        // Maximum double 101% adjustment...
-        bnResult *= nTargetSpacing1 * nTargetSpacing1;
-        bnResult /= nTargetSpacing0 * nTargetSpacing0;
-        // ... in best-case exactly 4-times-normal target time
+        // Maximum 200% adjustment...
+        bnResult *= 2;
+        // ... per timespan
         nTime -= nTargetTimespan;
-        if (bnResult > bnProofOfWorkLimit){
-            bnResult = bnProofOfWorkLimit;
-            return bnResult.GetCompact();
-        }
     }
     if (bnResult > bnProofOfWorkLimit)
         bnResult = bnProofOfWorkLimit;
@@ -1143,70 +1138,59 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     if (pindexLast == NULL)
         return nProofOfWorkLimit;
 
-    // First mining block
-    if (pindexLast->nHeight <= 0)
-        return nProofOfWorkLimit;
-
-    if (fTestNet)
+    // Only change once per interval
+    if ((pindexLast->nHeight+1) % nInterval != 0)
     {
-        return nProofOfWorkLimit;
-    }
-
-    CBigNum bnNew;
-    // start hours;
-    bnNew.SetCompact(pindexLast->nBits);
-
-    int64 nActualTimespan = nTargetTimespan;
-    if (pindexLast->nHeight > nTargetBlocks) // after first hours
-    {
-        const CBlockIndex* pindexFirst = pindexLast;
-        CBigNum bnMean(bnNew), bnCur;
-        for (int64 i = 0; pindexFirst && i < nTargetBlocks; ++i){
-            pindexFirst = pindexFirst->pprev;
-            assert(pindexFirst);
-            bnCur.SetCompact(pindexFirst->nBits);
-            bnMean += bnCur;
+        // Special difficulty rule for testnet:
+        if (fTestNet)
+        {
+            // If the new block's timestamp is more than 2 * nTargetSpacing
+            // then allow mining of a min-difficulty block.
+            if (pblock->nTime > pindexLast->nTime + nTargetSpacing*2)
+                return nProofOfWorkLimit;
+            else
+            {
+                // Return the last non-special-min-difficulty-rules-block
+                const CBlockIndex* pindex = pindexLast;
+                while (pindex->pprev && pindex->nHeight % nInterval != 0 && pindex->nBits == nProofOfWorkLimit)
+                    pindex = pindex->pprev;
+                return pindex->nBits;
+            }
         }
-        bnNew = bnMean / (nTargetBlocks+1);
-        // Limit adjustment step
-        nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-        if (nActualTimespan*nTargetSpacing1 < nTargetTimespan*nTargetSpacing0)
-            nActualTimespan = nTargetTimespan * nTargetSpacing0 / nTargetSpacing1;
-        if (nActualTimespan*nTargetSpacing0 > nTargetTimespan*nTargetSpacing1)
-            nActualTimespan = nTargetTimespan * nTargetSpacing1 / nTargetSpacing0;
-    }
-    int64 nGlobalActualTimespan = pindexLast->GetBlockTime() - timeGenesisBlock;
-    int64 nGlobalTargetTimespan = pindexLast->nHeight * (nTargetTimespan / nTargetBlocks);
-    if (nGlobalActualTimespan*nTargetSpacing1 < nGlobalTargetTimespan*nTargetSpacing0)
-        nGlobalActualTimespan = nGlobalTargetTimespan * nTargetSpacing0 / nTargetSpacing1;
-    if (nGlobalActualTimespan*nTargetSpacing0 > nGlobalTargetTimespan*nTargetSpacing1)
-        nGlobalActualTimespan = nGlobalTargetTimespan * nTargetSpacing1 / nTargetSpacing0;
 
-    if (pindexLast->nHeight > nTargetBlocks * 7 * 24 * 60 * 60 / nTargetTimespan) // after first week
-    {
-        nGlobalActualTimespan /= nTargetTimespan;
-        nGlobalTargetTimespan /= nActualTimespan;
+        return pindexLast->nBits;
     }
-    else
-    {
-        nGlobalActualTimespan *= nActualTimespan;
-        nGlobalTargetTimespan *= nTargetTimespan;
-    }
+
+    // Go back by what we want to be nInterval blocks 
+    const CBlockIndex* pindexFirst = pindexLast;
+    for (int i = 0; pindexFirst && i < nInterval-1; i++)
+        pindexFirst = pindexFirst->pprev;
+    assert(pindexFirst);
+
+    // Limit adjustment step
+    int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
+    printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
+    int64 LimUp = nTargetTimespan * 100 / 110; // 110% up
+    int64 LimDown = nTargetTimespan * 2; // 200% down
+    if (nActualTimespan < LimUp)
+        nActualTimespan = LimUp;
+    if (nActualTimespan > LimDown)
+        nActualTimespan = LimDown;
 
     // Retarget
-    printf("GetNextWorkRequired RETARGET\n");
-    printf("nGlobalTargetTimespan = %"PRI64d"    nGlobalActualTimespan = %"PRI64d"\n", nGlobalTargetTimespan, nGlobalActualTimespan);
-    printf("Sample block:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
-
-    bnNew *= nGlobalActualTimespan;
-    bnNew /= nGlobalTargetTimespan;
+    CBigNum bnNew;
+    bnNew.SetCompact(pindexLast->nBits);
+    bnNew *= nActualTimespan;
+    bnNew /= nTargetTimespan;
 
     if (bnNew > bnProofOfWorkLimit)
         bnNew = bnProofOfWorkLimit;
 
     /// debug print
-    printf("Prev block: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
-    printf("Current block:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    printf("GetNextWorkRequired RETARGET\n");
+    printf("nTargetTimespan = %"PRI64d"    nActualTimespan = %"PRI64d"\n", nTargetTimespan, nActualTimespan);
+    printf("Before: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+    printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
 
     return bnNew.GetCompact();
 }
@@ -2752,11 +2736,11 @@ bool LoadBlockIndex()
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0x0b;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x09;
-        pchMessageStart[3] = 0x07;
-        hashGenesisBlock = uint256("000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943");
+        pchMessageStart[0] = 0x01;
+        pchMessageStart[1] = 0x1A;
+        pchMessageStart[2] = 0x39;
+        pchMessageStart[3] = 0xF7;
+        hashGenesisBlock = uint256("0x00000e5e37c42d6b67d0934399adfb0fa48b59138abb1a8842c88f4ca3d4ec96");
     }
 
     //
@@ -2782,19 +2766,34 @@ bool InitBlockIndex() {
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
         // Genesis Block:
-        //CBlock(hash=0000000c82dce59baed4d2758240ec1d7faeb6b8289086f4826f3690fc7dc6e4, ver=112, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=17db2a221305e87349531704cb9aacc3496edb38bd564237415728e53086406e, nTime=1371945600, nBits=1e00ffff, nNonce=6086479, vtx=1)
-        //  CTransaction(hash=17db2a221305e87349531704cb9aacc3496edb38bd564237415728e53086406e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //    CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d010432552e532e206368617267657320536e6f7764656e2c2061736b7320486f6e67204b6f6e6720746f2064657461696e2068696d)
-        //    CTxOut(nValue=1.00000, scriptPubKey=04678afdb0fe5548271967f1a67130)
-        //  vMerkleTree: 17db2a221305e87349531704cb9aacc3496edb38bd564237415728e53086406
+/*
+00000c257b93a36e9a4318a64398d661866341331a984e2b486414fc5bb16ccd
+000002ad378e6403ff83488eb33f36402f838993d8e2aaf2849f30f0c6994c50
+868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776
+CBlock(hash=00000c257b93a36e9a4318a64398d661866341331a984e2b486414fc5bb16ccd, ver=112, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776, nTime=1374408079, nBits=1e0fffff, nNonce=12058113, vtx=1)
+  CTransaction(hash=868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776, ver=1, vin.size=1, vout.size=1, nLockTime=0, strTxComment=)
+    CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d0104423231204a756c7920323031332c2054686520477561726469616e2c20546573636f20626f7373207361797320636865617020666f6f6420657261206973206f766572)
+    CTxOut(nValue=1.00000, scriptPubKey=04678afdb0fe5548271967f1a67130)
+  vMerkleTree: 868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776 
+  
+testnet:
+00000e5e37c42d6b67d0934399adfb0fa48b59138abb1a8842c88f4ca3d4ec96
+000007e82a36afe58a204aa75b8d6d7d1661a1216dc631927857726f8624c5ab
+868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776
+CBlock(hash=00000e5e37c42d6b67d0934399adfb0fa48b59138abb1a8842c88f4ca3d4ec96, ver=112, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776, nTime=1373481000, nBits=1e0fffff, nNonce=905523645, vtx=1)
+  CTransaction(hash=868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776, ver=1, vin.size=1, vout.size=1, nLockTime=0, strTxComment=)
+    CTxIn(COutPoint(0000000000000000000000000000000000000000000000000000000000000000, 4294967295), coinbase 04ffff001d0104423231204a756c7920323031332c2054686520477561726469616e2c20546573636f20626f7373207361797320636865617020666f6f6420657261206973206f766572)
+    CTxOut(nValue=1.00000, scriptPubKey=04678afdb0fe5548271967f1a67130)
+  vMerkleTree: 868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776 
+*/
 
         // Genesis block
-        const char* pszTimestamp = "U.S. charges Snowden, asks Hong Kong to detain him";
+        const char* pszTimestamp = "21 July 2013, The Guardian, Tesco boss says cheap food era is over";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 1 * COIN;
+        txNew.vout[0].nValue = nGenesisBlockRewardCoin;
         txNew.vout[0].scriptPubKey = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
@@ -2803,12 +2802,12 @@ bool InitBlockIndex() {
         block.nVersion = 112;
         block.nTime    = timeGenesisBlock;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = 6086479;
+        block.nNonce   = 12058113;
 
         if (fTestNet)
         {
-            block.nTime    = 1296688602;
-            block.nNonce   = 414098458;
+            block.nTime    = 1373481000;
+            block.nNonce   = 905523645;
         }
 
         //// debug print
@@ -2822,7 +2821,7 @@ bool InitBlockIndex() {
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
         block.print();
-        assert(block.hashMerkleRoot == uint256("0x17db2a221305e87349531704cb9aacc3496edb38bd564237415728e53086406e"));
+        assert(block.hashMerkleRoot == uint256("0x868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776"));
         assert(hash == hashGenesisBlock);
 
         // Start new block file
@@ -3094,8 +3093,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-//unsigned char pchMessageStart[4] = { 0xf9, 0xbe, 0xb4, 0xd9 };
-unsigned char pchMessageStart[4] = { 0xf2, 0xd5, 0xd3, 0xd8 };
+unsigned char pchMessageStart[4] = { 0xfe, 0xa5, 0x03, 0xdd };
 
 void static ProcessGetData(CNode* pfrom)
 {
@@ -3554,6 +3552,16 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         CInv inv(MSG_TX, tx.GetHash());
         pfrom->AddInventoryKnown(inv);
+
+        // Truncate messages to the size of the tx in them
+        unsigned int nSize = ::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION);
+        unsigned int oldSize = vMsg.size();
+        if (nSize < oldSize) {
+            vMsg.resize(nSize);
+            printf("truncating oversized TX %s (%u -> %u)\n",
+                   tx.GetHash().ToString().c_str(),
+                   oldSize, nSize);
+        }
 
         bool fMissingInputs = false;
         CValidationState state;
@@ -4533,7 +4541,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         return false;
 
     //// debug print
-    printf("SifcoinMiner:\n");
+    printf("QuarkcoinMiner:\n");
     printf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
     pblock->print();
     printf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
@@ -4542,7 +4550,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != hashBestChain)
-            return error("SifcoinMiner : generated block is stale");
+            return error("QuarkcoinMiner : generated block is stale");
 
         // Remove key from key pool
         reservekey.KeepKey();
@@ -4556,7 +4564,7 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
         // Process this block the same as if we had received it from another node
         CValidationState state;
         if (!ProcessBlock(state, NULL, pblock))
-            return error("SifcoinMiner : ProcessBlock, block not accepted");
+            return error("QuarkcoinMiner : ProcessBlock, block not accepted");
     }
 
     return true;
@@ -4564,9 +4572,9 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
 void static BitcoinMiner(CWallet *pwallet)
 {
-    printf("SifcoinMiner started\n");
+    printf("QuarkcoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("sifcoin-miner");
+    RenameThread("quarkcoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -4590,7 +4598,7 @@ void static BitcoinMiner(CWallet *pwallet)
         CBlock *pblock = &pblocktemplate->block;
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        printf("Running SifcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        printf("Running QuarkcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -4665,7 +4673,7 @@ void static BitcoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("SifcoinMiner terminated\n");
+        printf("QuarkcoinMiner terminated\n");
         throw;
     }
 }

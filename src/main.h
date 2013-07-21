@@ -27,6 +27,8 @@ struct CBlockIndexWorkComparator;
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
+/** The maximum transaction comment size */
+static const unsigned int MAX_TX_COMMENT_LEN = 140; 
 /** The maximum size for mined blocks */
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 /** The maximum size for transactions we're willing to relay/mine */
@@ -46,10 +48,10 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Fake height value used in CCoins to signify they are only in the memory pool (since 0.8) */
 static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
 /** No amount larger than this (in satoshi) is valid */
-//static const int64 MAX_MONEY = 21000000 * COIN;
-inline bool MoneyRange(int64 nValue) { return (nValue >= 0); }//{ return (nValue >= 0 && nValue <= MAX_MONEY); }
+static const int64 MAX_MONEY = 500000000 * COIN; // ~250 million + ~1 million pa (inflation) 
+inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
-static const int COINBASE_MATURITY = 100;
+static const int COINBASE_MATURITY = 240;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 /** Maximum number of script-checking threads allowed */
@@ -469,11 +471,13 @@ class CTransaction
 public:
     static int64 nMinTxFee;
     static int64 nMinRelayTxFee;
-    static const int CURRENT_VERSION=1;
+    static const int CURRENT_VERSION = 1;
+    static const int TXCOMMENT_VERSION = 2;
     int nVersion;
     std::vector<CTxIn> vin;
     std::vector<CTxOut> vout;
     unsigned int nLockTime;
+	std::string strTxComment;
 
     CTransaction()
     {
@@ -487,6 +491,8 @@ public:
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
+		if(this->nVersion >= TXCOMMENT_VERSION) { 
+        READWRITE(strTxComment); }
     )
 
     void SetNull()
@@ -495,6 +501,7 @@ public:
         vin.clear();
         vout.clear();
         nLockTime = 0;
+		strTxComment.clear();
     }
 
     bool IsNull() const
@@ -631,12 +638,13 @@ public:
     std::string ToString() const
     {
         std::string str;
-        str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%"PRIszu", vout.size=%"PRIszu", nLockTime=%u)\n",
+        str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%"PRIszu", vout.size=%"PRIszu", nLockTime=%u, strTxComment=%s)\n",
             GetHash().ToString().c_str(),
             nVersion,
             vin.size(),
             vout.size(),
-            nLockTime);
+            nLockTime,
+			strTxComment.substr(0,30).c_str());
         for (unsigned int i = 0; i < vin.size(); i++)
             str += "    " + vin[i].ToString() + "\n";
         for (unsigned int i = 0; i < vout.size(); i++)
@@ -1302,7 +1310,7 @@ public:
 
     uint256 GetHash() const
     {
-        return Hash5(BEGIN(nVersion), END(nNonce), hashPrevBlock);
+        return Hash9(BEGIN(nVersion), END(nNonce), hashPrevBlock);
     }
 
     int64 GetBlockTime() const
