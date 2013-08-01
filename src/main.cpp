@@ -4628,14 +4628,14 @@ void static BitcoinMiner(CWallet *pwallet)
         uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
         int64 nStart = GetTime();
         uint256 hash;
+        // unsigned int nHashesDone = 0;
         loop
         {
-            unsigned int nHashesDone = 0;
 //            unsigned int nNonceFound;
 
             hash = pblock->GetHash();
             if (hash <= hashTarget){
-                nHashesDone += pblock->nNonce;
+                // nHashesDone += pblock->nNonce;
                 SetThreadPriority(THREAD_PRIORITY_NORMAL);
 
                 printf("proof-of-work found  \n  hash: %s  \ntarget: %s\n", hash.GetHex().c_str(), hashTarget.GetHex().c_str());
@@ -4646,7 +4646,36 @@ void static BitcoinMiner(CWallet *pwallet)
                 break;
             }
             ++pblock->nNonce;
- //           static int64 nHashCounter;
+            
+            // Meter hashes/sec
+            static int64 nHashCounter;
+            if (nHPSTimerStart == 0)
+            {
+                nHPSTimerStart = GetTimeMillis();
+                nHashCounter = 0;
+            }
+            else
+                // nHashCounter += nHashesDone;
+                nHashCounter += 1;
+            if (GetTimeMillis() - nHPSTimerStart > 4000)
+            {
+                static CCriticalSection cs;
+                {
+                    LOCK(cs);
+                    if (GetTimeMillis() - nHPSTimerStart > 4000)
+                    {
+                        dHashesPerSec = 1000.0 * nHashCounter / (GetTimeMillis() - nHPSTimerStart);
+                        nHPSTimerStart = GetTimeMillis();
+                        nHashCounter = 0;
+                        //static int64 nLogTime;
+                        //if (GetTime() - nLogTime > 30 * 60)
+                        //{
+                            // nLogTime = GetTime();
+                            printf("hashmeter %6.0f khash/s\n", dHashesPerSec/1000.0);
+                        //}
+                    }
+                }
+            }
 
             // Check for stop or if block needs to be rebuilt
             boost::this_thread::interruption_point();
