@@ -1194,6 +1194,9 @@ void MapPort(bool)
 static const char *strMainNetDNSSeed[][2] = {
     {"quarkcoin.no-ip.biz", "quarkcoin.no-ip.biz"},
     {"quarkcoin.mooo.com", "quarkcoin.mooo.com"},
+    {"qrk.ignorelist.com", "qrk.ignorelist.com"},
+    {"qrk.redirectme.net", "qrk.redirectme.net"},
+    {"qrk.no-ip.biz", "qrk.no-ip.biz"},
     {NULL, NULL}
 };
 
