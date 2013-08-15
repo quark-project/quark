@@ -4,6 +4,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#define GLOBALDEFINED
+
 #include "txdb.h"
 #include "walletdb.h"
 #include "bitcoinrpc.h"
@@ -37,6 +39,7 @@ CClientUIInterface uiInterface;
 #else
 #define MIN_CORE_FILEDESCRIPTORS 150
 #endif
+
 
 // Used to pass flags to the Bind() function
 enum BindFlags {
@@ -154,6 +157,7 @@ bool AppInit(int argc, char* argv[])
 {
     boost::thread_group threadGroup;
     boost::thread* detectShutdownThread = NULL;
+    fillz();
 
     bool fRet = false;
     try
