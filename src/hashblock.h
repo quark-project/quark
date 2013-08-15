@@ -15,7 +15,7 @@
 
 
 template<typename T1>
-inline uint256 Hash9(const T1 pbegin, const T1 pend, uint256 prevHash)
+inline uint256 Hash9(const T1 pbegin, const T1 pend)
 
 {
     sph_blake512_context     ctx_blake;
