@@ -1267,7 +1267,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 
                 // Limit size
                 unsigned int nBytes = ::GetSerializeSize(*(CTransaction*)&wtxNew, SER_NETWORK, PROTOCOL_VERSION);
-                if (nBytes >= MAX_STANDARD_TX_SIZE)
+                // Quark: Added safety margin 4000 bytes and 160 transactions
+                if ((nBytes + 4000 >= MAX_STANDARD_TX_SIZE) || 
+                    (wtxNew.vin.size() >= 160))
                 {
                     strFailReason = _("Transaction too large");
                     return false;
