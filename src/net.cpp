@@ -1197,6 +1197,12 @@ static const char *strMainNetDNSSeed[][2] = {
     {"qrk.ignorelist.com", "qrk.ignorelist.com"},
     {"qrk.redirectme.net", "qrk.redirectme.net"},
     {"qrk.no-ip.biz", "qrk.no-ip.biz"},
+    {"seed1.qrk.cc", "seed1.qrk.cc"},
+    {"seed2.qrk.cc", "seed2.qrk.cc"},
+    {"seed3.qrk.cc", "seed3.qrk.cc"},
+    {"seed1.qrkcoin.org", "seed1.qrkcoin.org"},
+    {"seed2.qrkcoin.org", "seed2.qrkcoin.org"},
+    {"seed3.qrkcoin.org", "seed3.qrkcoin.org"},
     {NULL, NULL}
 };
 
