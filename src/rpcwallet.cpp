@@ -1570,3 +1570,33 @@ Value listlockunspent(const Array& params, bool fHelp)
     return ret;
 }
 
+Value makekeypair(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() > 1)
+        throw runtime_error(
+            "makekeypair [prefix]\n"
+            "Make a public/private key pair.\n"
+            "[prefix] is optional preferred prefix for the public key.\n");
+
+    string strPrefix = "";
+    if (params.size() > 0)
+        strPrefix = params[0].get_str();
+
+    CKey key;
+    int nCount = 0;
+    do
+    {
+        key.MakeNewKey(false);
+        nCount++;
+    } while (nCount < 10000 && strPrefix != HexStr(key.GetPubKey().Raw()).substr(0, strPrefix.size()));
+
+    if (strPrefix != HexStr(key.GetPubKey().Raw()).substr(0, strPrefix.size()))
+        return Value::null;
+
+    bool fCompressed;
+    CSecret vchSecret = key.GetSecret(fCompressed);
+    Object result;
+    result.push_back(Pair("PublicKey", HexStr(key.GetPubKey().Raw())));
+    result.push_back(Pair("PrivateKey", CBitcoinSecret(vchSecret, fCompressed).ToString()));
+    return result;
+}
