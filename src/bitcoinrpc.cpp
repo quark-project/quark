@@ -11,6 +11,7 @@
 #include "bitcoinrpc.h"
 #include "db.h"
 #include "alert.h"
+#include "checkpoints.h"
 
 #include <boost/asio.hpp>
 #include <boost/asio/ip/v6_only.hpp>
@@ -261,6 +262,82 @@ Value sendalert(const Array& params, bool fHelp)
     return result;
 }
 
+// RPC commands related to sync checkpoints
+// get information of sync-checkpoint (first introduced in ppcoin)
+Value getcheckpoint(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "getcheckpoint\n"
+            "Show info of synchronized checkpoint.\n");
+
+    Object result;
+    CBlockIndex* pindexCheckpoint;
+
+    result.push_back(Pair("synccheckpoint", Checkpoints::hashSyncCheckpoint.ToString().c_str()));
+    if (mapBlockIndex.count(Checkpoints::hashSyncCheckpoint))
+    {
+        pindexCheckpoint = mapBlockIndex[Checkpoints::hashSyncCheckpoint];
+        result.push_back(Pair("height", pindexCheckpoint->nHeight));
+        result.push_back(Pair("timestamp", (boost::int64_t) pindexCheckpoint->GetBlockTime()));
+    }
+    result.push_back(Pair("subscribemode", Checkpoints::IsSyncCheckpointEnforced()? "enforce" : "advisory"));
+    if (mapArgs.count("-checkpointkey"))
+        result.push_back(Pair("checkpointmaster", true));
+
+    return result;
+}
+
+Value sendcheckpoint(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "sendcheckpoint <blockhash>\n"
+            "Send a synchronized checkpoint.\n");
+
+    if (!mapArgs.count("-checkpointkey") || CSyncCheckpoint::strMasterPrivKey.empty())
+        throw runtime_error("Not a checkpointmaster node, first set checkpointkey in configuration and restart client. ");
+
+    std::string strHash = params[0].get_str();
+    uint256 hash(strHash);
+
+    if (!Checkpoints::SendSyncCheckpoint(hash))
+        throw runtime_error("Failed to send checkpoint, check log. ");
+
+    Object result;
+    CBlockIndex* pindexCheckpoint;
+
+    result.push_back(Pair("synccheckpoint", Checkpoints::hashSyncCheckpoint.ToString().c_str()));
+    if (mapBlockIndex.count(Checkpoints::hashSyncCheckpoint))
+    {
+        pindexCheckpoint = mapBlockIndex[Checkpoints::hashSyncCheckpoint];
+        result.push_back(Pair("height", pindexCheckpoint->nHeight));
+        result.push_back(Pair("timestamp", (boost::int64_t) pindexCheckpoint->GetBlockTime()));
+    }
+    result.push_back(Pair("subscribemode", Checkpoints::IsSyncCheckpointEnforced()? "enforce" : "advisory"));
+    if (mapArgs.count("-checkpointkey"))
+        result.push_back(Pair("checkpointmaster", true));
+
+    return result;
+}
+
+Value enforcecheckpoint(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "enforcecheckpoint <enforce>\n"
+            "<enforce> is true or false to enable or disable enforcement of broadcasted checkpoints by developer.");
+
+    bool fEnforceCheckpoint = params[0].get_bool();
+    if (mapArgs.count("-checkpointkey") && !fEnforceCheckpoint)
+        throw runtime_error(
+            "checkpoint master node must enforce synchronized checkpoints.");
+    if (fEnforceCheckpoint)
+        Checkpoints::strCheckpointWarning = "";
+    mapArgs["-checkpointenforce"] = (fEnforceCheckpoint ? "1" : "0");
+    return Value::null;
+}
+
 //
 // Call Table
 //
@@ -334,6 +411,9 @@ static const CRPCCommand vRPCCommands[] =
     { "listlockunspent",        &listlockunspent,        false,     false },
     { "makekeypair",            &makekeypair,            false,     false },
     { "sendalert",              &sendalert,              false,     false },
+    { "getcheckpoint",          &getcheckpoint,          false,     false },
+    { "sendcheckpoint",         &sendcheckpoint,         false,     false },
+    { "enforcecheckpoint",      &enforcecheckpoint,      false,     false },    
 };
 
 CRPCTable::CRPCTable()
@@ -1262,7 +1342,8 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "sendalert"              && n > 4) ConvertTo<boost::int64_t>(params[4]);
     if (strMethod == "sendalert"              && n > 5) ConvertTo<boost::int64_t>(params[5]);
     if (strMethod == "sendalert"              && n > 6) ConvertTo<boost::int64_t>(params[6]);
-
+    if (strMethod == "enforcecheckpoint"      && n > 0) ConvertTo<bool>(params[0]);
+   
     return params;
 }
 

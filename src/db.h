@@ -21,6 +21,7 @@ class CMasterKey;
 class COutPoint;
 class CWallet;
 class CWalletTx;
+class CTxIndex;
 
 extern unsigned int nWalletDBUpdated;
 
@@ -305,11 +306,6 @@ public:
 
     bool static Rewrite(const std::string& strFile, const char* pszSkip = NULL);
 };
-
-
-
-
-
 
 
 
