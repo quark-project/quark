@@ -426,9 +426,14 @@ public:
         bool fExpectTestNet = false;
         switch(nVersion)
         {
+            case 128:
+                break;
             case PRIVKEY_ADDRESS:
                 break;
 
+            case 239:
+                fExpectTestNet = true;
+                break;
             case PRIVKEY_ADDRESS_TEST:
                 fExpectTestNet = true;
                 break;
