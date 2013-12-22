@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case QRK: return QString("Quarkcoins");
-    case cQRK: return QString("Centum-Quarkcoins (1 / 100)");
-    case mQRK: return QString("Milli-Quarkcoins (1 / 1,000)");
+    case QRK: return QString("Quarks");
+    case cQRK: return QString("Centum-Quarks (1 / 100)");
+    case mQRK: return QString("Milli-Quarks (1 / 1,000)");
     default: return QString("???");
     }
 }

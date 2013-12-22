@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Quarkcoin</source>
-        <translation>À propos de Quarkcoin</translation>
+        <source>About Quark</source>
+        <translation>À propos de Quark</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Quarkcoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Quarkcoin&lt;/b&gt; version</translation>
+        <source>&lt;b&gt;Quark&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Quark&lt;/b&gt; version</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -34,8 +34,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+0"/>
-        <source>The Quarkcoin developers</source>
-        <translation>Les développeurs Quarkcoin</translation>
+        <source>The Quark Developers</source>
+        <translation>Les développeurs Quark</translation>
     </message>
 </context>
 <context>
@@ -67,8 +67,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your Quarkcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Voici vos adresses Quarkcoin qui vous permettent de recevoir des paiements. Vous pouvez donner une adresse différente à chaque expéditeur afin de savoir qui vous paye.</translation>
+        <source>These are your Quark addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Voici vos adresses Quark qui vous permettent de recevoir des paiements. Vous pouvez donner une adresse différente à chaque expéditeur afin de savoir qui vous paye.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -82,8 +82,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a Quarkcoin address</source>
-        <translation>Signer un message pour prouver que vous détenez une adresse Quarkcoin</translation>
+        <source>Sign a message to prove you own a Quark address</source>
+        <translation>Signer un message pour prouver que vous détenez une adresse Quark</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -107,8 +107,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified Quarkcoin address</source>
-        <translation>Vérifier un message pour vous assurer qu&apos;il a bien été signé avec l&apos;adresse Quarkcoin spécifiée</translation>
+        <source>Verify a message to ensure it was signed with a specified Quark address</source>
+        <translation>Vérifier un message pour vous assurer qu&apos;il a bien été signé avec l&apos;adresse Quark spécifiée</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -122,8 +122,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your Quarkcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ce sont vos adresses Quarkcoin pour émettre des paiements. Vérifiez toujours le montant et l&apos;adresse du destinataire avant d&apos;envoyer des pièces.</translation>
+        <source>These are your Quark addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ce sont vos adresses Quark pour émettre des paiements. Vérifiez toujours le montant et l&apos;adresse du destinataire avant d&apos;envoyer des pièces.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -248,8 +248,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR QUARKCOINS&lt;/b&gt;!</source>
-        <translation>Attention : Si vous chiffrez votre porte-monnaie et perdez votre phrase de passe, vous &lt;b&gt;PERDREZ ACCÈS À TOUS VOS QUARKCOINS&lt;/b&gt; !</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR QUARK&lt;/b&gt;!</source>
+        <translation>Attention : Si vous chiffrez votre porte-monnaie et perdez votre phrase de passe, vous &lt;b&gt;PERDREZ ACCÈS À TOUS VOS QUARK&lt;/b&gt; !</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -275,8 +275,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-56"/>
-        <source>Quarkcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarkcoins from being stolen by malware infecting your computer.</source>
-        <translation>Quarkcoin va à présent se fermer pour terminer la procédure de cryptage. N&apos;oubliez pas que le chiffrement de votre porte-monnaie ne peut pas fournir une protection totale contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
+        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarks from being stolen by malware infecting your computer.</source>
+        <translation>Quark va à présent se fermer pour terminer la procédure de cryptage. N&apos;oubliez pas que le chiffrement de votre porte-monnaie ne peut pas fournir une protection totale contre le vol par des logiciels malveillants qui infecteraient votre ordinateur.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -374,8 +374,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Quarkcoin</source>
-        <translation>Afficher des informations à propos de Quarkcoin</translation>
+        <source>Show information about Quark</source>
+        <translation>Afficher des informations à propos de Quark</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -419,13 +419,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a Quarkcoin address</source>
-        <translation>Envoyer des pièces à une adresse Quarkcoin</translation>
+        <source>Send coins to a Quark address</source>
+        <translation>Envoyer des pièces à une adresse Quark</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for Quarkcoin</source>
-        <translation>Modifier les options de configuration de Quarkcoin</translation>
+        <source>Modify configuration options for Quark</source>
+        <translation>Modifier les options de configuration de Quark</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -455,8 +455,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>Quarkcoin</source>
-        <translation>Quarkcoin</translation>
+        <source>Quark</source>
+        <translation>Quark</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -480,8 +480,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About Quarkcoin</source>
-        <translation>À &amp;propos de Quarkcoin</translation>
+        <source>&amp;About Quark</source>
+        <translation>À &amp;propos de Quark</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -500,13 +500,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Quarkcoin addresses to prove you own them</source>
-        <translation>Signer les messages avec vos adresses Quarkcoin pour prouver que vous les détenez</translation>
+        <source>Sign messages with your Quark addresses to prove you own them</source>
+        <translation>Signer les messages avec vos adresses Quark pour prouver que vous les détenez</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Quarkcoin addresses</source>
-        <translation>Vérifier les messages pour vous assurer qu&apos;ils ont bien été signés avec les adresses Quarkcoin spécifiées</translation>
+        <source>Verify messages to ensure they were signed with specified Quark addresses</source>
+        <translation>Vérifier les messages pour vous assurer qu&apos;ils ont bien été signés avec les adresses Quark spécifiées</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -536,13 +536,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+47"/>
-        <source>Quarkcoin client</source>
-        <translation>Client Quarkcoin</translation>
+        <source>Quark client</source>
+        <translation>Client Quark</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to Quarkcoin network</source>
-        <translation><numerusform>%n connexion active avec le réseau Quarkcoin</numerusform><numerusform>%n connexions actives avec le réseau Quarkcoin</numerusform></translation>
+        <source>%n active connection(s) to Quark network</source>
+        <translation><numerusform>%n connexion active avec le réseau Quark</numerusform><numerusform>%n connexions actives avec le réseau Quark</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -656,8 +656,8 @@ Adresse : %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid Quarkcoin address or malformed URI parameters.</source>
-        <translation>L&apos;URI ne peut être analysé ! Cela peut être causé par une adresse Quarkcoin invalide ou par des paramètres d&apos;URI malformés.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
+        <translation>L&apos;URI ne peut être analysé ! Cela peut être causé par une adresse Quark invalide ou par des paramètres d&apos;URI malformés.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -671,8 +671,8 @@ Adresse : %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. Quarkcoin can no longer continue safely and will quit.</source>
-        <translation>Une erreur fatale est survenue. Quarkcoin ne peut plus continuer à fonctionner de façon sûre et va s&apos;arrêter.</translation>
+        <source>A fatal error occurred. Quark can no longer continue safely and will quit.</source>
+        <translation>Une erreur fatale est survenue. Quark ne peut plus continuer à fonctionner de façon sûre et va s&apos;arrêter.</translation>
     </message>
 </context>
 <context>
@@ -737,8 +737,8 @@ Adresse : %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Quarkcoin address.</source>
-        <translation>L&apos;adresse fournie « %1 » n&apos;est pas une adresse Quarkcoin valide.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Quark address.</source>
+        <translation>L&apos;adresse fournie « %1 » n&apos;est pas une adresse Quark valide.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -756,8 +756,8 @@ Adresse : %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>Quarkcoin-Qt</source>
-        <translation>Quarkcoin-Qt</translation>
+        <source>Quark-Qt</source>
+        <translation>Quark-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -819,13 +819,13 @@ Adresse : %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start Quarkcoin after logging in to the system.</source>
-        <translation>Démarrer Quarkcoin automatiquement lors de l&apos;ouverture une session sur l&apos;ordinateur.</translation>
+        <source>Automatically start Quark after logging in to the system.</source>
+        <translation>Démarrer Quark automatiquement lors de l&apos;ouverture une session sur l&apos;ordinateur.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Quarkcoin on system login</source>
-        <translation>&amp;Démarrer Quarkcoin lors de l&apos;ouverture d&apos;une session</translation>
+        <source>&amp;Start Quark on system login</source>
+        <translation>&amp;Démarrer Quark lors de l&apos;ouverture d&apos;une session</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -844,8 +844,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Quarkcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Ouvrir le port du client Quarkcoin automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l&apos;UPnP et si la fonctionnalité est activée.</translation>
+        <source>Automatically open the Quark client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Ouvrir le port du client Quark automatiquement sur le routeur. Cela ne fonctionne que si votre routeur supporte l&apos;UPnP et si la fonctionnalité est activée.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -854,8 +854,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Quarkcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Connexion au réseau Quarkcoin à travers un proxy SOCKS (par ex. lors d&apos;une connexion via Tor).</translation>
+        <source>Connect to the Quark network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Connexion au réseau Quark à travers un proxy SOCKS (par ex. lors d&apos;une connexion via Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -929,8 +929,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Quarkcoin.</source>
-        <translation>La langue de l&apos;interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de Quarkcoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Quark.</source>
+        <translation>La langue de l&apos;interface utilisateur peut être définie ici. Ce réglage sera pris en compte après redémarrage de Quark.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -944,8 +944,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show Quarkcoin addresses in the transaction list or not.</source>
-        <translation>Détermine si les adresses Quarkcoin seront affichées sur la liste des transactions.</translation>
+        <source>Whether to show Quark addresses in the transaction list or not.</source>
+        <translation>Détermine si les adresses Quark seront affichées sur la liste des transactions.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -996,8 +996,8 @@ Adresse : %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting Quarkcoin.</source>
-        <translation>Ce réglage sera pris en compte après un redémarrage de Quarkcoin.</translation>
+        <source>This setting will take effect after restarting Quark.</source>
+        <translation>Ce réglage sera pris en compte après un redémarrage de Quark.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1015,8 +1015,8 @@ Adresse : %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Quarkcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Les informations affichées peuvent être obsolètes. Votre porte-monnaie est automatiquement synchronisé avec le réseau Quarkcoin lorsque la connexion s&apos;établit, or ce processus n&apos;est pas encore terminé.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Quark network after a connection is established, but this process has not completed yet.</source>
+        <translation>Les informations affichées peuvent être obsolètes. Votre porte-monnaie est automatiquement synchronisé avec le réseau Quark lorsque la connexion s&apos;établit, or ce processus n&apos;est pas encore terminé.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1069,8 +1069,8 @@ Adresse : %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start quarkcoin: click-to-pay handler</source>
-        <translation>Impossible de démarrer quarkcoin : gestionnaire de cliquer-pour-payer</translation>
+        <source>Cannot start quark: click-to-pay handler</source>
+        <translation>Impossible de démarrer quark : gestionnaire de cliquer-pour-payer</translation>
     </message>
 </context>
 <context>
@@ -1219,8 +1219,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Quarkcoin-Qt help message to get a list with possible Quarkcoin command-line options.</source>
-        <translation>Afficher le message d&apos;aide de Quarkcoin-Qt pour obtenir la liste des options de ligne de commande disponibles pour Quarkcoin.</translation>
+        <source>Show the Quark-Qt help message to get a list with possible Quark command-line options.</source>
+        <translation>Afficher le message d&apos;aide de Quark-Qt pour obtenir la liste des options de ligne de commande disponibles pour Quark.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1239,13 +1239,13 @@ Adresse : %4
     </message>
     <message>
         <location line="-104"/>
-        <source>Quarkcoin - Debug window</source>
-        <translation>Quarkcoin - Fenêtre de débogage</translation>
+        <source>Quark - Debug window</source>
+        <translation>Quark - Fenêtre de débogage</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Quarkcoin Core</source>
-        <translation>Noyau Quarkcoin</translation>
+        <source>Quark Core</source>
+        <translation>Noyau Quark</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1254,8 +1254,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Quarkcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Ouvrir le journal de débogage de Quarkcoin depuis le répertoire de données actuel. Cela peut prendre quelques secondes pour les journaux de grande taille.</translation>
+        <source>Open the Quark debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Ouvrir le journal de débogage de Quark depuis le répertoire de données actuel. Cela peut prendre quelques secondes pour les journaux de grande taille.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1264,8 +1264,8 @@ Adresse : %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the Quarkcoin RPC console.</source>
-        <translation>Bienvenue sur la console RPC de Quarkcoin.</translation>
+        <source>Welcome to the Quark RPC console.</source>
+        <translation>Bienvenue sur la console RPC de Quark.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1448,8 +1448,8 @@ Adresse : %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Quarkcoin address (e.g. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</source>
-        <translation>Entrez une adresse Quarkcoin (par ex. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</translation>
+        <source>Enter a Quark address (e.g. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</source>
+        <translation>Entrez une adresse Quark (par ex. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</translation>
     </message>
 </context>
 <context>
@@ -1513,8 +1513,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Quarkcoin address</source>
-        <translation>Signer le message pour prouver que vous détenez cette adresse Quarkcoin</translation>
+        <source>Sign the message to prove you own this Quark address</source>
+        <translation>Signer le message pour prouver que vous détenez cette adresse Quark</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1549,8 +1549,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Quarkcoin address</source>
-        <translation>Vérifier le message pour vous assurer qu&apos;il a bien été signé par l&apos;adresse Quarkcoin spécifiée</translation>
+        <source>Verify the message to ensure it was signed with the specified Quark address</source>
+        <translation>Vérifier le message pour vous assurer qu&apos;il a bien été signé par l&apos;adresse Quark spécifiée</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1565,8 +1565,8 @@ Adresse : %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Quarkcoin address (e.g. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</source>
-        <translation>Entrez une adresse Quarkcoin (par ex. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</translation>
+        <source>Enter a Quark address (e.g. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</source>
+        <translation>Entrez une adresse Quark (par ex. Qi1NooNjQySQLDJ643HWfZZ7UN2EmLEvix)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1575,8 +1575,8 @@ Adresse : %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter Quarkcoin signature</source>
-        <translation>Entrer une signature Quarkcoin</translation>
+        <source>Enter Quark signature</source>
+        <translation>Entrer une signature Quark</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1649,8 +1649,8 @@ Adresse : %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The Quarkcoin developers</source>
-        <translation>Les développeurs Quarkcoin</translation>
+        <source>The Quark Developers</source>
+        <translation>Les développeurs Quark</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2184,11 +2184,11 @@ Adresse : %4
     </message>
 </context>
 <context>
-    <name>quarkcoin-core</name>
+    <name>quark-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>Quarkcoin version</source>
-        <translation>Version de Quarkcoin</translation>
+        <source>Quark version</source>
+        <translation>Version de Quark</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2197,8 +2197,8 @@ Adresse : %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or quarkcoind</source>
-        <translation>Envoyer une commande à -server ou à quarkcoind</translation>
+        <source>Send command to -server or quarkd</source>
+        <translation>Envoyer une commande à -server ou à quarkd</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2217,13 +2217,13 @@ Adresse : %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quarkcoin.conf)</source>
-        <translation>Spécifier le fichier de configuration (par défaut : quarkcoin.conf)</translation>
+        <source>Specify configuration file (default: quark.conf)</source>
+        <translation>Spécifier le fichier de configuration (par défaut : quark.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkcoind.pid)</source>
-        <translation>Spécifier le fichier PID (par défaut : quarkcoind.pid)</translation>
+        <source>Specify pid file (default: quarkd.pid)</source>
+        <translation>Spécifier le fichier PID (par défaut : quarkd.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2300,24 +2300,24 @@ Adresse : %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=quarkcoinrpc
+rpcuser=quarkrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
 </source>
         <translation>%s, vous devez définir un mot de passe rpc dans le fichier de configuration : 
 %s
 Il vous est conseillé d&apos;utiliser le mot de passe aléatoire suivant :
-rpcuser=quarkcoinrpc
+rpcuser=quarkrpc
 rpcpassword=%s
 (vous n&apos;avez pas besoin de retenir ce mot de passe)
 Le nom d&apos;utilisateur et le mot de passe NE DOIVENT PAS être identiques.
 Si le fichier n&apos;existe pas, créez-le avec les droits de lecture accordés au propriétaire.
 Il est aussi conseillé de régler alertnotify pour être prévenu des problèmes ;
-par exemple : alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@foo.com
+par exemple : alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -2332,8 +2332,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. Quarkcoin is probably already running.</source>
-        <translation>Impossible d’obtenir un verrou sur le répertoire de données %s. Quarkcoin fonctionne probablement déjà.</translation>
+        <source>Cannot obtain a lock on data directory %s. Quark is probably already running.</source>
+        <translation>Impossible d’obtenir un verrou sur le répertoire de données %s. Quark fonctionne probablement déjà.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2377,8 +2377,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quarkcoin will not work properly.</source>
-        <translation>Attention : veuillez vérifier que l&apos;heure et la date de votre ordinateur sont correctes ! Si votre horloge n&apos;est pas à l&apos;heure, Quarkcoin ne fonctionnera pas correctement.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quark will not work properly.</source>
+        <translation>Attention : veuillez vérifier que l&apos;heure et la date de votre ordinateur sont correctes ! Si votre horloge n&apos;est pas à l&apos;heure, Quark ne fonctionnera pas correctement.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2627,8 +2627,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see the Quarkcoin Wiki for SSL setup instructions)</source>
-        <translation>Options SSL : (cf. le wiki de Quarkcoin pour les instructions de configuration du SSL)</translation>
+        <source>SSL options: (see the Quark Wiki for SSL setup instructions)</source>
+        <translation>Options SSL : (cf. le wiki de Quark pour les instructions de configuration du SSL)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2817,13 +2817,13 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@f
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Quarkcoin</source>
-        <translation>Erreur lors du chargement de wallet.dat : le porte-monnaie nécessite une version plus récente de Quarkcoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Quark</source>
+        <translation>Erreur lors du chargement de wallet.dat : le porte-monnaie nécessite une version plus récente de Quark</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart Quarkcoin to complete</source>
-        <translation>Le porte-monnaie nécessitait une réécriture : veuillez redémarrer Quarkcoin pour terminer l&apos;opération</translation>
+        <source>Wallet needed to be rewritten: restart Quark to complete</source>
+        <translation>Le porte-monnaie nécessitait une réécriture : veuillez redémarrer Quark pour terminer l&apos;opération</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2882,8 +2882,8 @@ par exemple : alertnotify=echo %%s | mail -s &quot;Quarkcoin Alert&quot; admin@f
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. Quarkcoin is probably already running.</source>
-        <translation>Impossible de se lier à %s sur cet ordinateur. Quarkcoin fonctionne probablement déjà.</translation>
+        <source>Unable to bind to %s on this computer. Quark is probably already running.</source>
+        <translation>Impossible de se lier à %s sur cet ordinateur. Quark fonctionne probablement déjà.</translation>
     </message>
     <message>
         <location line="+64"/>
