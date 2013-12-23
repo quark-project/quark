@@ -2216,13 +2216,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>ציין קובץ הגדרות (ברירת מחדל: quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>ציין קובץ הגדרות (ברירת מחדל: quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>ציין קובץ pid (ברירת מחדל: quarkd.pid)</translation>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>ציין קובץ pid (ברירת מחדל: quarkcoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>

@@ -2217,13 +2217,13 @@ Adresse: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Angiv konfigurationsfil (standard: quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Angiv konfigurationsfil (standard: quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Angiv pid-fil (default: quarkd.pid)</translation>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>Angiv pid-fil (default: quarkcoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>

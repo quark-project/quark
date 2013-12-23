@@ -2246,13 +2246,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Specify configuration file (default: quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Specify configuration file (default: quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Specify pid file (default: quarkd.pid)</translation>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>Specify pid file (default: quarkcoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>

@@ -2209,13 +2209,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Potvrdi željeni konfiguracioni fajl (podrazumevani:quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Potvrdi željeni konfiguracioni fajl (podrazumevani:quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Konkretizuj pid fajl (podrazumevani: quarkd.pid)</translation>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>Konkretizuj pid fajl (podrazumevani: quarkcoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>

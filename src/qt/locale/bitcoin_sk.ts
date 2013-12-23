@@ -2211,13 +2211,13 @@ Adresa: %4</translation>
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Určiť súbor s nastaveniami (predvolené: quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Určiť súbor s nastaveniami (predvolené: quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Určiť súbor pid (predvolené: quarkd.pid)</translation>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>Určiť súbor pid (predvolené: quarkcoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>

@@ -2212,12 +2212,12 @@ Adresa:%4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Odredi konfiguracijsku datoteku (ugrađeni izbor: quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Odredi konfiguracijsku datoteku (ugrađeni izbor: quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
         <translation>Odredi proces ID datoteku (ugrađeni izbor: quark.pid)</translation>
     </message>
     <message>

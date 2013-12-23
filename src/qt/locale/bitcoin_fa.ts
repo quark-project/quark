@@ -2215,13 +2215,13 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>(: quark.confپیش فرض: )فایل تنظیمی خاص </translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>(: quarkcoin.confپیش فرض: )فایل تنظیمی خاص </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>(quarkd.pidپیش فرض : ) فایل پید خاص</translation>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>(quarkcoind.pidپیش فرض : ) فایل پید خاص</translation>
     </message>
     <message>
         <location line="-1"/>

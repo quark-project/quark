@@ -2217,14 +2217,14 @@ Adres: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Specificeer configuratiebestand (standaard: quark.conf)
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Specificeer configuratiebestand (standaard: quarkcoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Specificeer pid-bestand (standaard: quarkd.pid)
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>Specificeer pid-bestand (standaard: quarkcoind.pid)
 </translation>
     </message>
     <message>

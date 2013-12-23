@@ -2222,14 +2222,14 @@ Cím: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Konfigurációs fájl (alapértelmezett: quark.conf)
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Konfigurációs fájl (alapértelmezett: quarkcoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>pid-fájl (alapértelmezett: quarkd.pid)
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>pid-fájl (alapértelmezett: quarkcoind.pid)
 </translation>
     </message>
     <message>

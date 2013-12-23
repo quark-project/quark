@@ -2223,14 +2223,14 @@ Indirizzo: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>Specifica il file di configurazione (di default: quark.conf)
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>Specifica il file di configurazione (di default: quarkcoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Specifica il file pid (default: quarkd.pid)
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>Specifica il file pid (default: quarkcoind.pid)
 </translation>
     </message>
     <message>

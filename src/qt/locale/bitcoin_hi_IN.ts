@@ -2213,12 +2213,12 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>configuraion की फाइल का विवरण दें (default: quark.conf)</translation>
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>configuraion की फाइल का विवरण दें (default: quarkcoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
+        <source>Specify pid file (default: quarkcoind.pid)</source>
         <translation>pid फाइल का विवरण दें (default: quark.pid)</translation>
     </message>
     <message>

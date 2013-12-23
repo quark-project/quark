@@ -2221,14 +2221,14 @@ Address: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: quark.conf)</source>
-        <translation>指定設定檔 (預設: quark.conf)
+        <source>Specify configuration file (default: quarkcoin.conf)</source>
+        <translation>指定設定檔 (預設: quarkcoin.conf)
 </translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>指定行程識別碼檔案 (預設: quarkd.pid)
+        <source>Specify pid file (default: quarkcoind.pid)</source>
+        <translation>指定行程識別碼檔案 (預設: quarkcoind.pid)
 </translation>
     </message>
     <message>
