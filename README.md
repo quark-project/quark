@@ -27,12 +27,12 @@ You need the Qt4 run-time libraries to run Quarkcoin-Qt. On Debian or Ubuntu:
 
 Other Pages
 ---------------------
-- [Unix Build Notes](build-unix.md)
-- [OSX Build Notes](build-osx.md)
-- [Windows Build Notes](build-msw.md)
-- [Coding Guidelines](coding.md)
-- [Release Process](release-process.md)
-- [Release Notes](release-notes.md)
-- [Multiwallet Qt Development](multiwallet-qt.md)
-- [Unit Tests](unit-tests.md)
-- [Translation Process](translation_process.md)
+- [Unix Build Notes](doc/build-unix.md)
+- [OSX Build Notes](doc/build-osx.md)
+- [Windows Build Notes](doc/build-msw.md)
+- [Coding Guidelines](doc/coding.md)
+- [Release Process](doc/release-process.md)
+- [Release Notes](doc/release-notes.md)
+- [Multiwallet Qt Development](doc/multiwallet-qt.md)
+- [Unit Tests](doc/unit-tests.md)
+- [Translation Process](doc/translation_process.md)
