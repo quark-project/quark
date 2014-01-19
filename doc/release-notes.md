@@ -23,7 +23,7 @@ with code that automatically calculates and suggests appropriate fees in the
 0.9 release and note that if you set a fee policy significantly different from
 the rest of the network your transactions may never confirm.
 
-Bitcoin-Qt changes
+Quarkcoin-Qt changes
 ------------------
 
 - New icon and splash screen

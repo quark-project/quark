@@ -1,4 +1,4 @@
-Mac OS X bitcoind build instructions
+Mac OS X Quarkcoin build instructions
 ====================================
 
 Authors
@@ -13,6 +13,7 @@ License
 -------
 
 Copyright (c) 2009-2012 Bitcoin Developers
+Copyright (c) 2013 Quarkcoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -26,7 +27,7 @@ Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.
 Notes
 -----
 
-See `doc/readme-qt.rst` for instructions on building Bitcoin-Qt, the
+See `doc/readme-qt.rst` for instructions on building Quarkcoin-Qt, the
 graphical user interface.
 
 Tested on OS X 10.5 through 10.8 on Intel processors only. PPC is not
@@ -134,10 +135,10 @@ Rerunning "openssl version" should now return the correct version.
 Creating a release build
 ------------------------
 
-A bitcoind binary is not included in the Bitcoin-Qt.app bundle. You can ignore
-this section if you are building `bitcoind` for your own use.
+A quarkcoind binary is not included in the Quarkcoin-Qt.app bundle. You can ignore
+this section if you are building `quarkcoind` for your own use.
 
-If you are building `bitcoind` for others, your build machine should be set up
+If you are building `quarkcoind` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -156,10 +157,10 @@ As of December 2012, the `boost` port does not obey `macosx_deployment_target`.
 Download `http://gavinandresen-bitcoin.s3.amazonaws.com/boost_macports_fix.zip`
 for a fix. Some ports also seem to obey either `build_arch` or
 `macosx_deployment_target`, but not both at the same time. For example, building
-on an OS X 10.6 64-bit machine fails. Official release builds of Bitcoin-Qt are
+on an OS X 10.6 64-bit machine fails. Official release builds of Quarkcoin-Qt are
 compiled on an OS X 10.6 32-bit machine to workaround that problem.
 
-Once dependencies are compiled, creating `Bitcoin-Qt.app` is easy:
+Once dependencies are compiled, creating `Quarkcoin-Qt.app` is easy:
 
     make -f Makefile.osx RELEASE=1
 
@@ -172,14 +173,14 @@ directory. We have to first create the RPC configuration file, though.
 Run `./bitcoind` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=sifcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Sifcoin/sifcoin.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/Sifcoin/sifcoin.conf"
+    echo -e "rpcuser=quarkcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Quarkcoin/quarkcoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Quarkcoin/quarkcoin.conf"
 
 When next you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours.
 
 Other commands:
 
-    ./bitcoind --help  # for a list of command-line options.
-    ./bitcoind -daemon # to start the bitcoin daemon.
-    ./bitcoind help    # When the daemon is running, to get a list of RPC commands
+    ./quarkcoind --help  # for a list of command-line options.
+    ./quarkcoind -daemon # to start the quarkcoin daemon.
+    ./quarkcoind help    # When the daemon is running, to get a list of RPC commands
