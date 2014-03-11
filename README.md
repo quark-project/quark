@@ -1,8 +1,11 @@
 Quarkcoin 0.8.3 BETA
 ====================
 
-Copyright (c) 2009-2013 Bitcoin Developers
-Copyright (c) 2013 Quarkcoin Developers
+Copyright (c) 2009-2014 Bitcoin Developers
+Copyright (c) 2013-2014 Quarkcoin Developers
+
+http://www.qrk.cc/
+http://www.quarkfoundation.cc/
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
