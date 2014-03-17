@@ -29,6 +29,8 @@ public:
         DisplayUnit,       // BitcoinUnits::Unit
         DisplayAddresses,  // bool
         Language,          // QString
+        MiningEnabled,     // bool
+        MiningIntensity,   // int
         OptionIDRowCount,
     };
 
@@ -56,6 +58,8 @@ private:
     bool fMinimizeToTray;
     bool fMinimizeOnClose;
     QString language;
+    bool bMiningEnabled;
+    int nMiningIntensity;
 
 signals:
     void displayUnitChanged(int unit);

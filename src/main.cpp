@@ -4671,8 +4671,16 @@ void static BitcoinMiner(CWallet *pwallet)
         // disable in testing
         while (vNodes.empty())
             MilliSleep(1000);
-            printf("Step after sleep\n");
 
+        // wait for chain to download
+        while (pindexBest->nHeight + 1000 < Checkpoints::GetTotalBlocksEstimate())
+        {
+            boost::this_thread::interruption_point();
+            MilliSleep(50);
+        }
+        
+        printf("Step after sleep\n");
+        
         //
         // Create new block
         //
@@ -4794,11 +4802,10 @@ void static BitcoinMiner(CWallet *pwallet)
     }
 }
 
-void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
+void GenerateBitcoins(bool fGenerate, int nThreads, CWallet* pwallet)
 {
     static boost::thread_group* minerThreads = NULL;
 
-    int nThreads = GetArg("-genproclimit", -1);
     if (nThreads < 0)
         nThreads = boost::thread::hardware_concurrency();
 
@@ -4815,6 +4822,12 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
         minerThreads->create_thread(boost::bind(&BitcoinMiner, pwallet));
+}
+
+void GenerateBitcoins(bool fGenerate, CWallet* pwallet)
+{
+    int nThreads = GetArg("-genproclimit", -1);
+    GenerateBitcoins(fGenerate, nThreads, pwallet);
 }
 
 // Amount compression:
