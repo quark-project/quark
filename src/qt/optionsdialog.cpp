@@ -24,7 +24,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 
     /* Network elements init */
 #ifndef USE_UPNP
-    ui->mapPortUpnp->setEnabled(false);
+    ui->mapPortUpnp->setEnabled(true);
 #endif
 
     ui->proxyIp->setEnabled(false);
