@@ -61,6 +61,8 @@ static const int fHaveUPnP = true;
 #else
 static const int fHaveUPnP = false;
 #endif
+/** Access to GetBlockValue for unit tests */
+int64 _GetBlockValue(int nHeight, int64 nFees, unsigned int nBits);
 
 
 extern CScript COINBASE_FLAGS;
