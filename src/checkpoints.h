@@ -1,18 +1,17 @@
-// Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2011-2013 PPCoin developers
+// Copyright (c) 2009-2013 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #ifndef BITCOIN_CHECKPOINT_H
 #define BITCOIN_CHECKPOINT_H
 
 #include <map>
+#include "uint256.h"
 #include "util.h"
-#include "hash.h"
 #include "net.h"
 
-class uint256;
 class CBlockIndex;
-class CBlock;
+class uint256;
 
 // ppcoin: synchronized checkpoint
 class CUnsignedSyncCheckpoint
@@ -47,7 +46,7 @@ public:
 
     void print() const
     {
-        printf("%s", ToString().c_str());
+        LogPrintf("%s", ToString().c_str());
     }
 };
 
@@ -86,7 +85,7 @@ public:
 
     uint256 GetHash() const
     {
-        return Hash2(this->vchMsg.begin(), this->vchMsg.end());
+        return Hash(this->vchMsg.begin(), this->vchMsg.end());
     }
 
     bool RelayTo(CNode* pnode) const
@@ -118,19 +117,18 @@ namespace Checkpoints
 
     // Returns last CBlockIndex* in mapBlockIndex that is a checkpoint
     CBlockIndex* GetLastCheckpoint(const std::map<uint256, CBlockIndex*>& mapBlockIndex);
+	
+    double GuessVerificationProgress(CBlockIndex *pindex, bool fSigchecks = true);
 
-    double GuessVerificationProgress(CBlockIndex *pindex);
-    
-    // Returns the block hash of latest hardened checkpoint
-    uint256 GetLatestHardenedCheckpoint();
- 
+    extern bool fEnabled;
+
     // ppcoin: synchronized checkpoint
     extern uint256 hashSyncCheckpoint;
     extern CSyncCheckpoint checkpointMessage;
     extern uint256 hashInvalidCheckpoint;
     extern CCriticalSection cs_hashSyncCheckpoint;
     extern std::string strCheckpointWarning;
-    
+	
     bool WriteSyncCheckpoint(const uint256& hashCheckpoint);
     bool IsSyncCheckpointEnforced();
     bool AcceptPendingSyncCheckpoint();
@@ -144,9 +142,9 @@ namespace Checkpoints
     bool SendSyncCheckpoint(uint256 hashCheckpoint);
     bool IsMatureSyncCheckpoint();
     bool IsSyncCheckpointTooOld(unsigned int nSeconds);
+	
     uint256 WantedByOrphan(const CBlock* pblockOrphan);
-
+	
 }
-
 
 #endif
