@@ -1357,10 +1357,13 @@ void CheckForkWarningConditions()
             std::string strCmd = GetArg("-alertnotify", "");
             if (!strCmd.empty())
             {
-                std::string warning = std::string("'Warning: Large-work fork detected, forking after block ") +
-                                      pindexBestForkBase->phashBlock->ToString() + std::string("'");
-                boost::replace_all(strCmd, "%s", warning);
-                boost::thread t(runCommand, strCmd); // thread runs free
+                if(pindexBestForkBase->phashBlock != NULL)
+                {
+                    std::string warning = std::string("'Warning: Large-work fork detected, forking after block ") +
+                                          pindexBestForkBase->phashBlock->ToString() + std::string("'");
+                    boost::replace_all(strCmd, "%s", warning);
+                    boost::thread t(runCommand, strCmd); // thread runs free
+                }
             }
         }
         if (pindexBestForkTip)
