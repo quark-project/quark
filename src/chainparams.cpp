@@ -69,14 +69,14 @@ public:
         assert(hashGenesisBlock == hashMainGenesisBlock);
         assert(genesis.hashMerkleRoot == uint256("0x868b2fb28cb1a0b881480cc85eb207e29e6ae75cdd6d26688ed34c2d2d23c776"));
 
-        vSeeds.push_back(CDNSSeedData("seed1.qrkcoin.org", "seed1.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed2.qrkcoin.org", "seed2.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed3.qrkcoin.org", "seed3.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed4.qrkcoin.org", "seed4.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed5.qrkcoin.org", "seed5.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed6.qrkcoin.org", "seed6.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed7.qrkcoin.org", "seed7.qrkcoin.org"));
-        vSeeds.push_back(CDNSSeedData("seed8.qrkcoin.org", "seed8.qrkcoin.org"));
+        vSeeds.push_back(CDNSSeedData("seed1.qrknet.info", "seed1.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed2.qrknet.info", "seed2.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed3.qrknet.info", "seed3.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed4.qrknet.info", "seed4.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed5.qrknet.info", "seed5.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed6.qrknet.info", "seed6.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed7.qrknet.info", "seed7.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed8.qrknet.info", "seed8.qrknet.info"));
 		
         base58Prefixes[PUBKEY_ADDRESS] = list_of(58);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(9);
