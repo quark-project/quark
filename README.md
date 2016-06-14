@@ -4,7 +4,7 @@ Quark Core integration/staging tree
 http://www.qrk.cc
 
 Copyright (c) 2009-2015 Bitcoin Core Developers
-Copyright (c) 2013-2015 Quark Core Developers
+Copyright (c) 2013-2016 Quark Core Developers
 
 What is Quark?
 --------------
