@@ -1,7 +1,7 @@
 Quark Core integration/staging tree
 ===================================
 
-http://www.qrk.cc
+http://www.qrknet.info/
 
 Copyright (c) 2009-2015 Bitcoin Core Developers
 Copyright (c) 2013-2016 Quark Core Developers
@@ -16,7 +16,7 @@ out collectively by the network. Quark Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Quark Core software, see http://www.qrk.cc/
+the Quark Core software, see http://www.qrknet.info/
 
 License
 -------
