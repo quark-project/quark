@@ -1,46 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
-<context>
-    <name>AboutDialog</name>
-    <message>
-        <source>About Quark Core</source>
-        <translation>关于比特币核心</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Quark Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;比特币核心&lt;/b&gt; 版本</translation>
-    </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Copyright</source>
-        <translation>版权</translation>
-    </message>
-    <message>
-        <source>The Quark Core developers</source>
-        <translation>Quark Core 的开发者</translation>
-    </message>
-    <message>
-        <source>(%1-bit)</source>
-        <translation>(%1 位)</translation>
-    </message>
-</context>
+<TS language="zh_CN" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
-        <source>Double-click to edit address or label</source>
-        <translation>双击编辑地址或标签</translation>
+        <source>Right-click to edit address or label</source>
+        <translation>鼠标右击编辑地址或标签</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -104,11 +67,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>These are your Quark addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>这是您用来付款的比特币地址。在付款前，请总是核实付款金额和收款地址。</translation>
+        <translation>这是您用来付款的夸克币地址。在付款前，请总是核实付款金额和收款地址。</translation>
     </message>
     <message>
         <source>These are your Quark addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>这些都是您的比特币地址，可用于收款。建议对每笔交易都使用一个新的地址。</translation>
+        <translation>这些都是您的夸克币地址，可用于收款。建议对每笔交易都使用一个新的地址。</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -131,8 +94,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>导出失败</translation>
     </message>
     <message>
-        <source>There was an error trying to save the address list to %1.</source>
-        <translation>地址列表保存至 %1 时发生错误。</translation>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>保存地址列表出现 %1错误。请重试。</translation>
     </message>
 </context>
 <context>
@@ -169,12 +132,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>重复新密码</translation>
     </message>
     <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>输入钱包的新密码。&lt;br/&gt;使用的密码请至少包含&lt;b&gt;10个以上随机字符&lt;/&gt;，或者是&lt;b&gt;8个以上的单词&lt;/b&gt;。</translation>
-    </message>
-    <message>
         <source>Encrypt wallet</source>
-        <translation>加密钱包</translation>
+        <translation>钱包加密</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
@@ -206,7 +165,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR QUARKS&lt;/b&gt;!</source>
-        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的比特币&lt;/b&gt;！</translation>
+        <translation>警告：如果您加密了您的钱包，但是忘记了密码，你将会&lt;b&gt;丢失所有的夸克币&lt;/b&gt;！</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -225,8 +184,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>钱包已加密</translation>
     </message>
     <message>
-        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarks from being stolen by malware infecting your computer.</source>
-        <translation>比特币客户端将关闭软件以完成加密过程。请您谨记：钱包加密并不是万能的，电脑中毒等原因仍可能导致您的比特币意外丢失。</translation>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>请输入新的钱包密码. &lt;br/&gt;密码须包含&lt;b&gt;10个以上字符&lt;/b&gt;,或&lt;b&gt;8个以上单词&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarkcoins from being stolen by malware infecting your computer.</source>
+        <translation>夸克币客户端将关闭软件以完成加密过程。请您谨记：钱包加密并不是万能的，电脑中毒等原因仍可能导致您的夸克币意外丢失。</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -296,10 +259,6 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>退出程序</translation>
     </message>
     <message>
-        <source>Show information about Quark</source>
-        <translation>显示比特币的相关信息</translation>
-    </message>
-    <message>
         <source>About &amp;Qt</source>
         <translation>关于 &amp;Qt</translation>
     </message>
@@ -325,15 +284,19 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>&amp;付款地址 </translation>
+        <translation>正在发送地址(&amp;S)...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>&amp;收款地址</translation>
+        <translation>正在接收地址(&amp;R)...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
         <translation>打开 &amp;URI...</translation>
+    </message>
+    <message>
+        <source>Quark Core client</source>
+        <translation>夸克币核心钱包</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -345,7 +308,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Send coins to a Quark address</source>
-        <translation>向一个比特币地址发送比特币</translation>
+        <translation>向一个夸克币地址发送夸克币</translation>
     </message>
     <message>
         <source>Modify configuration options for Quark</source>
@@ -373,7 +336,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Quark</source>
-        <translation>比特币</translation>
+        <translation>夸克币</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -386,6 +349,10 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>&amp;Receive</source>
         <translation>接收(&amp;R)</translation>
+    </message>
+    <message>
+        <source>Show information about Quark Core</source>
+        <translation>显示有关夸克币核心钱包信息</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
@@ -401,11 +368,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Sign messages with your Quark addresses to prove you own them</source>
-        <translation>用比特币地址关联的私钥为消息签名，以证明您拥有这个比特币地址</translation>
+        <translation>用夸克币地址关联的私钥为消息签名，以证明您拥有这个夸克币地址</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Quark addresses</source>
-        <translation>校验消息，确保该消息是由指定的比特币地址所有者签名的</translation>
+        <translation>校验消息，确保该消息是由指定的夸克币地址所有者签名的</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -424,12 +391,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>分页工具栏</translation>
     </message>
     <message>
-        <source>[testnet]</source>
-        <translation>[测试网络]</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
-        <translation>比特币核心</translation>
+        <translation>夸克币核心</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and quark: URIs)</source>
@@ -437,7 +400,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;About Quark Core</source>
-        <translation>关于比特币核心(&amp;A)</translation>
+        <translation>关于夸克币核心(&amp;A)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -449,47 +412,35 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Open a quark: URI or payment request</source>
-        <translation>打开一个比特币：URI 或支付请求</translation>
+        <translation>打开一个夸克币：URI 或支付请求</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
-        <translation>&amp;命令行 选项</translation>
+        <translation>命令行选项(&amp;C)</translation>
     </message>
     <message>
         <source>Show the Quark Core help message to get a list with possible Quark command-line options</source>
-        <translation>显示比特币核心 程序帮助信息，获取可用的命令行选项 </translation>
-    </message>
-    <message>
-        <source>Quark client</source>
-        <translation>比特币客户端</translation>
+        <translation>显示夸克币核心 程序帮助信息，获取可用的命令行选项 </translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Quark network</source>
-        <translation><numerusform>%n条到比特币网络的活动连接</numerusform></translation>
+        <translation><numerusform>%n 个到夸克币网络的活动连接</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
         <translation>沒有可用的区块来源...</translation>
     </message>
-    <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>%1 / %2 个交易历史的区块已下载</translation>
-    </message>
-    <message>
-        <source>Processed %1 blocks of transaction history.</source>
-        <translation>已处理 %1 个交易历史数据块。</translation>
-    </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
-        <translation><numerusform>%n 小时前</numerusform></translation>
+        <translation><numerusform>%n 小时</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n day(s)</source>
-        <translation><numerusform>%n 天前</numerusform></translation>
+        <translation><numerusform>%n 天</numerusform></translation>
     </message>
     <message numerus="yes">
         <source>%n week(s)</source>
-        <translation><numerusform>%n 周前</numerusform></translation>
+        <translation><numerusform>%n 周</numerusform></translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -527,6 +478,10 @@ This product includes software developed by the OpenSSL Project for use in the O
         <source>Up to date</source>
         <translation>已是最新</translation>
     </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>已处理 %n 个交易历史数据块。</numerusform></translation>
+    </message>
     <message>
         <source>Catching up...</source>
         <translation>更新中...</translation>
@@ -559,10 +514,6 @@ Address: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>钱包已被&lt;b&gt;加密&lt;/b&gt;，当前为&lt;b&gt;锁定&lt;/b&gt;状态</translation>
     </message>
-    <message>
-        <source>A fatal error occurred. Quark can no longer continue safely and will quit.</source>
-        <translation>发生严重错误。</translation>
-    </message>
 </context>
 <context>
     <name>ClientModel</name>
@@ -574,8 +525,8 @@ Address: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <source>Coin Control Address Selection</source>
-        <translation>选择交易源地址</translation>
+        <source>Coin Selection</source>
+        <translation>币源选择(Coin Selection)</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -598,8 +549,8 @@ Address: %4
         <translation>费用：</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>低输出</translation>
+        <source>Dust:</source>
+        <translation>小额：</translation>
     </message>
     <message>
         <source>After Fee:</source>
@@ -626,8 +577,12 @@ Address: %4
         <translation>金额</translation>
     </message>
     <message>
-        <source>Address</source>
-        <translation>地址</translation>
+        <source>Received with label</source>
+        <translation>按标签收款</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>按地址收款</translation>
     </message>
     <message>
         <source>Date</source>
@@ -690,8 +645,8 @@ Address: %4
         <translation>复制优先级</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>复制低输出</translation>
+        <source>Copy dust</source>
+        <translation>复制小额</translation>
     </message>
     <message>
         <source>Copy change</source>
@@ -742,8 +697,8 @@ Address: %4
         <translation>无</translation>
     </message>
     <message>
-        <source>Dust</source>
-        <translation>尘埃交易</translation>
+        <source>Can vary +/- %1 satoshi(s) per input.</source>
+        <translation>可能会有 正负 %1 聪(satoshi)的偏差 </translation>
     </message>
     <message>
         <source>yes</source>
@@ -770,24 +725,12 @@ Address: %4
         <translation>交易的优先级越高，被矿工收入数据块的速度也越快。</translation>
     </message>
     <message>
-        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
-        <translation>如果优先级小于&quot;中位数&quot; ，标签将变成红色。</translation>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>如果优先级小于"中位数" ，标签将变成红色。</translation>
     </message>
     <message>
         <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
-        <translation>如果收款地址收到小于%1的比特币，标签将变成红色。</translation>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 is required.</source>
-        <translation>这意味着至少需要 %1的交易费。</translation>
-    </message>
-    <message>
-        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation>小于最小转发交易费的0.546倍的 转账金额将被视为 尘埃交易。</translation>
-    </message>
-    <message>
-        <source>This label turns red, if the change is smaller than %1.</source>
-        <translation>如果零钱小于 %1，标签将变成红色。</translation>
+        <translation>如果收款地址收到小于%1的夸克币，标签将变成红色。</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -841,12 +784,12 @@ Address: %4
         <translation>编辑发送地址</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is already in the address book.</source>
+        <source>The entered address "%1" is already in the address book.</source>
         <translation>输入的地址“%1”已经存在于地址簿中。</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid Quark address.</source>
-        <translation>您输入的“%1”不是有效的比特币地址。</translation>
+        <source>The entered address "%1" is not a valid Quark address.</source>
+        <translation>您输入的“%1”不是有效的夸克币地址。</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,16 +826,24 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Quark Core - Command-line options</source>
-        <translation>比特币核心程序 - 命令行选项</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
-        <translation>比特币核心</translation>
+        <translation>夸克币核心</translation>
     </message>
     <message>
         <source>version</source>
         <translation>版本</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1 位)</translation>
+    </message>
+    <message>
+        <source>About Quark Core</source>
+        <translation>关于夸克币核心</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>命令行选项</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -907,7 +858,7 @@ Address: %4
         <translation>UI选项</translation>
     </message>
     <message>
-        <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
         <translation>设置语言, 例如“zh-TW”（默认为系统语言）</translation>
     </message>
     <message>
@@ -936,15 +887,15 @@ Address: %4
     </message>
     <message>
         <source>Welcome to Quark Core.</source>
-        <translation>欢迎使用 比特币核心 程序。</translation>
+        <translation>欢迎使用 夸克币核心 程序。</translation>
     </message>
     <message>
         <source>As this is the first time the program is launched, you can choose where Quark Core will store its data.</source>
-        <translation>由于这是第一次运行 比特币核心 程序，您可以选择数据存储目录。</translation>
+        <translation>由于这是第一次运行 夸克币核心 程序，您可以选择数据存储目录。</translation>
     </message>
     <message>
         <source>Quark Core will download and store a copy of the Quark block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>比特币核心 程序会下载储存一份数据块链(blockchain)。至少需要 %1 GB的存储空间，随着时间推移会需要更多的存储空间。钱包文件也储存在该目录。</translation>
+        <translation>夸克币核心 程序会下载储存一份数据块链(blockchain)。至少需要 %1 GB的存储空间，随着时间推移会需要更多的存储空间。钱包文件也储存在该目录。</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -955,24 +906,24 @@ Address: %4
         <translation>使用自定义的数据目录：</translation>
     </message>
     <message>
-        <source>Quark</source>
-        <translation>比特币</translation>
+        <source>Quark Core</source>
+        <translation>夸克币核心</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
-        <translation>错误：指定的数据目录“%1”无法创建。</translation>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>错误：无法创建 指定的数据目录 "%1" </translation>
     </message>
     <message>
         <source>Error</source>
         <translation>错误</translation>
     </message>
-    <message>
-        <source>GB of free space available</source>
-        <translation>可用空间（GB）</translation>
+    <message numerus="yes">
+        <source>%n GB of free space available</source>
+        <translation><numerusform>有 %n GB 空闲空间</numerusform></translation>
     </message>
-    <message>
-        <source>(of %1GB needed)</source>
-        <translation>（需要 %1GB）</translation>
+    <message numerus="yes">
+        <source>(of %n GB needed)</source>
+        <translation><numerusform>(需要%n GB空间)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1009,16 +960,8 @@ Address: %4
         <translation>主要(&amp;M)</translation>
     </message>
     <message>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation>可选的每 kB 交易费，这有助于您的交易被更快的处理。大多数交易都是 1 kB。</translation>
-    </message>
-    <message>
-        <source>Pay transaction &amp;fee</source>
-        <translation>支付交易费用(&amp;F)</translation>
-    </message>
-    <message>
         <source>Automatically start Quark after logging in to the system.</source>
-        <translation>登录系统后自动开启比特币客户端</translation>
+        <translation>登录系统后自动开启夸克币客户端</translation>
     </message>
     <message>
         <source>&amp;Start Quark on system login</source>
@@ -1034,15 +977,15 @@ Address: %4
     </message>
     <message>
         <source>Number of script &amp;verification threads</source>
-        <translation>脚本&amp;验证 进程数 </translation>
+        <translation>脚本验证线程数(&amp;V)</translation>
     </message>
     <message>
-        <source>Connect to the Quark network through a SOCKS proxy.</source>
-        <translation>通过 SOCKS 代理连接到比特币网络。</translation>
+        <source>Accept connections from outside</source>
+        <translation>接收外部连接</translation>
     </message>
     <message>
-        <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>通过 SO&amp;CKS 代理连接 (默认代理):</translation>
+        <source>Allow incoming connections</source>
+        <translation>允许流入连接</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
@@ -1078,7 +1021,7 @@ Address: %4
     </message>
     <message>
         <source>W&amp;allet</source>
-        <translation>&amp;钱包</translation>
+        <translation>钱包(&amp;A)</translation>
     </message>
     <message>
         <source>Expert</source>
@@ -1086,7 +1029,7 @@ Address: %4
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>启动货币 &amp;控制功能</translation>
+        <translation>启动货币控制功能(&amp;C)</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
@@ -1094,15 +1037,23 @@ Address: %4
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
-        <translation>&amp;选择未经确认的花费</translation>
+        <translation>使用未经确认的零钱(&amp;S)</translation>
     </message>
     <message>
         <source>Automatically open the Quark client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>自动在路由器中打开比特币端口。只有当您的路由器开启了 UPnP 选项时此功能才有效。</translation>
+        <translation>自动在路由器中打开夸克币端口。只有当您的路由器开启了 UPnP 选项时此功能才有效。</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>使用 &amp;UPnP 映射端口</translation>
+    </message>
+    <message>
+        <source>Connect to the Quark network through a SOCKS5 proxy.</source>
+        <translation>通过 SOCKS5 代理连接夸克币网络。</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>通过 SO&amp;CKS5 代理连接(默认代理)：</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1115,14 +1066,6 @@ Address: %4
     <message>
         <source>Port of the proxy (e.g. 9050)</source>
         <translation>代理端口（例如 9050）</translation>
-    </message>
-    <message>
-        <source>SOCKS &amp;Version:</source>
-        <translation>Socks 版本(&amp;V)：</translation>
-    </message>
-    <message>
-        <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>Socks 代理版本（例如 5）</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1158,19 +1101,11 @@ Address: %4
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
-        <translation>比特币金额单位(&amp;U)：</translation>
+        <translation>夸克币金额单位(&amp;U)：</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>选择比特币单位。</translation>
-    </message>
-    <message>
-        <source>Whether to show Quark addresses in the transaction list or not.</source>
-        <translation>是否需要在交易清单中显示比特币地址。</translation>
-    </message>
-    <message>
-        <source>&amp;Display addresses in transaction list</source>
-        <translation>在交易清单中显示比特币地址(&amp;D)</translation>
+        <translation>选择夸克币单位。</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1221,11 +1156,11 @@ Address: %4
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Quark network after a connection is established, but this process has not completed yet.</source>
-        <translation>现在显示的消息可能是过期的. 在连接上比特币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成。</translation>
+        <translation>现在显示的消息可能是过期的. 在连接上夸克币网络节点后，您的钱包将自动与网络同步，但是这个过程还没有完成。</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>钱包</translation>
+        <source>Watch-only:</source>
+        <translation>查看-只有:</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1252,6 +1187,10 @@ Address: %4
         <translation>尚未成熟的挖矿收入余额</translation>
     </message>
     <message>
+        <source>Balances</source>
+        <translation>余额</translation>
+    </message>
+    <message>
         <source>Total:</source>
         <translation>总额：</translation>
     </message>
@@ -1260,8 +1199,28 @@ Address: %4
         <translation>您当前的总余额</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;最近交易记录&lt;/b&gt;</translation>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>您当前 观察地址(watch-only address)的余额 </translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>可使用：</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>最近交易记录</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>观察地址(watch-only address)的未确认交易记录 </translation>
+    </message>
+    <message>
+        <source>Mined balance in watch-only addresses that has not yet matured</source>
+        <translation>观察地址(watch-only address)中尚未成熟(matured)的挖矿收入余额：</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>观察地址(watch-only address)中的当前总余额 </translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1275,8 +1234,24 @@ Address: %4
         <translation>URI 处理</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
-        <translation>URI无法解析！原因可能是比特币地址不正确，或者URI参数错误。</translation>
+        <source>Invalid payment address %1</source>
+        <translation>无效的付款地址 %1</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>支付请求被拒绝</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>付款请求所在的网络与当前客户端所在的网络不匹配。</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>支付请求已超时</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>支付请求未成形。</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1288,27 +1263,23 @@ Address: %4
     </message>
     <message>
         <source>Cannot start quark: click-to-pay handler</source>
-        <translation>暂时无法启动比特币：点击支付功能</translation>
-    </message>
-    <message>
-        <source>Net manager warning</source>
-        <translation>网络管理器警告</translation>
-    </message>
-    <message>
-        <source>Your active proxy doesn&apos;t support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation>您的活动代理不支持 SOCKS5，而通过代理进行支付请求时这是必须的。</translation>
+        <translation>暂时无法启动夸克币：点击支付功能</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>付款请求URI链接非法: %1</translation>
     </message>
     <message>
+        <source>URI cannot be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
+        <translation>URI无法解析！原因可能是夸克币地址不正确，或者URI参数错误。</translation>
+    </message>
+    <message>
         <source>Payment request file handling</source>
         <translation>付款请求文件处理 </translation>
     </message>
     <message>
-        <source>Payment request file can not be read or processed! This can be caused by an invalid payment request file.</source>
-        <translation>付款请求文件不能读取或无法识别！这可能是个不合格的付款请求文件。</translation>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>付款请求文件无法读取！可能是付款请求文件不合格。</translation>
     </message>
     <message>
         <source>Unverified payment requests to custom payment scripts are unsupported.</source>
@@ -1319,12 +1290,20 @@ Address: %4
         <translation>退款来自 %1</translation>
     </message>
     <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>支付请求 %1 太大 (%2 字节。只允许 %3 字节)。</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>支付请求防滥用保护</translation>
+    </message>
+    <message>
         <source>Error communicating with %1: %2</source>
         <translation>%1: %2 通讯出错</translation>
     </message>
     <message>
-        <source>Payment request can not be parsed or processed!</source>
-        <translation>支付请求不能被解析或处理！</translation>
+        <source>Payment request cannot be parsed!</source>
+        <translation>无法解析 付款请求！</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
@@ -1340,30 +1319,65 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>User Agent</source>
+        <translation>用户代理</translation>
+    </message>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>地址/主机名</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping 时间</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <source>Quark</source>
-        <translation>比特币</translation>
+        <source>Amount</source>
+        <translation>金额</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation>错误：指定的数据目录“%1”不存在。</translation>
+        <source>Enter a Quark address (e.g. %1)</source>
+        <translation>请输入一个夸克币地址 (例如 %1)</translation>
     </message>
     <message>
-        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation>错误: 无法解析配置文件: %1. 只有钥匙=重要的私匙.</translation>
+        <source>%1 d</source>
+        <translation>%1 天</translation>
     </message>
     <message>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>错误：无效的 -regtest 与 -testnet 结合体。</translation>
+        <source>%1 h</source>
+        <translation>%1 小时</translation>
     </message>
     <message>
-        <source>Quark Core didn&apos;t yet exit safely...</source>
-        <translation>比特币核心钱包没有安全退出....</translation>
+        <source>%1 m</source>
+        <translation>%1 分钟</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>请输入比特币地址（例如: QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS）</translation>
+        <source>%1 s</source>
+        <translation>%1 秒</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>未知</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>不可用</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 毫秒</translation>
     </message>
 </context>
 <context>
@@ -1401,7 +1415,7 @@ Address: %4
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation>信息(&amp;I)</translation>
+        <translation>信息</translation>
     </message>
     <message>
         <source>Debug window</source>
@@ -1414,6 +1428,10 @@ Address: %4
     <message>
         <source>Using OpenSSL version</source>
         <translation>使用 OpenSSL 版本</translation>
+    </message>
+    <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>使用的 BerkeleyDB 版本</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -1440,8 +1458,72 @@ Address: %4
         <translation>当前数据块数量</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>预计数据块数量</translation>
+        <source>Received</source>
+        <translation>收到</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>发送</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>同伴(&amp;P)</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>选择节点查看详细信息。</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>版本</translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation>用户代理</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>服务</translation>
+    </message>
+    <message>
+        <source>Starting Height</source>
+        <translation>开始高度</translation>
+    </message>
+    <message>
+        <source>Sync Height</source>
+        <translation>同步高度</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>禁止得分</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>连接时间</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>最后发送</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>最后接收</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>发送字节</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>接收字节</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping 时间</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1520,16 +1602,28 @@ Address: %4
         <translation>%1 GB</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 分钟</translation>
+        <source>via %1</source>
+        <translation>通过 %1</translation>
     </message>
     <message>
-        <source>%1 h</source>
-        <translation>%1 小时</translation>
+        <source>never</source>
+        <translation>从未</translation>
     </message>
     <message>
-        <source>%1 h %2 m</source>
-        <translation>%1 小时 %2 分钟</translation>
+        <source>Inbound</source>
+        <translation>传入</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>传出</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>未知</translation>
+    </message>
+    <message>
+        <source>Fetching...</source>
+        <translation>获取中...</translation>
     </message>
 </context>
 <context>
@@ -1556,7 +1650,7 @@ Address: %4
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Quark network.</source>
-        <translation>可在付款请求上备注一条信息，在打开付款请求时可以看到。注意：该消息不是通过比特币网络传送。</translation>
+        <translation>可在付款请求上备注一条信息，在打开付款请求时可以看到。注意：该消息不是通过夸克币网络传送。</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -1572,7 +1666,7 @@ Address: %4
     </message>
     <message>
         <source>Clear all fields of the form.</source>
-        <translation>清空此表单的所有字段。</translation>
+        <translation>清除此表单的所有字段。</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1705,7 +1799,7 @@ Address: %4
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>发送货币</translation>
+        <translation>发送夸克币</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -1744,10 +1838,6 @@ Address: %4
         <translation>费用：</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>低输出</translation>
-    </message>
-    <message>
         <source>After Fee:</source>
         <translation>加上交易费用后:</translation>
     </message>
@@ -1764,6 +1854,78 @@ Address: %4
         <translation>自定义零钱地址</translation>
     </message>
     <message>
+        <source>Transaction Fee:</source>
+        <translation>交易费用:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>选择... </translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>收起  费用设置 </translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>最小化</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>如果自定义交易费设置为 1000聪而交易大小只有250字节，则“每千字节" 模式只支付250聪交易费， 而"最少"模式则支付1000聪。 大于1000字节的交易按每千字节付费。</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>每kb</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "total at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>如果自定义交易费设置为 1000聪而交易大小只有250字节，则“每千字节" 模式只支付250聪交易费， 而"最少"模式则支付1000聪。 大于1000字节的交易按每千字节付费。</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>最小额 </translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for quark transactions than the network can process.</source>
+        <translation>交易量小时只支付最小交易费是可以的。但是请注意，当交易量大时您的交易可能永远无法确认。</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(请注意提示信息)</translation>
+    </message>
+    <message>
+        <source>Recommended:</source>
+        <translation>推荐：</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>自定义：</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(智能交易费用 尚未初始化。 需要再下载一些数据块...)</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>确认时间：</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>一般</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>快速</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>发送时尽可能 不支付交易费用</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(确认时间更长) </translation>
+    </message>
+    <message>
         <source>Send to multiple recipients at once</source>
         <translation>一次发送给多个接收者</translation>
     </message>
@@ -1774,6 +1936,10 @@ Address: %4
     <message>
         <source>Clear all fields of the form.</source>
         <translation>清除此表单的所有字段。</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>小额：</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1824,16 +1990,12 @@ Address: %4
         <translation>复制优先级</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>复制低输出</translation>
-    </message>
-    <message>
         <source>Copy change</source>
         <translation>复制零钱</translation>
     </message>
     <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation>总额 %1 (= %2)</translation>
+        <source>Total Amount %1&lt;span style='font-size:10pt;font-weight:normal;'&gt;&lt;br /&gt;(=%2)&lt;/span&gt;</source>
+        <translation>总金额 %1&lt;span style='font-size:10pt;font-weight:normal;'&gt;&lt;br /&gt;(=%2)&lt;/span&gt;</translation>
     </message>
     <message>
         <source>or</source>
@@ -1865,11 +2027,23 @@ Address: %4
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的比特币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了比特币，但是这个钱包文件中没有记录。</translation>
+        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的夸克币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了夸克币，但是这个钱包文件中没有记录。</translation>
+    </message>
+    <message>
+        <source>A fee higher than %1 is considered an insanely high fee.</source>
+        <translation>高于 %1的交易费 将视为 过高的交易费。</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>只支付最小费用 %1</translation>
+    </message>
+    <message>
+        <source>Estimated to begin confirmation within %1 block(s).</source>
+        <translation>预计%1 个数据块后确认。</translation>
     </message>
     <message>
         <source>Warning: Invalid Quark address</source>
-        <translation>警告：无效的比特币地址</translation>
+        <translation>警告：无效的夸克币地址</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1880,20 +2054,16 @@ Address: %4
         <translation>警告：未知的更改地址</translation>
     </message>
     <message>
+        <source>Copy dust</source>
+        <translation>复制小额</translation>
+    </message>
+    <message>
         <source>Are you sure you want to send?</source>
         <translation>您确定要发出吗？</translation>
     </message>
     <message>
         <source>added as transaction fee</source>
         <translation>已添加交易费</translation>
-    </message>
-    <message>
-        <source>Payment request expired</source>
-        <translation>支付请求已过期</translation>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation>无效的付款地址 %1</translation>
     </message>
 </context>
 <context>
@@ -1905,10 +2075,6 @@ Address: %4
     <message>
         <source>Pay &amp;To:</source>
         <translation>付给(&amp;T)：</translation>
-    </message>
-    <message>
-        <source>The address to send the payment to (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>付款给这个地址  (例如 QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
@@ -1925,6 +2091,10 @@ Address: %4
     <message>
         <source>This is a normal payment.</source>
         <translation>这是笔正常的支付。</translation>
+    </message>
+    <message>
+        <source>The Quark address to send the payment to</source>
+        <translation>付款目的地址</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1956,7 +2126,7 @@ Address: %4
     </message>
     <message>
         <source>A message that was attached to the quark: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Quark network.</source>
-        <translation>quark:URI 附带的备注信息，将会和交易一起存储，备查。 注意：该消息不会通过比特币网络传输。</translation>
+        <translation>quark:URI 附带的备注信息，将会和交易一起存储，备查。 注意：该消息不会通过夸克币网络传输。</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1975,7 +2145,7 @@ Address: %4
     <name>ShutdownWindow</name>
     <message>
         <source>Quark Core is shutting down...</source>
-        <translation>比特币核心正在关机...</translation>
+        <translation>夸克币核心正在关机...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1997,8 +2167,8 @@ Address: %4
         <translation>您可以用你的地址对消息进行签名，以证明您是该地址的所有人。注意不要对模棱两可的消息签名，以免遭受钓鱼式攻击。请确保消息内容准确的表达了您的真实意愿。</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>用于签名消息的地址（例如: QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS）</translation>
+        <source>The Quark address to sign the message with</source>
+        <translation>用来对消息签名的地址 </translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2053,12 +2223,12 @@ Address: %4
         <translation>在下面输入签名地址，消息（请确保换行符、空格符、制表符等等一个不漏）和签名以验证消息。请确保签名信息准确，提防中间人攻击。</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>用于签名消息的地址(例如: QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>The Quark address the message was signed with</source>
+        <translation>消息使用的签名地址</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Quark address</source>
-        <translation>验证消息，确保消息是由指定的比特币地址签名过的。</translation>
+        <translation>验证消息，确保消息是由指定的夸克币地址签名过的。</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2069,11 +2239,7 @@ Address: %4
         <translation>清空所有验证消息栏</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>请输入比特币地址 (例如: QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
-        <source>Click &quot;Sign Message&quot; to generate signature</source>
+        <source>Click "Sign Message" to generate signature</source>
         <translation>单击“签名消息“产生签名。</translation>
     </message>
     <message>
@@ -2129,7 +2295,7 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <source>Quark Core</source>
-        <translation>比特币核心</translation>
+        <translation>夸克币核心</translation>
     </message>
     <message>
         <source>The Quark Core developers</source>
@@ -2137,7 +2303,7 @@ Address: %4
     </message>
     <message>
         <source>[testnet]</source>
-        <translation>[testnet]</translation>
+        <translation>[测试网络]</translation>
     </message>
 </context>
 <context>
@@ -2175,7 +2341,7 @@ Address: %4
     </message>
     <message numerus="yes">
         <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>通过 %n 个节点广播</numerusform></translation>
+        <translation><numerusform>, 通过 %n 个节点广播 </numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -2202,6 +2368,10 @@ Address: %4
         <translation>自己的地址</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>观察地址(watch-only) </translation>
+    </message>
+    <message>
         <source>label</source>
         <translation>标签</translation>
     </message>
@@ -2211,7 +2381,7 @@ Address: %4
     </message>
     <message numerus="yes">
         <source>matures in %n more block(s)</source>
-        <translation><numerusform>将在 %n 个数据块后成熟</numerusform></translation>
+        <translation><numerusform>%n 个数据块后成熟(mature) </numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -2220,6 +2390,14 @@ Address: %4
     <message>
         <source>Debit</source>
         <translation>支出</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>总收入</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>总支出</translation>
     </message>
     <message>
         <source>Transaction fee</source>
@@ -2239,15 +2417,15 @@ Address: %4
     </message>
     <message>
         <source>Transaction ID</source>
-        <translation>交易ID</translation>
+        <translation>ID</translation>
     </message>
     <message>
         <source>Merchant</source>
         <translation>商店</translation>
     </message>
     <message>
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>生成的比特币在可以使用前必须有 %1 个成熟的区块。当您生成了此区块后，它将被广播到网络中以加入区块链。如果它未成功进入区块链，其状态将变更为“不接受”并且不可使用。这可能偶尔会发生，如果另一个节点比你早几秒钟成功生成一个区块。</translation>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>生成的夸克币在可以使用前必须有 %1 个成熟的区块。当您生成了此区块后，它将被广播到网络中以加入区块链。如果它未成功进入区块链，其状态将变更为“不接受”并且不可使用。这可能偶尔会发生，如果另一个节点比你早几秒钟成功生成一个区块。</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2279,7 +2457,7 @@ Address: %4
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>Open for %n more block</numerusform></translation>
+        <translation><numerusform>再打开 %n 个数据块</numerusform></translation>
     </message>
     <message>
         <source>unknown</source>
@@ -2305,15 +2483,11 @@ Address: %4
     </message>
     <message>
         <source>Type</source>
-        <translation>类型</translation>
+        <translation>类别</translation>
     </message>
     <message>
         <source>Address</source>
         <translation>地址</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>数量</translation>
     </message>
     <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
@@ -2321,7 +2495,7 @@ Address: %4
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
-        <translation><numerusform>Open for %n more block</numerusform></translation>
+        <translation><numerusform>再打开 %n 个数据块</numerusform></translation>
     </message>
     <message>
         <source>Open until %1</source>
@@ -2376,6 +2550,10 @@ Address: %4
         <translation>挖矿所得</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>观察地址(watch-only) </translation>
+    </message>
+    <message>
         <source>(n/a)</source>
         <translation>（不可用）</translation>
     </message>
@@ -2390,6 +2568,10 @@ Address: %4
     <message>
         <source>Type of transaction.</source>
         <translation>交易类别。</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>该交易中是否涉及  观察地址(watch-only address)。</translation>
     </message>
     <message>
         <source>Destination address of transaction.</source>
@@ -2487,6 +2669,10 @@ Address: %4
         <translation>导出交易历史</translation>
     </message>
     <message>
+        <source>Watch-only</source>
+        <translation>观察地址(Watch-only) </translation>
+    </message>
+    <message>
         <source>Exporting Failed</source>
         <translation>导出失败</translation>
     </message>
@@ -2527,10 +2713,6 @@ Address: %4
         <translation>地址</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>金额</translation>
-    </message>
-    <message>
         <source>ID</source>
         <translation>ID</translation>
     </message>
@@ -2544,6 +2726,13 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>金额单位。单击选择别的单位。</translation>
+    </message>
+</context>
+<context>
     <name>WalletFrame</name>
     <message>
         <source>No wallet has been loaded.</source>
@@ -2554,7 +2743,7 @@ Address: %4
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>发送比特币</translation>
+        <translation>发送夸克币</translation>
     </message>
 </context>
 <context>
@@ -2595,46 +2784,14 @@ Address: %4
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Usage:</source>
-        <translation>使用：</translation>
-    </message>
-    <message>
-        <source>List commands</source>
-        <translation>列出命令
-</translation>
-    </message>
-    <message>
-        <source>Get help for a command</source>
-        <translation>获得某条命令的帮助
-</translation>
-    </message>
-    <message>
         <source>Options:</source>
         <translation>选项：
-</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: quarkcoin.conf)</source>
-        <translation>指定配置文件 (默认为 quarkcoin.conf)
-</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>指定 pid 文件 (默认为 quarkd.pid)
 </translation>
     </message>
     <message>
         <source>Specify data directory</source>
         <translation>指定数据目录
 </translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>监听端口连接 &lt;port&gt;（缺省: 8333 或测试网络: 18333）</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation>最大连接数 &lt;n&gt; （缺省: 125）</translation>
     </message>
     <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
@@ -2645,29 +2802,9 @@ Address: %4
         <translation>指定您的公共地址</translation>
     </message>
     <message>
-        <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>断开行为不端对端阀值（缺省: 100）</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>重新连接异常节点的秒数(缺省: 86400)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation>设置RPC监听端口%u时发生错误, IPv4:%s</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>JSON-RPC连接监听端口&lt;port&gt; (缺省：8332　testnet：18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>接受命令行和 JSON-RPC 命令
 </translation>
-    </message>
-    <message>
-        <source>Quark Core RPC client version</source>
-        <translation>比特币核心钱包RPC客户端版本</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2685,80 +2822,24 @@ Address: %4
         <translation>接受来自外部的连接 (缺省: 如果不带 -proxy or -connect 参数设置为1)</translation>
     </message>
     <message>
-        <source>%s, you must set a rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=quarkrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
-</source>
-        <translation>%s, 您必须在配置文件设置rpcpassword:
- %s
-建议您使用下面的随机密码:
-rpcuser=quarkrpc
-rpcpassword=%s
-(您无需记住此密码)
-用户名和密码 必! 须! 不一样。
-如果配置文件不存在，请自行建立一个只有所有者拥有只读权限的文件。
-推荐您开启提示通知以便收到错误通知，
-像这样: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
-</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>可接受的密码（默认：TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH）</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation>在IPv6模式下设置RPC监听端口 %u 失败，返回到IPv4模式: %s</translation>
-    </message>
-    <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>绑定指定的IP地址开始监听。IPv6地址请使用[host]:port 格式</translation>
     </message>
     <message>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:15)</source>
-        <translation>自由交易不断的速率限制为&lt;n&gt;*1000 字节每分钟(默认值:15)</translation>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>删除钱包的所有交易记录，且只有用 -rescan参数启动客户端才能重新取回交易记录 </translation>
     </message>
     <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation>进入回归测试模式，它采用一种特殊的可立即解决的区块链模拟情况。这是为了回归测试工具和应用的开发所设。</translation>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
         <translation>进入回归测试模式，它采用一种特殊的可立即解决的区块链模拟情况。</translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>错误: 监听接收连接失败 (监听错误 %d)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>错误：该交易被拒绝！发生这种错误的原因可能是：钱包中的比特币已经被用掉，有可能您复制了wallet.dat钱包文件，然后用复制的钱包文件支付了比特币，但是这个钱包文件中没有记录。</translation>
-    </message>
-    <message>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>错误：因为该交易的数量、复杂度或者动用了刚收到不久的资金，您需要支付不少于%s的交易费用。</translation>
-    </message>
-    <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
         <translation>当最佳区块变化时执行命令 (命令行中的 %s 会被替换成区块哈希值)</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation>比这手续费更小的被认为零手续费 (交易产生) (默认:</translation>
-    </message>
-    <message>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
-        <translation>从缓冲池清理磁盘数据库活动日志每&lt;n&gt;兆字节 (默认值: 100)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation>如何有效的验证checkblocks区块(0-4, 默认值: 3)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
@@ -2769,28 +2850,16 @@ rpcpassword=%s
         <translation>设置脚本验证的程序 (%u 到 %d, 0 = 自动, &lt;0 = 保留自由的核心, 默认值: %d)</translation>
     </message>
     <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>设置处理器生成的限制 (-1 = 无限, 默认值: -1)</translation>
-    </message>
-    <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
         <translation>这是测试用的预发布版本 - 请谨慎使用 - 不要用来挖矿，或者在正式商用环境下使用</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer. Quark Core is probably already running.</source>
-        <translation>无法 %s的绑定到电脑上，比特币核心钱包可能已经在运行。</translation>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation>连接至 Tor隐藏服务器时 使用不同的SOCKS5代理 (缺省: -proxy) </translation>
+        <translation>无法 %s的绑定到电脑上，夸克币核心钱包可能已经在运行。</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>警告：-paytxfee 交易费设置得太高了！每笔交易都将支付交易费。</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quark will not work properly.</source>
-        <translation>警告：请检查电脑的日期时间设置是否正确！时间错误可能会导致比特币客户端运行异常。</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2809,12 +2878,12 @@ rpcpassword=%s
         <translation>警告：钱包文件wallet.dat损坏! 原始的钱包文件已经备份到%s目录下并重命名为{timestamp}.bak 。如果您的账户余额或者交易记录不正确，请使用您的钱包备份文件恢复。</translation>
     </message>
     <message>
-        <source>(default: 1)</source>
-        <translation>(默认值: 1)</translation>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>节点白名单,网络掩码或IP址。可多次指定。</translation>
     </message>
     <message>
-        <source>(default: wallet.dat)</source>
-        <translation>(默认: wallet.dat)</translation>
+        <source>(default: 1)</source>
+        <translation>(默认值: 1)</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -2825,28 +2894,12 @@ rpcpassword=%s
         <translation>尝试从损坏的钱包文件wallet.dat中恢复私钥</translation>
     </message>
     <message>
-        <source>Quark Core Daemon</source>
-        <translation>比特币核心 守护程序</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>数据块创建选项：</translation>
     </message>
     <message>
-        <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation>清除钱包中的交易记录 (诊断用，意味着需要重新扫描 -rescan)</translation>
-    </message>
-    <message>
         <source>Connect only to the specified node(s)</source>
         <translation>仅连接到指定节点</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS proxy</source>
-        <translation>通过Socks代理连接:</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>连接到 JSON-RPC 于 &lt;port&gt;（默认: 8332，或测试网络: 18332）</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2859,10 +2912,6 @@ rpcpassword=%s
     <message>
         <source>Debugging/Testing options:</source>
         <translation>调试/测试选项：</translation>
-    </message>
-    <message>
-        <source>Disable safemode, override a real safe mode event (default: 0)</source>
-        <translation>禁止使用安全模式，重新写入一个真正的安全模式日志(默认值: 0)</translation>
     </message>
     <message>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
@@ -2897,80 +2946,8 @@ rpcpassword=%s
         <translation>错误：磁盘剩余空间低!</translation>
     </message>
     <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>错误：钱包被锁定，无法创建交易！</translation>
-    </message>
-    <message>
-        <source>Error: system error: </source>
-        <translation>错误：系统出错。</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>监听端口失败。请使用 -listen=0 参数。</translation>
-    </message>
-    <message>
-        <source>Failed to read block info</source>
-        <translation>无法读取数据块信息</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>读取数据块失败</translation>
-    </message>
-    <message>
-        <source>Failed to sync block index</source>
-        <translation>无法同步数据块索引</translation>
-    </message>
-    <message>
-        <source>Failed to write block index</source>
-        <translation>无法写入数据块索引</translation>
-    </message>
-    <message>
-        <source>Failed to write block info</source>
-        <translation>无法写入数据块信息</translation>
-    </message>
-    <message>
-        <source>Failed to write block</source>
-        <translation>无法写数据块</translation>
-    </message>
-    <message>
-        <source>Failed to write file info</source>
-        <translation>无法写入文件信息</translation>
-    </message>
-    <message>
-        <source>Failed to write to coin database</source>
-        <translation>无法写入coin数据库</translation>
-    </message>
-    <message>
-        <source>Failed to write transaction index</source>
-        <translation>无法写入交易索引</translation>
-    </message>
-    <message>
-        <source>Failed to write undo data</source>
-        <translation>无法写入回滚信息</translation>
-    </message>
-    <message>
-        <source>Fee per kB to add to transactions you send</source>
-        <translation>为付款交易支付比特币(每kb)</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation>比这手续费更小的被认为零手续费 (中继) (默认值: </translation>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>通过DNS查找节点(缺省：1 除非使用 -connect 选项)</translation>
-    </message>
-    <message>
-        <source>Force safe mode (default: 0)</source>
-        <translation>强制安全模式(默认值: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>生成比特币（默认为 0）</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation>启动时检测多少个数据块(缺省：288，0=所有)</translation>
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
@@ -2985,7 +2962,7 @@ rpcpassword=%s
         <translation>不正确或没有找到起源区块。网络错误？</translation>
     </message>
     <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
+        <source>Invalid -onion address: '%s'</source>
         <translation>无效的 -onion 地址：“%s”</translation>
     </message>
     <message>
@@ -2993,20 +2970,12 @@ rpcpassword=%s
         <translation>没有足够的文件描述符可用。</translation>
     </message>
     <message>
-        <source>Prepend debug output with timestamp (default: 1)</source>
-        <translation>调试信息输出时，前面加上时间戳 (缺省: 1)</translation>
-    </message>
-    <message>
-        <source>RPC client options:</source>
-        <translation>RPC 客户端选项：</translation>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>只连接 &lt;net&gt;网络中的节点 (ipv4, ipv6 或 onion) </translation>
     </message>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>重新为当前的blk000??.dat文件建立索引</translation>
-    </message>
-    <message>
-        <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>用 -proxy 选择 SOCKS 版本（4 或 5，默认为 5）</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
@@ -3017,24 +2986,16 @@ rpcpassword=%s
         <translation>设置最大区块大小 (默认: %d，单位字节)</translation>
     </message>
     <message>
-        <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>设置使用调用服务 RPC 的线程数量（默认：4）</translation>
-    </message>
-    <message>
         <source>Specify wallet file (within data directory)</source>
         <translation>指定钱包文件（数据目录内）</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation>付款时允许使用未确认的零钱 (缺省: 1)</translation>
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>这是用于回归测试和应用开发目的。</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use quark-cli):</source>
-        <translation>用法（不推荐，请使用 quark-cli）：</translation>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>使用UPnp映射监听端口 (默认: %u) </translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3045,20 +3006,12 @@ rpcpassword=%s
         <translation>正在检测钱包的完整性...</translation>
     </message>
     <message>
-        <source>Wait for RPC server to start</source>
-        <translation>等待 RPC 服务器</translation>
-    </message>
-    <message>
         <source>Wallet %s resides outside data directory %s</source>
         <translation>钱包 %s 在外部的数据目录 %s</translation>
     </message>
     <message>
         <source>Wallet options:</source>
         <translation>钱包选项:</translation>
-    </message>
-    <message>
-        <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation>警告：已废弃的 -debugnet 参数已忽略，请用 -debug=net</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
@@ -3069,76 +3022,212 @@ rpcpassword=%s
         <translation>从blk000??.dat文件导入数据块</translation>
     </message>
     <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>允许来自指定地址的 JSON-RPC 连接。 &lt;ip&gt;为单一IP (如: 1.2.3.4), 网络/掩码 (如: 1.2.3.4/255.255.255.0), 网络/CIDR (如:  1.2.3.4/24)。该选项可多次指定。</translation>
+    </message>
+    <message>
+        <source>An error occurred while setting up the RPC address %s port %u for listening: %s</source>
+        <translation>设置RPC监听端口 %s:%u 时发生错误: %s</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>绑定到指定地址和连接的白名单节点。 IPv6使用  [主机]:端口 格式 </translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>绑定到指定地址监听 JSON-RPC连接。 IPv6使用[主机]:端口 格式。该选项可多次指定 (默认: 绑定到所有接口) </translation>
+    </message>
+    <message>
         <source>Cannot obtain a lock on data directory %s. Quark Core is probably already running.</source>
-        <translation>无法获取数据目录的 %s. 比特币核心钱包可能已经在运行.</translation>
+        <translation>无法获取数据目录的 %s. 夸克币核心钱包可能已经在运行.</translation>
+    </message>
+    <message>
+        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
+        <translation>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>创建系统默认权限的文件，而不是 umask 077 (只在关闭钱包功能时有效) </translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>错误：监听外部连接失败 (监听返回错误 %s) </translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>错误：不支持的 -socks 参数。不再支持设置SOCKS版本，现在只支持 SOCKS5代理。</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
         <translation>当收到相关提醒或者我们看到一个长分叉时执行命令（%s 将替换为消息）</translation>
     </message>
     <message>
-        <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation>输出调试信息（默认为0，提供  &lt;category&gt; 是可选的）</translation>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>交易费(QRK/kb)比这更小的交易在转发时将被视为零费交易 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>交易费(QRK/kb)比这更小的交易在生成交易时将被视为零费交易 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation>如果未设置交易费用，自动添加足够的交易费以确保交易在平均n个数据块内被确认 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>-maxtxfee=&lt;amount&gt;: '%s' 的金额无效（交易费至少为 %s，以免交易滞留过久）</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>Maximum size of data in data carrier transactions we relay and mine (default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
+        <translation>单笔钱包交易中最多使用的交易费，设置过低可能中止大笔交易 (默认: %s)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>通过DNS查询每个地址，如果短地址 (默认值: 1 除非 -连接)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>对交易免费或低交易费请求高优先级 (默认:%u)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>设置 高优先级/低交易费 交易的最大字节  (缺省: %d)</translation>
     </message>
     <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>设置夸克币生成线程数 ( -1=所有核, 默认: %d) </translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>To use quarkd, or the -server option to quark-qt, you must set an rpcpassword in the configuration file:
+%s
+It is recommended you use the following random password:
+rpcuser=quarkrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s "Quark Alert" admin@foo.com
+</source>
+        <translation>要使用 quarkd 或者 quark-qt 中的 -server 选项，您必须在配置文件中设置一个密码：
+%s
+建议您使用下列随机密码：
+rpcuser=quarkrpc
+rpcpassword=%s
+（您不需要记住这个密码）
+用户名和密码不能相同。
+如果该文件不存在，创建一个文件并设置权限为仅创建者可读。
+此外，还建议您设置 alertnotify 以便您能注意到问题：
+例如 alertnotify=echo %%s | mail -s "Quark Alert" admin@foo.com
+</translation>
+    </message>
+    <message>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>警告：-maxtxfee 设置的太高了！每进行一笔交易时您都要花费这么多费用。</translation>
+    </message>
+    <message>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Quark Core will not work properly.</source>
+        <translation>警告：请检查电脑的日期时间设置是否正确！时间错误可能会导致夸克币客户端运行异常。</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>白名单节点不能被DoS banned ，且转发所有来自他们的交易(即便这些交易已经存在于mempool中)，常用于网关 </translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>接受公共 REST 请求 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>无法解析 -whitebind 地址: '%s'</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>通过 SOCKS5 代理连接</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Quark Core and Quark Core Developers</source>
+        <translation>版权所有 (C) 2009-%i Quark Core 开发者</translation>
+    </message>
+    <message>
+        <source>Could not parse -rpcbind value %s as network address</source>
+        <translation>无法解析 -rpcbind 的值 %s 为网络地址</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of Quark Core</source>
+        <translation>加载wallet.dat错误：需要新版的夸克币核心钱包</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>读取数据库出错，关闭中。</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>错误：发生了致命的内部错误，详情见 debug.log 文件</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>错误：发现了不支持的参数 -tor，请使用 -onion。</translation>
+    </message>
+    <message>
+        <source>Fee (in QRK/kB) to add to transactions you send (default: %s)</source>
+        <translation>为付款交易添加交易费 (QRK/kb) (默认: %s) </translation>
+    </message>
+    <message>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>-minrelaytxfee=&lt;amount&gt;: &apos;%s&apos; 无效的金额</translation>
+        <source>Initialization sanity check failed. Quark Core is shutting down.</source>
+        <translation>初始化完整性检查失败。Quark Core 即将关闭。</translation>
     </message>
     <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>-mintxfee=&lt;amount&gt;: &apos;%s&apos; 无效的金额</translation>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-maxtxfee=&lt;amount&gt;: '%s' 的金额无效</translation>
     </message>
     <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
-        <translation>签名缓冲大小限制每&lt;n&gt; 条目 (默认值: 50000)</translation>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-minrelaytxfee=&lt;amount&gt;: '%s' 无效的金额</translation>
     </message>
     <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>开采区块时，日志优先级和手续费每KB (默认值: 0)</translation>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>-mintxfee=&lt;amount&gt;: '%s' 无效的金额</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>维护一份完整的交易索引(缺省：0)</translation>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>无效的金额 -paytxfee=&lt;amount&gt;: '%s' (必须至少为 %s)</translation>
     </message>
     <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>每个连接的最大接收缓存，&lt;n&gt;*1000 字节(缺省：5000)</translation>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>-whitelist: '%s' 指定的网络掩码无效</translation>
     </message>
     <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>每个连接的最大发送缓存，&lt;n&gt;*1000 字节(缺省：1000)</translation>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>-whitebind: '%s' 需要指定一个端口</translation>
     </message>
     <message>
-        <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation>仅接受符合客户端检查点设置的数据块文件</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>仅连接至指定网络的节点&lt;net&gt;(IPv4, IPv6 或者 Tor)</translation>
-    </message>
-    <message>
-        <source>Print block on startup, if found in block index</source>
-        <translation>如果在搜索区块中找到，请启动打印区块</translation>
-    </message>
-    <message>
-        <source>Print block tree on startup (default: 0)</source>
-        <translation>启动时打印区块树 (默认值: 0)</translation>
+        <source>Node relay options:</source>
+        <translation>节点中继选项:</translation>
     </message>
     <message>
         <source>RPC SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL选项：(见有关比特币设置用于SSL说明的维基百科)</translation>
+        <translation>RPC SSL选项：(见有关夸克币设置用于SSL说明的维基百科)</translation>
     </message>
     <message>
         <source>RPC server options:</source>
         <translation>RPC 服务器选项：</translation>
+    </message>
+    <message>
+        <source>RPC support for HTTP persistent connections (default: %d)</source>
+        <translation>RPC 支持 HTTP 持久连接 (默认: %d)</translation>
     </message>
     <message>
         <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
@@ -3149,36 +3238,20 @@ rpcpassword=%s
         <translation>随机每1个模拟测试&lt;n&gt;网络信息</translation>
     </message>
     <message>
-        <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation>运行一个程序，定时清理钱包 (默认值：1)</translation>
-    </message>
-    <message>
-        <source>SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation>SSL选项：(参见Quark Wiki关于SSL设置栏目)</translation>
-    </message>
-    <message>
-        <source>Send command to Quark Core</source>
-        <translation>发送指令到比特币核心钱包</translation>
+        <source>Receive and display P2P network alerts (default: %u)</source>
+        <translation>接收并显示 P2P 网络告警 (默认: %u)</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>跟踪/调试信息输出到控制台，不输出到 debug.log 文件</translation>
     </message>
     <message>
-        <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>设置最小数据块大小(缺省:0)</translation>
-    </message>
-    <message>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
-        <translation>设置DB_PRIVATE钱包标志DB环境 (默认值: 1)</translation>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>发送时尽可能 不支付交易费用 (默认: %u) </translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
         <translation>显示所有调试选项 (用法: --帮助 -帮助调试)</translation>
-    </message>
-    <message>
-        <source>Show benchmark information (default: 0)</source>
-        <translation>显示标准信息 (默认值: 0)</translation>
     </message>
     <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
@@ -3189,16 +3262,8 @@ rpcpassword=%s
         <translation>签署交易失败</translation>
     </message>
     <message>
-        <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>设置连接超时时间(缺省：5000毫秒)</translation>
-    </message>
-    <message>
-        <source>Start Quark Core Daemon</source>
-        <translation>开启比特币核心钱包守护进程</translation>
-    </message>
-    <message>
-        <source>System error: </source>
-        <translation>系统错误：</translation>
+        <source>This is experimental software.</source>
+        <translation>这是实验性的软件。</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -3209,12 +3274,16 @@ rpcpassword=%s
         <translation>交易金额必须是积极的</translation>
     </message>
     <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>费用策略的交易太大</translation>
+    </message>
+    <message>
         <source>Transaction too large</source>
         <translation>交易太大</translation>
     </message>
     <message>
-        <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation>使用UPnP映射监听端口 (缺省: 0)</translation>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>无法在此计算机上绑定 %s (绑定返回错误 %s)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
@@ -3225,6 +3294,10 @@ rpcpassword=%s
         <translation>JSON-RPC 连接用户名</translation>
     </message>
     <message>
+        <source>Wallet needed to be rewritten: restart Quark Core to complete</source>
+        <translation>钱包需要被改写：重新启动核心钱包来完成</translation>
+    </message>
+    <message>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -3233,16 +3306,20 @@ rpcpassword=%s
         <translation>警告：该软件版本已过时，请升级！</translation>
     </message>
     <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>警告：不支持的参数 -benchmark 已忽略，请使用 -debug=bench。</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>警告：不支持的参数 -debugnet 已忽略，请使用 -debug=net。</translation>
+    </message>
+    <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Zapping all transactions from wallet...</translation>
     </message>
     <message>
         <source>on startup</source>
         <translation>启动中</translation>
-    </message>
-    <message>
-        <source>version</source>
-        <translation>版本</translation>
     </message>
     <message>
         <source>wallet.dat corrupt, salvage failed</source>
@@ -3254,25 +3331,12 @@ rpcpassword=%s
 </translation>
     </message>
     <message>
-        <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>允许从指定IP接受到的 JSON-RPC 连接</translation>
-    </message>
-    <message>
-        <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>向IP地址为 &lt;ip&gt; 的节点发送指令 (缺省: 127.0.0.1)</translation>
-    </message>
-    <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
         <translation>当最佳数据块变化时执行命令 (命令行中的 %s 会被替换成数据块哈希值)</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>将钱包升级到最新的格式</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>设置密钥池大小为 &lt;n&gt; (缺省: 100)
-</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
@@ -3283,23 +3347,9 @@ rpcpassword=%s
         <translation>为 JSON-RPC 连接使用 OpenSSL (https) 连接</translation>
     </message>
     <message>
-        <source>Server certificate file (default: server.cert)</source>
-        <translation>服务器证书 (默认为 server.cert)
-</translation>
-    </message>
-    <message>
-        <source>Server private key (default: server.pem)</source>
-        <translation>服务器私钥 (默认为 server.pem)
-</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>本帮助信息
 </translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>无法绑定本机端口 %s  (返回错误消息 %d, %s)</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
@@ -3314,44 +3364,180 @@ rpcpassword=%s
         <translation>wallet.dat 钱包文件加载出错：钱包损坏</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Quark</source>
-        <translation>wallet.dat 钱包文件加载错误：请升级到最新版Bitcoin客户端</translation>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = 保留 tx meta data , 如 account owner 和 payment request information, 2 = 不保留 tx meta data) </translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Quark to complete</source>
-        <translation>钱包文件需要被重写：请退出并重新启动Bitcoin客户端</translation>
+        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
+        <translation>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation>数据块验证 严密级别  -checkblocks (0-4, 默认: %u) </translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
+        <translation>挖矿时，记录交易优先级 和 每kb交易费 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>维护一份完整的交易索引, 用于 getrawtransaction RPC调用 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>限制 非礼节点 若干秒内不能连接 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>输出调试信息 (默认: %u, 提供 &lt;category&gt; 是可选项)</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>通过Tor隐藏服务连接节点时 使用不同的SOCKS5代理 (默认: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(默认: %s) </translation>
+    </message>
+    <message>
+        <source>Acceptable ciphers (default: %s)</source>
+        <translation>可接受的密码算法 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>禁止使用安全模式，重新写入一个真正的安全模式日志(默认: %u)</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
         <translation>wallet.dat 钱包文件加载出错</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
+        <source>Force safe mode (default: %u)</source>
+        <translation>强制安全模式 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Generate coins (default: %u)</source>
+        <translation>生成夸克币 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>启动时检测多少个数据块(默认: %u, 0=所有)</translation>
+    </message>
+    <message>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>在调试输出中包含IP地址 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid -proxy address: '%s'</source>
         <translation>无效的代理地址：%s</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>签名缓冲区大小限制最多 &lt;n&gt; 条 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>使用 &lt;port&gt;端口监听 JSON-RPC 连接 (默认: %u ; testnet: %u) </translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>使用端口 &lt;port&gt; 监听连接 (默认: %u ; testnet: %u) </translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>保留最多 &lt;n&gt; 条节点连接 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>每个连接的最大接收缓存，&lt;n&gt;*1000 字节 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>每个连接的最大发送缓存，&lt;n&gt;*1000 字节 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>仅接受符合客户端检查点设置 的数据块链 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>输出调试信息时，前面加上时间戳 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Relay and mine data carrier transactions (default: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>是否转发 非P2SH格式的多签名交易 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>运行一个线程，定时清理钱包 (默认: %u)</translation>
+    </message>
+    <message>
+        <source>Server certificate file (default: %s)</source>
+        <translation>服务器证书文件 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Server private key (default: %s)</source>
+        <translation>服务器私钥 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>设置私钥池大小为 &lt;n&gt; (默认：%u) </translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>设置数据块 最小字节数 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>设置RPC服务线程数 (默认: %d) </translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>指定配置文件 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>指定连接超时毫秒数 (最小: 1, 默认: %d) </translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>指定 pid 文件 (默认: %s) </translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>付款时允许使用未确认的零钱 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>从磁盘导入数据块后退出 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>断开 非礼节点的阀值 (默认: %u) </translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>-onlynet 指定的是未知网络：%s</translation>
     </message>
     <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>被指定的是未知socks代理版本: %i</translation>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>无法解析 -bind 端口地址: '%s'</translation>
     </message>
     <message>
-        <source>Cannot resolve -bind address: &apos;%s&apos;</source>
-        <translation>无法解析 -bind 端口地址: &apos;%s&apos;</translation>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>无法解析 -externalip 地址: '%s'</translation>
     </message>
     <message>
-        <source>Cannot resolve -externalip address: &apos;%s&apos;</source>
-        <translation>无法解析 -externalip 地址: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>非法金额 -paytxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation>无效金额</translation>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>非法金额 -paytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -3386,20 +3572,8 @@ rpcpassword=%s
         <translation>加载完成</translation>
     </message>
     <message>
-        <source>To use the %s option</source>
-        <translation>使用 %s 选项</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>错误</translation>
-    </message>
-    <message>
-        <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
-%s
-If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>您必须在配置文件中加入选项 rpcpassword :
- %s
-如果配置文件不存在，请新建，并将文件权限设置为仅允许文件所有者读取.</translation>
     </message>
 </context>
 </TS>

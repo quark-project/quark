@@ -9,8 +9,12 @@
 #include "qvalidatedlineedit.h"
 #include "walletmodel.h"
 
-#include "core.h"
+#include "primitives/transaction.h"
 #include "init.h"
+#include "main.h"
+#include "protocol.h"
+#include "script/script.h"
+#include "script/standard.h"
 #include "util.h"
 
 #ifdef WIN32
@@ -61,6 +65,16 @@
 static boost::filesystem::detail::utf8_codecvt_facet utf8;
 #endif
 
+#if defined(Q_OS_MAC)
+extern double NSAppKitVersionNumber;
+#if !defined(NSAppKitVersionNumber10_8)
+#define NSAppKitVersionNumber10_8 1187
+#endif
+#if !defined(NSAppKitVersionNumber10_9)
+#define NSAppKitVersionNumber10_9 1265
+#endif
+#endif
+
 namespace GUIUtil {
 
 QString dateTimeStr(const QDateTime &date)
@@ -90,7 +104,9 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 
     widget->setFont(bitcoinAddressFont());
 #if QT_VERSION >= 0x040700
-    widget->setPlaceholderText(QObject::tr("Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)"));
+    // We don't want translators to use own addresses in translations
+    // and this is the only place, where this address is supplied.
+    widget->setPlaceholderText(QObject::tr("Enter a Quark address (e.g. %1)").arg("1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -107,12 +123,16 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no quark: URI
+    // return if URI is not valid or is no bitcoin: URI
     if(!uri.isValid() || uri.scheme() != QString("quark"))
         return false;
 
     SendCoinsRecipient rv;
     rv.address = uri.path();
+    // Trim any following forward slash which may have been added by the OS
+    if (rv.address.endsWith("/")) {
+        rv.address.truncate(rv.address.length() - 1);
+    }
     rv.amount = 0;
 
 #if QT_VERSION < 0x050000
@@ -164,9 +184,9 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert bitcoin:// to bitcoin:
+    // Convert quark:// to quark:
     //
-    //    Cannot handle this later, because bitcoin:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because quark:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
     if(uri.startsWith("quark://", Qt::CaseInsensitive))
     {
@@ -183,7 +203,7 @@ QString formatBitcoinURI(const SendCoinsRecipient &info)
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, info.amount));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTC, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -204,12 +224,12 @@ QString formatBitcoinURI(const SendCoinsRecipient &info)
     return ret;
 }
 
-bool isDust(const QString& address, qint64 amount)
+bool isDust(const QString& address, const CAmount& amount)
 {
     CTxDestination dest = CBitcoinAddress(address.toStdString()).Get();
-    CScript script; script.SetDestination(dest);
+    CScript script = GetScriptForDestination(dest);
     CTxOut txOut(amount, script);
-    return txOut.IsDust(CTransaction::nMinRelayTxFee);
+    return txOut.IsDust(::minRelayTxFee);
 }
 
 QString HtmlEscape(const QString& str, bool fMultiLine)
@@ -366,8 +386,45 @@ void openDebugLogfile()
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathDebug)));
 }
 
+void SubstituteFonts(const QString& language)
+{
+#if defined(Q_OS_MAC)
+// Background:
+// OSX's default font changed in 10.9 and Qt is unable to find it with its
+// usual fallback methods when building against the 10.7 sdk or lower.
+// The 10.8 SDK added a function to let it find the correct fallback font.
+// If this fallback is not properly loaded, some characters may fail to
+// render correctly.
+//
+// The same thing happened with 10.10. .Helvetica Neue DeskInterface is now default.
+//
+// Solution: If building with the 10.7 SDK or lower and the user's platform
+// is 10.9 or higher at runtime, substitute the correct font. This needs to
+// happen before the QApplication is created.
+#if defined(MAC_OS_X_VERSION_MAX_ALLOWED) && MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_8
+    if (floor(NSAppKitVersionNumber) > NSAppKitVersionNumber10_8)
+    {
+        if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_9)
+            /* On a 10.9 - 10.9.x system */
+            QFont::insertSubstitution(".Lucida Grande UI", "Lucida Grande");
+        else
+        {
+            /* 10.10 or later system */
+            if (language == "zh_CN" || language == "zh_TW" || language == "zh_HK") // traditional or simplified Chinese
+              QFont::insertSubstitution(".Helvetica Neue DeskInterface", "Heiti SC");
+            else if (language == "ja") // Japanesee
+              QFont::insertSubstitution(".Helvetica Neue DeskInterface", "Songti SC");
+            else
+              QFont::insertSubstitution(".Helvetica Neue DeskInterface", "Lucida Grande");
+        }
+    }
+#endif
+#endif
+}
+
 ToolTipToRichTextFilter::ToolTipToRichTextFilter(int size_threshold, QObject *parent) :
-    QObject(parent), size_threshold(size_threshold)
+    QObject(parent),
+    size_threshold(size_threshold)
 {
 
 }
@@ -515,7 +572,7 @@ boost::filesystem::path static StartupShortcutPath()
 
 bool GetStartOnSystemStartup()
 {
-    // check for Bitcoin.lnk
+    // check for Quark.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -630,7 +687,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a bitcoin.desktop file to the autostart directory:
+        // Write a quark.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         optionFile << "Name=Quark\n";
@@ -652,7 +709,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the bitcoin app
+    // loop through the list of startup items and try to find the quark app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -686,7 +743,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add bitcoin app to startup item list
+        // add quark app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {
@@ -753,5 +810,56 @@ QString boostPathToQString(const boost::filesystem::path &path)
     return QString::fromStdString(path.string());
 }
 #endif
+
+QString formatDurationStr(int secs)
+{
+    QStringList strList;
+    int days = secs / 86400;
+    int hours = (secs % 86400) / 3600;
+    int mins = (secs % 3600) / 60;
+    int seconds = secs % 60;
+
+    if (days)
+        strList.append(QString(QObject::tr("%1 d")).arg(days));
+    if (hours)
+        strList.append(QString(QObject::tr("%1 h")).arg(hours));
+    if (mins)
+        strList.append(QString(QObject::tr("%1 m")).arg(mins));
+    if (seconds || (!days && !hours && !mins))
+        strList.append(QString(QObject::tr("%1 s")).arg(seconds));
+
+    return strList.join(" ");
+}
+
+QString formatServicesStr(quint64 mask)
+{
+    QStringList strList;
+
+    // Just scan the last 8 bits for now.
+    for (int i = 0; i < 8; i++) {
+        uint64_t check = 1 << i;
+        if (mask & check)
+        {
+            switch (check)
+            {
+            case NODE_NETWORK:
+                strList.append(QObject::tr("NETWORK"));
+                break;
+            default:
+                strList.append(QString("%1[%2]").arg(QObject::tr("UNKNOWN")).arg(check));
+            }
+        }
+    }
+
+    if (strList.size())
+        return strList.join(" & ");
+    else
+        return QObject::tr("None");
+}
+
+QString formatPingTime(double dPingTime)
+{
+    return dPingTime == 0 ? QObject::tr("N/A") : QString(QObject::tr("%1 ms")).arg(QString::number((int)(dPingTime * 1000), 10));
+}
 
 } // namespace GUIUtil

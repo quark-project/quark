@@ -2,12 +2,12 @@
 #define HASHBLOCK_H
 
 #include "uint256.h"
-#include "sph_blake.h"
-#include "sph_bmw.h"
-#include "sph_groestl.h"
-#include "sph_jh.h"
-#include "sph_keccak.h"
-#include "sph_skein.h"
+#include "crypto/sph_blake.h"
+#include "crypto/sph_bmw.h"
+#include "crypto/sph_groestl.h"
+#include "crypto/sph_jh.h"
+#include "crypto/sph_keccak.h"
+#include "crypto/sph_skein.h"
 
 #ifndef QT_NO_DEBUG
 #include <string>
@@ -33,7 +33,7 @@ GLOBAL sph_skein512_context     z_skein;
     sph_jh512_init(&z_jh); \
     sph_keccak512_init(&z_keccak); \
     sph_skein512_init(&z_skein); \
-} while (0) 
+} while (0)
 
 #define ZBLAKE (memcpy(&ctx_blake, &z_blake, sizeof(z_blake)))
 #define ZBMW (memcpy(&ctx_bmw, &z_bmw, sizeof(z_bmw)))
@@ -61,14 +61,14 @@ inline uint256 Hash9(const T1 pbegin, const T1 pend)
 
     uint512 mask = 8;
     uint512 zero = 0;
-    
+
     uint512 hash[9];
 
     sph_blake512_init(&ctx_blake);
     // ZBLAKE;
     sph_blake512 (&ctx_blake, (pbegin == pend ? pblank : static_cast<const void*>(&pbegin[0])), (pend - pbegin) * sizeof(pbegin[0]));
     sph_blake512_close(&ctx_blake, static_cast<void*>(&hash[0]));
-    
+
     sph_bmw512_init(&ctx_bmw);
     // ZBMW;
     sph_bmw512 (&ctx_bmw, static_cast<const void*>(&hash[0]), 64);
@@ -88,7 +88,7 @@ inline uint256 Hash9(const T1 pbegin, const T1 pend)
         sph_skein512 (&ctx_skein, static_cast<const void*>(&hash[1]), 64);
         sph_skein512_close(&ctx_skein, static_cast<void*>(&hash[2]));
     }
-    
+
     sph_groestl512_init(&ctx_groestl);
     // ZGROESTL;
     sph_groestl512 (&ctx_groestl, static_cast<const void*>(&hash[2]), 64);
@@ -113,7 +113,7 @@ inline uint256 Hash9(const T1 pbegin, const T1 pend)
         sph_bmw512 (&ctx_bmw, static_cast<const void*>(&hash[4]), 64);
         sph_bmw512_close(&ctx_bmw, static_cast<void*>(&hash[5]));
     }
-    
+
     sph_keccak512_init(&ctx_keccak);
     // ZKECCAK;
     sph_keccak512 (&ctx_keccak, static_cast<const void*>(&hash[5]), 64);

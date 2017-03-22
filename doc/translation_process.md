@@ -1,7 +1,7 @@
 Translations
 ============
 
-The Qt GUI can be easily translated into other languages. Here's how we
+The Bitcoin Core GUI can be easily translated into other languages. Here's how we
 handle those translations.
 
 Files and Folders
@@ -17,10 +17,12 @@ automated.
 This file must be updated whenever a new translation is added. Please note that
 files must end with `.qm`, not `.ts`.
 
-    <qresource prefix="/translations">
-        <file alias="en">locale/bitcoin_en.qm</file>
-        ...
-    </qresource>
+```xml
+<qresource prefix="/translations">
+    <file alias="en">locale/bitcoin_en.qm</file>
+    ...
+</qresource>
+```
 
 ### src/qt/locale/
 

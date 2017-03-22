@@ -1,46 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
-<context>
-    <name>AboutDialog</name>
-    <message>
-        <source>About Quark Core</source>
-        <translation>O jadre Quark</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Quark Core&lt;/b&gt; version</source>
-        <translation>Verzia &lt;b&gt;Quark jadra&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Toto je experimentálny softvér.
-
-Distribuovaný pod MIT/X11 softvérovou licenciou, viď sprevádzajúci súbor COPYING alebo http://www.opensource.org/licenses/mit-license.php.
-
-Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v OpenSSL Toolkit (http://www.openssl.org/) a kryptografický softvér napísaný Ericom Youngom (eay@cryptsoft.com) a UPnP softvér napísaný Thomasom Bernardom.</translation>
-    </message>
-    <message>
-        <source>Copyright</source>
-        <translation>Autorské práva</translation>
-    </message>
-    <message>
-        <source>The Quark Core developers</source>
-        <translation>Vývojári jadra Quark</translation>
-    </message>
-    <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-bit)</translation>
-    </message>
-</context>
+<TS language="sk" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
-        <source>Double-click to edit address or label</source>
-        <translation>Dvojklikom editovať adresu alebo popis</translation>
+        <source>Right-click to edit address or label</source>
+        <translation>Kliknutím pravým tlačidlom upravte adresu alebo popis</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -124,15 +87,15 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Čiarkou oddelený súbor (*.csv)</translation>
+        <translation>Čiarkou oddelovaný súbor (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
         <translation>Export zlyhal</translation>
     </message>
     <message>
-        <source>There was an error trying to save the address list to %1.</source>
-        <translation>Nastala chyba pri pokuse uložiť zoznam adries do %1.</translation>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Nastala chyba pri pokuse uložiť zoznam adries do %1. Skúste znovu.</translation>
     </message>
 </context>
 <context>
@@ -167,10 +130,6 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     <message>
         <source>Repeat new passphrase</source>
         <translation>Zopakujte nové heslo</translation>
-    </message>
-    <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Zadajte nové heslo k peňaženke.&lt;br/&gt;Prosím použite heslo s dĺžkou aspon &lt;b&gt;10 alebo viac náhodných znakov&lt;/b&gt;, alebo &lt;b&gt;8 alebo viac slov&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -225,8 +184,12 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Peňaženka zašifrovaná</translation>
     </message>
     <message>
-        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarks from being stolen by malware infecting your computer.</source>
-        <translation>Quark sa teraz ukončí pre dokončenie procesu šifrovania. Pamätaj že šifrovanie peňaženky Ťa nemôže úplne ochrániť pred kráďežou bitcoinov pomocou škodlivého software.</translation>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Zadajte nové heslo k peňaženke.&lt;br/&gt;Prosím použite heslo s dĺžkou aspoň &lt;b&gt;10 alebo viac náhodných znakov&lt;/b&gt;, alebo &lt;b&gt;8 alebo viac slov&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarkcoins from being stolen by malware infecting your computer.</source>
+        <translation>Quark sa teraz ukončí pre dokončenie procesu šifrovania. Pamätaj že šifrovanie peňaženky Ťa nemôže úplne ochrániť pred kráďežou quarkov pomocou škodlivého software.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -296,10 +259,6 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Ukončiť program</translation>
     </message>
     <message>
-        <source>Show information about Quark</source>
-        <translation>Zobraziť informácie o Quark</translation>
-    </message>
-    <message>
         <source>About &amp;Qt</source>
         <translation>O &amp;Qt</translation>
     </message>
@@ -325,15 +284,19 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>Posielajúca adresa ...</translation>
+        <translation>&amp;Odosielajúce adresy ...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>Prijímajúca adresa...</translation>
+        <translation>&amp;Prijímajúce adresy...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
         <translation>Otvoriť &amp;URI...</translation>
+    </message>
+    <message>
+        <source>Quark Core client</source>
+        <translation>Quark Core klient</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -345,11 +308,11 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message>
         <source>Send coins to a Quark address</source>
-        <translation>Poslať quarks na adresu</translation>
+        <translation>Poslať quarkcoins na adresu</translation>
     </message>
     <message>
         <source>Modify configuration options for Quark</source>
-        <translation>Upraviť možnosti nastavenia pre bitcoin</translation>
+        <translation>Upraviť možnosti nastavenia pre quark</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -388,6 +351,10 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>&amp;Prijať</translation>
     </message>
     <message>
+        <source>Show information about Quark Core</source>
+        <translation>Zobraziť informácie o Quark Core</translation>
+    </message>
+    <message>
         <source>&amp;Show / Hide</source>
         <translation>Zobraziť / skryť</translation>
     </message>
@@ -424,10 +391,6 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <translation>Lišta záložiek</translation>
     </message>
     <message>
-        <source>[testnet]</source>
-        <translation>[testovacia sieť]</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
         <translation>Jadro Quark</translation>
     </message>
@@ -449,7 +412,7 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message>
         <source>Open a quark: URI or payment request</source>
-        <translation>Otvoriť bitcoin URI alebo výzvu k platbe</translation>
+        <translation>Otvoriť quark URI alebo výzvu k platbe</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -459,25 +422,13 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
         <source>Show the Quark Core help message to get a list with possible Quark command-line options</source>
         <translation>Zobraziť pomocnú správu od Quark Jadra pre získanie zoznamu dostupných možností príkazového riadku</translation>
     </message>
-    <message>
-        <source>Quark client</source>
-        <translation>Quark klient</translation>
-    </message>
     <message numerus="yes">
         <source>%n active connection(s) to Quark network</source>
-        <translation><numerusform>%n aktívne spojenie v Quark sieti</numerusform><numerusform>%n aktívne spojenia v Quark sieti</numerusform><numerusform>%n aktívnych spojení v Bitconi sieti</numerusform></translation>
+        <translation><numerusform>%n aktívne pripojenie do siete Quark</numerusform><numerusform>%n aktívne pripojenia do siete Quark</numerusform><numerusform>%n aktívnych pripojení do siete Quark</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
         <translation>Nedostupný zdroj blokov...</translation>
-    </message>
-    <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>Spracovaných %1 z %2 (odhadovaných) blokov transakčnej histórie.</translation>
-    </message>
-    <message>
-        <source>Processed %1 blocks of transaction history.</source>
-        <translation>Spracovaných %1 blokov transakčnej histórie.</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -489,7 +440,7 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message numerus="yes">
         <source>%n week(s)</source>
-        <translation><numerusform>%n týždeň</numerusform><numerusform>%n týždne</numerusform><numerusform>%n týždňov</numerusform></translation>
+        <translation><numerusform>%n týždňom</numerusform><numerusform>%n týždňami</numerusform><numerusform>%n týždňami</numerusform></translation>
     </message>
     <message>
         <source>%1 and %2</source>
@@ -497,7 +448,7 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message numerus="yes">
         <source>%n year(s)</source>
-        <translation><numerusform>%</numerusform><numerusform>%d)</numerusform><numerusform>%n rokov</numerusform></translation>
+        <translation><numerusform>%n rok</numerusform><numerusform>%n roky</numerusform><numerusform>%n rokov</numerusform></translation>
     </message>
     <message>
         <source>%1 behind</source>
@@ -509,7 +460,7 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
-        <translation>Transakcie potom nebudú ešte viditeľné.</translation>
+        <translation>Transakcie po tomto čase ešte nebudú viditeľné.</translation>
     </message>
     <message>
         <source>Error</source>
@@ -526,6 +477,10 @@ Tento výrobok obsahuje sofvér, ktorý vyvynul OpenSSL Project pre použitie v 
     <message>
         <source>Up to date</source>
         <translation>Aktualizovaný</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>Spracovaný %n blok transakčnej histórie.</numerusform><numerusform>Spracované %n bloky transakčnej histórie.</numerusform><numerusform>Spracovaných %n blokov transakčnej histórie.</numerusform></translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -558,10 +513,6 @@ Adresa: %4</translation>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/b&gt; a momentálne &lt;b&gt;zamknutá&lt;/b&gt;</translation>
     </message>
-    <message>
-        <source>A fatal error occurred. Quark can no longer continue safely and will quit.</source>
-        <translation>Vyskytla sa neblahá chyba. Quark nemôže daľej bezpečne pokračovať a vypne sa.</translation>
-    </message>
 </context>
 <context>
     <name>ClientModel</name>
@@ -573,8 +524,8 @@ Adresa: %4</translation>
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <source>Coin Control Address Selection</source>
-        <translation>Coin Control výber adresy</translation>
+        <source>Coin Selection</source>
+        <translation>Výber mince</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -597,8 +548,8 @@ Adresa: %4</translation>
         <translation>Poplatok:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>Malá hodnota na výstupe:</translation>
+        <source>Dust:</source>
+        <translation>Prach:</translation>
     </message>
     <message>
         <source>After Fee:</source>
@@ -625,8 +576,12 @@ Adresa: %4</translation>
         <translation>Suma</translation>
     </message>
     <message>
-        <source>Address</source>
-        <translation>Adresa</translation>
+        <source>Received with label</source>
+        <translation>Prijaté s označením</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Prijaté s adresou</translation>
     </message>
     <message>
         <source>Date</source>
@@ -689,8 +644,8 @@ Adresa: %4</translation>
         <translation>Kopírovať prioritu</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>Kopírovať malý výstup.</translation>
+        <source>Copy dust</source>
+        <translation>Kopírovať prach</translation>
     </message>
     <message>
         <source>Copy change</source>
@@ -741,8 +696,8 @@ Adresa: %4</translation>
         <translation>žiadne</translation>
     </message>
     <message>
-        <source>Dust</source>
-        <translation>Prach</translation>
+        <source>Can vary +/- %1 satoshi(s) per input.</source>
+        <translation>Môže sa líšiť o +/- %1 satoshi pre každý vstup</translation>
     </message>
     <message>
         <source>yes</source>
@@ -769,24 +724,12 @@ Adresa: %4</translation>
         <translation>Transakcie s vysokou prioritou sa pravdepodobnejsie dostanú do bloku.</translation>
     </message>
     <message>
-        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
-        <translation>Tento popis zčervenie ak je priorita nižčia ako &quot;medium&quot;.</translation>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Tento popis zčervenie ak je priorita nižčia ako "medium".</translation>
     </message>
     <message>
         <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
         <translation>Tento popis zčervenie ak ktorýkoľvek príjemca dostane sumu menšiu ako %1.</translation>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 is required.</source>
-        <translation>To znamená že je požadovaný poplatok aspoň %1.</translation>
-    </message>
-    <message>
-        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation>Sumy pod 0.546 násobkom minimálneho poplatku pre prenos sú považované za prach.</translation>
-    </message>
-    <message>
-        <source>This label turns red, if the change is smaller than %1.</source>
-        <translation>Tento popis zžervenie ak výdavok je menší než %1.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -840,12 +783,12 @@ Adresa: %4</translation>
         <translation>Upraviť odosielaciu adresu</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation>Vložená adresa &quot;%1&quot; sa už nachádza v adresári.</translation>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Vložená adresa "%1" sa už nachádza v adresári.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid Quark address.</source>
-        <translation>Vložená adresa &quot;%1&quot; nieje platnou adresou bitcoin.</translation>
+        <source>The entered address "%1" is not a valid Quark address.</source>
+        <translation>Vložená adresa "%1" nieje platnou adresou quark.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -868,7 +811,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
-        <translation>Priečinok už existuje. Pridajte &quot;%1&quot; ak chcete vytvoriť nový priečinok tu.</translation>
+        <translation>Priečinok už existuje. Pridajte "%1" ak chcete vytvoriť nový priečinok tu.</translation>
     </message>
     <message>
         <source>Path already exists, and is not a directory.</source>
@@ -882,16 +825,24 @@ Adresa: %4</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Quark Core - Command-line options</source>
-        <translation>Jadro Quark - možnosti príkazového riadku</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
         <translation>Jadro Quark</translation>
     </message>
     <message>
         <source>version</source>
         <translation>verzia</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About Quark Core</source>
+        <translation>O jadre Quark</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Voľby príkazového riadku</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -906,8 +857,8 @@ Adresa: %4</translation>
         <translation>UI možnosti</translation>
     </message>
     <message>
-        <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation>Nastaviť jazyk, napríklad &quot;sk_SK&quot; (predvolené: systémový)</translation>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Nastaviť jazyk, napríklad "sk_SK" (predvolené: systémový)</translation>
     </message>
     <message>
         <source>Start minimized</source>
@@ -953,24 +904,24 @@ Adresa: %4</translation>
         <translation>Použiť vlastný dátový adresár:</translation>
     </message>
     <message>
-        <source>Quark</source>
-        <translation>Quark</translation>
+        <source>Quark Core</source>
+        <translation>Jadro Quark</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
-        <translation>Chyba: Predpísaný priečinok pre dáta &quot;%1&quot; nemôže byt vytvorený.</translation>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Chyba: Zadaný priečinok pre dáta "%1" nemôže byť vytvorený.</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
-    <message>
-        <source>GB of free space available</source>
-        <translation>GB dostupného voľného miesta</translation>
+    <message numerus="yes">
+        <source>%n GB of free space available</source>
+        <translation><numerusform>%n GB voľného miesta</numerusform><numerusform>%n GB voľného miesta</numerusform><numerusform>%n GB voľného miesta</numerusform></translation>
     </message>
-    <message>
-        <source>(of %1GB needed)</source>
-        <translation>(z %1GB potrebných)</translation>
+    <message numerus="yes">
+        <source>(of %n GB needed)</source>
+        <translation><numerusform>(z %n GB potrebného)</numerusform><numerusform>(z %n GB potrebných)</numerusform><numerusform>(z %n GB potrebných)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1007,14 +958,6 @@ Adresa: %4</translation>
         <translation>&amp;Hlavné</translation>
     </message>
     <message>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation>Voliteľný transakčný poplatok za kB ktorý pomôže rýchlemu spracovaniu transakcie. Väčšina transakcií má 1 kB. Poplatok 0.01 je odporúčaný.</translation>
-    </message>
-    <message>
-        <source>Pay transaction &amp;fee</source>
-        <translation>Zaplatiť transakčné &amp;poplatky</translation>
-    </message>
-    <message>
         <source>Automatically start Quark after logging in to the system.</source>
         <translation>Automaticky spustiť Quark po zapnutí počítača</translation>
     </message>
@@ -1024,7 +967,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
-        <translation>Veľkosť vyrovnávacej pamäti databázy</translation>
+        <translation>Veľkosť vyrovnávacej pamäti &amp;databázy</translation>
     </message>
     <message>
         <source>MB</source>
@@ -1032,15 +975,15 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Number of script &amp;verification threads</source>
-        <translation>Počet skript overujucich vlákien</translation>
+        <translation>Počet &amp;vlákien overujúcich skript</translation>
     </message>
     <message>
-        <source>Connect to the Quark network through a SOCKS proxy.</source>
-        <translation>Pripojiť k Quark sieti cez SOCKS proxy.</translation>
+        <source>Accept connections from outside</source>
+        <translation>Prijať spojenia zvonku</translation>
     </message>
     <message>
-        <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>Pripojiť sa cez SOCKS proxy (predvolené proxy)</translation>
+        <source>Allow incoming connections</source>
+        <translation>Povoliť prichádzajúce spojenia</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
@@ -1084,7 +1027,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
-        <translation>Povoliť možnosti coin control</translation>
+        <translation>Povoliť možnosti "&amp;coin control"</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
@@ -1103,6 +1046,14 @@ Adresa: %4</translation>
         <translation>Mapovať port pomocou &amp;UPnP</translation>
     </message>
     <message>
+        <source>Connect to the Quark network through a SOCKS5 proxy.</source>
+        <translation>Pripojiť do siete Quark cez proxy server SOCKS5.</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Pripojiť cez proxy server SOCKS5 (predvolený proxy).</translation>
+    </message>
+    <message>
         <source>Proxy &amp;IP:</source>
         <translation>Proxy &amp;IP:</translation>
     </message>
@@ -1113,14 +1064,6 @@ Adresa: %4</translation>
     <message>
         <source>Port of the proxy (e.g. 9050)</source>
         <translation>Port proxy (napr. 9050)</translation>
-    </message>
-    <message>
-        <source>SOCKS &amp;Version:</source>
-        <translation>Verzia SOCKS:</translation>
-    </message>
-    <message>
-        <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>SOCKS verzia proxy (napr. 5)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1160,19 +1103,11 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Zvoľte ako deliť bitcoin pri zobrazovaní pri platbách a užívateľskom rozhraní.</translation>
-    </message>
-    <message>
-        <source>Whether to show Quark addresses in the transaction list or not.</source>
-        <translation>Či ukazovať Quark adresy v zozname transakcií alebo nie.</translation>
-    </message>
-    <message>
-        <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Zobraziť adresy zo zoznamu transakcií</translation>
+        <translation>Zvoľte ako deliť quark pri zobrazovaní pri platbách a užívateľskom rozhraní.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
-        <translation>Či zobrazovať možnosti &quot;Coin control&quot; alebo nie.</translation>
+        <translation>Či zobrazovať možnosti "Coin control" alebo nie.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
@@ -1219,11 +1154,11 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Quark network after a connection is established, but this process has not completed yet.</source>
-        <translation>Zobrazené informácie môžu byť neaktuápne. Vaša peňaženka sa automaticky synchronizuje so sieťou Quark po nadviazaní spojenia ale tento proces ešte nieje ukončený.</translation>
+        <translation>Zobrazené informácie môžu byť neaktuálne. Vaša peňaženka sa automaticky synchronizuje so sieťou Quark po nadviazaní spojenia, ale tento proces ešte nie je ukončený.</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>Peňaženka</translation>
+        <source>Watch-only:</source>
+        <translation>Iba sledované:</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1235,7 +1170,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Pending:</source>
-        <translation>Čakajúce potvrdenie</translation>
+        <translation>Čakajúce potvrdenie:</translation>
     </message>
     <message>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
@@ -1250,6 +1185,10 @@ Adresa: %4</translation>
         <translation>Vytvorený zostatok ktorý ešte nedosiahol zrelosť</translation>
     </message>
     <message>
+        <source>Balances</source>
+        <translation>Stav účtu</translation>
+    </message>
+    <message>
         <source>Total:</source>
         <translation>Celkovo:</translation>
     </message>
@@ -1258,8 +1197,28 @@ Adresa: %4</translation>
         <translation>Váš súčasný celkový zostatok</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Nedávne transakcie&lt;/b&gt;</translation>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Váš celkový zostatok pre adresy ktoré sa iba sledujú</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Použiteľné:</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Nedávne transakcie</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Nepotvrdené transakcie pre adresy ktoré sa iba sledujú</translation>
+    </message>
+    <message>
+        <source>Mined balance in watch-only addresses that has not yet matured</source>
+        <translation>Vyťažená suma pre adresy ktoré sa iba sledujú ale ešte nie je dozretá</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Aktuálny celkový zostatok pre adries ktoré sa iba sledujú</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1273,8 +1232,20 @@ Adresa: %4</translation>
         <translation>Spracovanie URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
-        <translation>URI sa nedá rozložiť! To môže byť spôsobené neplatou Quark adresou alebo zle upravenými vlastnosťami URI.</translation>
+        <source>Invalid payment address %1</source>
+        <translation>Neplatná adresa platby %1</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Požiadavka na platbu zamietnutá</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Sieť požiadavky na platbu nie je zhodná so sieťou klienta.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Požiadavka na platbu nie je inicializovaná</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1289,23 +1260,19 @@ Adresa: %4</translation>
         <translation>Nedá sa spustiť obslužný program quark: click-to-pay zaplatiť kliknutím</translation>
     </message>
     <message>
-        <source>Net manager warning</source>
-        <translation>Varovanie správcu siete</translation>
-    </message>
-    <message>
-        <source>Your active proxy doesn&apos;t support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation>Vaše aktívne proxy nepodporuje SOCKS5, ktoré je potrebné pre vyzvu na zaplatenie cez proxy.</translation>
-    </message>
-    <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>URL pre stiahnutie výzvy na zaplatenie je neplatné: %1</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
+        <translation>URI sa nedá analyzovať! To môže byť spôsobené neplatnou Quark adresou alebo zle upravenými vlastnosťami URI.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
         <translation>Obsluha súboru s požiadavkou na platbu</translation>
     </message>
     <message>
-        <source>Payment request file can not be read or processed! This can be caused by an invalid payment request file.</source>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
         <translation>Súbor s výzvou na zaplatenie sa nedá čítať alebo spracovať! To môže byť spôsobené aj neplatným súborom s výzvou.</translation>
     </message>
     <message>
@@ -1317,12 +1284,20 @@ Adresa: %4</translation>
         <translation>Vrátenie z  %1</translation>
     </message>
     <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Požiadavka na platbu %1 je príliš veľká (%2 bajtov, povolené je %3 bajtov).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Ochrana pred zahltením požiadavkami na platbu</translation>
+    </message>
+    <message>
         <source>Error communicating with %1: %2</source>
         <translation>Chyba komunikácie s %1: %2 </translation>
     </message>
     <message>
-        <source>Payment request can not be parsed or processed!</source>
-        <translation>Požiadavka na platbu nemôže byť analyzovaná alebo spracovaná!</translation>
+        <source>Payment request cannot be parsed!</source>
+        <translation>Požiadavka na platbu nemôže byť analyzovaná!</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
@@ -1338,30 +1313,57 @@ Adresa: %4</translation>
     </message>
 </context>
 <context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>User Agent</source>
+        <translation>Aplikácia</translation>
+    </message>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Adresa/Názov počítača</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Čas odozvy</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <source>Quark</source>
-        <translation>Quark</translation>
+        <source>Amount</source>
+        <translation>Suma</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation>Chyba: Uvedený priečinok s dátami &quot;%1&quot; neexistuje.</translation>
+        <source>Enter a Quark address (e.g. %1)</source>
+        <translation>Zadajte quark adresu (napr. %1)</translation>
     </message>
     <message>
-        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation>Chyba: Nedá sa rozlúštit súbor s nastaveniami: %1. Používajte výlučne kľúč=hodnota syntax.</translation>
+        <source>%1 d</source>
+        <translation>%1 d</translation>
     </message>
     <message>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Chyba: Nesprávna kombinácia -regtest a -testnet.</translation>
+        <source>%1 h</source>
+        <translation>%1 h</translation>
     </message>
     <message>
-        <source>Quark Core didn&apos;t yet exit safely...</source>
-        <translation>Jadro Quark sa ešte úspešne nevyplo ...</translation>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Zadajte Quark adresu (napr. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>%1 s</source>
+        <translation>%1 s</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Žiadne</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>nie je k dispozícii</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 ms</translation>
     </message>
 </context>
 <context>
@@ -1414,6 +1416,10 @@ Adresa: %4</translation>
         <translation>Používa OpenSSL verziu</translation>
     </message>
     <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Používa BerkeleyDB verziu</translation>
+    </message>
+    <message>
         <source>Startup time</source>
         <translation>Čas spustenia</translation>
     </message>
@@ -1438,8 +1444,72 @@ Adresa: %4</translation>
         <translation>Aktuálny počet blokov</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>Očakávaných blokov celkovo</translation>
+        <source>Received</source>
+        <translation>Prijaté</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Odoslané</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Partneri</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Vyberte počítač pre zobrazenie podrobností.</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Smer</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Verzia</translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation>Aplikácia</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Služby</translation>
+    </message>
+    <message>
+        <source>Starting Height</source>
+        <translation>Počiatočná výška</translation>
+    </message>
+    <message>
+        <source>Sync Height</source>
+        <translation>Synchronizovaná výška</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>Skóre zákazu</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Dĺžka spojenia</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Posledné odoslanie</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Posledné prijatie</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Odoslaných bajtov</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Prijatých bajtov</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Čas odozvy</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1455,7 +1525,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation>Sieťová prevádzka</translation>
+        <translation>&amp;Sieťová prevádzka</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
@@ -1463,7 +1533,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Totals</source>
-        <translation>Celkovo</translation>
+        <translation>Celkovo:</translation>
     </message>
     <message>
         <source>In:</source>
@@ -1491,11 +1561,11 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Welcome to the Quark RPC console.</source>
-        <translation>Vitajte v Quark RPC konzole. Baník, pyčo!</translation>
+        <translation>Vitajte v Quark RPC konzole.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Použi šipky hore a dolu pre navigáciu históriou a &lt;b&gt;Ctrl-L&lt;/b&gt; pre vyčistenie obrazovky.</translation>
+        <translation>Použi šípky hore a dolu pre navigáciu históriou a &lt;b&gt;Ctrl-L&lt;/b&gt; pre vyčistenie obrazovky.</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
@@ -1518,16 +1588,28 @@ Adresa: %4</translation>
         <translation>%1 GB</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
+        <source>via %1</source>
+        <translation>cez %1</translation>
     </message>
     <message>
-        <source>%1 h</source>
-        <translation>%1 h</translation>
+        <source>never</source>
+        <translation>nikdy</translation>
     </message>
     <message>
-        <source>%1 h %2 m</source>
-        <translation>%1 h %2 m</translation>
+        <source>Inbound</source>
+        <translation>Prichádzajúce</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>Odchádzajúce</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>neznámy</translation>
+    </message>
+    <message>
+        <source>Fetching...</source>
+        <translation>Získava sa...</translation>
     </message>
 </context>
 <context>
@@ -1707,7 +1789,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation>Možnosti &quot;Coin Control&quot;</translation>
+        <translation>Možnosti "Coin Control"</translation>
     </message>
     <message>
         <source>Inputs...</source>
@@ -1742,10 +1824,6 @@ Adresa: %4</translation>
         <translation>Poplatok:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>Malá hodnota na výstupe:</translation>
-    </message>
-    <message>
         <source>After Fee:</source>
         <translation>Po poplatku:</translation>
     </message>
@@ -1762,6 +1840,78 @@ Adresa: %4</translation>
         <translation>Vlastná adresa zmeny</translation>
     </message>
     <message>
+        <source>Transaction Fee:</source>
+        <translation>Poplatok za transakciu:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Zvoliť...</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>zbaliť nastavenia poplatkov</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Minimalizovať</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Ak je poplatok nastavený na 1000 satoshi a transakcia je veľká len 250 bajtov, potom "za kilobajt" zaplatí poplatok 250 satoshi, ale "aspoň" zaplatí 1000 satoshi. Pre transakcie väčšie ako kilobajt platia oba spôsoby za každý kilobajt.</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>za kilobajt</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "total at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Ak je poplatok nastavený na 1000 satoshi a transakcia je veľká len 250 bajtov, potom "za kilobajt" zaplatí poplatok 250 satoshi, ale "spolu aspoň" zaplatí 1000 satoshi. Pre transakcie väčšie ako kilobajt platia oba spôsoby za každý kilobajt.</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>spolu aspoň</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for quark transactions than the network can process.</source>
+        <translation>Zaplatenie len minimálneho poplatku je v poriadku, pokiaľ existuje menej transakcií ako miesta v blokoch. Uvedomte si však, že ak bude vyšší dopyt po transakciách ako dokáže sieť spracovať, môže byť vaša transakcia odsúvaná a nepotvrdená donekonečna.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(prečítajte si nápovedu pod kurzorom)</translation>
+    </message>
+    <message>
+        <source>Recommended:</source>
+        <translation>Odporúčaný:</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Vlastný:</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Automatický poplatok ešte nebol aktivovaný. Toto zvyčajne trvá niekoľko blokov...)</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Čas potvrdenia:</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>normálne</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>rýchle</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>Poslať ako transakciu bez poplatku, ak je to možné</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(potvrdenie môže trvať dlhšie)</translation>
+    </message>
+    <message>
         <source>Send to multiple recipients at once</source>
         <translation>Poslať viacerým príjemcom naraz</translation>
     </message>
@@ -1772,6 +1922,10 @@ Adresa: %4</translation>
     <message>
         <source>Clear all fields of the form.</source>
         <translation>Vyčistiť všetky polia formulára.</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Prach:</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1791,7 +1945,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Potvrdiť odoslanie quarks</translation>
+        <translation>Potvrdiť odoslanie quarkcoins</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -1822,16 +1976,8 @@ Adresa: %4</translation>
         <translation>Kopírovať prioritu</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>Kopírovať nízky výstup</translation>
-    </message>
-    <message>
         <source>Copy change</source>
         <translation>Kopírovať zmenu</translation>
-    </message>
-    <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation>Celková suma %1 (= %2)</translation>
     </message>
     <message>
         <source>or</source>
@@ -1866,6 +2012,14 @@ Adresa: %4</translation>
         <translation>Transakcia bola zamietnutá! Toto sa môže stať ak niektoré coins vo vašej peňaženke už boli minuté, ako keď použijete kópiu wallet.dat a coins boli minuté z kópie ale neoznačené ako minuté tu.</translation>
     </message>
     <message>
+        <source>A fee higher than %1 is considered an insanely high fee.</source>
+        <translation>Poplatok vyšší ako %1 je považovaný za šialene vysoký.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Zaplatiť minimálny poplatok %1</translation>
+    </message>
+    <message>
         <source>Warning: Invalid Quark address</source>
         <translation>Varovanie: Nesprávna Quark adresa</translation>
     </message>
@@ -1878,20 +2032,16 @@ Adresa: %4</translation>
         <translation>Varovanie: Neznáma adresa pre výdavok</translation>
     </message>
     <message>
+        <source>Copy dust</source>
+        <translation>Kopírovať prach</translation>
+    </message>
+    <message>
         <source>Are you sure you want to send?</source>
         <translation>Určite to chcete odoslať?</translation>
     </message>
     <message>
         <source>added as transaction fee</source>
         <translation>pridané ako transakčný poplatok</translation>
-    </message>
-    <message>
-        <source>Payment request expired</source>
-        <translation>Vypršala platnosť požiadavky na platbu</translation>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation>Neplatná adresa platby %1</translation>
     </message>
 </context>
 <context>
@@ -1903,10 +2053,6 @@ Adresa: %4</translation>
     <message>
         <source>Pay &amp;To:</source>
         <translation>Zapla&amp;tiť:</translation>
-    </message>
-    <message>
-        <source>The address to send the payment to (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Adresa na odoslanie platby (napr. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
@@ -1925,12 +2071,16 @@ Adresa: %4</translation>
         <translation>Toto je normálna platba.</translation>
     </message>
     <message>
+        <source>The Quark address to send the payment to</source>
+        <translation>Zvoľte adresu kam poslať platbu</translation>
+    </message>
+    <message>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Vložiť adresu z klipbordu</translation>
+        <translation>Vložte adresu z klipbordu</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -1992,11 +2142,7 @@ Adresa: %4</translation>
     </message>
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Môžete podpísať správy svojou adresou a dokázať, že ju vlastníte. Buďte opatrní a podpíšte len prehlásenia s ktorými plne súhlasíte, nakoľko útoky typu &quot;phishing&quot; Vás môžu lákať k ich podpísaniu.</translation>
-    </message>
-    <message>
-        <source>The address to sign the message with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Zadajte Quark adresu (napr. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <translation>Môžete podpísať správy svojou adresou a dokázať, že ju vlastníte. Buďte opatrní a podpíšte len prehlásenia s ktorými plne súhlasíte, nakoľko útoky typu "phishing" Vás môžu lákať k ich podpísaniu.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2051,8 +2197,8 @@ Adresa: %4</translation>
         <translation>Vložte podpisovaciu adresu, správu (uistite sa, že kopírujete ukončenia riadkov, medzery, odrážky, atď. presne) a podpis pod to na overenie adresy. Buďte opatrní a nečítajte ako podpísané viac než je v samotnej podpísanej správe a môžete sa tak vyhnúť podvodu mitm útokom.</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Zadajte Quark adresu (napr. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>The Quark address the message was signed with</source>
+        <translation>Adresa Quark, ktorou bola podpísaná správa</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Quark address</source>
@@ -2067,12 +2213,8 @@ Adresa: %4</translation>
         <translation>Obnoviť všetky polia v overiť správu</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Zadajte Quark adresu (napr. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
-        <source>Click &quot;Sign Message&quot; to generate signature</source>
-        <translation>Kliknite &quot;Podpísať Správu&quot; na získanie podpisu</translation>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Kliknite "Podpísať Správu" na získanie podpisu</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -2171,10 +2313,6 @@ Adresa: %4</translation>
         <source>Status</source>
         <translation>Stav</translation>
     </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>,</numerusform><numerusform>,</numerusform><numerusform>, vysielať cez %n nód</numerusform></translation>
-    </message>
     <message>
         <source>Date</source>
         <translation>Dátum</translation>
@@ -2200,16 +2338,16 @@ Adresa: %4</translation>
         <translation>vlastná adresa</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>Iba sledovanie</translation>
+    </message>
+    <message>
         <source>label</source>
         <translation>popis</translation>
     </message>
     <message>
         <source>Credit</source>
         <translation>Kredit</translation>
-    </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation><numerusform>Dospeje o %n blokov</numerusform><numerusform>Dospeje o %n blokov</numerusform><numerusform>dospeje o %n blokov</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -2218,6 +2356,14 @@ Adresa: %4</translation>
     <message>
         <source>Debit</source>
         <translation>Debet</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Debit spolu</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Kredit spolu</translation>
     </message>
     <message>
         <source>Transaction fee</source>
@@ -2244,8 +2390,8 @@ Adresa: %4</translation>
         <translation>Kupec</translation>
     </message>
     <message>
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Vytvorené coins musia dospieť %1 blokov kým môžu byť minuté. Keď vytvoríte tento blok, bude rozoslaný do siete aby bol akceptovaný do reťaze blokov. Ak sa nedostane reťaze, jeho stav sa zmení na &quot;zamietnutý&quot; a nebude sa dať minúť. Toto sa môže občas stať ak iná nóda vytvorí blok približne v tom istom čase.</translation>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>Vytvorené coins musia dospieť %1 blokov kým môžu byť minuté. Keď vytvoríte tento blok, bude rozoslaný do siete aby bol akceptovaný do reťaze blokov. Ak sa nedostane reťaze, jeho stav sa zmení na "zamietnutý" a nebude sa dať minúť. Toto sa môže občas stať ak iná nóda vytvorí blok približne v tom istom čase.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2274,10 +2420,6 @@ Adresa: %4</translation>
     <message>
         <source>, has not been successfully broadcast yet</source>
         <translation>, ešte nebola úspešne odoslaná</translation>
-    </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Otvoriť pre %n viac blok</numerusform><numerusform>Otvoriť pre %n viac blokov </numerusform><numerusform>Otvoriť pre %n viac blokov </numerusform></translation>
     </message>
     <message>
         <source>unknown</source>
@@ -2310,16 +2452,8 @@ Adresa: %4</translation>
         <translation>Adresa</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Hodnota</translation>
-    </message>
-    <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
         <translation>Nezrelé (%1 potvrdení, bude k dispozícii po %2)</translation>
-    </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Otvorené pre ešte %1 blok</numerusform><numerusform>Otvorené pre %n viac blokov </numerusform><numerusform>Otvorené pre %n blokov</numerusform></translation>
     </message>
     <message>
         <source>Open until %1</source>
@@ -2374,6 +2508,10 @@ Adresa: %4</translation>
         <translation>Vyfárané</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>Iba sledovanie</translation>
+    </message>
+    <message>
         <source>(n/a)</source>
         <translation>(n/a)</translation>
     </message>
@@ -2388,6 +2526,10 @@ Adresa: %4</translation>
     <message>
         <source>Type of transaction.</source>
         <translation>Typ transakcie.</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Či sú ale nie sú, adresy iba na sledovanie zahrnuté v tejto transakcii.</translation>
     </message>
     <message>
         <source>Destination address of transaction.</source>
@@ -2485,6 +2627,10 @@ Adresa: %4</translation>
         <translation>Exportovať históriu transakcií</translation>
     </message>
     <message>
+        <source>Watch-only</source>
+        <translation>Iba sledovanie</translation>
+    </message>
+    <message>
         <source>Exporting Failed</source>
         <translation>Export zlyhal</translation>
     </message>
@@ -2525,10 +2671,6 @@ Adresa: %4</translation>
         <translation>Adresa</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Suma</translation>
-    </message>
-    <message>
         <source>ID</source>
         <translation>ID</translation>
     </message>
@@ -2539,6 +2681,13 @@ Adresa: %4</translation>
     <message>
         <source>to</source>
         <translation>do</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Jednotka pre zobrazovanie súm. Kliknite pre zvolenie inej jednotky.</translation>
     </message>
 </context>
 <context>
@@ -2593,72 +2742,24 @@ Adresa: %4</translation>
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Usage:</source>
-        <translation>Použitie:</translation>
-    </message>
-    <message>
-        <source>List commands</source>
-        <translation>Zoznam príkazov</translation>
-    </message>
-    <message>
-        <source>Get help for a command</source>
-        <translation>Dostať pomoc pre príkaz</translation>
-    </message>
-    <message>
         <source>Options:</source>
         <translation>Možnosti:</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: quarkcoin.conf)</source>
-        <translation>Určiť súbor s nastaveniami (predvolené: quarkcoin.conf)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Určiť súbor pid (predvolené: quarkd.pid)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
         <translation>Určiť priečinok s dátami</translation>
     </message>
     <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Načúvať spojeniam na &lt;port&gt; (prednastavené: 8333 alebo testovacia sieť: 18333)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation>Udržiavať maximálne &lt;n&gt; spojení (predvolené: 125)</translation>
-    </message>
-    <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Pripojiť sa k nóde, získať adresy ďaľších počítačov v sieti a odpojit sa.</translation>
+        <translation>Pripojiť sa k uzlu, získať adresy ďalších počítačov v sieti a odpojiť sa</translation>
     </message>
     <message>
         <source>Specify your own public address</source>
         <translation>Určite vašu vlastnú verejnú adresu</translation>
     </message>
     <message>
-        <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Hranica pre odpojenie zle sa správajúcich peerov (predvolené: 100)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>Počet sekúnd kedy sa zabráni zle sa správajúcim peerom znovupripojenie (predvolené: 86400)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation>Vyskytla sa chyba pri nastavovaní RPC portu %u pre počúvanie na IPv4: %s</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Počúvať JSON-RPC spojeniam na &lt;port&gt; (predvolené: 8332 or testnet: 18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Prijímať príkazy z príkazového riadku a JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Quark Core RPC client version</source>
-        <translation>Verzia RPC klienta Jadra Quark</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2673,80 +2774,24 @@ Adresa: %4</translation>
         <translation>Prijať spojenia zvonku (predvolené: 1 ak žiadne -proxy alebo -connect)</translation>
     </message>
     <message>
-        <source>%s, you must set a rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=quarkrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
-</source>
-        <translation>%s, musíte nastaviť rpcpassword heslo v súbore nastavení:
-%s
-Odporúča sa používať nasledujúce náhodné heslo:
-rpcuser=quarkrpc
-rpcpassword=%s
-(nemusíte si pamätať toto heslo)
-Užívateľské meno a heslo NESMÚ byť rovnaké.
-Ak súbor neexistuje, vytvorte ho s prístupovým právom owner-readable-only čitateľné len pre majiteľa.
-Tiež sa odporúča nastaviť alertnotify aby ste boli upozorňovaní na problémy;
-napríklad: alertnotify=echo %%s | mail -s &quot;Quark Výstraha&quot; admin@foo.com
-</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Prijateľlné šifry (prednastavené: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation>Vyskytla sa chyba pri nastavovaní RPC portu %u pre počúvanie na IPv6, vraciam sa späť ku IPv4: %s</translation>
-    </message>
-    <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Spojiť s danou adresou a vždy na nej počúvať. Použite zápis [host]:port pre IPv6</translation>
     </message>
     <message>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:15)</source>
-        <translation>Priebežne obmedzuj transakcie bez poplatku na &lt;n&gt;*1000 bajtov za minútu (prednastavené: 15)</translation>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>Vymazať všetky transakcie z peňaženky a pri spustení znova získať z reťazca blokov iba tie získané pomocou -rescan</translation>
     </message>
     <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation>Vstúpiť do regresného testovacieho módu, ktorý používa špeciálnu reťaz v ktorej môžu byť bloky v okamihu vyriešené. Pre účely regresného testovania a vývoja aplikácie.</translation>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>Distribuované pod softvérovou licenciou MIT, viď sprievodný súbor COPYING alebo &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
         <translation>Vojsť do režimu regresného testovania, ktorý používa špeciálnu reťaz v ktorej môžu byť bloky v okamihu vyriešené.</translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>Chyba: Zlyhalo počúvanie prichádzajúcich spojení (listen vrátil chybu %d)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Transakcia bola zamietnutá! Toto sa môže stať ak niektoré coins vo vašej peňaženke už boli minuté, ako keď použijete kópiu wallet.dat a coins boli minuté z kópie ale neoznačené ako minuté tu.</translation>
-    </message>
-    <message>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Chyba: Táto transakcia vyžaduje transakčný poplatok aspoň %s kvôli svojej sume, komplexite alebo použitiu nedávno prijatých prostriedkov.</translation>
-    </message>
-    <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
         <translation>Vykonaj príkaz keď sa zmení transakcia peňaženky (%s v príkaze je nahradená TxID)</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation>Poplatky menšie než toto sa považujú za nulové (pre vytvorenie transakcie) (prednastavené:</translation>
-    </message>
-    <message>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
-        <translation>Odložiť aktivitu databázy spoločnej pamäti do logu na disku každých &lt;n&gt; megabajtov (prednastavené: 100)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation>Ako dôkladne sú overované bloky -checkblocks (0-4, prednastavené: 3)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
@@ -2757,28 +2802,16 @@ napríklad: alertnotify=echo %%s | mail -s &quot;Quark Výstraha&quot; admin@foo
         <translation>Nastaviť počeť vlákien overujúcich skripty (%u až %d, 0 = auto, &lt;0 = nechať toľkoto jadier voľných, prednastavené: %d)</translation>
     </message>
     <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>Nastaviť obmedzenie pre procesor keď je zapnuté generovanie (-1 = bez obmedzenia, prednastavené: -1)</translation>
-    </message>
-    <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation>Toto je pred-testovacia verzia - použitie je na vlastné riziko - nepoužívajte na tvorbu bitcoin ani obchodovanie.</translation>
+        <translation>Toto je pred-testovacia verzia - použitie je na vlastné riziko - nepoužívajte na tvorbu quark ani obchodovanie.</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer. Quark Core is probably already running.</source>
         <translation>Nepodarilo sa pripojiť na %s na tomto počítači. Quark Jadro je už pravdepodobne spustené.</translation>
     </message>
     <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation>Použite rozdielne SOCKS5 proxy pre dosiahnutie peer-ov cez Tor skryté služby (prednastavené: -proxy)</translation>
-    </message>
-    <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Varovanie: -paytxfee je nastavené veľmi vysoko. Toto sú transakčné poplatky ktoré zaplatíte ak odošlete transakciu.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quark will not work properly.</source>
-        <translation>Varovanie: Skontroluj či je na počítači nastavený správny čas a dátum. Ak sú hodiny nastavené nesprávne, Quark nebude správne pracovať.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2788,7 +2821,7 @@ The network does not appear to fully agree! Some miners appear to be experiencin
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Varovanie: Zjavne sa úplne nezhodujeme s našimi peer-mi! Možno potrebujete prejsť na novšiu verziu alebo ostatné nódy potrebujú vyššiu verziu.</translation>
+        <translation>Varovanie: Zjavne sa úplne nezhodujeme s našimi peer-mi! Možno potrebujete prejsť na novšiu verziu alebo ostatné uzly potrebujú vyššiu verziu.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
@@ -2799,12 +2832,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Varovanie: wallet.dat je poškodený, údaje úspešne získané! Pôvodný wallet.dat uložený ako wallet.{timestamp}.bak v %s; ak váš zostatok alebo transakcie niesu správne, mali by ste súbor obnoviť zo zálohy.</translation>
     </message>
     <message>
-        <source>(default: 1)</source>
-        <translation>(predvolené: 1)</translation>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Uzle na zoznam povolených, ktoré sa pripájajú z danej netmask alebo IP adresy. Môže byť zadané viac krát.</translation>
     </message>
     <message>
-        <source>(default: wallet.dat)</source>
-        <translation>(predvolené: wallet.dat)</translation>
+        <source>(default: 1)</source>
+        <translation>(predvolené: 1)</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -2815,28 +2848,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Pokus zachrániť súkromné kľúče z poškodeného wallet.dat</translation>
     </message>
     <message>
-        <source>Quark Core Daemon</source>
-        <translation>Démon Jadro Quark</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Voľby vytvorenia bloku:</translation>
     </message>
     <message>
-        <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation>Vyčistiť zoznam transakcií peňaženky (diagnostický nástroj; zahŕňa -rescan)</translation>
-    </message>
-    <message>
         <source>Connect only to the specified node(s)</source>
         <translation>Pripojiť sa len k určenej nóde</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS proxy</source>
-        <translation>Pripojiť cez SOCKS proxy</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Pripojiť ku JSON-RPC na &lt;port&gt; (prednastavené: 8332 alebo testnet: 18332)</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2849,10 +2866,6 @@ The network does not appear to fully agree! Some miners appear to be experiencin
     <message>
         <source>Debugging/Testing options:</source>
         <translation>Možnosti ladenia/testovania:</translation>
-    </message>
-    <message>
-        <source>Disable safemode, override a real safe mode event (default: 0)</source>
-        <translation>Vypnúť bezpečný režim, vypnúť udalosť skutočný bezpečný režim (prednastavené: 0)</translation>
     </message>
     <message>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
@@ -2887,80 +2900,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Chyba: Málo miesta na disku!</translation>
     </message>
     <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Chyba: Peňaženka je zamknutá, nemôžem vytvoriť transakciu!</translation>
-    </message>
-    <message>
-        <source>Error: system error: </source>
-        <translation>Chyba: systémová chyba:</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Chyba počúvania na ktoromkoľvek porte. Použi -listen=0 ak toto chcete.</translation>
-    </message>
-    <message>
-        <source>Failed to read block info</source>
-        <translation>Zlyhalo čítanie info o bloku</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>Zlyhalo čítanie bloku</translation>
-    </message>
-    <message>
-        <source>Failed to sync block index</source>
-        <translation>Zlyhalo synchronizovanie zoznamu blokov</translation>
-    </message>
-    <message>
-        <source>Failed to write block index</source>
-        <translation>Zlyhalo zapisovanie do zoznamu blokov</translation>
-    </message>
-    <message>
-        <source>Failed to write block info</source>
-        <translation>Zlyhal zápis info o bloku</translation>
-    </message>
-    <message>
-        <source>Failed to write block</source>
-        <translation>Zlyhal zápis bloku</translation>
-    </message>
-    <message>
-        <source>Failed to write file info</source>
-        <translation>Zlyhalo zapisovanie informácié o súbore</translation>
-    </message>
-    <message>
-        <source>Failed to write to coin database</source>
-        <translation>Zlyhalo zapisovanie do databázy coins</translation>
-    </message>
-    <message>
-        <source>Failed to write transaction index</source>
-        <translation>Zlyhal zápis zoznamu transakcií</translation>
-    </message>
-    <message>
-        <source>Failed to write undo data</source>
-        <translation>Zlyhalo zapisovanie </translation>
-    </message>
-    <message>
-        <source>Fee per kB to add to transactions you send</source>
-        <translation>Poplatok za kB ktorý treba pridať k odoslanej transakcii</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation>Poplatky menšie než toto sa považujú za nulové (pre preposielanie) (prednastavené:</translation>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Nájsť počítače v bitcoin sieti použitím DNS vyhľadávania (predvolené: 1 okrem -connect)</translation>
-    </message>
-    <message>
-        <source>Force safe mode (default: 0)</source>
-        <translation>Vnútiť bezpečný režim (prenastavené: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Vytvárať mince (predvolené: 0)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation>Koľko blokov skontrolovať pri spustení (predvolené: 288, 0 = všetky)</translation>
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
@@ -2975,56 +2916,40 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Nesprávny alebo žiadny genesis blok nájdený. Nesprávny dátový priečinok alebo sieť?</translation>
     </message>
     <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation>Neplatná -onion adresa:  &apos;%s&apos;</translation>
+        <source>Invalid -onion address: '%s'</source>
+        <translation>Neplatná -onion adresa:  '%s'</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
         <translation>Nedostatok kľúčových slov súboru.</translation>
     </message>
     <message>
-        <source>Prepend debug output with timestamp (default: 1)</source>
-        <translation>Na začiatok logu pre ladenie vlož dátum a čas (prednastavené: 1)</translation>
-    </message>
-    <message>
-        <source>RPC client options:</source>
-        <translation>Možnosti klienta RPC baník pyčo:</translation>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Pripojiť iba k uzlom v sieti &lt;net&gt; (ipv4, ipv6, alebo onion)</translation>
     </message>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>Znovu vytvoriť zoznam blokov zo súčasných blk000??.dat súborov</translation>
     </message>
     <message>
-        <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>Zvoľte SOCKS verziu -proxy (4 alebo 5, predvolené 5)</translation>
-    </message>
-    <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>Nastaviť veľkosť pomocnej pamäti databázy v megabajtoch (%d na %d, prednatavené: %d)</translation>
+        <translation>Nastaviť veľkosť pomocnej pamäti databázy v megabajtoch (%d do %d, prednastavené: %d)</translation>
     </message>
     <message>
         <source>Set maximum block size in bytes (default: %d)</source>
         <translation>Nastaviť najväčšiu veľkosť bloku v bytoch (predvolené: %d)</translation>
     </message>
     <message>
-        <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Nastaviť množstvo vlákien na obsluhu RPC volaní (predvolené: 4)</translation>
-    </message>
-    <message>
         <source>Specify wallet file (within data directory)</source>
         <translation>Označ súbor peňaženky (v priečinku s dátami)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation>Míňať nepotvrdený výdavok pri odosielaní (prednastavené: 1)</translation>
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Toto je mienené nástrojom pre regresné testovania a vývoj programu.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use quark-cli):</source>
-        <translation>Použitie (neodporúča sa, použite quark-cli):</translation>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Použiť UPnP pre mapovanie počúvajúceho portu (predvolené: %u)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3035,20 +2960,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Overujem peňaženku...</translation>
     </message>
     <message>
-        <source>Wait for RPC server to start</source>
-        <translation>Čakanie na štart RPC servra</translation>
-    </message>
-    <message>
         <source>Wallet %s resides outside data directory %s</source>
         <translation>Peňaženka %s sa nachádza mimo dátového priečinka %s </translation>
     </message>
     <message>
         <source>Wallet options:</source>
         <translation>Voľby peňaženky:</translation>
-    </message>
-    <message>
-        <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation>Varovanie: Zastaralý parameter -debugnet bol ignorovaný, použite -debug=net</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
@@ -3059,68 +2976,164 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Importuje bloky z externého súboru blk000??.dat</translation>
     </message>
     <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>Povoliť JSON-RPC pripojenia zo zadaného zdroja. Pre &lt;ip&gt; sú platné jednoduché IP (napr. 1.2.3.4), sieť/netmask (napr. 1.2.3.4/255.255.255.0) alebo sieť/CIDR (napr. 1.2.3.4/24). Táto možnosť môže byť zadaná niekoľko krát</translation>
+    </message>
+    <message>
+        <source>An error occurred while setting up the RPC address %s port %u for listening: %s</source>
+        <translation>Pri nastavovaní RPC adresy %s na porte %u pre počúvanie došlo k chybe: %s</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>Spojiť s danou adresou a povolenými partnerskými zariadeniami ktoré sa tam pripájajú. Použite zápis [host]:port pre IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Spojiť s danou adresou pre počúvanie JSON-RPC spojení. Použite zápis [host]:port pre IPv6. Táto možnosť môže byt zadaná niekoľko krát (predvolené: spojiť so všetkými rozhraniami)</translation>
+    </message>
+    <message>
         <source>Cannot obtain a lock on data directory %s. Quark Core is probably already running.</source>
         <translation>Neviem uzamknúť data adresár %s. Jadro Quark je pravdepodobne už spustené.</translation>
     </message>
     <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Vykonať príkaz keď po prijatí patričné varovanie alebo vidíme veľmi dlhé rozdvojenie siete (%s v cmd je nahradené správou)</translation>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>Vytvoriť nové súbory z predvolenými systémovými právami, namiesto umask 077 (funguje iba z vypnutou funkcionalitou peňaženky)</translation>
     </message>
     <message>
-        <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation>Výstup informácií pre ladenie (prednastavené: 0, uvádzanie &lt;category&gt; je voliteľné)</translation>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Chyba: Počúvanie prichádzajúcich spojení zlyhalo (vrátená chyba je %s)</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>Chyba: Nájdený nepodporovaný argument -socks. Nastavenie SOCKS verzie nie je už možné, podporované sú už iba proxy SOCKS5.</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation>Vykonať príkaz po prijatí patričného varovania alebo uvidíme veľmi dlhé rozdvojenie siete (%s v cmd je nahradené správou)</translation>
+    </message>
+    <message>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Poplatky (v QRK/Kb) nižšie ako toľkoto sa považujú za nulové pri postupovaní transakcií (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Poplatky (v QRK/Kb) nižšie ako toľkoto sa považujú za nulové pri vytváraní transakcií (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation>Ak nie je nastavené paytxfee, pridať dostatočný poplatok aby sa transakcia začala potvrdzovať priemerne v rámci bloku (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>Neplatná suma pre -maxtxfee=&lt;amount&gt;: '%s' (aby sa transakcia nezasekla, minimálny prenosový poplatok musí byť aspoň %s)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>Maximálna veľkosť dát v transakciách nosných dát, ktoré prenášame a ťažíme (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
+        <translation>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Dotaz na partnerské adresy pomocou vyhľadávania DNS v prípade nedostatku adries (predvolené: 1, pokiaľ -connect)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>Vyžadovať vysokú prioritu pre postúpenie transakcií s nízkymi poplatkami (predvolené:%u)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Nastaviť najväčšiu veľkosť vysoká-dôležitosť/nízke-poplatky transakcií v bajtoch (prednastavené: %d)</translation>
     </message>
     <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>Nastaviť počet vlákien pre generáciu mincí (-1 = všetky jadrá, predvolené: %d)</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>Tento produkt obsahuje softvér vyvinutý projektom OpenSSL pre použitie sady nástrojov OpenSSL &lt;https://www.openssl.org/&gt; a kryptografického softvéru napísaného Eric Young a UPnP softvér napísaný Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>Upozornenie: -maxtxfee je nastavené príliš vysoko! Takto vysoké poplatky by mali byť zaplatené za jednu transakciu.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>Uzle na zoznam povolených nemôžu byť DoS zakázané a ich transakcie vždy postúpené ďalej, aj v prípade, ak sú už pamäťovej fronte. Užitočné napr. pre brány</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>Akceptovať verejné REST žiadosti (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>Nedá sa vyriešiť -whitebind adresa: '%s'</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Pripojiť cez proxy server SOCKS5</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Quark Core and Quark Core Developers</source>
+        <translation>Copyright (C) 2009-%i Vývojári jadra Quark</translation>
+    </message>
+    <message>
+        <source>Could not parse -rpcbind value %s as network address</source>
+        <translation>Nedá sa analyzovať -rpcbind hodnota %s ako sieťová adresa</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of Quark Core</source>
+        <translation>Chyba pri čítaní wallet.dat: Peňaženka vyžaduje vyššiu verziu Jadra Quark</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>Chyba pri načítaní z databázy, ukončuje sa.</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>Chyba: nájdený nepodporovaný argument -tor, použite -onion.</translation>
+    </message>
+    <message>
+        <source>Fee (in QRK/kB) to add to transactions you send (default: %s)</source>
+        <translation>Poplatok (v QRK/kB), ktorý sa pridá k transakciám, ktoré odosielate (predvolený: %s)</translation>
+    </message>
+    <message>
         <source>Information</source>
         <translation>Informácia</translation>
     </message>
     <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Neplatná suma pre -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Neplatná suma pre -maxtxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Neplatná suma pre -mintxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Neplatná suma pre -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
-        <translation>Obmedziť veľkosť pomocnej pamäti pre podpisy na &lt;n&gt; vstupov (prednastavené: 50000)</translation>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Neplatná suma pre -mintxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>Zaznamenávať dôležitosť transakcií a poplatky za kB ak hľadáme bloky (prednastavené: 0)</translation>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>Neplatná suma pre -paytxfee=&lt;amount&gt;: '%s' (musí byť aspoň %s)</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Udržiavaj úplný zoznam transakcií (prednastavené: 0)</translation>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Nadaná neplatná netmask vo -whitelist: '%s'</translation>
     </message>
     <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>Maximálna veľkosť prijímacieho zásobníka pre jedno spojenie, &lt;n&gt;*1000 bytov (predvolené: 5000)</translation>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>V pamäti udržiavať najviac &lt;n&gt; nepotvrdených transakcií (predvolené: %u)</translation>
     </message>
     <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>Maximálna veľkosť vysielacieho zásobníka pre jedno spojenie, &lt;n&gt;*1000 bytov (predvolené: 1000)</translation>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Je potrebné zadať port s -whitebind: '%s'</translation>
     </message>
     <message>
-        <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation>Akceptuj iba kontrolné body zhodné s blockchain (prednastavené: 1)</translation>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>Pripájať sa len k nódam v sieti &lt;net&gt; (IPv4, IPv6 alebo Tor)</translation>
-    </message>
-    <message>
-        <source>Print block on startup, if found in block index</source>
-        <translation>Vytlač blok pri spustení, ak nájdený v zozname blokov</translation>
-    </message>
-    <message>
-        <source>Print block tree on startup (default: 0)</source>
-        <translation>Vytlačiť strom blokov pri spustení (prednastavené: 0)</translation>
+        <source>Node relay options:</source>
+        <translation>Prenosové možnosti uzla:</translation>
     </message>
     <message>
         <source>RPC SSL options: (see the Quark Wiki for SSL setup instructions)</source>
@@ -3131,6 +3144,10 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Možnosti servra RPC:</translation>
     </message>
     <message>
+        <source>RPC support for HTTP persistent connections (default: %d)</source>
+        <translation>Podpora RPC pre trvalé HTTP spojenia (predvolené: %d)</translation>
+    </message>
+    <message>
         <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
         <translation>Náhodne zahadzuj 1 z každých &lt;n&gt; sieťových správ</translation>
     </message>
@@ -3139,36 +3156,16 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Náhodne premiešaj 1 z každých &lt;n&gt; sieťových správ</translation>
     </message>
     <message>
-        <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation>Mať spustené vlákno pravidelného čístenia peňaženky (predvolené: 1)</translation>
-    </message>
-    <message>
-        <source>SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation>SSL možnosť: (pozrite Quark Wiki pre návod na nastavenie SSL)</translation>
-    </message>
-    <message>
-        <source>Send command to Quark Core</source>
-        <translation>Poslať príkaz Jadru Quark</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Odoslať trace/debug informácie na konzolu namiesto debug.info žurnálu</translation>
     </message>
     <message>
-        <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Nastaviť minimálnu veľkosť bloku v bytoch (predvolené: 0)</translation>
-    </message>
-    <message>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
-        <translation>Nastaví DB_PRIVATE možnosť v db prostredí peňaženky (prednastavené: 1)</translation>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Poslať ako transakcie bez poplatku, ak je to možné (predvolené: %u)</translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
         <translation>Zobraziť všetky možnosti ladenia (použitie: --help --help-debug)</translation>
-    </message>
-    <message>
-        <source>Show benchmark information (default: 0)</source>
-        <translation>Zobraziť porovnávacie informácie (prednastavené: 0)</translation>
     </message>
     <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
@@ -3179,16 +3176,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Podpísanie správy zlyhalo</translation>
     </message>
     <message>
-        <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Určiť aut spojenia v milisekundách (predvolené: 5000)</translation>
-    </message>
-    <message>
-        <source>Start Quark Core Daemon</source>
-        <translation>Štart služby Jadro Quark</translation>
-    </message>
-    <message>
-        <source>System error: </source>
-        <translation>Systémová chyba:</translation>
+        <source>This is experimental software.</source>
+        <translation>Toto je experimentálny softvér.</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -3199,12 +3188,16 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Hodnoty transakcie musia byť väčšie ako nula (pozitívne)</translation>
     </message>
     <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Transakcia je príliš veľká pre aktuálne podmienky poplatkov</translation>
+    </message>
+    <message>
         <source>Transaction too large</source>
         <translation>Transakcia príliš veľká</translation>
     </message>
     <message>
-        <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation>Skúsiť použiť UPnP pre mapovanie počúvajúceho portu (default: 0)</translation>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Na tomto počítači sa nedá vytvoriť väzba %s (vytvorenie väzby vrátilo chybu %s)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
@@ -3223,16 +3216,20 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Upozornenie: Táto verzia je zastaraná, vyžaduje sa aktualizácia!</translation>
     </message>
     <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Upozornenie: Nepodporovaný argument -benchmark bol ignorovaný, použite -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Upozornenie: Nepodporovaný argument -debugnet bol ignorovaný, použite -debug=net.</translation>
+    </message>
+    <message>
         <source>Zapping all transactions from wallet...</source>
         <translation>Zmazať všetky transakcie z peňaženky...</translation>
     </message>
     <message>
         <source>on startup</source>
         <translation>pri štarte</translation>
-    </message>
-    <message>
-        <source>version</source>
-        <translation>verzia</translation>
     </message>
     <message>
         <source>wallet.dat corrupt, salvage failed</source>
@@ -3243,24 +3240,12 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Heslo pre JSON-rPC spojenia</translation>
     </message>
     <message>
-        <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Povoliť JSON-RPC spojenia z určenej IP adresy.</translation>
-    </message>
-    <message>
-        <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Poslať príkaz nóde bežiacej na &lt;ip&gt; (predvolené: 127.0.0.1)</translation>
-    </message>
-    <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
         <translation>Vykonaj príkaz, ak zmeny v najlepšom bloku (%s v príkaze nahradí blok hash)</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Aktualizuj peňaženku na najnovší formát.</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Nastaviť zásobu adries na &lt;n&gt; (predvolené: 100)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
@@ -3271,20 +3256,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Použiť OpenSSL (https) pre JSON-RPC spojenia</translation>
     </message>
     <message>
-        <source>Server certificate file (default: server.cert)</source>
-        <translation>Súbor s certifikátom servra (predvolené: server.cert)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: server.pem)</source>
-        <translation>Súkromný kľúč servra (predvolené: server.pem)</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Táto pomocná správa</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>Nepodarilo sa spojiť s %s na tomto počítači (bind vrátil chybu %d, %s)</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
@@ -3299,44 +3272,148 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Chyba načítania wallet.dat: Peňaženka je poškodená</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Quark</source>
-        <translation>Chyba načítania wallet.dat: Peňaženka vyžaduje novšiu verziu Quark</translation>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = zachovať metaúdaje tx napr. vlastníka účtu a informácie o platobných príkazoch, 2 = zahodiť metaúdaje tx)</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Quark to complete</source>
-        <translation>Bolo potrebné prepísať peňaženku: dokončite reštartovaním Quark</translation>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation>Ako dôkladné je -checkblocks overenie blokov (0-4, predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
+        <translation>Zaznamenať prioritu transakcie a poplatok za kB pri ťažení blokov (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>Udržiavať kompletný transakčný index, využíva getrawtransaction rpc volanie (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>Počet sekúnd, počas ktorých nepripájať zle správajúce sa uzle (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>Výstupné ladiace informácie (predvolené: %u, dodanie &lt;category&gt; je voliteľné)</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>Použiť samostatný SOCKS5 proxy server na dosiahnutie počítačov cez skryté služby Tor (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Acceptable ciphers (default: %s)</source>
+        <translation>Prijateľné šifry (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>Vždy sa dotazovať adresy partnerských uzlov cez vyhľadávanie DNS (predvolené: %u)</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
         <translation>Chyba načítania wallet.dat</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation>Neplatná adresa proxy: &apos;%s&apos;</translation>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Koľko blokov overiť pri spustení (predvolené: %u, 0 = všetky)</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation>Neznáma sieť upresnená v -onlynet: &apos;%s&apos;</translation>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>Zahrnúť IP adresy v ladiacom výstupe (predvolené: %u)</translation>
     </message>
     <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Neznáma verzia -socks proxy požadovaná: %i</translation>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation>Neplatná adresa proxy: '%s'</translation>
     </message>
     <message>
-        <source>Cannot resolve -bind address: &apos;%s&apos;</source>
-        <translation>Nemožno rozriešiť -bind adress: &apos;%s&apos;</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Počúvať JSON-RPC pripojenia na &lt;port&gt; (predvolené: %u alebo testovacia sieť: %u)</translation>
     </message>
     <message>
-        <source>Cannot resolve -externalip address: &apos;%s&apos;</source>
-        <translation>Nemožno rozriešiť -externalip address: &apos;%s&apos;</translation>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Počúvať pripojenia na &lt;port&gt; (predvolené: %u alebo testovacia sieť: %u)</translation>
     </message>
     <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Neplatná suma pre -paytxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Udržiavať najviac &lt;n&gt; spojení s inými počítačmi (predvolené: %u)</translation>
     </message>
     <message>
-        <source>Invalid amount</source>
-        <translation>Neplatná suma</translation>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximálna prijímajúca medzipamäť pre pripojenie, &lt;n&gt;*1000 bajtov (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximálna odosielajúca medzipamäť pre pripojenie, &lt;n&gt;*1000 bajtov (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Na začiatok pripojiť časovú známku k ladiacemu výstupu (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Prenášať a ťažiť transakcie nosných dát (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Prenášať non-P2SH multi-podpis (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Server certificate file (default: %s)</source>
+        <translation>Certifikačný súbor servera (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Server private key (default: %s)</source>
+        <translation>Privátny kľúč servera (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Nastaviť veľkosť kľúča fronty na &lt;n&gt; (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Nastaviť minimálnu veľkosť bloku v bajtoch (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Nastaviť počet vlákien na obsluhu RPC volaní (predvolené: %d)</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Zadať konfiguračný súbor (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Zadajte časový limit pripojenia v milisekundách (minimum: 1, predvolené: %d)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Zadať pid súbor (predvolené: %s)</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Minúť nepotvrdené zmenu pri posielaní transakcií (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Hranica pre odpájanie zle sa správajúcim partnerským uzlom (predvolené: %u)</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Neznáma sieť upresnená v -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>Nemožno rozriešiť -bind adress: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>Nemožno rozriešiť -externalip address: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Neplatná suma pre -paytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -3371,20 +3448,8 @@ The network does not appear to fully agree! Some miners appear to be experiencin
         <translation>Dokončené načítavanie</translation>
     </message>
     <message>
-        <source>To use the %s option</source>
-        <translation>Použiť %s možnosť.</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Chyba</translation>
-    </message>
-    <message>
-        <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
-%s
-If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>Musíš nastaviť rpcpassword=&lt;heslo&gt; v konfiguračnom súbore:
-%s
-Ak súbor neexistuje, vytvor ho s oprávnením pre čítanie len vlastníkom (owner-readable-only)</translation>
     </message>
 </context>
 </TS>

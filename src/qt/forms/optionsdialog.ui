@@ -138,65 +138,6 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_Wallet">
        <item>
-        <widget class="QLabel" name="transactionFeeInfoLabel">
-         <property name="text">
-          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_1_Wallet">
-         <item>
-          <widget class="QLabel" name="transactionFeeLabel">
-           <property name="text">
-            <string>Pay transaction &amp;fee</string>
-           </property>
-           <property name="textFormat">
-            <enum>Qt::PlainText</enum>
-           </property>
-           <property name="buddy">
-            <cstring>transactionFee</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="BitcoinAmountField" name="transactionFee"/>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_1_Wallet">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_Wallet">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
           <string>Expert</string>
@@ -225,6 +166,19 @@
          </layout>
         </widget>
        </item>
+       <item>
+        <spacer name="verticalSpacer_Wallet">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tabNetwork">
@@ -243,12 +197,22 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="connectSocks">
+        <widget class="QCheckBox" name="allowIncoming">
          <property name="toolTip">
-          <string>Connect to the Quark network through a SOCKS proxy.</string>
+          <string>Accept connections from outside</string>
          </property>
          <property name="text">
-          <string>&amp;Connect through SOCKS proxy (default proxy):</string>
+          <string>Allow incoming connections</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="connectSocks">
+         <property name="toolTip">
+          <string>Connect to the Quark network through a SOCKS5 proxy.</string>
+         </property>
+         <property name="text">
+          <string>&amp;Connect through SOCKS5 proxy (default proxy):</string>
          </property>
         </widget>
        </item>
@@ -315,26 +279,6 @@
            </property>
            <property name="toolTip">
             <string>Port of the proxy (e.g. 9050)</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="socksVersionLabel">
-           <property name="text">
-            <string>SOCKS &amp;Version:</string>
-           </property>
-           <property name="textFormat">
-            <enum>Qt::PlainText</enum>
-           </property>
-           <property name="buddy">
-            <cstring>socksVersion</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QValueComboBox" name="socksVersion">
-           <property name="toolTip">
-            <string>SOCKS version of the proxy (e.g. 5)</string>
            </property>
           </widget>
          </item>
@@ -408,66 +352,6 @@
        </item>
       </layout>
      </widget>
-     
-     <widget class="QWidget" name="tabMining">
-      <attribute name="title">
-       <string>&amp;Mining</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_Mining">
-      
-       <item>
-        <widget class="QCheckBox" name="checkboxMiningEnabled">
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Whether to enabled Quark mining by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string>&amp;Mining enabled</string>
-         </property>
-        </widget>
-       </item>
-       
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2_Mining">        
-         <item>
-          <widget class="QLabel" name="labelMiningProcLimit">
-           <property name="text">
-            <string>&amp;Mining limit:</string>
-           </property>
-           <property name="textFormat">
-            <enum>Qt::PlainText</enum>
-           </property>
-           <property name="buddy">
-            <cstring>comboMiningProcLimit</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QValueComboBox" name="comboMiningProcLimit">
-           <property name="toolTip">
-            <string>Choose the default mining intensity.</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_Display">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       
-      </layout>
-     </widget>
-     
-     
      <widget class="QWidget" name="tabDisplay">
       <attribute name="title">
        <string>&amp;Display</string>
@@ -520,16 +404,6 @@
           </widget>
          </item>
         </layout>
-       </item>
-       <item>
-        <widget class="QCheckBox" name="displayAddresses">
-         <property name="toolTip">
-          <string>Whether to show Quark addresses in the transaction list or not.</string>
-         </property>
-         <property name="text">
-          <string>&amp;Display addresses in transaction list</string>
-         </property>
-        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3_Display">
@@ -689,6 +563,12 @@
        <property name="text">
         <string>&amp;OK</string>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -706,12 +586,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>BitcoinAmountField</class>
-   <extends>QLineEdit</extends>
-   <header>bitcoinamountfield.h</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>QValidatedLineEdit</class>
    <extends>QLineEdit</extends>

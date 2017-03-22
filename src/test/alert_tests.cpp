@@ -7,11 +7,13 @@
 //
 
 #include "alert.h"
+#include "clientversion.h"
 #include "data/alertTests.raw.h"
 
 #include "serialize.h"
+#include "streams.h"
 #include "util.h"
-#include "version.h"
+#include "utilstrencodings.h"
 
 #include <fstream>
 
@@ -83,7 +85,7 @@ struct ReadAlerts
         std::vector<unsigned char> vch(alert_tests::alertTests, alert_tests::alertTests + sizeof(alert_tests::alertTests));
         CDataStream stream(vch, SER_DISK, CLIENT_VERSION);
         try {
-            while (stream.good())
+            while (!stream.eof())
             {
                 CAlert alert;
                 stream >> alert;
@@ -116,24 +118,23 @@ BOOST_AUTO_TEST_CASE(AlertApplies)
 {
     SetMockTime(11);
 
-    /*
-    BOOST_FOREACH(const CAlert& alert, alerts)
-    {
-        BOOST_CHECK(alert.CheckSignature());
-    }
+    // BOOST_FOREACH(const CAlert& alert, alerts)
+    // {
+    //       BOOST_CHECK(alert.CheckSignature());
+    // }
 
     BOOST_CHECK(alerts.size() >= 3);
 
     // Matches:
-    BOOST_CHECK(alerts[0].AppliesTo(1, ""));
-    BOOST_CHECK(alerts[0].AppliesTo(999001, ""));
-    BOOST_CHECK(alerts[0].AppliesTo(1, "/Satoshi:11.11.11/"));
+    // BOOST_CHECK(alerts[0].AppliesTo(1, ""));
+    // BOOST_CHECK(alerts[0].AppliesTo(999001, ""));
+    // BOOST_CHECK(alerts[0].AppliesTo(1, "/Satoshi:11.11.11/"));
 
-    BOOST_CHECK(alerts[1].AppliesTo(1, "/Satoshi:0.1.0/"));
-    BOOST_CHECK(alerts[1].AppliesTo(999001, "/Satoshi:0.1.0/"));
+    // BOOST_CHECK(alerts[1].AppliesTo(1, "/Satoshi:0.1.0/"));
+    // BOOST_CHECK(alerts[1].AppliesTo(999001, "/Satoshi:0.1.0/"));
 
-    BOOST_CHECK(alerts[2].AppliesTo(1, "/Satoshi:0.1.0/"));
-    BOOST_CHECK(alerts[2].AppliesTo(1, "/Satoshi:0.2.0/"));
+    // BOOST_CHECK(alerts[2].AppliesTo(1, "/Satoshi:0.1.0/"));
+    // BOOST_CHECK(alerts[2].AppliesTo(1, "/Satoshi:0.2.0/"));
 
     // Don't match:
     BOOST_CHECK(!alerts[0].AppliesTo(-1, ""));
@@ -148,40 +149,43 @@ BOOST_AUTO_TEST_CASE(AlertApplies)
     BOOST_CHECK(!alerts[1].AppliesTo(1, "/Satoshi:0.2.0/"));
 
     BOOST_CHECK(!alerts[2].AppliesTo(1, "/Satoshi:0.3.0/"));
-    */
 
     SetMockTime(0);
 }
 
 
-// This uses sh 'echo' to test the -alertnotify function, writing to a
-// /tmp file. So skip it on Windows:
-#ifndef WIN32
 BOOST_AUTO_TEST_CASE(AlertNotify)
 {
     SetMockTime(11);
 
-    boost::filesystem::path temp = GetTempPath() / "alertnotify.txt";
-    boost::filesystem::remove(temp);
+    boost::filesystem::path temp = GetTempPath() /
+        boost::filesystem::unique_path("alertnotify-%%%%.txt");
 
     mapArgs["-alertnotify"] = std::string("echo %s >> ") + temp.string();
 
-    // BOOST_FOREACH(CAlert alert, alerts)
-    //     alert.ProcessAlert(false);
+    BOOST_FOREACH(CAlert alert, alerts)
+        alert.ProcessAlert(false);
 
     std::vector<std::string> r = read_lines(temp);
-    /*
-    BOOST_CHECK_EQUAL(r.size(), 4u);
-    BOOST_CHECK_EQUAL(r[0], "Alert 1");
-    BOOST_CHECK_EQUAL(r[1], "Alert 2, cancels 1");
-    BOOST_CHECK_EQUAL(r[2], "Alert 2, cancels 1");
-    BOOST_CHECK_EQUAL(r[3], "Evil Alert; /bin/ls; echo "); // single-quotes should be removed
-     */
+    // BOOST_CHECK_EQUAL(r.size(), 4u);
 
+// Windows built-in echo semantics are different than posixy shells. Quotes and
+// whitespace are printed literally.
+
+#ifndef WIN32
+    // BOOST_CHECK_EQUAL(r[0], "Alert 1");
+    // BOOST_CHECK_EQUAL(r[1], "Alert 2, cancels 1");
+    // BOOST_CHECK_EQUAL(r[2], "Alert 2, cancels 1");
+    // BOOST_CHECK_EQUAL(r[3], "Evil Alert; /bin/ls; echo "); // single-quotes should be removed
+#else
+    BOOST_CHECK_EQUAL(r[0], "'Alert 1' ");
+    BOOST_CHECK_EQUAL(r[1], "'Alert 2, cancels 1' ");
+    BOOST_CHECK_EQUAL(r[2], "'Alert 2, cancels 1' ");
+    BOOST_CHECK_EQUAL(r[3], "'Evil Alert; /bin/ls; echo ' ");
+#endif
     boost::filesystem::remove(temp);
 
     SetMockTime(0);
 }
-#endif
 
 BOOST_AUTO_TEST_SUITE_END()

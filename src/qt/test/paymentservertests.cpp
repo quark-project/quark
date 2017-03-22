@@ -1,9 +1,15 @@
+// Copyright (c) 2009-2014 The Bitcoin developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "paymentservertests.h"
 
 #include "optionsmodel.h"
 #include "paymentrequestdata.h"
 
+#include "random.h"
 #include "util.h"
+#include "utilstrencodings.h"
 
 #include <openssl/x509.h>
 #include <openssl/x509_vfy.h>
@@ -21,17 +27,15 @@ X509 *parse_b64der_cert(const char* cert_data)
     return cert;
 }
 
-
 //
 // Test payment request handling
 //
 
-/*
 static SendCoinsRecipient handleRequest(PaymentServer* server, std::vector<unsigned char>& data)
 {
     RecipientCatcher sigCatcher;
     QObject::connect(server, SIGNAL(receivedPaymentRequest(SendCoinsRecipient)),
-                     &sigCatcher, SLOT(getRecipient(SendCoinsRecipient)));
+        &sigCatcher, SLOT(getRecipient(SendCoinsRecipient)));
 
     // Write data to a temp file:
     QTemporaryFile f;
@@ -49,16 +53,15 @@ static SendCoinsRecipient handleRequest(PaymentServer* server, std::vector<unsig
     QCoreApplication::sendEvent(&object, &event);
 
     QObject::disconnect(server, SIGNAL(receivedPaymentRequest(SendCoinsRecipient)),
-                        &sigCatcher, SLOT(getRecipient(SendCoinsRecipient)));
+        &sigCatcher, SLOT(getRecipient(SendCoinsRecipient)));
 
     // Return results from sigCatcher
     return sigCatcher.recipient;
 }
-*/
 
 void PaymentServerTests::paymentServerTests()
 {
-    /*
+    SelectParams(CBaseChainParams::MAIN);
     OptionsModel optionsModel;
     PaymentServer* server = new PaymentServer(NULL, false);
     X509_STORE* caStore = X509_STORE_new();
@@ -106,8 +109,18 @@ void PaymentServerTests::paymentServerTests()
     r.paymentRequest.getMerchant(caStore, merchant);
     QCOMPARE(merchant, QString(""));
 
+    // Just get some random data big enough to trigger BIP70 DoS protection
+    unsigned char randData[BIP70_MAX_PAYMENTREQUEST_SIZE + 1];
+    GetRandBytes(randData, sizeof(randData));
+    // Write data to a temp file:
+    QTemporaryFile tempFile;
+    tempFile.open();
+    tempFile.write((const char*)randData, sizeof(randData));
+    tempFile.close();
+    // Trigger BIP70 DoS protection
+    QCOMPARE(PaymentServer::readPaymentRequestFromFile(tempFile.fileName(), r.paymentRequest), false);
+
     delete server;
-    */
 }
 
 void RecipientCatcher::getRecipient(SendCoinsRecipient r)

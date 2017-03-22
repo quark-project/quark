@@ -2,21 +2,29 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOINGUI_H
-#define BITCOINGUI_H
+#ifndef BITCOIN_QT_BITCOINGUI_H
+#define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
+#include "config/bitcoin-config.h"
 #endif
 
+#include "amount.h"
+
+#include <QLabel>
 #include <QMainWindow>
 #include <QMap>
+#include <QMenu>
+#include <QPoint>
 #include <QSystemTrayIcon>
 
 class ClientModel;
+class NetworkStyle;
 class Notificator;
+class OptionsModel;
 class RPCConsole;
 class SendCoinsRecipient;
+class UnitDisplayStatusBarControl;
 class WalletFrame;
 class WalletModel;
 
@@ -24,12 +32,12 @@ class CWallet;
 
 QT_BEGIN_NAMESPACE
 class QAction;
-class QLabel;
 class QProgressBar;
+class QProgressDialog;
 QT_END_NAMESPACE
 
 /**
-  Bitcoin GUI main class. This class represents the main window of the Bitcoin UI. It communicates with both the client and
+  Quark GUI main class. This class represents the main window of the Quark UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
 class BitcoinGUI : public QMainWindow
@@ -39,7 +47,7 @@ class BitcoinGUI : public QMainWindow
 public:
     static const QString DEFAULT_WALLET;
 
-    explicit BitcoinGUI(bool fIsTestnet = false, QWidget *parent = 0);
+    explicit BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent = 0);
     ~BitcoinGUI();
 
     /** Set the client model.
@@ -49,13 +57,14 @@ public:
 
 #ifdef ENABLE_WALLET
     /** Set the wallet model.
-        The wallet model represents a bitcoin wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a quark wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     bool addWallet(const QString& name, WalletModel *walletModel);
     bool setCurrentWallet(const QString& name);
     void removeAllWallets();
-#endif
+#endif // ENABLE_WALLET
+    bool enableWallet;
 
 protected:
     void changeEvent(QEvent *e);
@@ -68,11 +77,13 @@ private:
     ClientModel *clientModel;
     WalletFrame *walletFrame;
 
+    UnitDisplayStatusBarControl *unitDisplayControl;
     QLabel *labelEncryptionIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
     QLabel *progressBarLabel;
     QProgressBar *progressBar;
+    QProgressDialog *progressDialog;
 
     QMenuBar *appMenuBar;
     QAction *overviewAction;
@@ -96,6 +107,7 @@ private:
     QAction *showHelpMessageAction;
 
     QSystemTrayIcon *trayIcon;
+    QMenu *trayIconMenu;
     Notificator *notificator;
     RPCConsole *rpcConsole;
 
@@ -104,13 +116,13 @@ private:
     int spinnerFrame;
 
     /** Create the main UI actions. */
-    void createActions(bool fIsTestnet);
+    void createActions(const NetworkStyle *networkStyle);
     /** Create the menu bar and sub-menus. */
     void createMenuBar();
     /** Create the toolbars */
     void createToolBars();
     /** Create system tray icon and notification */
-    void createTrayIcon(bool fIsTestnet);
+    void createTrayIcon(const NetworkStyle *networkStyle);
     /** Create system tray menu (or setup the dock menu) */
     void createTrayIconMenu();
 
@@ -151,8 +163,8 @@ public slots:
     bool handlePaymentRequest(const SendCoinsRecipient& recipient);
 
     /** Show incoming transaction notification for new transactions. */
-    void incomingTransaction(const QString& date, int unit, qint64 amount, const QString& type, const QString& address);
-#endif
+    void incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address);
+#endif // ENABLE_WALLET
 
 private slots:
 #ifdef ENABLE_WALLET
@@ -172,11 +184,13 @@ private slots:
 
     /** Show open dialog */
     void openClicked();
-#endif
+#endif // ENABLE_WALLET
     /** Show configuration dialog */
     void optionsClicked();
     /** Show about dialog */
     void aboutClicked();
+    /** Show debug window */
+    void showDebugWindow();
     /** Show help message dialog */
     void showHelpMessageClicked();
 #ifndef Q_OS_MAC
@@ -191,6 +205,38 @@ private slots:
 
     /** called by a timer to check if fRequestShutdown has been set **/
     void detectShutdown();
+
+    /** Show progress dialog e.g. for verifychain */
+    void showProgress(const QString &title, int nProgress);
 };
 
-#endif // BITCOINGUI_H
+class UnitDisplayStatusBarControl : public QLabel
+{
+    Q_OBJECT
+
+public:
+    explicit UnitDisplayStatusBarControl();
+    /** Lets the control know about the Options Model (and its signals) */
+    void setOptionsModel(OptionsModel *optionsModel);
+
+protected:
+    /** So that it responds to left-button clicks */
+    void mousePressEvent(QMouseEvent *event);
+
+private:
+    OptionsModel *optionsModel;
+    QMenu* menu;
+
+    /** Shows context menu with Display Unit options by the mouse coordinates */
+    void onDisplayUnitsClicked(const QPoint& point);
+    /** Creates context menu, its actions, and wires up all the relevant signals for mouse events. */
+    void createContextMenu();
+
+private slots:
+    /** When Display Units are changed on OptionsModel it will refresh the display text of the control on the status bar */
+    void updateDisplayUnit(int newUnits);
+    /** Tells underlying optionsModel to update its current display unit. */
+    void onMenuSelection(QAction* action);
+};
+
+#endif // BITCOIN_QT_BITCOINGUI_H

@@ -1,46 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
-<context>
-    <name>AboutDialog</name>
-    <message>
-        <source>About Quark Core</source>
-        <translation>Info su Quark Core</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Quark Core&lt;/b&gt; version</source>
-        <translation>Versione &lt;b&gt;Quark Core&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Questo è un software sperimentale.
-
-Distribuito sotto la licenza software MIT/X11, vedi il file COPYING incluso oppure su http://www.opensource.org/licenses/mit-license.php.
-
-Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso del Toolkit OpenSSL (http://www.openssl.org/), software crittografico scritto da Eric Young (eay@cryptsoft.com) e software UPnP scritto da Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Copyright</source>
-        <translation>Copyright</translation>
-    </message>
-    <message>
-        <source>The Quark Core developers</source>
-        <translation>Gli sviluppatori del Quark Core</translation>
-    </message>
-    <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-bit)</translation>
-    </message>
-</context>
+<TS language="it" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
-        <source>Double-click to edit address or label</source>
-        <translation>Doppio click per modificare l&apos;indirizzo o l&apos;etichetta</translation>
+        <source>Right-click to edit address or label</source>
+        <translation>Fare click con il tasto destro del mouse per modificare l'indirizzo o l'etichetta</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -52,7 +15,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-        <translation>Copia l&apos;indirizzo attualmente selezionato negli appunti</translation>
+        <translation>Copia negli appunti l'indirizzo attualmente selezionato</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -64,15 +27,15 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation>&amp;Copia l&apos;indirizzo</translation>
+        <translation>&amp;Copia l'indirizzo</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-        <translation>Cancella l&apos;indirizzo attualmente selezionato dalla lista</translation>
+        <translation>Rimuove dalla lista l'indirizzo attualmente selezionato</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Esporta su file i dati della tabella corrente </translation>
+        <translation>Esporta su file i dati contenuti nella tabella corrente</translation>
     </message>
     <message>
         <source>&amp;Export</source>
@@ -80,15 +43,15 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Cancella</translation>
+        <translation>&amp;Elimina</translation>
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Scegli l&apos;indirizzo a cui inviare bitcoin</translation>
+        <translation>Scegli l'indirizzo a cui inviare quark</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Scegli l&apos;indirizzo con cui ricevere bitcoin</translation>
+        <translation>Scegli l'indirizzo con cui ricevere quark</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -96,7 +59,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Sending addresses</source>
-        <translation>Indirizzi d&apos;invio</translation>
+        <translation>Indirizzi d'invio</translation>
     </message>
     <message>
         <source>Receiving addresses</source>
@@ -104,15 +67,15 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>These are your Quark addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Questo è un elenco di indirizzi bitcoin a cui puoi inviare pagamenti. Controlla sempre l&apos;importo e l&apos;indirizzo del beneficiario prima di inviare bitcoin.</translation>
+        <translation>Questo è un elenco di indirizzi Quark a cui puoi inviare pagamenti. Controlla sempre l'importo e l'indirizzo del beneficiario prima di inviare quark.</translation>
     </message>
     <message>
         <source>These are your Quark addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Questi sono i tuoi indirizzi bitcoin che puoi usare per ricevere pagamenti. Si raccomanda di generare un nuovo indirizzo per ogni transazione.</translation>
+        <translation>Questi sono i tuoi indirizzi Quark che puoi usare per ricevere pagamenti. Si raccomanda di generare un nuovo indirizzo per ogni transazione.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>Copia &amp;l&apos;etichetta</translation>
+        <translation>Copia &amp;l'etichetta</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -131,8 +94,8 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
         <translation>Esportazione Fallita.</translation>
     </message>
     <message>
-        <source>There was an error trying to save the address list to %1.</source>
-        <translation>Si è verificato un errore tentando di salvare la lista degli indirizzi in %1.</translation>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Si è verificato un errore tentando di salvare la lista degli indirizzi su %1. Si prega di riprovare.</translation>
     </message>
 </context>
 <context>
@@ -169,16 +132,12 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
         <translation>Ripeti la nuova passphrase</translation>
     </message>
     <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Inserisci la nuova passphrase per il portamonete.&lt;br/&gt;Si prega di usare una passphrase di &lt;b&gt;10 o più caratteri casuali&lt;/b&gt;, o di &lt;b&gt;otto o più parole&lt;/b&gt;.</translation>
-    </message>
-    <message>
         <source>Encrypt wallet</source>
         <translation>Cifra il portamonete</translation>
     </message>
     <message>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
-        <translation>Quest&apos;operazione necessita della passphrase per sbloccare il portamonete.</translation>
+        <translation>Questa operazione necessita della passphrase per sbloccare il portamonete.</translation>
     </message>
     <message>
         <source>Unlock wallet</source>
@@ -186,7 +145,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
-        <translation>Quest&apos;operazione necessita della passphrase per decifrare il portamonete,</translation>
+        <translation>Quest'operazione necessita della passphrase per decifrare il portamonete,</translation>
     </message>
     <message>
         <source>Decrypt wallet</source>
@@ -206,7 +165,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR QUARKS&lt;/b&gt;!</source>
-        <translation>Attenzione: se si cifra il portamonete e si perde la passphrase &lt;b&gt;TUTTI I PROPRI QUARK ANDRANNO PERSI&lt;/b&gt;!</translation>
+        <translation>Attenzione: perdendo la passphrase di un portamonete cifrato &lt;b&gt;TUTTI I PROPRI QUARK ANDRANNO PERSI&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -225,7 +184,11 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
         <translation>Portamonete cifrato</translation>
     </message>
     <message>
-        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarks from being stolen by malware infecting your computer.</source>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Inserisci la nuova passphrase per il portamonete.&lt;br/&gt;Si consiglia di utilizzare &lt;b&gt;almeno dieci caratteri casuali&lt;/b&gt; oppure &lt;b&gt;otto o più parole&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarkcoins from being stolen by malware infecting your computer.</source>
         <translation>Quark si chiuderà per portare a termine il processo di cifratura. Ricorda che cifrare il tuo portamonete non può fornire una protezione totale contro i furti causati da infezioni malware.</translation>
     </message>
     <message>
@@ -261,7 +224,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     <name>BitcoinGUI</name>
     <message>
         <source>Sign &amp;message...</source>
-        <translation>Firma il &amp;messaggio...</translation>
+        <translation>Firma &amp;messaggio...</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -296,16 +259,12 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
         <translation>Chiudi applicazione</translation>
     </message>
     <message>
-        <source>Show information about Quark</source>
-        <translation>Mostra informazioni su Quark</translation>
-    </message>
-    <message>
         <source>About &amp;Qt</source>
         <translation>Informazioni su &amp;Qt</translation>
     </message>
     <message>
         <source>Show information about Qt</source>
-        <translation>Mostra informazioni su Qt</translation>
+        <translation>Mostra le informazioni su Qt</translation>
     </message>
     <message>
         <source>&amp;Options...</source>
@@ -317,15 +276,15 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>&amp;Backup Wallet...</source>
-        <translation>&amp;Backup Portamonete...</translation>
+        <translation>&amp;Backup portamonete...</translation>
     </message>
     <message>
         <source>&amp;Change Passphrase...</source>
-        <translation>&amp;Cambia la passphrase...</translation>
+        <translation>&amp;Cambia passphrase...</translation>
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>&amp;Indirizzi d&apos;invio...</translation>
+        <translation>&amp;Indirizzi d'invio...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
@@ -334,6 +293,10 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     <message>
         <source>Open &amp;URI...</source>
         <translation>Apri &amp;URI...</translation>
+    </message>
+    <message>
+        <source>Quark Core client</source>
+        <translation>Quark Core client</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -345,11 +308,11 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Send coins to a Quark address</source>
-        <translation>Invia monete ad un indirizzo bitcoin</translation>
+        <translation>Invia fondi ad un indirizzo Quark</translation>
     </message>
     <message>
         <source>Modify configuration options for Quark</source>
-        <translation>Modifica opzioni di configurazione per bitcoin</translation>
+        <translation>Modifica opzioni di configurazione per Quark</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -361,7 +324,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>&amp;Debug window</source>
-        <translation>Finestra &amp;Debug</translation>
+        <translation>Finestra di &amp;debug</translation>
     </message>
     <message>
         <source>Open debugging and diagnostic console</source>
@@ -388,6 +351,10 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
         <translation>&amp;Ricevi</translation>
     </message>
     <message>
+        <source>Show information about Quark Core</source>
+        <translation>Mostra le informazioni su Quark Core</translation>
+    </message>
+    <message>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Mostra / Nascondi</translation>
     </message>
@@ -401,11 +368,11 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Sign messages with your Quark addresses to prove you own them</source>
-        <translation>Firma i messaggi con il tuo indirizzo bitcoin per dimostrarne il possesso</translation>
+        <translation>Firma messaggi con i tuoi indirizzi Quark per dimostrarne il possesso</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Quark addresses</source>
-        <translation>Verifica i messaggi per accertare che siano stati firmati con gli indirizzi bitcoin specificati</translation>
+        <translation>Verifica che i messaggi siano stati firmati con gli indirizzi Quark specificati</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -421,11 +388,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Tabs toolbar</source>
-        <translation>Barra degli strumenti &quot;Tabs&quot;</translation>
-    </message>
-    <message>
-        <source>[testnet]</source>
-        <translation>[testnet]</translation>
+        <translation>Barra degli strumenti</translation>
     </message>
     <message>
         <source>Quark Core</source>
@@ -437,7 +400,7 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>&amp;About Quark Core</source>
-        <translation>Info su Quark Core</translation>
+        <translation>&amp;Informazioni su Quark Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -449,35 +412,23 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Open a quark: URI or payment request</source>
-        <translation>Apri un URI o una richiesta di pagamento</translation>
+        <translation>Apri un quark: URI o una richiesta di pagamento</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
-        <translation>Opzioni riga di &amp;comando</translation>
+        <translation>Opzioni della riga di &amp;comando</translation>
     </message>
     <message>
         <source>Show the Quark Core help message to get a list with possible Quark command-line options</source>
-        <translation>Mostra il messaggio di aiuto di Quark Core per avere la lista di tutte le opzioni della riga di comando di Quark.</translation>
-    </message>
-    <message>
-        <source>Quark client</source>
-        <translation>Quark client</translation>
+        <translation>Mostra il messaggio di aiuto di Quark Core per ottenere la lista delle opzioni della riga di comando valide.</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Quark network</source>
-        <translation><numerusform>%n connessione attiva alla rete Quark</numerusform><numerusform>%n connessioni attive alla rete Quark</numerusform></translation>
+        <translation><numerusform>%n connessione attiva alla rete Quark</numerusform><numerusform>%n connessioni alla rete Quark attive</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
-        <translation>Nessuna fonte di blocchi disponibile</translation>
-    </message>
-    <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>Processati %1 di %2 blocchi totali (stimati) della cronologia transazioni.</translation>
-    </message>
-    <message>
-        <source>Processed %1 blocks of transaction history.</source>
-        <translation>Processati %1 blocchi della cronologia transazioni.</translation>
+        <translation>Nessuna fonte di blocchi disponibile...</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -505,11 +456,11 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
-        <translation>L&apos;ultimo blocco ricevuto è stato generato %1 fa.</translation>
+        <translation>L'ultimo blocco ricevuto è stato generato %1 fa.</translation>
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
-        <translation>Transazioni successive a questa non saranno ancora visibili.</translation>
+        <translation>Le transazioni effettuate successivamente non sono ancora visibili.</translation>
     </message>
     <message>
         <source>Error</source>
@@ -526,6 +477,10 @@ Questo prodotto include software sviluppato dal progetto OpenSSL per l&apos;uso 
     <message>
         <source>Up to date</source>
         <translation>Aggiornato</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>Processati %n blocchi dello storico transazioni.</numerusform><numerusform>Processati %n blocchi dello storico delle transazioni.</numerusform></translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -560,10 +515,6 @@ Indirizzo: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Il portamonete è &lt;b&gt;cifrato&lt;/b&gt; ed attualmente &lt;b&gt;bloccato&lt;/b&gt;</translation>
     </message>
-    <message>
-        <source>A fatal error occurred. Quark can no longer continue safely and will quit.</source>
-        <translation>Riscontrato un errore irreversibile. Quark non può più continuare in sicurezza e sarà terminato.</translation>
-    </message>
 </context>
 <context>
     <name>ClientModel</name>
@@ -575,8 +526,8 @@ Indirizzo: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <source>Coin Control Address Selection</source>
-        <translation>Selezione Indirizzo Coin Control</translation>
+        <source>Coin Selection</source>
+        <translation>Selezione Input</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -599,8 +550,8 @@ Indirizzo: %4
         <translation>Commissione:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>Low Output:</translation>
+        <source>Dust:</source>
+        <translation>Trascurabile:</translation>
     </message>
     <message>
         <source>After Fee:</source>
@@ -627,8 +578,12 @@ Indirizzo: %4
         <translation>Importo</translation>
     </message>
     <message>
-        <source>Address</source>
-        <translation>Indirizzo</translation>
+        <source>Received with label</source>
+        <translation>Ricevuto con l'etichetta</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Ricevuto con l'indirizzo</translation>
     </message>
     <message>
         <source>Date</source>
@@ -636,7 +591,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>Confirmations</source>
-        <translation>Conferme:</translation>
+        <translation>Conferme</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -648,19 +603,19 @@ Indirizzo: %4
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copia l&apos;indirizzo</translation>
+        <translation>Copia l'indirizzo</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Copia l&apos;etichetta</translation>
+        <translation>Copia l'etichetta</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Copia l&apos;importo</translation>
+        <translation>Copia importo</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation>Copia l&apos;ID transazione</translation>
+        <translation>Copia l'ID transazione</translation>
     </message>
     <message>
         <source>Lock unspent</source>
@@ -691,8 +646,8 @@ Indirizzo: %4
         <translation>Copia priorità</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>Copia low output</translation>
+        <source>Copy dust</source>
+        <translation>Copia trascurabile</translation>
     </message>
     <message>
         <source>Copy change</source>
@@ -704,7 +659,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>higher</source>
-        <translation>superiore</translation>
+        <translation>molto alta</translation>
     </message>
     <message>
         <source>high</source>
@@ -728,7 +683,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>lower</source>
-        <translation>minore</translation>
+        <translation>molto bassa</translation>
     </message>
     <message>
         <source>lowest</source>
@@ -743,8 +698,8 @@ Indirizzo: %4
         <translation>nessuno</translation>
     </message>
     <message>
-        <source>Dust</source>
-        <translation>Trascurabile</translation>
+        <source>Can vary +/- %1 satoshi(s) per input.</source>
+        <translation>Può variare di +/- %1 satoshi per input.</translation>
     </message>
     <message>
         <source>yes</source>
@@ -756,11 +711,11 @@ Indirizzo: %4
     </message>
     <message>
         <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation>Questa etichetta diventa rossa se la dimensione della transazione supera i 1000 bytes</translation>
+        <translation>Questa etichetta diventerà rossa se la dimensione della transazione supererà i 1000 byte.</translation>
     </message>
     <message>
         <source>This means a fee of at least %1 per kB is required.</source>
-        <translation>Questo significa che è richiesta una commissione di almeno %1 per ogni kB.</translation>
+        <translation>In tal caso sarà necessaria una commissione di almeno %1 per ogni kB.</translation>
     </message>
     <message>
         <source>Can vary +/- 1 byte per input.</source>
@@ -771,24 +726,12 @@ Indirizzo: %4
         <translation>Le transazioni con priorità più alta hanno più probabilità di essere incluse in un blocco.</translation>
     </message>
     <message>
-        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
-        <translation>Questa etichetta diventa rossa se la priorità è inferiore a &quot;media&quot;.</translation>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Questa etichetta diventerà rossa se la priorità sarà inferiore a "media".</translation>
     </message>
     <message>
         <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
-        <translation>Questa etichetta diventa rossa se uno qualsiasi dei destinatari riceve un ammontare inferiore di %1.</translation>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 is required.</source>
-        <translation>Questo significa che è richiesta una commissione di almeno %1</translation>
-    </message>
-    <message>
-        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation>Importi inferiori a 0,546 volte la commissione minima di trasferimento sono mostrati come trascurabili.</translation>
-    </message>
-    <message>
-        <source>This label turns red, if the change is smaller than %1.</source>
-        <translation>Questa etichetta diventa rossa se il resto è minore di %1.</translation>
+        <translation>Questa etichetta diventerà rossa se uno qualsiasi dei destinatari riceverà un ammontare inferiore a %1.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -807,7 +750,7 @@ Indirizzo: %4
     <name>EditAddressDialog</name>
     <message>
         <source>Edit Address</source>
-        <translation>Modifica l&apos;indirizzo</translation>
+        <translation>Modifica l'indirizzo</translation>
     </message>
     <message>
         <source>&amp;Label</source>
@@ -815,11 +758,11 @@ Indirizzo: %4
     </message>
     <message>
         <source>The label associated with this address list entry</source>
-        <translation>L&apos;etichetta associata con questa voce della lista degli indirizzi</translation>
+        <translation>L'etichetta associata con questa voce della lista degli indirizzi</translation>
     </message>
     <message>
         <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation>L&apos;indirizzo associato a questa voce della rubrica. Può essere modificato solo per gli indirizzi d&apos;invio.</translation>
+        <translation>L'indirizzo associato con questa voce della lista degli indirizzi. Può essere modificato solo per gli indirizzi d'invio.</translation>
     </message>
     <message>
         <source>&amp;Address</source>
@@ -831,7 +774,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>New sending address</source>
-        <translation>Nuovo indirizzo d&apos;invio</translation>
+        <translation>Nuovo indirizzo d'invio</translation>
     </message>
     <message>
         <source>Edit receiving address</source>
@@ -839,15 +782,15 @@ Indirizzo: %4
     </message>
     <message>
         <source>Edit sending address</source>
-        <translation>Modifica indirizzo d&apos;invio</translation>
+        <translation>Modifica indirizzo d'invio</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation>L&apos;indirizzo inserito &quot;%1&quot; è già in rubrica.</translation>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>L'indirizzo "%1" è già presente in rubrica.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid Quark address.</source>
-        <translation>L&apos;indirizzo inserito &quot;%1&quot; non è un indirizzo bitcoin valido.</translation>
+        <source>The entered address "%1" is not a valid Quark address.</source>
+        <translation>L'indirizzo "%1" non è un indirizzo quark valido.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -866,11 +809,11 @@ Indirizzo: %4
     </message>
     <message>
         <source>name</source>
-        <translation>Nome</translation>
+        <translation>nome</translation>
     </message>
     <message>
         <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
-        <translation>La cartella esiste già. Aggiungi %1 se intendi creare qui una nuova cartella.</translation>
+        <translation>Cartella già esistente. Aggiungi %1 se intendi creare qui una nuova cartella.</translation>
     </message>
     <message>
         <source>Path already exists, and is not a directory.</source>
@@ -878,15 +821,11 @@ Indirizzo: %4
     </message>
     <message>
         <source>Cannot create data directory here.</source>
-        <translation>Qui non è possibile creare una cartella dati.</translation>
+        <translation>Impossibile creare una cartella dati qui.</translation>
     </message>
 </context>
 <context>
     <name>HelpMessageDialog</name>
-    <message>
-        <source>Quark Core - Command-line options</source>
-        <translation>Quark Core - Opzioni riga di comando</translation>
-    </message>
     <message>
         <source>Quark Core</source>
         <translation>Quark Core</translation>
@@ -896,20 +835,32 @@ Indirizzo: %4
         <translation>versione</translation>
     </message>
     <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About Quark Core</source>
+        <translation>Informazioni su Quark Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Opzioni della riga di comando</translation>
+    </message>
+    <message>
         <source>Usage:</source>
         <translation>Utilizzo:</translation>
     </message>
     <message>
         <source>command-line options</source>
-        <translation>opzioni riga di comando</translation>
+        <translation>opzioni della riga di comando</translation>
     </message>
     <message>
         <source>UI options</source>
-        <translation>UI opzioni</translation>
+        <translation>Opzioni UI</translation>
     </message>
     <message>
-        <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation>Imposta lingua, ad esempio &quot;it_IT&quot; (predefinita: lingua di sistema)</translation>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Imposta lingua, ad esempio "it_IT" (predefinito: lingua di sistema)</translation>
     </message>
     <message>
         <source>Start minimized</source>
@@ -921,11 +872,11 @@ Indirizzo: %4
     </message>
     <message>
         <source>Show splash screen on startup (default: 1)</source>
-        <translation>Mostra finestra di presentazione all&apos;avvio (predefinito: 1)</translation>
+        <translation>Mostra finestra di presentazione all'avvio (predefinito: 1)</translation>
     </message>
     <message>
         <source>Choose data directory on startup (default: 0)</source>
-        <translation>Scegli una cartella dati all&apos;avvio (predefinito: 0)</translation>
+        <translation>Seleziona la cartella dati all'avvio (predefinito: 0)</translation>
     </message>
 </context>
 <context>
@@ -944,7 +895,7 @@ Indirizzo: %4
     </message>
     <message>
         <source>Quark Core will download and store a copy of the Quark block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Quark Core scaricherà e salverà una copia del block chain di Quark. Almeno %1GB di dati che andranno ad aumentare col tempo saranno salvati in questa cartella. Anche il portamonete sarà salvato in questa cartella.</translation>
+        <translation>Quark Core scaricherà e salverà una copia della block chain di Quark. Il portamonete ed almeno %1GB di dati saranno salvati in questa cartella. Si ricorda che lo spazio occupato andrà ad aumentare nel tempo.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -955,26 +906,18 @@ Indirizzo: %4
         <translation>Usa una cartella dati personalizzata:</translation>
     </message>
     <message>
-        <source>Quark</source>
-        <translation>Quark</translation>
+        <source>Quark Core</source>
+        <translation>Quark Core</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
-        <translation>Errore: La cartella dati &quot;%1&quot; specificata non può essere creata.</translation>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Errore: La cartella dati "%1" specificata non può essere creata.</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
-    <message>
-        <source>GB of free space available</source>
-        <translation>GB di spazio libero disponibile</translation>
-    </message>
-    <message>
-        <source>(of %1GB needed)</source>
-        <translation>(di %1GB richiesti)</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>OpenURIDialog</name>
     <message>
@@ -1009,20 +952,12 @@ Indirizzo: %4
         <translation>&amp;Principale</translation>
     </message>
     <message>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation>Commissione di transazione per kB: è opzionale e contribuisce ad assicurare che le transazioni siano elaborate velocemente. La maggior parte della transazioni ha dimensioni pari a 1 kB.</translation>
-    </message>
-    <message>
-        <source>Pay transaction &amp;fee</source>
-        <translation>Paga la &amp;commissione</translation>
-    </message>
-    <message>
         <source>Automatically start Quark after logging in to the system.</source>
-        <translation>Avvia automaticamente Quark una volta effettuato l&apos;accesso al sistema.</translation>
+        <translation>Avvia automaticamente Quark una volta effettuato l'accesso al sistema.</translation>
     </message>
     <message>
         <source>&amp;Start Quark on system login</source>
-        <translation>&amp;Avvia Quark all&apos;accesso al sistema</translation>
+        <translation>&amp;Avvia Quark all'accesso al sistema</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1037,21 +972,21 @@ Indirizzo: %4
         <translation>Numero di thread di &amp;verifica degli script </translation>
     </message>
     <message>
-        <source>Connect to the Quark network through a SOCKS proxy.</source>
-        <translation>Connessione alla rete Quark attraverso un proxy SOCKS.</translation>
+        <source>Accept connections from outside</source>
+        <translation>Accetta connessioni provenienti dall'esterno</translation>
     </message>
     <message>
-        <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>&amp;Connessione attraverso proxy SOCKS (proxy predefinito):</translation>
+        <source>Allow incoming connections</source>
+        <translation>Permetti connessioni in ingresso</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
-        <translation>Indirizzo IP del proxy (es: IPv4: 127.0.0.1 / IPv6: ::1)</translation>
+        <translation>Indirizzo IP del proxy (ad es. IPv4: 127.0.0.1 / IPv6: ::1)</translation>
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>URL di terze parti (es: un block explorer) che appaiono nella tabella delle transazioni come voci nel menu contestuale. %s nell&apos;URL è sostituito dall&apos;hash della transazione.
-Più URL vengono separati da una barra verticale |.</translation>
+        <translation>URL di terze parti (ad es. un block explorer) che appaiono nella tabella delle transazioni come voci nel menu contestuale. "%s" nell'URL è sostituito dall'hash della transazione.
+Per specificare più URL separarli con una barra verticale "|".</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
@@ -1059,7 +994,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Active command-line options that override above options:</source>
-        <translation>Opzioni command-line attive che sostituiscono i settaggi sopra elencati:</translation>
+        <translation>Opzioni della riga di comando attive che sostituiscono i settaggi sopra elencati:</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
@@ -1091,11 +1026,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation>Disabilitando l&apos;uso di resti non confermati, il resto di una transazione non potrà essere speso fino a quando la transazione non avrà ottenuto almeno una conferma. Questa impostazione influisce inoltre sul calcolo saldo.</translation>
+        <translation>Disabilitando l'uso di resti non confermati, il resto di una transazione non potrà essere speso fino a quando non avrà ottenuto almeno una conferma. Questa impostazione influisce inoltre sul calcolo del saldo.</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
-        <translation>%Spendere resti non confermati</translation>
+        <translation>&amp;Spendi resti non confermati</translation>
     </message>
     <message>
         <source>Automatically open the Quark client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1104,6 +1039,14 @@ Più URL vengono separati da una barra verticale |.</translation>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Mappa le porte tramite &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Connect to the Quark network through a SOCKS5 proxy.</source>
+        <translation>Connessione alla rete Quark attraverso un proxy SOCKS5.</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Connessione attraverso proxy SOCKS5 (proxy predefinito):</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1115,15 +1058,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Port of the proxy (e.g. 9050)</source>
-        <translation>Porta del proxy (es. 9050)</translation>
-    </message>
-    <message>
-        <source>SOCKS &amp;Version:</source>
-        <translation>SOCKS &amp;Version:</translation>
-    </message>
-    <message>
-        <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>Versione SOCKS del proxy (es. 5)</translation>
+        <translation>Porta del proxy (ad es. 9050)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1139,7 +1074,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Minimize instead of exit the application when the window is closed. When this option is enabled, the application will be closed only after selecting Quit in the menu.</source>
-        <translation>Riduci ad icona invece di uscire dall&apos;applicazione quando la finestra viene chiusa. Se l&apos;opzione è attiva, l&apos;applicazione terminerà solo dopo aver selezionato Esci dal menu File.</translation>
+        <translation>Riduci ad icona invece di uscire dall'applicazione quando la finestra viene chiusa. Se l'opzione è attiva, l'applicazione terminerà solo dopo aver selezionato Esci dal menu File.</translation>
     </message>
     <message>
         <source>M&amp;inimize on close</source>
@@ -1155,7 +1090,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>The user interface language can be set here. This setting will take effect after restarting Quark.</source>
-        <translation>La lingua dell&apos;interfaccia utente può essere impostata qui. L&apos;impostazione avrà effetto dopo il riavvio di Quark.</translation>
+        <translation>La lingua dell'interfaccia utente può essere impostata qui. L'impostazione avrà effetto dopo il riavvio di Quark.</translation>
     </message>
     <message>
         <source>&amp;Unit to show amounts in:</source>
@@ -1163,15 +1098,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Scegli l&apos;unità di suddivisione predefinita da utilizzare per l&apos;interfaccia e per l&apos;invio di monete.</translation>
-    </message>
-    <message>
-        <source>Whether to show Quark addresses in the transaction list or not.</source>
-        <translation>Specifica se gli indirizzi saranno visualizzati nella lista delle transazioni.</translation>
-    </message>
-    <message>
-        <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Mostra gli indirizzi nella lista delle transazioni</translation>
+        <translation>Scegli l'unità di suddivisione predefinita da utilizzare per l'interfaccia e per l'invio di quark.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1199,7 +1126,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
-        <translation>È necessario un riavvio del client per rendere attivi i cambiamenti.</translation>
+        <translation>È necessario un riavvio del client per applicare le modifiche.</translation>
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
@@ -1207,11 +1134,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>This change would require a client restart.</source>
-        <translation>Questo cambiamento richiede un riavvio del client.</translation>
+        <translation>Questa modifica richiede un riavvio del client.</translation>
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
-        <translation>L&apos;indirizzo proxy che hai fornito è invalido.</translation>
+        <translation>L'indirizzo proxy che hai fornito non è valido.</translation>
     </message>
 </context>
 <context>
@@ -1225,8 +1152,8 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Le informazioni visualizzate potrebbero non essere aggiornate. Il portamonete si sincronizza automaticamente con la rete Quark una volta stabilita una connessione, ma questo processo non è ancora stato completato.</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>Portamonete</translation>
+        <source>Watch-only:</source>
+        <translation>Sola lettura:</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1234,7 +1161,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
-        <translation>Saldo spendibile attuale</translation>
+        <translation>Il tuo saldo spendibile attuale</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -1253,16 +1180,40 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Importo generato dal mining e non ancora maturato</translation>
     </message>
     <message>
+        <source>Balances</source>
+        <translation>Saldo</translation>
+    </message>
+    <message>
         <source>Total:</source>
         <translation>Totale:</translation>
     </message>
     <message>
         <source>Your current total balance</source>
-        <translation>Saldo totale attuale</translation>
+        <translation>Il tuo saldo totale attuale</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Transazioni recenti&lt;/b&gt;</translation>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Il tuo saldo attuale negli indirizzi di sola lettura</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Spendibile:</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Transazioni recenti</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Transazioni non confermate su indirizzi di sola lettura</translation>
+    </message>
+    <message>
+        <source>Mined balance in watch-only addresses that has not yet matured</source>
+        <translation>Importo generato dal mining su indirizzi di sola lettura e non ancora maturato</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Saldo corrente totale negli indirizzi di sola lettura</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1276,12 +1227,28 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Gestione URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
-        <translation>Impossibile interpretare l&apos;URI! Ciò può essere provocato da un indirizzo Quark non valido o da parametri URI non corretti.</translation>
+        <source>Invalid payment address %1</source>
+        <translation>Indirizzo di pagamento non valido %1</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Richiesta di pagamento respinta</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>La rete della richiesta di pagamento non corrisponde alla rete del client.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Richiesta di pagamento scaduta.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>La richiesta di pagamento non è stata inizializzata.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation>L&apos;importo di pagamento richiesto di %1 è troppo basso (considerato come trascurabile).</translation>
+        <translation>L'importo di pagamento di %1 richiesto è troppo basso (considerato come trascurabile).</translation>
     </message>
     <message>
         <source>Payment request error</source>
@@ -1292,24 +1259,20 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Impossibile avviare quark: gestore click-to-pay</translation>
     </message>
     <message>
-        <source>Net manager warning</source>
-        <translation>Avviso Net manager</translation>
-    </message>
-    <message>
-        <source>Your active proxy doesn&apos;t support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation>Il proxy attualmente attivo non supporta SOCKS5, il quale è necessario per richieste di pagamento via proxy.</translation>
-    </message>
-    <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>URL di recupero della Richiesta di pagamento non valido: %1</translation>
+    </message>
+    <message>
+        <source>URI cannot be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
+        <translation>Impossibile interpretare l'URI! I parametri URI o l'indirizzo Quark potrebbero non essere corretti.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
         <translation>Gestione del file di richiesta del pagamento</translation>
     </message>
     <message>
-        <source>Payment request file can not be read or processed! This can be caused by an invalid payment request file.</source>
-        <translation>Il file di richiesta del pagamento non può essere letto o elaborato! Il file in questione potrebbe essere danneggiato.</translation>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
+        <translation>Impossibile leggere il file della richiesta di pagamento! Il file della richiesta di pagamento potrebbe non essere valido.</translation>
     </message>
     <message>
         <source>Unverified payment requests to custom payment scripts are unsupported.</source>
@@ -1320,12 +1283,20 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Rimborso da %1</translation>
     </message>
     <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>La richiesta di pagamento %1 (%2 byte) supera la dimensione massima di %3 byte.</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Protezione DoS per la richiesta di pagamento</translation>
+    </message>
+    <message>
         <source>Error communicating with %1: %2</source>
         <translation>Errore di comunicazione con %1: %2</translation>
     </message>
     <message>
-        <source>Payment request can not be parsed or processed!</source>
-        <translation>La richiesta di pagamento non può essere analizzata o processata!</translation>
+        <source>Payment request cannot be parsed!</source>
+        <translation>La richiesta di pagamento non può essere analizzata!</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
@@ -1341,37 +1312,72 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
 </context>
 <context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>User Agent</source>
+        <translation>User Agent</translation>
+    </message>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Indirizzo/Nome host</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Tempo di ping</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <source>Quark</source>
-        <translation>Quark</translation>
+        <source>Amount</source>
+        <translation>Importo</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation>Errore: La cartella dati &quot;%1&quot; specificata non esiste.</translation>
+        <source>Enter a Quark address (e.g. %1)</source>
+        <translation>Inserisci un indirizzo Quark (ad es. %1)</translation>
     </message>
     <message>
-        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation>Errore: impossibile interpretare il file di configurazione: %1. Usare esclusivamente la sintassi chiave=valore.</translation>
+        <source>%1 d</source>
+        <translation>%1 d</translation>
     </message>
     <message>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Errore: combinazione di -regtest e -testnet non valida.</translation>
+        <source>%1 h</source>
+        <translation>%1 h</translation>
     </message>
     <message>
-        <source>Quark Core didn&apos;t yet exit safely...</source>
-        <translation>Quark Core non si è ancora chiuso con sicurezza...</translation>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Inserisci un indirizzo Quark (ad esempio QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>%1 s</source>
+        <translation>%1 s</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>RETE</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>SCONOSCIUTO</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Nessuno</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/D</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 ms</translation>
     </message>
 </context>
 <context>
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Salva Immagine</translation>
+        <translation>&amp;Salva Immagine...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
@@ -1417,8 +1423,12 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Versione OpenSSL in uso</translation>
     </message>
     <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Versione BerkeleyDB in uso</translation>
+    </message>
+    <message>
         <source>Startup time</source>
-        <translation>Tempo di avvio</translation>
+        <translation>Ora di avvio</translation>
     </message>
     <message>
         <source>Network</source>
@@ -1441,8 +1451,72 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Numero attuale di blocchi</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>Numero totale stimato di blocchi</translation>
+        <source>Received</source>
+        <translation>Ricevuto</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Inviato</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Peer</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Seleziona un peer per visualizzare informazioni più dettagliate.</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Direzione</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versione</translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation>User Agent</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Servizi</translation>
+    </message>
+    <message>
+        <source>Starting Height</source>
+        <translation>Nr. Blocco Iniziale</translation>
+    </message>
+    <message>
+        <source>Sync Height</source>
+        <translation>Nr. Blocco Sincronizzato</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>Punteggio di Ban</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Tempo di Connessione</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Ultimo Invio</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Ultima Ricezione</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Byte Inviati</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Byte Ricevuti</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Tempo di Ping</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1486,7 +1560,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Open the Quark debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Apri il file di log del debug di Quark dalla cartella attuale. Può richiedere alcuni secondi per file di log grandi.</translation>
+        <translation>Apri il file log del debug di Quark dalla cartella dati attuale. Può richiedere alcuni secondi per file di log di grandi dimensioni.</translation>
     </message>
     <message>
         <source>Clear console</source>
@@ -1494,15 +1568,15 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Welcome to the Quark RPC console.</source>
-        <translation>Benvenuto nella console RPC di Quark</translation>
+        <translation>Benvenuto nella console RPC di Quark.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Usa le frecce direzionali per navigare la cronologia, e &lt;b&gt;Ctrl-L&lt;/b&gt; per cancellarla.</translation>
+        <translation>Usa le frecce direzionali per scorrere la cronologia, e &lt;b&gt;Ctrl-L&lt;/b&gt; per cancellarla.</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Scrivi &lt;b&gt;help&lt;/b&gt; per un riassunto dei comandi disponibili</translation>
+        <translation>Scrivi &lt;b&gt;help&lt;/b&gt; per un riassunto dei comandi disponibili.</translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -1521,16 +1595,28 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>%1 GB</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
+        <source>via %1</source>
+        <translation>via %1</translation>
     </message>
     <message>
-        <source>%1 h</source>
-        <translation>%1 h</translation>
+        <source>never</source>
+        <translation>mai</translation>
     </message>
     <message>
-        <source>%1 h %2 m</source>
-        <translation>%1 h %2 m</translation>
+        <source>Inbound</source>
+        <translation>In entrata</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>In uscita</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Sconosciuto</translation>
+    </message>
+    <message>
+        <source>Fetching...</source>
+        <translation>Recuperando...</translation>
     </message>
 </context>
 <context>
@@ -1541,7 +1627,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>&amp;Label:</source>
-        <translation>&amp;Etichetta</translation>
+        <translation>&amp;Etichetta:</translation>
     </message>
     <message>
         <source>&amp;Message:</source>
@@ -1549,7 +1635,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
-        <translation>Riutilizza uno degli indirizzi di ricezione generati in precedenza. Riutilizzare un indirizzo comporta problemi di sicurezza e privacy. Non utilizzare a meno che non si stia rigenerando una richiesta di pagamento creata in precedenza.</translation>
+        <translation>Riutilizza uno degli indirizzi di ricezione generati in precedenza. Riutilizzare un indirizzo comporta problemi di sicurezza e privacy. Non selezionare questa opzione a meno che non si stia rigenerando una richiesta di pagamento creata in precedenza.</translation>
     </message>
     <message>
         <source>R&amp;euse an existing receiving address (not recommended)</source>
@@ -1557,11 +1643,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Quark network.</source>
-        <translation>Un messaggio opzionale da allegare alla richiesta di pagamento, il quale sarà mostrato all&apos;apertura della richiesta. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Quark.</translation>
+        <translation>Un messaggio opzionale da allegare e mostrare all'apertura della richiesta di pagamento. Nota: Il messaggio non sarà inviato con il pagamento sulla rete Quark.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
-        <translation>Un&apos;etichetta facoltativa da associare al nuovo indirizzo di ricezione</translation>
+        <translation>Un'etichetta opzionale da associare al nuovo indirizzo di ricezione.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -1605,15 +1691,15 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Copia l&apos;etichetta</translation>
+        <translation>Copia l'etichetta</translation>
     </message>
     <message>
         <source>Copy message</source>
-        <translation>Copia messaggio</translation>
+        <translation>Copia il messaggio</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Copia l&apos;importo</translation>
+        <translation>Copia l'importo</translation>
     </message>
 </context>
 <context>
@@ -1632,7 +1718,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation>&amp;Salva Immagine</translation>
+        <translation>&amp;Salva Immagine...</translation>
     </message>
     <message>
         <source>Request payment to %1</source>
@@ -1664,11 +1750,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation>L&apos;URI risultante è troppo lungo, prova a ridurre il testo nell&apos;etichetta / messaggio.</translation>
+        <translation>L'URI risultante è troppo lungo, prova a ridurre il testo nell'etichetta / messaggio.</translation>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
-        <translation>Errore nella codifica dell&apos;URI nel codice QR</translation>
+        <translation>Errore nella codifica dell'URI nel codice QR.</translation>
     </message>
 </context>
 <context>
@@ -1745,10 +1831,6 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Commissione:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>Low Output:</translation>
-    </message>
-    <message>
         <source>After Fee:</source>
         <translation>Dopo Commissione:</translation>
     </message>
@@ -1758,15 +1840,87 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
-        <translation>Se questo è abilitato e l&apos;indirizzo per il resto è vuoto o invalido, il resto sarà inviato ad un nuovo indirizzo bitcoin generato appositamente.</translation>
+        <translation>In caso di abilitazione con indirizzo vuoto o non valido, il resto sarà inviato ad un nuovo indirizzo generato appositamente.</translation>
     </message>
     <message>
         <source>Custom change address</source>
         <translation>Personalizza indirizzo di resto</translation>
     </message>
     <message>
+        <source>Transaction Fee:</source>
+        <translation>Commissione di Transazione:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Scegli...</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>minimizza le impostazioni di commissione</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Minimizza</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Se la commissione personalizzata è impostata su 1000 satoshi e la transazione è di soli 250 byte, allora "per kilobyte" paga solo 250 satoshi di commissione, mentre "somma almeno" paga 1000 satoshi. Per transazioni più grandi di un kilobyte, entrambe le opzioni pagano al kilobyte.</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>per kilobyte</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "total at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Se la commissione personalizzata è impostata su 1000 satoshi e la transazione è di soli 250 byte, allora "per kilobyte" paga solo 250 satoshi di commissione, mentre "somma almeno" paga 1000 satoshi. Per transazioni più grandi di un kilobyte, entrambe le opzioni pagano al kilobyte.</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>somma almeno</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for quark transactions than the network can process.</source>
+        <translation>Non vi è alcuna controindicazione a pagare la commissione minima, a patto che il volume delle transazioni sia inferiore allo spazio disponibile nei blocchi. Occorre comunque essere consapevoli che ciò potrebbe impedire la conferma delle transazioni nel caso in cui la rete risultasse satura.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(leggi il suggerimento)</translation>
+    </message>
+    <message>
+        <source>Recommended:</source>
+        <translation>Raccomandata:</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Personalizzata:</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Commissione intelligente non ancora inizializzata. Normalmente richiede un'attesa di alcuni blocchi...)</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Tempo di conferma:</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>normale</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>veloce</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>Invia come transazione a zero commissioni se possibile</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(la conferma potrebbe richiedere più tempo)</translation>
+    </message>
+    <message>
         <source>Send to multiple recipients at once</source>
-        <translation>Invia a diversi beneficiari in una volta sola</translation>
+        <translation>Invia simultaneamente a più beneficiari</translation>
     </message>
     <message>
         <source>Add &amp;Recipient</source>
@@ -1775,6 +1929,10 @@ Più URL vengono separati da una barra verticale |.</translation>
     <message>
         <source>Clear all fields of the form.</source>
         <translation>Cancellare tutti i campi del modulo.</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Trascurabile:</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1786,7 +1944,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Confirm the send action</source>
-        <translation>Conferma l&apos;azione di invio</translation>
+        <translation>Conferma l'azione di invio</translation>
     </message>
     <message>
         <source>S&amp;end</source>
@@ -1794,7 +1952,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
-        <translation>Conferma l&apos;invio di bitcoin</translation>
+        <translation>Conferma l'invio di quark</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -1806,7 +1964,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Copia l&apos;importo</translation>
+        <translation>Copia importo</translation>
     </message>
     <message>
         <source>Copy fee</source>
@@ -1825,16 +1983,8 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Copia priorità</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>Copia low output</translation>
-    </message>
-    <message>
         <source>Copy change</source>
         <translation>Copia resto</translation>
-    </message>
-    <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation>Importo Totale %1 (= %2)</translation>
     </message>
     <message>
         <source>or</source>
@@ -1842,15 +1992,15 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
-        <translation>L&apos;indirizzo del beneficiario non è valido, si prega di ricontrollare.</translation>
+        <translation>L'indirizzo del beneficiario non è valido, si prega di ricontrollare.</translation>
     </message>
     <message>
         <source>The amount to pay must be larger than 0.</source>
-        <translation>L&apos;importo da pagare dev&apos;essere maggiore di 0.</translation>
+        <translation>L'importo da pagare deve essere maggiore di 0.</translation>
     </message>
     <message>
         <source>The amount exceeds your balance.</source>
-        <translation>L&apos;importo è superiore al tuo saldo attuale</translation>
+        <translation>L'importo è superiore al tuo saldo attuale.</translation>
     </message>
     <message>
         <source>The total exceeds your balance when the %1 transaction fee is included.</source>
@@ -1858,7 +2008,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Rilevato un indirizzo duplicato, è possibile inviare bitcoin una sola volta agli indirizzi durante un&apos;operazione di invio.</translation>
+        <translation>Rilevato un indirizzo duplicato. È possibile inviare quark una sola volta a ciascun indirizzo durante un'operazione di invio.</translation>
     </message>
     <message>
         <source>Transaction creation failed!</source>
@@ -1866,7 +2016,19 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>La transazione è stata rifiutata! Questo può accadere se alcuni bitcoin nel tuo portamonete sono già stati spesi, ad esempio se hai utilizzato una copia del file wallet.dat per spendere bitcoin e questi non sono stati considerati spesi dal portamonete corrente.</translation>
+        <translation>La transazione è stata respinta! Questo può accadere se alcuni quark nel tuo portamonete sono già stati spesi, come nel caso in cui tu avessi utilizzato una copia del file wallet.dat per spendere quark e questi non fossero stati considerati come spesi dal portamonete corrente.</translation>
+    </message>
+    <message>
+        <source>A fee higher than %1 is considered an insanely high fee.</source>
+        <translation>Una commissione maggiore di %1 è considerata irragionevolmente elevata.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Paga solamente la commissione minima di %1</translation>
+    </message>
+    <message>
+        <source>Estimated to begin confirmation within %1 block(s).</source>
+        <translation>Inizio delle conferme stimato entro %1 blocchi.</translation>
     </message>
     <message>
         <source>Warning: Invalid Quark address</source>
@@ -1881,20 +2043,16 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Attenzione: Indirizzo per il resto sconosciuto</translation>
     </message>
     <message>
+        <source>Copy dust</source>
+        <translation>Copia trascurabile</translation>
+    </message>
+    <message>
         <source>Are you sure you want to send?</source>
         <translation>Sei sicuro di voler inviare?</translation>
     </message>
     <message>
         <source>added as transaction fee</source>
         <translation>aggiunto come tassa di transazione</translation>
-    </message>
-    <message>
-        <source>Payment request expired</source>
-        <translation>Richiesta di pagamento scaduta</translation>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation>Indirizzo di pagamento non valido %1</translation>
     </message>
 </context>
 <context>
@@ -1908,16 +2066,12 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Paga &amp;a:</translation>
     </message>
     <message>
-        <source>The address to send the payment to (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>L&apos;indirizzo del beneficiario a cui inviare il pagamento (ad esempio QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation>Inserisci un&apos;etichetta per questo indirizzo, per aggiungerlo nella rubrica</translation>
+        <translation>Inserisci un'etichetta per questo indirizzo, per aggiungerlo alla rubrica</translation>
     </message>
     <message>
         <source>&amp;Label:</source>
-        <translation>&amp;Etichetta</translation>
+        <translation>&amp;Etichetta:</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1928,12 +2082,16 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Questo è un normale pagamento.</translation>
     </message>
     <message>
+        <source>The Quark address to send the payment to</source>
+        <translation>L'indirizzo Quark a cui vuoi inviare il pagamento</translation>
+    </message>
+    <message>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Incollare l&apos;indirizzo dagli appunti</translation>
+        <translation>Incollare l'indirizzo dagli appunti</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -1953,11 +2111,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to the list of used addresses</source>
-        <translation>Inserisci un&apos;etichetta per questo indirizzo per aggiungerlo alla lista degli indirizzi utilizzati</translation>
+        <translation>Inserisci un'etichetta per questo indirizzo per aggiungerlo alla lista degli indirizzi utilizzati</translation>
     </message>
     <message>
         <source>A message that was attached to the quark: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Quark network.</source>
-        <translation>Messaggio incluso nel bitcoin URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Quark.</translation>
+        <translation>Messaggio incluso nel quark URI e che sarà memorizzato con la transazione per vostro riferimento. Nota: Questo messaggio non sarà inviato attraverso la rete Quark.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -1991,15 +2149,15 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>&amp;Sign Message</source>
-        <translation>&amp;Firma il messaggio</translation>
+        <translation>&amp;Firma Messaggio</translation>
     </message>
     <message>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Puoi firmare messaggi con i tuoi indirizzi in modo da dimostrarne il possesso. Presta attenzione a non firmare dichiarazioni vaghe, attacchi di phishing potrebbero cercare di spingerti ad apporre la tua firma su di esse. Firma solo dichiarazioni completamente dettagliate e delle quali condividi in pieno il contenuto.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>L&apos;indirizzo con cui firmare il messaggio (ad esempio QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>The Quark address to sign the message with</source>
+        <translation>L'indirizzo Quark da utilizzare per firmare il messaggio</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2011,7 +2169,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Paste address from clipboard</source>
-        <translation>Incolla l&apos;indirizzo dagli appunti</translation>
+        <translation>Incolla l'indirizzo dagli appunti</translation>
     </message>
     <message>
         <source>Alt+P</source>
@@ -2031,7 +2189,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Sign the message to prove you own this Quark address</source>
-        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo</translation>
+        <translation>Firma un messaggio per dimostrare di possedere questo indirizzo Quark</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2043,7 +2201,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
-        <translation>Cancella &amp;tutto</translation>
+        <translation>Cancella &amp;Tutto</translation>
     </message>
     <message>
         <source>&amp;Verify Message</source>
@@ -2051,15 +2209,15 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation>Inserisci l&apos;indirizzo del firmatario, il messaggio (assicurati di copiare esattamente anche i ritorni a capo, gli spazi, le tabulazioni, etc..) e la firma qui sotto, per verificare il messaggio. Presta attenzione a non vedere nella firma più di quanto non sia riportato nel messaggio stesso, per evitare di cadere vittima di attacchi di tipo man-in-the-middle.</translation>
+        <translation>Inserisci l'indirizzo del firmatario, il messaggio (assicurandoti di copiare esattamente anche i ritorni a capo, gli spazi, le tabulazioni, etc..) e la firma qui sotto, per verificare il messaggio. Presta attenzione a non vedere nella sola firma più di quanto non sia riportato nel messaggio stesso, in modo da evitare di cadere vittima di attacchi di tipo man-in-the-middle.</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>L&apos;indirizzo con cui è stato firmato il messaggio (ad esempio QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>The Quark address the message was signed with</source>
+        <translation>L'indirizzo Quark con cui è stato contrassegnato il messaggio</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Quark address</source>
-        <translation>Verifica il messaggio per accertare che sia stato firmato con l&apos;indirizzo specificato</translation>
+        <translation>Verifica il messaggio per accertare che sia stato firmato con l'indirizzo specificato</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2070,24 +2228,20 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Reimposta tutti i campi della verifica messaggio</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Inserisci un indirizzo Quark (ad esempio QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
-        <source>Click &quot;Sign Message&quot; to generate signature</source>
-        <translation>Clicca &quot;Firma il messaggio&quot; per ottenere la firma</translation>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Clicca "Firma il messaggio" per ottenere la firma</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
-        <translation>L&apos;indirizzo inserito non è valido.</translation>
+        <translation>L'indirizzo inserito non è valido.</translation>
     </message>
     <message>
         <source>Please check the address and try again.</source>
-        <translation>Per favore controlla l&apos;indirizzo e prova ancora</translation>
+        <translation>Per favore controlla l'indirizzo e prova di nuovo.</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>L&apos;indirizzo bitcoin inserito non è associato a nessuna chiave.</translation>
+        <translation>L'indirizzo quark inserito non è associato a nessuna chiave.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
@@ -2095,7 +2249,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
-        <translation>La chiave privata per l&apos;indirizzo inserito non è disponibile.</translation>
+        <translation>La chiave privata per l'indirizzo inserito non è disponibile.</translation>
     </message>
     <message>
         <source>Message signing failed.</source>
@@ -2111,7 +2265,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Please check the signature and try again.</source>
-        <translation>Per favore controlla la firma e prova ancora.</translation>
+        <translation>Per favore controlla la firma e prova di nuovo.</translation>
     </message>
     <message>
         <source>The signature did not match the message digest.</source>
@@ -2134,7 +2288,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>The Quark Core developers</source>
-        <translation>Gli sviluppatori del Quark Core</translation>
+        <translation>Gli sviluppatori di Quark Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2164,7 +2318,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>%1/unconfirmed</source>
-        <translation>%1/non confermato</translation>
+        <translation>%1/non confermata</translation>
     </message>
     <message>
         <source>%1 confirmations</source>
@@ -2176,7 +2330,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message numerus="yes">
         <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, trasmesso attraverso %n nodo</numerusform><numerusform>, trasmesso attraverso %n nodi</numerusform></translation>
+        <translation><numerusform>, trasmesso attraverso %n nodo</numerusform><numerusform>, trasmessa attraverso %n nodi</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -2203,6 +2357,10 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>proprio indirizzo</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>sola lettura</translation>
+    </message>
+    <message>
         <source>label</source>
         <translation>etichetta</translation>
     </message>
@@ -2221,6 +2379,14 @@ Più URL vengono separati da una barra verticale |.</translation>
     <message>
         <source>Debit</source>
         <translation>Debito</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Debito totale</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Credito totale</translation>
     </message>
     <message>
         <source>Transaction fee</source>
@@ -2244,11 +2410,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Merchant</source>
-        <translation>Mercante</translation>
+        <translation>Commerciante</translation>
     </message>
     <message>
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>È necessario attendere %1 blocchi prima che i bitcoin generati possano essere spesi. Quando è stato generato questo blocco, è stato trasmesso alla rete in modo da poter essere aggiunto alla block chain. Se l&apos;inserimento avrà esito negativo il suo stato sarà modificato in &quot;non accettato&quot; e risulterà non spendibile. Questo può occasionalmente accadere se un altro nodo genera un blocco entro pochi secondi dal tuo.</translation>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>È necessario attendere %1 blocchi prima che i quark generati possano essere spesi. Al momento della generazione questo blocco è stato trasmesso alla rete in modo da poter essere aggiunto alla block chain. Se l'inserimento avrà esito negativo lo stato del blocco sarà modificato in "non accettato" ed esso risulterà non spendibile. Ciò può verificarsi occasionalmente nel caso in cui un altro blocco sia stato generato entro pochi secondi dal tuo.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2276,7 +2442,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>, has not been successfully broadcast yet</source>
-        <translation>, non è stato ancora trasmesso con successo</translation>
+        <translation>, non è ancora stata trasmessa con successo</translation>
     </message>
     <message numerus="yes">
         <source>Open for %n more block(s)</source>
@@ -2313,10 +2479,6 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Indirizzo</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Importo</translation>
-    </message>
-    <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
         <translation>Immaturo (%1 conferme, sarà disponibile fra %2)</translation>
     </message>
@@ -2330,11 +2492,11 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Confirmed (%1 confirmations)</source>
-        <translation>Confermato (%1 conferme)</translation>
+        <translation>Confermata (%1 conferme)</translation>
     </message>
     <message>
         <source>This block was not received by any other nodes and will probably not be accepted!</source>
-        <translation>Questo blocco non è stato ricevuto dagli altri nodi e probabilmente non sarà accettato!</translation>
+        <translation>Questo blocco non è stato ricevuto da alcun altro nodo e probabilmente non sarà accettato!</translation>
     </message>
     <message>
         <source>Generated but not accepted</source>
@@ -2346,7 +2508,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>Non confermato:</translation>
+        <translation>Non confermata</translation>
     </message>
     <message>
         <source>Confirming (%1 of %2 recommended confirmations)</source>
@@ -2377,8 +2539,12 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Ottenuto dal mining</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>sola lettura</translation>
+    </message>
+    <message>
         <source>(n/a)</source>
-        <translation>(N / a)</translation>
+        <translation>(n/d)</translation>
     </message>
     <message>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
@@ -2391,6 +2557,10 @@ Più URL vengono separati da una barra verticale |.</translation>
     <message>
         <source>Type of transaction.</source>
         <translation>Tipo di transazione.</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Indica se un indirizzo di sola lettura sia o meno coinvolto in questa transazione.</translation>
     </message>
     <message>
         <source>Destination address of transaction.</source>
@@ -2425,7 +2595,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>This year</source>
-        <translation>Quest&apos;anno</translation>
+        <translation>Quest'anno</translation>
     </message>
     <message>
         <source>Range...</source>
@@ -2453,7 +2623,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Enter address or label to search</source>
-        <translation>Inserisci un indirizzo o un&apos;etichetta da cercare</translation>
+        <translation>Inserisci un indirizzo o un'etichetta da cercare</translation>
     </message>
     <message>
         <source>Min amount</source>
@@ -2461,23 +2631,23 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Copia l&apos;indirizzo</translation>
+        <translation>Copia l'indirizzo</translation>
     </message>
     <message>
         <source>Copy label</source>
-        <translation>Copia l&apos;etichetta</translation>
+        <translation>Copia l'etichetta</translation>
     </message>
     <message>
         <source>Copy amount</source>
-        <translation>Copia l&apos;importo</translation>
+        <translation>Copia l'importo</translation>
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation>Copia l&apos;ID transazione</translation>
+        <translation>Copia l'ID transazione</translation>
     </message>
     <message>
         <source>Edit label</source>
-        <translation>Modifica l&apos;etichetta</translation>
+        <translation>Modifica l'etichetta</translation>
     </message>
     <message>
         <source>Show transaction details</source>
@@ -2486,6 +2656,10 @@ Più URL vengono separati da una barra verticale |.</translation>
     <message>
         <source>Export Transaction History</source>
         <translation>Esporta lo storico delle transazioni</translation>
+    </message>
+    <message>
+        <source>Watch-only</source>
+        <translation>Sola lettura</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
@@ -2501,7 +2675,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
-        <translation>Lo storico delle transazioni e&apos; stato salvato con successo in %1.</translation>
+        <translation>Lo storico delle transazioni e' stato salvato con successo in %1.</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
@@ -2528,10 +2702,6 @@ Più URL vengono separati da una barra verticale |.</translation>
         <translation>Indirizzo</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Importo</translation>
-    </message>
-    <message>
         <source>ID</source>
         <translation>ID</translation>
     </message>
@@ -2542,6 +2712,13 @@ Più URL vengono separati da una barra verticale |.</translation>
     <message>
         <source>to</source>
         <translation>a</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Unità con cui visualizzare gli importi. Clicca per selezionare un altra unità.</translation>
     </message>
 </context>
 <context>
@@ -2566,7 +2743,7 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Esporta su file i dati della tabella corrente</translation>
+        <translation>Esporta su file i dati contenuti nella tabella corrente</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
@@ -2596,72 +2773,24 @@ Più URL vengono separati da una barra verticale |.</translation>
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Usage:</source>
-        <translation>Utilizzo:</translation>
-    </message>
-    <message>
-        <source>List commands</source>
-        <translation>Elenca comandi</translation>
-    </message>
-    <message>
-        <source>Get help for a command</source>
-        <translation>Aiuto su un comando</translation>
-    </message>
-    <message>
         <source>Options:</source>
         <translation>Opzioni:</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: quarkcoin.conf)</source>
-        <translation>Specifica il file di configurazione (predefinito: quarkcoin.conf)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Specifica il file pid (predefinito: quarkd.pid)</translation>
     </message>
     <message>
         <source>Specify data directory</source>
         <translation>Specifica la cartella dati</translation>
     </message>
     <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Attendi le connessioni su &lt;porta&gt; (predefinita: 8333 o testnet: 18333)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation>Mantieni al massimo &lt;n&gt; connessioni ai peer (predefinite: 125)</translation>
-    </message>
-    <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>Connettiti ad un nodo per recuperare gli indirizzi dei peer e scollegati</translation>
+        <translation>Connessione ad un nodo e successiva disconnessione per recuperare gli indirizzi dei peer</translation>
     </message>
     <message>
         <source>Specify your own public address</source>
         <translation>Specifica il tuo indirizzo pubblico</translation>
     </message>
     <message>
-        <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Soglia di disconnessione dei peer di cattiva qualità (predefinita: 100)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>Numero di secondi di sospensione che i peer di cattiva qualità devono attendere prima di potersi riconnettere (predefiniti: 86400)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation>Errore riscontrato durante l&apos;impostazione della porta RPC %u per l&apos;ascolto su IPv4: %s</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Attendi le connessioni JSON-RPC su &lt;porta&gt; (predefinita: 8332 or testnet: 18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Accetta comandi da riga di comando e JSON-RPC</translation>
-    </message>
-    <message>
-        <source>Quark Core RPC client version</source>
-        <translation>Versione client RPC di Quark Core</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
@@ -2673,83 +2802,27 @@ Più URL vengono separati da una barra verticale |.</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Accetta connessioni dall&apos;esterno (predefinito: 1 se no -proxy o -connect)</translation>
-    </message>
-    <message>
-        <source>%s, you must set a rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=quarkrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
-</source>
-        <translation>%s, devi impostare una rpcpassword nel file di configurazione:
-%s
-Si raccomanda l&apos;uso della seguente password generata casualmente:
-rpcuser=quarkrpc
-rpcpassword=%s
-(non serve ricordare questa password)
-Il nome utente e la password NON DEVONO essere uguali.
-Se il file non esiste, crealo concedendo permessi di lettura al solo proprietario del file.
-Si raccomanda anche di impostare alertnotify così sarai avvisato di eventuali problemi;
-ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.com
-</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Cifrature accettabili (predefinito: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation>Errore riscontrato durante l&apos;impostazione della porta RPC %u per l&apos;ascolto su IPv6, tornando su IPv4: %s</translation>
+        <translation>Accetta connessioni dall'esterno (predefinito: 1 se -proxy o -connect non sono utilizzati)</translation>
     </message>
     <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation>Associa all&apos;indirizzo indicato e resta permanentemente in ascolto su questo. Usa la notazione [host]:porta per l&apos;IPv6</translation>
+        <translation>Associa all'indirizzo indicato e resta permanentemente in ascolto su di esso. Usa la notazione [host]:porta per l'IPv6</translation>
     </message>
     <message>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:15)</source>
-        <translation>Limita la quantità di transazioni gratuite ad &lt;n&gt;*1000 byte al minuto (predefinito: 15)</translation>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>Elimina tutte le transazioni dal portamonete e recupera solo quelle che fanno parte della blockchain attraverso il comando -rescan all'avvio.</translation>
     </message>
     <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation>Entra in modalità di test di regressione, la quale usa una speciale catena in cui i blocchi sono risolti istantaneamente. Questo è fatto per lo sviluppo di strumenti e applicazioni per test di regressione.</translation>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>Distribuito secondo la licenza software MIT, vedi il file COPYING incluso oppure &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
-        <translation>Entra in modalità di test di regressione, la quale usa una speciale catena in cui i blocchi possono essere risolti istantaneamente.</translation>
-    </message>
-    <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>Errore: l&apos;ascolto per le connessioni in ingresso non è riuscito (errore riportato %d) </translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Errore: la transazione è stata rifiutata! Questo può accadere se alcuni bitcoin nel tuo portamonete sono già stati spesi, ad esempio se hai utilizzato una copia del file wallet.dat per spendere bitcoin e questi non sono stati considerati spesi dal portamonete corrente.</translation>
-    </message>
-    <message>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Errore: questa transazione necessita di una commissione di almeno %s a causa del suo ammontare, della sua complessità, o dell&apos;uso di fondi recentemente ricevuti!</translation>
+        <translation>Entra in modalità test di regressione. Questa utilizza una speciale catena in cui i blocchi possono essere risolti istantaneamente.</translation>
     </message>
     <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation>Esegui comando quando una transazione del portamonete cambia (%s in cmd è sostituito da TxID)</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation>Le commissioni inferiori a questo valore saranno considerate nulle (per la creazione della transazione) (prefedinito:</translation>
-    </message>
-    <message>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
-        <translation>Scarica l&apos;attività del database dalla memoria al log su disco ogni &lt;n&gt; megabytes (predefinito: 100)</translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation>Determina quanto sarà approfondita la verifica da parte di -checkblocks (0-4, predefinito: 3)</translation>
+        <translation>Esegue un comando quando lo stato di una transazione del portamonete cambia (%s in cmd è sostituito da TxID)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
@@ -2760,10 +2833,6 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Imposta il numero di thread per la verifica degli script (da %u a %d, 0 = automatico, &lt;0 = lascia questo numero di core liberi, predefinito: %d)</translation>
     </message>
     <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>Imposta il limite della cpu quando la generazione è abilitata (-1 = non limitato, predefinito: -1)</translation>
-    </message>
-    <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
         <translation>Questa versione è una compilazione pre-rilascio - usala a tuo rischio - non utilizzarla per la generazione o per applicazioni di commercio</translation>
     </message>
@@ -2772,72 +2841,48 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Impossibile associarsi a %s su questo computer. Probabilmente Quark Core è già in esecuzione.</translation>
     </message>
     <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation>Usa un SOCKS5 proxy separato per raggiungere servizi nascosti di Tor (predefinito: -proxy)</translation>
-    </message>
-    <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation>Attenzione: -paytxfee è molto alta. Questa è la commissione che si paga quando si invia una transazione.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quark will not work properly.</source>
-        <translation>Attenzione: si prega di controllare che la data e l&apos;ora del computer siano corrette. Se l&apos;ora di sistema è errata Quark non funzionerà correttamente.</translation>
+        <translation>Attenzione: -paytxfee è impostato su un valore molto elevato. Questa è la commissione che si paga quando si invia una transazione.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation>Attenzione: La rete non sembra essere d&apos;accordo pienamente! Alcuni minatori sembrano riscontrare problemi.</translation>
+        <translation>Attenzione: La rete non sembra trovarsi in pieno consenso! Alcuni minatori sembrano riscontrare problemi.</translation>
     </message>
     <message>
         <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation>Attenzione: Sembra che non ci sia completo accordo con i nostri peer! Un aggiornamento da parte tua o degli altri nodi potrebbe essere necessario.</translation>
+        <translation>Attenzione: Sembra che non vi sia pieno consenso con i nostri peer! Un aggiornamento da parte tua o degli altri nodi potrebbe essere necessario.</translation>
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation>Attenzione: errore di lettura di wallet.dat! Tutte le chiavi sono state lette correttamente, ma i dati delle transazioni o le voci in rubrica potrebbero mancare o non essere corretti.</translation>
+        <translation>Attenzione: errore di lettura di wallet.dat! Tutte le chiavi sono state lette correttamente, ma i dati delle transazioni o della rubrica potrebbero essere mancanti o non corretti.</translation>
     </message>
     <message>
         <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation>Attenzione: wallet.dat corrotto, dati recuperati! Il wallet.dat originale è stato salvato come wallet.{timestamp}.bak in %s; se il tuo saldo o le transazioni non sono corrette dovresti ripristinare da un backup.</translation>
+        <translation>Attenzione: wallet.dat corrotto, dati recuperati! Il wallet.dat originale è stato salvato come wallet.{timestamp}.bak in %s. Se i dati relativi a saldo o transazioni non dovessero risultare corretti si consiglia di procedere al ripristino da un backup.</translation>
+    </message>
+    <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Inserisce in whitelist i peer che si connettono da un dato indirizzo IP o netmask. Può essere specificato più volte.</translation>
     </message>
     <message>
         <source>(default: 1)</source>
         <translation>(predefinito: 1)</translation>
     </message>
     <message>
-        <source>(default: wallet.dat)</source>
-        <translation>(predefinito: wallet.dat)</translation>
-    </message>
-    <message>
         <source>&lt;category&gt; can be:</source>
-        <translation>&lt;category&gt; può essere:</translation>
+        <translation>Valori possibili per &lt;category&gt;:</translation>
     </message>
     <message>
         <source>Attempt to recover private keys from a corrupt wallet.dat</source>
         <translation>Tenta di recuperare le chiavi private da un wallet.dat corrotto</translation>
     </message>
     <message>
-        <source>Quark Core Daemon</source>
-        <translation>Quark Core Daemon</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Opzioni creazione blocco:</translation>
     </message>
     <message>
-        <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation>Cancella elenco delle transazioni sul portamonete (strumento di diagnostica; implica -rescan)</translation>
-    </message>
-    <message>
         <source>Connect only to the specified node(s)</source>
-        <translation>Connetti solo al nodo specificato</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS proxy</source>
-        <translation>Connetti attraverso SOCKS proxy</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Connetti al JSON-RPC su &lt;port&gt; (predefinita: 8332 o testnet: 18332)</translation>
+        <translation>Connessione ai soli nodi specificati</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2852,16 +2897,12 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Opzioni di Debug/Test:</translation>
     </message>
     <message>
-        <source>Disable safemode, override a real safe mode event (default: 0)</source>
-        <translation>Disabilita la modalità sicura, escludi effettivamente gli eventi di modalità sicura (predefinito: 0)</translation>
-    </message>
-    <message>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
-        <translation>Scopre il proprio indirizzo IP (predefinito: 1 se in ascolto e no -externalip)</translation>
+        <translation>Scopre il proprio indirizzo IP (predefinito: 1 se in ascolto ed -externalip non è specificato)</translation>
     </message>
     <message>
         <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation>Non caricare il portamonete e disabilita le chiamate RPC al portamonete</translation>
+        <translation>Disabilita il portamonete e le relative chiamate RPC</translation>
     </message>
     <message>
         <source>Do you want to rebuild the block database now?</source>
@@ -2869,99 +2910,27 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
     </message>
     <message>
         <source>Error initializing block database</source>
-        <translation>Errore durante l&apos;inizializzazione del database dei blocchi</translation>
+        <translation>Errore durante l'inizializzazione del database dei blocchi</translation>
     </message>
     <message>
         <source>Error initializing wallet database environment %s!</source>
-        <translation>Errore durante l&apos;inizializzazione dell&apos;ambiente %s del database del portamonete!</translation>
+        <translation>Errore durante l'inizializzazione dell'ambiente del database del portamonete %s!</translation>
     </message>
     <message>
         <source>Error loading block database</source>
-        <translation>Errore caricamento database blocchi</translation>
+        <translation>Errore durante il caricamento del database blocchi</translation>
     </message>
     <message>
         <source>Error opening block database</source>
-        <translation>Errore caricamento database blocchi</translation>
+        <translation>Errore durante l'apertura del database blocchi</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
         <translation>Errore: la spazio libero sul disco è insufficiente!</translation>
     </message>
     <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Errore: portamonete bloccato, impossibile creare la transazione!</translation>
-    </message>
-    <message>
-        <source>Error: system error: </source>
-        <translation>Errore: errore di sistema:</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation>Nessuna porta disponibile per l&apos;ascolto. Usa -listen=0 se vuoi procedere comunque.</translation>
-    </message>
-    <message>
-        <source>Failed to read block info</source>
-        <translation>Lettura informazioni blocco fallita</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>Lettura blocco fallita</translation>
-    </message>
-    <message>
-        <source>Failed to sync block index</source>
-        <translation>Sincronizzazione dell&apos;indice del blocco fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write block index</source>
-        <translation>Scrittura dell&apos;indice del blocco fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write block info</source>
-        <translation>Scrittura informazioni blocco fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write block</source>
-        <translation>Scrittura blocco fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write file info</source>
-        <translation>Scrittura informazioni file fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write to coin database</source>
-        <translation>Scrittura nel database dei bitcoin fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write transaction index</source>
-        <translation>Scrittura dell&apos;indice di transazione fallita</translation>
-    </message>
-    <message>
-        <source>Failed to write undo data</source>
-        <translation>Scrittura dei dati di ripristino fallita</translation>
-    </message>
-    <message>
-        <source>Fee per kB to add to transactions you send</source>
-        <translation>Commissione per kB da aggiungere alle transazioni in uscita</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation>Le commissioni inferiori a questo valore saranno considerate nulle (per la trasmissione) (prefedinito:</translation>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Trova peer utilizzando la ricerca DNS (predefinito: 1 a meno che non si usi -connect)</translation>
-    </message>
-    <message>
-        <source>Force safe mode (default: 0)</source>
-        <translation>Forza modalità provvisoria (predefinito: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Genera Quark (predefinito: 0)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation>Numero di blocchi da controllare all&apos;avvio (predefinito: 288, 0 = tutti)</translation>
+        <translation>Nessuna porta disponibile per l'ascolto. Usa -listen=0 se vuoi procedere comunque.</translation>
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
@@ -2973,59 +2942,43 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
     </message>
     <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation>Blocco genesis non corretto o non trovato. Cartella dati errata?</translation>
+        <translation>Blocco genesi non corretto o non trovato. È possibile che la cartella dati appartenga ad un'altra rete.</translation>
     </message>
     <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation>Indirizzo -onion non valido: &apos;%s&apos;</translation>
+        <source>Invalid -onion address: '%s'</source>
+        <translation>Indirizzo -onion non valido: '%s'</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
         <translation>Non ci sono abbastanza descrittori di file disponibili.</translation>
     </message>
     <message>
-        <source>Prepend debug output with timestamp (default: 1)</source>
-        <translation>Preponi timestamp all&apos;output di debug (predefinito: 1)</translation>
-    </message>
-    <message>
-        <source>RPC client options:</source>
-        <translation>Opzioni client RPC:</translation>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Connessione ai soli nodi appartenenti alla rete &lt;net&gt; (ipv4, ipv6 o Tor)</translation>
     </message>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
-        <translation>Ricreare l&apos;indice della catena di blocchi dai file blk000??.dat correnti</translation>
-    </message>
-    <message>
-        <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>Selezionare la versione SOCKS per -proxy (4 o 5, predefinito: 5)</translation>
+        <translation>Ricostruzione dell'indice della block chain dai file blk000??.dat correnti</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation>Imposta la dimensione cache del database in megabyte (%d a %d, predefinito: %d)</translation>
+        <translation>Imposta la dimensione della cache del database in megabyte (%d a %d, predefinito: %d)</translation>
     </message>
     <message>
         <source>Set maximum block size in bytes (default: %d)</source>
-        <translation>Imposta la dimensione massima del blocco in byte (predefinita: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Specifica il numero massimo di richieste RPC in parallelo (predefinito: 4)</translation>
+        <translation>Imposta la dimensione massima del blocco in byte (predefinito: %d)</translation>
     </message>
     <message>
         <source>Specify wallet file (within data directory)</source>
-        <translation>Specifica il file portamonete (all&apos;interno della cartella dati)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation>Spendi il resto non confermato quando si inviano transazioni (predefinito: 1)</translation>
+        <translation>Specifica il file del portamonete (all'interno della cartella dati)</translation>
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
-        <translation>Questo è previsto per l&apos;uso con test di regressione e per lo sviluppo di applicazioni.</translation>
+        <translation>Questa impostazione è destinata all'uso con i test di regressione e per lo sviluppo di applicazioni.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use quark-cli):</source>
-        <translation>Usage (deprecato, usare quark-cli):</translation>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Usa UPnP per mappare la porta di ascolto (predefinito: %u)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3036,20 +2989,12 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Verifica portamonete...</translation>
     </message>
     <message>
-        <source>Wait for RPC server to start</source>
-        <translation>Attendere l&apos;avvio dell&apos;RPC server</translation>
-    </message>
-    <message>
         <source>Wallet %s resides outside data directory %s</source>
         <translation>Il portamonete %s si trova al di fuori dalla cartella dati %s</translation>
     </message>
     <message>
         <source>Wallet options:</source>
         <translation>Opzioni portamonete:</translation>
-    </message>
-    <message>
-        <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation>Attenzione: Argomento deprecato -debugnet ignorato, usare -debug=net</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
@@ -3060,68 +3005,199 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Importa blocchi da un file blk000??.dat esterno</translation>
     </message>
     <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>Permette connessioni JSON-RPC dall'origine specificata. I valori validi per &lt;ip&gt; sono un singolo IP (ad es. 1.2.3.4), una network/netmask (ad es. 1.2.3.4/255.255.255.0) oppure una network/CIDR (ad es. 1.2.3.4/24). Questa opzione può essere specificata più volte.</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>Resta in ascolto sull'indirizzo indicato ed inserisce in whitelist i peer che vi si collegano. Usa la notazione [host]:porta per l'IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Resta in attesa di connessioni JSON-RPC sull'indirizzo indicato. Usa la notazione [host]:porta per IPv6. Questa opzione può essere specificata più volte (predefinito: associa a tutte le interfacce) </translation>
+    </message>
+    <message>
         <source>Cannot obtain a lock on data directory %s. Quark Core is probably already running.</source>
         <translation>Non è possibile ottenere un lock sulla cartella %s. Probabilmente Quark Core è già in esecuzione.</translation>
     </message>
     <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation>Esegue un comando quando viene ricevuto un allarme rilevante o quando vediamo un fork veramente lungo (%s in cmd è sostituito dal messaggio)</translation>
+        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
+        <translation>Limita la quantità di transazioni gratuite ad &lt;n&gt;*1000 byte al minuto (predefinito: %u)</translation>
     </message>
     <message>
-        <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation>Emette informazioni di debug in output (predefinito: 0, fornire &lt;category&gt; è opzionale)</translation>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>Crea nuovi file con i permessi di default del sistema, invece che con umask 077 (ha effetto solo con funzionalità di portamonete disabilitate)</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Errore: attesa per connessioni in arrivo fallita (errore riportato %s)</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>Errore: individuato argomento -socks non supportato. Non è più possibile impostare la versione SOCKS, solamente i proxy SOCKS5 sono supportati.</translation>
+    </message>
+    <message>
+        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
+        <translation>Esegue un comando in caso di ricezione di un allarme pertinente o se si rileva un fork molto lungo (%s in cmd è sostituito dal messaggio)</translation>
+    </message>
+    <message>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Le commissioni (in QRK/kB) inferiori a questo valore sono considerate pari a zero relativamente alla trasmissione (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Le commissioni (in QRK/kB) inferiori a questo valore sono considerate pari a zero relativamente alla creazione della transazione (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation>Nel caso in cui paytxfee non sia impostato, include una commissione tale da ottenere un avvio delle conferme entro una media di n blocchi (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>Importo non valido per -maxtxfee=&lt;amount&gt;: '%s' (deve essere almeno pari alla commissione 'minrelay fee' di %s per prevenire transazioni bloccate)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>Dimensione massima dei dati in transazioni di trasporto dati che saranno trasmesse ed incluse nei blocchi (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
+        <translation>Commissioni massime totali da includere in una singola transazione dal portamonete. Un'impostazione troppo bassa potrebbe provocare il fallimento di transazioni di grosse dimensioni (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Ottiene gli indirizzi dei peer attraverso interrogazioni DNS, in caso di scarsa disponibilità (predefinito: 1 a meno che -connect non sia specificato)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>Richiedi alta priorità per la trasmissione di transazioni a zero o basse commissioni (predefinito:%u )</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation>Imposta la dimensione massima in byte delle transazioni ad alta-priorità/basse-commissioni (predefinita: %d)</translation>
+        <translation>Imposta la dimensione massima in byte delle transazioni ad alta-priorità/basse-commissioni (predefinito: %d)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>Specifica il numero di thread per la generazione di quark, se abilitata (-1 = tutti i core, predefinito: %d)</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>Questo prodotto include software sviluppato dal progetto OpenSSL per l'uso del Toolkit OpenSSL &lt;https://www.openssl.org/&gt;, software crittografico scritto da Eric Young e software UPnP scritto da Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>To use quarkd, or the -server option to quark-qt, you must set an rpcpassword in the configuration file:
+%s
+It is recommended you use the following random password:
+rpcuser=quarkrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s "Quark Alert" admin@foo.com
+</source>
+        <translation>Per utilizzare quarkd o l'opzione -server in Quark Core è necessario specificare una rpcpassword nel file di configurazione:
+%s
+Si raccomanda di utilizzare la seguente password casuale:
+rpcuser=quarkrpc
+rpcpassword=%s
+(non è necessario ricordare questa password)
+Il nome utente e la password NON DEVONO corrispondere.
+Se il file non esiste si raccomanda di crearlo con permessi di lettura per il solo proprietario.
+Si raccomanda inoltre di configurare alertnotify in modo da ricevere notifiche di eventuali problemi, ad es. alertnotify=echo %%s | mail -s "Quark Alert" admin@foo.com
+</translation>
+    </message>
+    <message>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>Attenzione: -maxtxfee è impostato su un valore molto elevato. Tali commissioni potrebbero essere pagate anche in una singola transazione.</translation>
+    </message>
+    <message>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Quark Core will not work properly.</source>
+        <translation>Attenzione: Si prega di verificare che data ed ora del computer siano corrette! Una configurazione errata dell'orologio di sistema potrebbe impedire a Quark Core di funzionare regolarmente.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>I peer inclusi in whitelist non possono subire ban per DoS e le loro transazioni saranno sempre trasmesse, anche nel caso in cui si trovino già nel mempool. Ciò è utile ad es. per i gateway</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>Accetta richieste REST pubbliche (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>Impossibile risolvere indirizzo -whitebind: '%s'</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Connessione attraverso un proxy SOCKS5</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Quark Core and Quark Core Developers</source>
+        <translation>Copyright (C) 2009-%i Gli sviluppatori di Quark Core</translation>
+    </message>
+    <message>
+        <source>Could not parse -rpcbind value %s as network address</source>
+        <translation>Non è stato possibile riconoscere il valore %s di -rpcbind come indirizzo di rete</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of Quark Core</source>
+        <translation>Errore durante il caricamento del file wallet.dat: il portamonete richiede una versione di Quark Core più recente</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>Errore durante lalettura del database. Arresto in corso.</translation>
+    </message>
+    <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Errore: si è presentato un errore interno fatale, consulta il file debug.log per maggiori dettagli</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>Errore: Rilevato argomento -tor non supportato, utilizzare -onion.</translation>
+    </message>
+    <message>
+        <source>Fee (in QRK/kB) to add to transactions you send (default: %s)</source>
+        <translation>Commissione (in QRK/kB) da aggiungere alle transazioni che invii (predefinito: %s)</translation>
     </message>
     <message>
         <source>Information</source>
         <translation>Informazioni</translation>
     </message>
     <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Importo non valido per -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <source>Initialization sanity check failed. Quark Core is shutting down.</source>
+        <translation>Test di integrità iniziale fallito. Quark Core si arresterà.</translation>
     </message>
     <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Importo non valido per -mintxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Importo non valido per -maxtxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
-        <translation>Limita la dimensione della cache delle firme a &lt;n&gt; voci (predefinito: 50000)</translation>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Importo non valido per -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>Abilita il log della priorità di transazione e della commissione per kB quando si generano blocchi (default: 0)</translation>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Importo non valido per -mintxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Mantieni un indice di transazione completo (predefinito: 0)</translation>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>Importo non valido per -paytxfee=&lt;amount&gt;: '%s' (deve essere almeno %s)</translation>
     </message>
     <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>Buffer di ricezione massimo per connessione, &lt;n&gt;*1000 byte (predefinito: 5000)</translation>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Netmask non valida specificata in -whitelist: '%s'</translation>
     </message>
     <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>Buffer di invio massimo per connessione, &lt;n&gt;*1000 byte (predefinito: 1000)</translation>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Mantiene in memoria al massimo &lt;n&gt; transazioni non collegabili (predefinito: %u)</translation>
     </message>
     <message>
-        <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation>Accetta solo una catena di blocchi che corrisponde ai checkpoint predefiniti (predefinito: 1)</translation>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>È necessario specificare una porta con -whitebind: '%s'</translation>
     </message>
     <message>
-        <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>Connetti solo a nodi nella rete &lt;net&gt; (IPv4, IPv6 o Tor)</translation>
-    </message>
-    <message>
-        <source>Print block on startup, if found in block index</source>
-        <translation>Stampa il blocco all&apos;avvio, se presente nell&apos;indice dei blocchi</translation>
-    </message>
-    <message>
-        <source>Print block tree on startup (default: 0)</source>
-        <translation>Stampa l&apos;albero dei blocchi all&apos;avvio (default: 0)</translation>
+        <source>Node relay options:</source>
+        <translation>Opzioni trasmissione nodo:</translation>
     </message>
     <message>
         <source>RPC SSL options: (see the Quark Wiki for SSL setup instructions)</source>
@@ -3132,6 +3208,10 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Opzioni server RPC:</translation>
     </message>
     <message>
+        <source>RPC support for HTTP persistent connections (default: %d)</source>
+        <translation>Supporto RPC per le connessioni HTTP persistenti (predefinito: %d)</translation>
+    </message>
+    <message>
         <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
         <translation>Scarta casualmente 1 ogni &lt;n&gt; messaggi di rete</translation>
     </message>
@@ -3140,56 +3220,28 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Altera casualmente 1 ogni &lt;n&gt; messaggi di rete</translation>
     </message>
     <message>
-        <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation>Mantieni in esecuzione un thread per scaricare periodicamente il portafoglio (predefinito: 1)</translation>
-    </message>
-    <message>
-        <source>SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation>Opzioni SSL: (vedi il wiki di Quark per le istruzioni di configurazione SSL)</translation>
-    </message>
-    <message>
-        <source>Send command to Quark Core</source>
-        <translation>Invia comando a Quark Core</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Invia le informazioni di trace/debug alla console invece che al file debug.log</translation>
     </message>
     <message>
-        <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Imposta dimensione minima del blocco in bytes (predefinita: 0)</translation>
-    </message>
-    <message>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
-        <translation>Imposta il flag DB_PRIVATE nell&apos;ambiente di database del portamonete (predefinito: 1)</translation>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Invia transazioni a zero commissioni se possibile (predefinito: %u)</translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
         <translation>Mostra tutte le opzioni di debug (utilizzo: --help -help-debug)</translation>
     </message>
     <message>
-        <source>Show benchmark information (default: 0)</source>
-        <translation>Visualizza le informazioni relative al benchmark (predefinito: 0)</translation>
-    </message>
-    <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation>Riduci il file debug.log all&apos;avvio del client (predefinito: 1 se non impostato -debug)</translation>
+        <translation>Riduce il file debug.log all'avvio del client (predefinito: 1 se -debug non è impostato)</translation>
     </message>
     <message>
         <source>Signing transaction failed</source>
-        <translation>Transazione di firma fallita</translation>
+        <translation>Firma transazione fallita</translation>
     </message>
     <message>
-        <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Specifica il timeout di connessione in millisecondi (predefinito: 5000)</translation>
-    </message>
-    <message>
-        <source>Start Quark Core Daemon</source>
-        <translation>Avvia Quark Core Daemon</translation>
-    </message>
-    <message>
-        <source>System error: </source>
-        <translation>Errore di sistema:</translation>
+        <source>This is experimental software.</source>
+        <translation>Questo è un software sperimentale.</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -3197,24 +3249,31 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
     </message>
     <message>
         <source>Transaction amounts must be positive</source>
-        <translation>L&apos;importo della transazione deve essere positivo</translation>
+        <translation>Gli importi della transazione devono essere positivi</translation>
+    </message>
+    <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>Transazione troppo grande in base alla policy sulle commissioni</translation>
     </message>
     <message>
         <source>Transaction too large</source>
         <translation>Transazione troppo grande</translation>
     </message>
     <message>
-        <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation>Usa UPnP per mappare la porta in ascolto (predefinito: 0)</translation>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Impossibile associarsi a %s su questo computer (l'associazione ha restituito l'errore %s)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
-        <translation>Usa UPnP per mappare la porta in ascolto (predefinito: 1 when listening)</translation>
+        <translation>Usa UPnP per mappare la porta in ascolto (predefinito: 1 quando in ascolto)</translation>
     </message>
     <message>
         <source>Username for JSON-RPC connections</source>
-        <translation>Nome utente per connessioni JSON-RPC
-</translation>
+        <translation>Nome utente per connessioni JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Wallet needed to be rewritten: restart Quark Core to complete</source>
+        <translation>Il portamonete necessitava di essere riscritto: riavviare Quark Core per completare l'operazione</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -3225,16 +3284,20 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Attenzione: questa versione è obsoleta, aggiornamento necessario!</translation>
     </message>
     <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Attenzione: Argomento -benchmark ignorato in quanto non supportato, usare -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Attenzione: Argomento -debugnet ignorato in quanto non supportato, usare -debug=net.</translation>
+    </message>
+    <message>
         <source>Zapping all transactions from wallet...</source>
-        <translation>Cancella e ricompila tutte le transazioni dal wallet...</translation>
+        <translation>Eliminazione dal portamonete di tutte le transazioni...</translation>
     </message>
     <message>
         <source>on startup</source>
-        <translation>all&apos;avvio</translation>
-    </message>
-    <message>
-        <source>version</source>
-        <translation>versione</translation>
+        <translation>all'avvio</translation>
     </message>
     <message>
         <source>wallet.dat corrupt, salvage failed</source>
@@ -3242,60 +3305,31 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
     </message>
     <message>
         <source>Password for JSON-RPC connections</source>
-        <translation>Password per connessioni JSON-RPC
-</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Consenti connessioni JSON-RPC dall&apos;indirizzo IP specificato
-</translation>
-    </message>
-    <message>
-        <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Inviare comandi al nodo in esecuzione su &lt;ip&gt; (predefinito: 127.0.0.1)</translation>
+        <translation>Password per connessioni JSON-RPC</translation>
     </message>
     <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation>Esegui il comando quando il migliore blocco cambia(%s nel cmd è sostituito dall&apos;hash del blocco)</translation>
+        <translation>Esegue un comando quando il miglior blocco cambia (%s nel cmd è sostituito dall'hash del blocco)</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
-        <translation>Aggiorna il wallet all&apos;ultimo formato</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Impostare la quantità di chiavi nel key pool a &lt;n&gt; (predefinita: 100)</translation>
+        <translation>Aggiorna il wallet all'ultimo formato</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
-        <translation>Ripeti analisi della catena dei blocchi per cercare le transazioni mancanti dal portamonete
-</translation>
+        <translation>Ripete la scansione della block chain per individuare le transazioni che mancano dal portamonete</translation>
     </message>
     <message>
         <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Utilizzare OpenSSL (https) per le connessioni JSON-RPC
-</translation>
-    </message>
-    <message>
-        <source>Server certificate file (default: server.cert)</source>
-        <translation>File certificato del server (predefinito: server.cert)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: server.pem)</source>
-        <translation>Chiave privata del server (predefinito: server.pem)</translation>
+        <translation>Utilizza OpenSSL (https) per le connessioni JSON-RPC</translation>
     </message>
     <message>
         <source>This help message</source>
-        <translation>Questo messaggio di aiuto
-</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>Impossibile associarsi alla %s su questo computer (bind returned error %d, %s)</translation>
+        <translation>Questo messaggio di aiuto</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation>Consenti ricerche DNS per -addnode, -seednode e -connect</translation>
+        <translation>Consente interrogazioni DNS per -addnode, -seednode e -connect</translation>
     </message>
     <message>
         <source>Loading addresses...</source>
@@ -3306,44 +3340,184 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Errore caricamento wallet.dat: Portamonete corrotto</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Quark</source>
-        <translation>Errore caricamento wallet.dat: il portamonete richiede una versione di Quark più recente</translation>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = mantiene metadati tx, ad es. proprietario account ed informazioni di richiesta di pagamento, 2 = scarta metadati tx)</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Quark to complete</source>
-        <translation>Il portamonete necessitava di essere riscritto: riavviare Quark per completare</translation>
+        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
+        <translation>Scarica l'attività del database dal pool in memoria al log su disco ogni &lt;n&gt; megabyte (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation>Determina quanto sarà approfondita la verifica da parte di -checkblocks (0-4, predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
+        <translation>Abilita il log della priorità di transazione e della commissione per kB quando si generano blocchi (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>Mantiene l'indice completo delle transazioni usato dalla chiamata rpc getrawtransaction (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>Numero di secondi di sospensione prima della riconnessione per i peer che mostrano un comportamento anomalo (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>Emette informazioni di debug (predefinito: %u, fornire &lt;category&gt; è opzionale)</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>Usa un proxy SOCKS5 a parte per raggiungere i peer attraverso gli hidden services di Tor (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>(default: %s)</source>
+        <translation>(predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Acceptable ciphers (default: %s)</source>
+        <translation>Cifrari accettabili (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>Interroga sempre i DNS per ottenere gli indirizzi dei peer (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>Disabilita la modalità sicura ignorando gli eventi che porterebbero alla sua attivazione (predefinito: %u)</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
         <translation>Errore caricamento wallet.dat</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation>Indirizzo -proxy non valido: &apos;%s&apos;</translation>
+        <source>Force safe mode (default: %u)</source>
+        <translation>Forza modalità sicura (predefinito: %u)</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation>Rete sconosciuta specificata in -onlynet: &apos;%s&apos;</translation>
+        <source>Generate coins (default: %u)</source>
+        <translation>Genera quark (predefinito: %u)</translation>
     </message>
     <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Versione -socks proxy sconosciuta richiesta: %i</translation>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Numero di blocchi da controllare all'avvio (predefinito: %u, 0 = tutti)</translation>
     </message>
     <message>
-        <source>Cannot resolve -bind address: &apos;%s&apos;</source>
-        <translation>Impossibile risolvere -bind address: &apos;%s&apos;</translation>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>Include gli indirizzi IP nell'output del debug (predefinito: %u)</translation>
     </message>
     <message>
-        <source>Cannot resolve -externalip address: &apos;%s&apos;</source>
-        <translation>Impossibile risolvere indirizzo -externalip: &apos;%s&apos;</translation>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation>Indirizzo -proxy non valido: '%s'</translation>
     </message>
     <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Importo non valido per -paytxfee=&lt;amount&gt;: &apos;%s&apos;</translation>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Limita la dimensione della cache delle firme a &lt;n&gt; voci (predefinito: %u)</translation>
     </message>
     <message>
-        <source>Invalid amount</source>
-        <translation>Importo non valido</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Resta in attesa di connessioni JSON-RPC su &lt;port&gt; (predefinito: %u o testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Resta in attesa di connessioni su &lt;port&gt; (predefinito: %u o testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Mantiene al massimo &lt;n&gt; connessioni verso i peer (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Buffer di ricezione massimo per connessione, &lt;n&gt;*1000 byte (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Buffer di invio massimo per connessione, &lt;n&gt;*1000 byte (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Accetta solo block chain corrispondenti ai checkpoint integrati nel codice (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Antepone un timestamp all'output del debug (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Trasmette ed include nei blocchi transazioni di trasporto dati (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Trasmette transazioni non-P2SH multisig (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Mantieni in esecuzione un thread per scaricare periodicamente il portamonete (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Server certificate file (default: %s)</source>
+        <translation>File del certificato del server (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Server private key (default: %s)</source>
+        <translation>Chiave privata del server (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Imposta la dimensione del pool di chiavi a &lt;n&gt; (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Imposta la dimensione minima del blocco in byte (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Imposta il numero di thread destinati a rispondere alle chiamate RPC (predefinito %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Imposta il flag DB_PRIVATE nell'ambiente di database del portamonete (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Specifica il file di configurazione (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Specifica il timeout di connessione in millisecondi (minimo:1, predefinito: %d)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Specifica il file pid (predefinito: %s)</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Abilita la spesa di resto non confermato quando si inviano transazioni (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>Interrompi l'esecuzione dopo aver importato i blocchi dal disco (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Soglia di disconnessione per i peer che si comportano in maniera anomala (predefinito: %u)</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Rete sconosciuta specificata in -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>Impossibile risolvere indirizzo -bind: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>Impossibile risolvere indirizzo -externalip: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Importo non valido per -paytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -3351,11 +3525,11 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
     </message>
     <message>
         <source>Loading block index...</source>
-        <translation>Caricamento dell&apos;indice del blocco...</translation>
+        <translation>Caricamento dell'indice dei blocchi...</translation>
     </message>
     <message>
         <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation>Aggiunge un nodo a cui connettersi e tenta di tenere aperta la connessione</translation>
+        <translation>Aggiunge un nodo a cui connettersi e tenta di mantenere aperta la connessione</translation>
     </message>
     <message>
         <source>Loading wallet...</source>
@@ -3367,7 +3541,7 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
     </message>
     <message>
         <source>Cannot write default address</source>
-        <translation>Non è possibile scrivere l&apos;indirizzo predefinito</translation>
+        <translation>Non è possibile scrivere l'indirizzo predefinito</translation>
     </message>
     <message>
         <source>Rescanning...</source>
@@ -3378,20 +3552,8 @@ ad esempio: alertnotify=echo %%s | mail -s &quot;Allarme Quark&quot; admin@foo.c
         <translation>Caricamento completato</translation>
     </message>
     <message>
-        <source>To use the %s option</source>
-        <translation>Per usare l&apos;opzione %s</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Errore</translation>
-    </message>
-    <message>
-        <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
-%s
-If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>Devi settare rpcpassword=&lt;password&gt; nel file di configurazione:
-%s
-Se il file non esiste, crealo assegnando i permessi di lettura solamente al proprietario.</translation>
     </message>
 </context>
 </TS>

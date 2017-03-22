@@ -84,7 +84,7 @@ Section -Main SEC0000
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
-    # Remove old wxwidgets-based-bitcoin executable and locales:
+    # Remove old wxwidgets-based-quark executable and locales:
     Delete /REBOOTOK $INSTDIR\quark.exe
     RMDir /r /REBOOTOK $INSTDIR\locale
 SectionEnd
@@ -107,7 +107,7 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
     WriteRegStr HKCR "quark" "URL Protocol" ""
-    WriteRegStr HKCR "quark" "" "URL:quark"
+    WriteRegStr HKCR "quark" "" "URL:Quark"
     WriteRegStr HKCR "quark\DefaultIcon" "" $INSTDIR\quark-qt.exe
     WriteRegStr HKCR "quark\shell\open\command" "" '"$INSTDIR\quark-qt.exe" "%1"'
 SectionEnd

@@ -1,46 +1,9 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="bg" version="2.1">
-<context>
-    <name>AboutDialog</name>
-    <message>
-        <source>About Quark Core</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&lt;b&gt;Quark Core&lt;/b&gt; version</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Това е експериментален софтуер.
-
-Разпространява се под MIT/X11 софтуерен лиценз, виж COPYING или http://www.opensource.org/licenses/mit-license.php.
-
-Използван е софтуер, разработен от OpenSSL Project за употреба в OpenSSL Toolkit (http://www.openssl.org/), криптографски софтуер разработен от Eric Young (eay@cryptsoft.com) и UPnP софтуер разработен от Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Copyright</source>
-        <translation>Авторски права</translation>
-    </message>
-    <message>
-        <source>The Quark Core developers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>(%1-bit)</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+<TS language="bg" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
-        <source>Double-click to edit address or label</source>
-        <translation>Двоен клик за редакция на адрес или име</translation>
+        <source>Right-click to edit address or label</source>
+        <translation>Десен клик за промяна на адреса или името</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -48,7 +11,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;New</source>
-        <translation type="unfinished"/>
+        <translation>Нов</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
@@ -56,11 +19,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation type="unfinished"/>
+        <translation>Копирай</translation>
     </message>
     <message>
         <source>C&amp;lose</source>
-        <translation type="unfinished"/>
+        <translation>Затвори</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -76,7 +39,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Export</source>
-        <translation type="unfinished"/>
+        <translation>Изнеси</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
@@ -84,15 +47,15 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation type="unfinished"/>
+        <translation>Изберете адрес, на който да се изпращат монети</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation type="unfinished"/>
+        <translation>Изберете адрес за получаване на монети</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
-        <translation type="unfinished"/>
+        <translation>Избери</translation>
     </message>
     <message>
         <source>Sending addresses</source>
@@ -104,11 +67,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>These are your Quark addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation type="unfinished"/>
+        <translation>Това са адресите на получателите на плащания. Винаги проверявайте размера на сумата и адреса на получателя, преди да изпратите монети.</translation>
     </message>
     <message>
         <source>These are your Quark addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation type="unfinished"/>
+        <translation>Това са Вашите Биткойн адреси,благодарение на които ще получавате плащания.Препоръчително е да използвате нови адреси за получаване за всяка транзакция.</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
@@ -131,8 +94,8 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Грешка при изнасянето</translation>
     </message>
     <message>
-        <source>There was an error trying to save the address list to %1.</source>
-        <translation type="unfinished"/>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Възникна грешка при опита за запазване на списъка с адреси в %1.Моля опитайте отново.</translation>
     </message>
 </context>
 <context>
@@ -154,7 +117,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation type="unfinished"/>
+        <translation>Диалог за паролите</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
@@ -167,10 +130,6 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>Repeat new passphrase</source>
         <translation>Още веднъж</translation>
-    </message>
-    <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Въведете нова парола за портфейла.&lt;br/&gt;Моля използвайте &lt;b&gt;поне 10 случайни символа&lt;/b&gt; или &lt;b&gt;8 или повече думи&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -206,7 +165,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR QUARKS&lt;/b&gt;!</source>
-        <translation type="unfinished"/>
+        <translation>ВНИМАНИЕ: Ако защитите вашият портфейл и изгубите ключовата дума, вие ще &lt;b&gt;ИЗГУБИТЕ ВСИЧКИТЕ СИ БИТКОЙНОВЕ&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -214,7 +173,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
-        <translation type="unfinished"/>
+        <translation>ВАЖНО: Всякакви стари бекъп версии, които сте направили на вашият портфейл трябва да бъдат заменени със ново-генерирания, криптиран портфейл файл. От съображения за сигурност, предишните бекъпи на некриптираните портфейли ще станат неизползваеми веднага щом започнете да използвате новият криптиран портфейл.</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
@@ -225,7 +184,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Портфейлът е криптиран</translation>
     </message>
     <message>
-        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarks from being stolen by malware infecting your computer.</source>
+        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarkcoins from being stolen by malware infecting your computer.</source>
         <translation>Биткоин ще се затоври сега за да завърши процеса на криптиране. Запомнете, че криптирането на вашия портефейл не може напълно да предпази вашите Бит-монети от кражба чрез зловреден софтуер, инфектирал вашия компютър</translation>
     </message>
     <message>
@@ -273,7 +232,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Node</source>
-        <translation type="unfinished"/>
+        <translation>Сървър</translation>
     </message>
     <message>
         <source>Show general overview of wallet</source>
@@ -294,10 +253,6 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>Quit application</source>
         <translation>Изход от приложението</translation>
-    </message>
-    <message>
-        <source>Show information about Quark</source>
-        <translation>Информация за Биткоин</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -325,23 +280,19 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Изпращане на адресите...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Получаване на адресите...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
-        <translation type="unfinished"/>
+        <translation>Отвори &amp;URI...</translation>
     </message>
     <message>
-        <source>Importing blocks from disk...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reindexing blocks on disk...</source>
-        <translation type="unfinished"/>
+        <source>Quark Core client</source>
+        <translation>Quark Core клиент</translation>
     </message>
     <message>
         <source>Send coins to a Quark address</source>
@@ -349,11 +300,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Modify configuration options for Quark</source>
-        <translation type="unfinished"/>
+        <translation>Променете настройките на Биткойн</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
-        <translation type="unfinished"/>
+        <translation>Запазване на портфейла на друго място</translation>
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
@@ -361,11 +312,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Debug window</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Прозорец за отстраняване на грешки</translation>
     </message>
     <message>
         <source>Open debugging and diagnostic console</source>
-        <translation type="unfinished"/>
+        <translation>Отворете конзолата за диагностика и отстраняване на грешки</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
@@ -381,15 +332,19 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>&amp;Send</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Изпращане</translation>
     </message>
     <message>
         <source>&amp;Receive</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Получаване</translation>
+    </message>
+    <message>
+        <source>Show information about Quark Core</source>
+        <translation>Покажете информация за Биткойн ядрото</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Покажи / Скрий</translation>
     </message>
     <message>
         <source>Show or hide the main Window</source>
@@ -397,15 +352,15 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
-        <translation type="unfinished"/>
+        <translation>Шифроване на личните ключове,които принадлежат на портфейла Ви.</translation>
     </message>
     <message>
         <source>Sign messages with your Quark addresses to prove you own them</source>
-        <translation type="unfinished"/>
+        <translation>Пишете съобщения със своя Биткойн адрес за да докажете,че е ваш.</translation>
     </message>
     <message>
         <source>Verify messages to ensure they were signed with specified Quark addresses</source>
-        <translation type="unfinished"/>
+        <translation>Потвърждаване на съобщения  за да се знае,че са написани с дадените Биткойн адреси.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -424,44 +379,36 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Раздели</translation>
     </message>
     <message>
-        <source>[testnet]</source>
-        <translation>[testnet]</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
-        <translation type="unfinished"/>
+        <translation>Биткойн ядро</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and quark: URIs)</source>
-        <translation type="unfinished"/>
+        <translation>Изискване на плащания(генерира QR кодове и биткойн: URIs)</translation>
     </message>
     <message>
         <source>&amp;About Quark Core</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Относно Quark Core</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
-        <translation type="unfinished"/>
+        <translation>Показване на списъка с използвани адреси и имена</translation>
     </message>
     <message>
         <source>Show the list of used receiving addresses and labels</source>
-        <translation type="unfinished"/>
+        <translation>Покажи списък с използваните адреси и имена.</translation>
     </message>
     <message>
         <source>Open a quark: URI or payment request</source>
-        <translation type="unfinished"/>
+        <translation>Отворете биткойн: URI  или заявка за плащане</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Налични команди</translation>
     </message>
     <message>
         <source>Show the Quark Core help message to get a list with possible Quark command-line options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quark client</source>
-        <translation type="unfinished"/>
+        <translation>Покажи помощните съобщения на Биткойн за да видиш наличните и валидни команди</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Quark network</source>
@@ -469,15 +416,7 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>No block source available...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Processed %1 blocks of transaction history.</source>
-        <translation type="unfinished"/>
+        <translation>Липсва източник на блоковете...</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -501,15 +440,11 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <source>%1 behind</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Last received block was generated %1 ago.</source>
-        <translation type="unfinished"/>
+        <translation>%1 зад</translation>
     </message>
     <message>
         <source>Transactions after this will not yet be visible.</source>
-        <translation type="unfinished"/>
+        <translation>Транзакции след това няма все още да бъдат видими.</translation>
     </message>
     <message>
         <source>Error</source>
@@ -526,6 +461,10 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <source>Up to date</source>
         <translation>Синхронизиран</translation>
+    </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>Обслужени %n блокове от историята с транзакции.</numerusform><numerusform>Обслужени %n блокове от историята с транзакции.</numerusform></translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -545,7 +484,11 @@ Amount: %2
 Type: %3
 Address: %4
 </source>
-        <translation type="unfinished"/>
+        <translation>Дата: %1
+Сума: %2
+Вид: %3
+Адрес: %4
+</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
@@ -555,27 +498,23 @@ Address: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Портфейлът е &lt;b&gt;криптиран&lt;/b&gt; и &lt;b&gt;заключен&lt;/b&gt;</translation>
     </message>
-    <message>
-        <source>A fatal error occurred. Quark can no longer continue safely and will quit.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>ClientModel</name>
     <message>
         <source>Network Alert</source>
-        <translation type="unfinished"/>
+        <translation>Мрежови проблем</translation>
     </message>
 </context>
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <source>Coin Control Address Selection</source>
-        <translation type="unfinished"/>
+        <source>Coin Selection</source>
+        <translation>Избор на монета</translation>
     </message>
     <message>
         <source>Quantity:</source>
-        <translation type="unfinished"/>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Bytes:</source>
@@ -594,36 +533,40 @@ Address: %4
         <translation>Такса:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation type="unfinished"/>
+        <source>Dust:</source>
+        <translation>Прах:</translation>
     </message>
     <message>
         <source>After Fee:</source>
-        <translation type="unfinished"/>
+        <translation>След прилагане на ДДС</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation type="unfinished"/>
+        <translation>Ресто</translation>
     </message>
     <message>
         <source>(un)select all</source>
-        <translation type="unfinished"/>
+        <translation>(Пре)махни всички</translation>
     </message>
     <message>
         <source>Tree mode</source>
-        <translation type="unfinished"/>
+        <translation>Дървовиден режим</translation>
     </message>
     <message>
         <source>List mode</source>
-        <translation type="unfinished"/>
+        <translation>Списъчен режим</translation>
     </message>
     <message>
         <source>Amount</source>
         <translation>Сума</translation>
     </message>
     <message>
-        <source>Address</source>
-        <translation>Адрес</translation>
+        <source>Received with label</source>
+        <translation>Получени с име</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Получени с адрес</translation>
     </message>
     <message>
         <source>Date</source>
@@ -655,91 +598,87 @@ Address: %4
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation type="unfinished"/>
+        <translation>Копирай транзакция с ID</translation>
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation type="unfinished"/>
+        <translation>Заключване на неизхарченото</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
-        <translation type="unfinished"/>
+        <translation>Отключване на неизхарченото</translation>
     </message>
     <message>
         <source>Copy quantity</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на количеството</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation type="unfinished"/>
+        <translation>Копиране след прилагане на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на байтовете</translation>
     </message>
     <message>
         <source>Copy priority</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на приоритет</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation type="unfinished"/>
+        <source>Copy dust</source>
+        <translation>Копирай прахта:</translation>
     </message>
     <message>
         <source>Copy change</source>
-        <translation type="unfinished"/>
+        <translation>Копирай рестото</translation>
     </message>
     <message>
         <source>highest</source>
-        <translation type="unfinished"/>
+        <translation>Най-висок</translation>
     </message>
     <message>
         <source>higher</source>
-        <translation type="unfinished"/>
+        <translation>По-висок</translation>
     </message>
     <message>
         <source>high</source>
-        <translation type="unfinished"/>
+        <translation>Висок</translation>
     </message>
     <message>
         <source>medium-high</source>
-        <translation type="unfinished"/>
+        <translation>Средно-висок</translation>
     </message>
     <message>
         <source>medium</source>
-        <translation type="unfinished"/>
+        <translation>Среден</translation>
     </message>
     <message>
         <source>low-medium</source>
-        <translation type="unfinished"/>
+        <translation>Ниско-среден</translation>
     </message>
     <message>
         <source>low</source>
-        <translation type="unfinished"/>
+        <translation>Нисък</translation>
     </message>
     <message>
         <source>lower</source>
-        <translation type="unfinished"/>
+        <translation>По-нисък</translation>
     </message>
     <message>
         <source>lowest</source>
-        <translation type="unfinished"/>
+        <translation>Най-нисък</translation>
     </message>
     <message>
         <source>(%1 locked)</source>
-        <translation type="unfinished"/>
+        <translation>(%1 заключен)</translation>
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Dust</source>
-        <translation>Прах</translation>
+        <translation>нищо</translation>
     </message>
     <message>
         <source>yes</source>
@@ -750,40 +689,16 @@ Address: %4
         <translation>не</translation>
     </message>
     <message>
-        <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>This means a fee of at least %1 per kB is required.</source>
-        <translation type="unfinished"/>
+        <translation>Това означава че се изисква такса от поне %1 на килобайт.</translation>
     </message>
     <message>
         <source>Can vary +/- 1 byte per input.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Transactions with higher priority are more likely to get included into a block.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
-        <translation type="unfinished"/>
+        <translation>Може да варира с +-1 байт</translation>
     </message>
     <message>
         <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 is required.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This label turns red, if the change is smaller than %1.</source>
-        <translation type="unfinished"/>
+        <translation>Това наименование се оцветява в червено, ако произволен получател получи сума по-малка от %1.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -791,11 +706,11 @@ Address: %4
     </message>
     <message>
         <source>change from %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>ресто от %1 (%2)</translation>
     </message>
     <message>
         <source>(change)</source>
-        <translation type="unfinished"/>
+        <translation>(промени)</translation>
     </message>
 </context>
 <context>
@@ -807,14 +722,6 @@ Address: %4
     <message>
         <source>&amp;Label</source>
         <translation>&amp;Име</translation>
-    </message>
-    <message>
-        <source>The label associated with this address list entry</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The address associated with this address list entry. This can only be modified for sending addresses.</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>&amp;Address</source>
@@ -837,12 +744,12 @@ Address: %4
         <translation>Редактиране на изходящ адрес</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation>Вече има адрес &quot;%1&quot; в списъка с адреси.</translation>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Вече има адрес "%1" в списъка с адреси.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid Quark address.</source>
-        <translation>&quot;%1&quot; не е валиден Биткоин адрес.</translation>
+        <source>The entered address "%1" is not a valid Quark address.</source>
+        <translation>"%1" не е валиден Биткоин адрес.</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -865,7 +772,7 @@ Address: %4
     </message>
     <message>
         <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
-        <translation type="unfinished"/>
+        <translation>Директорията вече съществува.Добавете %1 ако желаете да добавите нова директория тук.</translation>
     </message>
     <message>
         <source>Path already exists, and is not a directory.</source>
@@ -873,22 +780,30 @@ Address: %4
     </message>
     <message>
         <source>Cannot create data directory here.</source>
-        <translation type="unfinished"/>
+        <translation>Не може да се създаде директория тук.</translation>
     </message>
 </context>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Quark Core - Command-line options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Quark Core</source>
-        <translation type="unfinished"/>
+        <translation>Биткойн ядро</translation>
     </message>
     <message>
         <source>version</source>
         <translation>версия</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-битов)</translation>
+    </message>
+    <message>
+        <source>About Quark Core</source>
+        <translation>За Quark Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Списък с команди</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -896,31 +811,23 @@ Address: %4
     </message>
     <message>
         <source>command-line options</source>
-        <translation type="unfinished"/>
+        <translation>Списък с налични команди</translation>
     </message>
     <message>
         <source>UI options</source>
         <translation>UI Опции</translation>
     </message>
     <message>
-        <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation type="unfinished"/>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Задаване на език,например "de_DE" (по подразбиране: system locale)</translation>
     </message>
     <message>
         <source>Start minimized</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set SSL root certificates for payment request (default: -system-)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show splash screen on startup (default: 1)</source>
-        <translation type="unfinished"/>
+        <translation>Стартирай минимизирано</translation>
     </message>
     <message>
         <source>Choose data directory on startup (default: 0)</source>
-        <translation type="unfinished"/>
+        <translation>Изберете директория при стартиране на програмата.( настройка по подразбиране:0)</translation>
     </message>
 </context>
 <context>
@@ -931,68 +838,36 @@ Address: %4
     </message>
     <message>
         <source>Welcome to Quark Core.</source>
-        <translation type="unfinished"/>
+        <translation>Добре дошли в Биткойн ядрото.</translation>
     </message>
     <message>
         <source>As this is the first time the program is launched, you can choose where Quark Core will store its data.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quark Core will download and store a copy of the Quark block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation type="unfinished"/>
+        <translation>Тъй като това е първото стартиране на програмата можете да изберете къде Биткон ядрото да запази данните си.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
-        <translation type="unfinished"/>
+        <translation>Използване на директория по подразбиране</translation>
     </message>
     <message>
         <source>Use a custom data directory:</source>
-        <translation type="unfinished"/>
+        <translation>Използване на директория ръчно</translation>
     </message>
     <message>
-        <source>Quark</source>
-        <translation>Биткоин</translation>
-    </message>
-    <message>
-        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
-        <translation type="unfinished"/>
+        <source>Quark Core</source>
+        <translation>Биткойн ядро</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
-    <message>
-        <source>GB of free space available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>(of %1GB needed)</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+    </context>
 <context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
-        <translation type="unfinished"/>
+        <translation>Отваряне на URI</translation>
     </message>
-    <message>
-        <source>Open payment request from URI or file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>URI:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select payment request file</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select payment request file to open</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
+    </context>
 <context>
     <name>OptionsDialog</name>
     <message>
@@ -1004,16 +879,8 @@ Address: %4
         <translation>&amp;Основни</translation>
     </message>
     <message>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Pay transaction &amp;fee</source>
-        <translation>&amp;Такса за изходяща трансакция</translation>
-    </message>
-    <message>
         <source>Automatically start Quark after logging in to the system.</source>
-        <translation type="unfinished"/>
+        <translation>Автоматично включване на Биткойн след влизане в системата.</translation>
     </message>
     <message>
         <source>&amp;Start Quark on system login</source>
@@ -1021,75 +888,51 @@ Address: %4
     </message>
     <message>
         <source>Size of &amp;database cache</source>
-        <translation type="unfinished"/>
+        <translation>Размер на кеша в &amp;базата данни</translation>
     </message>
     <message>
         <source>MB</source>
-        <translation type="unfinished"/>
+        <translation>Мегабайта</translation>
     </message>
     <message>
-        <source>Number of script &amp;verification threads</source>
-        <translation type="unfinished"/>
+        <source>Accept connections from outside</source>
+        <translation>Приемай връзки отвън</translation>
     </message>
     <message>
-        <source>Connect to the Quark network through a SOCKS proxy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation type="unfinished"/>
+        <source>Allow incoming connections</source>
+        <translation>Позволи входящите връзки</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation type="unfinished"/>
+        <translation>IP адрес на прокси (напр. за IPv4: 127.0.0.1 / за IPv6: ::1)</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Active command-line options that override above options:</source>
-        <translation type="unfinished"/>
+        <translation>URL адреси на трети страни</translation>
     </message>
     <message>
         <source>Reset all client options to default.</source>
-        <translation type="unfinished"/>
+        <translation>Възстановете всички настройки по подразбиране.</translation>
     </message>
     <message>
         <source>&amp;Reset Options</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Нулирай настройките</translation>
     </message>
     <message>
         <source>&amp;Network</source>
         <translation>&amp;Мрежа</translation>
     </message>
     <message>
-        <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>W&amp;allet</source>
-        <translation type="unfinished"/>
+        <translation>По&amp;ртфейл</translation>
     </message>
     <message>
         <source>Expert</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable coin &amp;control features</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If you disable the spending of unconfirmed change, the change from a transaction cannot be used until that transaction has at least one confirmation. This also affects how your balance is computed.</source>
-        <translation type="unfinished"/>
+        <translation>Експерт</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Похарчете непотвърденото ресто</translation>
     </message>
     <message>
         <source>Automatically open the Quark client port on the router. This only works when your router supports UPnP and it is enabled.</source>
@@ -1100,8 +943,16 @@ Address: %4
         <translation>Отваряне на входящия порт чрез &amp;UPnP</translation>
     </message>
     <message>
+        <source>Connect to the Quark network through a SOCKS5 proxy.</source>
+        <translation>Свързване с Биткойн мрежата чрез SOCKS5  прокси.</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Свързване чрез SOCKS5  прокси (прокси по подразбиране):</translation>
+    </message>
+    <message>
         <source>Proxy &amp;IP:</source>
-        <translation type="unfinished"/>
+        <translation>Прокси &amp; АйПи:</translation>
     </message>
     <message>
         <source>&amp;Port:</source>
@@ -1109,15 +960,7 @@ Address: %4
     </message>
     <message>
         <source>Port of the proxy (e.g. 9050)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>SOCKS &amp;Version:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation type="unfinished"/>
+        <translation>Порт на прокси сървъра (пр. 9050)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1160,24 +1003,16 @@ Address: %4
         <translation>Изберете единиците, показвани по подразбиране в интерфейса.</translation>
     </message>
     <message>
-        <source>Whether to show Quark addresses in the transaction list or not.</source>
-        <translation>Ще се показват адресите в списъка с трансакции независимо от наличието на кратко име.</translation>
-    </message>
-    <message>
-        <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Адреси в списъка с трансакции</translation>
-    </message>
-    <message>
         <source>Whether to show coin control features or not.</source>
-        <translation type="unfinished"/>
+        <translation>Дали да покаже възможностите за контрол на монетите или не.</translation>
     </message>
     <message>
         <source>&amp;OK</source>
-        <translation type="unfinished"/>
+        <translation>ОК</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отказ</translation>
     </message>
     <message>
         <source>default</source>
@@ -1185,23 +1020,23 @@ Address: %4
     </message>
     <message>
         <source>none</source>
-        <translation type="unfinished"/>
+        <translation>нищо</translation>
     </message>
     <message>
         <source>Confirm options reset</source>
-        <translation type="unfinished"/>
+        <translation>Потвърдете отмяната на настройките.</translation>
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
-        <translation type="unfinished"/>
+        <translation>Изисква се рестартиране на клиента за активиране на извършените промени.</translation>
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
-        <translation type="unfinished"/>
+        <translation>Клиентът ще бъде изключен,искате ли да продължите?</translation>
     </message>
     <message>
         <source>This change would require a client restart.</source>
-        <translation type="unfinished"/>
+        <translation>Тази промяна изисква рестартиране на клиента Ви.</translation>
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
@@ -1216,11 +1051,11 @@ Address: %4
     </message>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Quark network after a connection is established, but this process has not completed yet.</source>
-        <translation type="unfinished"/>
+        <translation>Текущата информация на екрана може да не е актуална. Вашият портфейл ще се синхронизира автоматично с мрежата на Биткоин, щом поне една връзката с нея се установи; този процес все още не е приключил.</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>Портфейл</translation>
+        <source>Watch-only:</source>
+        <translation>В наблюдателен режим:</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1228,23 +1063,23 @@ Address: %4
     </message>
     <message>
         <source>Your current spendable balance</source>
-        <translation type="unfinished"/>
+        <translation>Вашата текуща сметка за изразходване</translation>
     </message>
     <message>
         <source>Pending:</source>
         <translation>Изчакващо:</translation>
     </message>
     <message>
-        <source>Total of transactions that have yet to be confirmed, and do not yet count toward the spendable balance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Immature:</source>
-        <translation type="unfinished"/>
+        <translation>Неразвит:</translation>
     </message>
     <message>
         <source>Mined balance that has not yet matured</source>
-        <translation type="unfinished"/>
+        <translation>Миниран баланс,който все още не се е развил</translation>
+    </message>
+    <message>
+        <source>Balances</source>
+        <translation>Баланс</translation>
     </message>
     <message>
         <source>Total:</source>
@@ -1255,8 +1090,12 @@ Address: %4
         <translation>Текущият ви общ баланс</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Последни трансакции&lt;/b&gt;</translation>
+        <source>Spendable:</source>
+        <translation>За харчене:</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Скорошни транзакции</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1267,117 +1106,144 @@ Address: %4
     <name>PaymentServer</name>
     <message>
         <source>URI handling</source>
-        <translation type="unfinished"/>
+        <translation>Справяне с URI</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
-        <translation type="unfinished"/>
+        <source>Invalid payment address %1</source>
+        <translation>Невалиден адрес на плащане %1</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Заявката за плащане беше отхвърлена</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Мрежата от която се извършва заявката за плащане не съвпада с мрежата на клиента.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Заявката за плащане е изтекла.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
-        <translation type="unfinished"/>
+        <translation>Заявената сума за плащане: %1 е твърде малка (счита се за отпадък)</translation>
     </message>
     <message>
         <source>Payment request error</source>
-        <translation type="unfinished"/>
+        <translation>Възникна грешка по време назаявката за плащане</translation>
     </message>
     <message>
         <source>Cannot start quark: click-to-pay handler</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Net manager warning</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your active proxy doesn&apos;t support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Payment request fetch URL is invalid: %1</source>
-        <translation type="unfinished"/>
+        <translation>Биткойн не можe да се стартира: click-to-pay handler</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Payment request file can not be read or processed! This can be caused by an invalid payment request file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unverified payment requests to custom payment scripts are unsupported.</source>
-        <translation type="unfinished"/>
+        <translation>Файл за справяне със заявки</translation>
     </message>
     <message>
         <source>Refund from %1</source>
-        <translation type="unfinished"/>
+        <translation>Възстановяване на сума от %1</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Дос защита на заявката за плащане</translation>
     </message>
     <message>
         <source>Error communicating with %1: %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Payment request can not be parsed or processed!</source>
-        <translation type="unfinished"/>
+        <translation>Грешка при комуникацията с %1: %2</translation>
     </message>
     <message>
         <source>Bad response from server %1</source>
-        <translation type="unfinished"/>
+        <translation>Възникна проблем при свързването със сървър %1</translation>
     </message>
     <message>
         <source>Payment acknowledged</source>
-        <translation>Плащането е приета</translation>
+        <translation>Плащането е прието</translation>
     </message>
     <message>
         <source>Network request error</source>
-        <translation type="unfinished"/>
+        <translation>Грешка в мрежата по време на заявката</translation>
+    </message>
+</context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>User Agent</source>
+        <translation>Клиент на потребителя</translation>
+    </message>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Адрес в интернет</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Време за отговор</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
-        <source>Quark</source>
-        <translation>Биткоин</translation>
+        <source>Amount</source>
+        <translation>Сума</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation type="unfinished"/>
+        <source>Enter a Quark address (e.g. %1)</source>
+        <translation>Въведете Биткойн адрес (например: %1)</translation>
     </message>
     <message>
-        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation type="unfinished"/>
+        <source>%1 d</source>
+        <translation>%1 ден</translation>
     </message>
     <message>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation type="unfinished"/>
+        <source>%1 h</source>
+        <translation>%1 час</translation>
     </message>
     <message>
-        <source>Quark Core didn&apos;t yet exit safely...</source>
-        <translation type="unfinished"/>
+        <source>%1 m</source>
+        <translation>%1 минута</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Въведете Биткоин адрес (например QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>%1 s</source>
+        <translation>%1 секунда</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>Мрежа</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>Неизвестен</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Неналичен</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>Несъществуващ</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 милисекунда</translation>
     </message>
 </context>
 <context>
     <name>QRImageWidget</name>
     <message>
         <source>&amp;Save Image...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Запиши изображение...</translation>
     </message>
     <message>
         <source>&amp;Copy Image</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Копирай изображение</translation>
     </message>
     <message>
         <source>Save QR Code</source>
-        <translation type="unfinished"/>
+        <translation>Запази QR Код</translation>
     </message>
     <message>
         <source>PNG Image (*.png)</source>
-        <translation type="unfinished"/>
+        <translation>PNG Изображение (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1396,23 +1262,27 @@ Address: %4
     </message>
     <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"/>
+        <translation>Данни</translation>
     </message>
     <message>
         <source>Debug window</source>
-        <translation type="unfinished"/>
+        <translation>Прозорец с грешки</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Основни</translation>
     </message>
     <message>
         <source>Using OpenSSL version</source>
-        <translation type="unfinished"/>
+        <translation>Използване на OpenSSL версия</translation>
+    </message>
+    <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Използване на база данни BerkeleyDB </translation>
     </message>
     <message>
         <source>Startup time</source>
-        <translation type="unfinished"/>
+        <translation>Време за стартиране</translation>
     </message>
     <message>
         <source>Network</source>
@@ -1427,16 +1297,68 @@ Address: %4
         <translation>Брой връзки</translation>
     </message>
     <message>
-        <source>Block chain</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Current number of blocks</source>
         <translation>Текущ брой блокове</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>Предвидени общо блокове</translation>
+        <source>Received</source>
+        <translation>Получени</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Изпратени</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Пиъри</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Избери пиър за детайлна информация.</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Посока</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Версия</translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation>Клиент на потребителя</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Услуги</translation>
+    </message>
+    <message>
+        <source>Starting Height</source>
+        <translation>Стартова височина</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Продължителност на връзката</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Изпратени за последно</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Получени за последно</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Изпратени байтове</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Получени байтове</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Време за отговор</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1444,43 +1366,43 @@ Address: %4
     </message>
     <message>
         <source>&amp;Open</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Отвори</translation>
     </message>
     <message>
         <source>&amp;Console</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Конзола</translation>
     </message>
     <message>
         <source>&amp;Network Traffic</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Мрежов Трафик</translation>
     </message>
     <message>
         <source>&amp;Clear</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Изчисти</translation>
     </message>
     <message>
         <source>Totals</source>
-        <translation type="unfinished"/>
+        <translation>Общо:</translation>
     </message>
     <message>
         <source>In:</source>
-        <translation type="unfinished"/>
+        <translation>Входящи:</translation>
     </message>
     <message>
         <source>Out:</source>
-        <translation type="unfinished"/>
+        <translation>Изходящи</translation>
     </message>
     <message>
         <source>Build date</source>
-        <translation type="unfinished"/>
+        <translation>Дата на създаване</translation>
     </message>
     <message>
         <source>Debug log file</source>
-        <translation type="unfinished"/>
+        <translation>Лог файл,съдържащ грешките</translation>
     </message>
     <message>
         <source>Open the Quark debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation type="unfinished"/>
+        <translation>Отворете Биткой дебъг лог файла от настоящата Data папка. Може да отнеме няколко секунди при по - големи лог файлове.</translation>
     </message>
     <message>
         <source>Clear console</source>
@@ -1488,7 +1410,7 @@ Address: %4
     </message>
     <message>
         <source>Welcome to the Quark RPC console.</source>
-        <translation type="unfinished"/>
+        <translation>Добре дошли в Биткойн RPC конзолата.</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -1496,42 +1418,54 @@ Address: %4
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation type="unfinished"/>
+        <translation>Въведeте &lt;/b&gt;помощ&lt;/b&gt; за да видите наличните команди.</translation>
     </message>
     <message>
         <source>%1 B</source>
-        <translation type="unfinished"/>
+        <translation>%1 Байт</translation>
     </message>
     <message>
         <source>%1 KB</source>
-        <translation type="unfinished"/>
+        <translation>%1 Килобайт</translation>
     </message>
     <message>
         <source>%1 MB</source>
-        <translation type="unfinished"/>
+        <translation>%1 Мегабайт</translation>
     </message>
     <message>
         <source>%1 GB</source>
-        <translation type="unfinished"/>
+        <translation>%1 Гигабайт</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation type="unfinished"/>
+        <source>via %1</source>
+        <translation>посредством %1</translation>
     </message>
     <message>
-        <source>%1 h</source>
-        <translation type="unfinished"/>
+        <source>never</source>
+        <translation>Никога</translation>
     </message>
     <message>
-        <source>%1 h %2 m</source>
-        <translation type="unfinished"/>
+        <source>Inbound</source>
+        <translation>Входящи</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>Изходящи</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Неизвестен</translation>
+    </message>
+    <message>
+        <source>Fetching...</source>
+        <translation>Прихващане...</translation>
     </message>
 </context>
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
         <source>&amp;Amount:</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Сума</translation>
     </message>
     <message>
         <source>&amp;Label:</source>
@@ -1539,35 +1473,19 @@ Address: %4
     </message>
     <message>
         <source>&amp;Message:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reuse one of the previously used receiving addresses. Reusing addresses has security and privacy issues. Do not use this unless re-generating a payment request made before.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>R&amp;euse an existing receiving address (not recommended)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Quark network.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An optional label to associate with the new receiving address.</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Съобщение:</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
-        <translation type="unfinished"/>
+        <translation>Използвате този формуляр за заявяване на плащания. Всички полета са &lt;b&gt;незадължителни&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
-        <translation type="unfinished"/>
+        <translation>Незадължително заявяване на сума. Оставете полето празно или нулево, за да не заявите конкретна сума.</translation>
     </message>
     <message>
         <source>Clear all fields of the form.</source>
-        <translation type="unfinished"/>
+        <translation>Изчисти всички полета от формуляра.</translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1575,23 +1493,15 @@ Address: %4
     </message>
     <message>
         <source>Requested payments history</source>
-        <translation type="unfinished"/>
+        <translation>Изискана история на плащанията</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show the selected request (does the same as double clicking an entry)</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Изискване на плащане</translation>
     </message>
     <message>
         <source>Show</source>
         <translation>Показване</translation>
-    </message>
-    <message>
-        <source>Remove the selected entries from the list</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Remove</source>
@@ -1614,31 +1524,27 @@ Address: %4
     <name>ReceiveRequestDialog</name>
     <message>
         <source>QR Code</source>
-        <translation type="unfinished"/>
+        <translation>QR код</translation>
     </message>
     <message>
         <source>Copy &amp;URI</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на &amp;URI</translation>
     </message>
     <message>
         <source>Copy &amp;Address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Копирай адрес</translation>
     </message>
     <message>
         <source>&amp;Save Image...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Запиши изображение...</translation>
     </message>
     <message>
         <source>Request payment to %1</source>
-        <translation type="unfinished"/>
+        <translation>Изискване на плащане от %1</translation>
     </message>
     <message>
         <source>Payment information</source>
         <translation>Данни за плащането</translation>
-    </message>
-    <message>
-        <source>URI</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Address</source>
@@ -1655,10 +1561,6 @@ Address: %4
     <message>
         <source>Message</source>
         <translation>Съобщение</translation>
-    </message>
-    <message>
-        <source>Resulting URI too long, try to reduce the text for label / message.</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Error encoding URI into QR Code.</source>
@@ -1689,11 +1591,11 @@ Address: %4
     </message>
     <message>
         <source>(no message)</source>
-        <translation type="unfinished"/>
+        <translation>(без съобщение)</translation>
     </message>
     <message>
         <source>(no amount)</source>
-        <translation type="unfinished"/>
+        <translation>(липсва сума)</translation>
     </message>
 </context>
 <context>
@@ -1704,23 +1606,19 @@ Address: %4
     </message>
     <message>
         <source>Coin Control Features</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Inputs...</source>
-        <translation type="unfinished"/>
+        <translation>Настройки за контрол на монетите</translation>
     </message>
     <message>
         <source>automatically selected</source>
-        <translation type="unfinished"/>
+        <translation>астоматично избран</translation>
     </message>
     <message>
         <source>Insufficient funds!</source>
-        <translation type="unfinished"/>
+        <translation>Нямате достатъчно налични пари!</translation>
     </message>
     <message>
         <source>Quantity:</source>
-        <translation type="unfinished"/>
+        <translation>Количество:</translation>
     </message>
     <message>
         <source>Bytes:</source>
@@ -1739,24 +1637,56 @@ Address: %4
         <translation>Такса:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>After Fee:</source>
-        <translation type="unfinished"/>
+        <translation>След прилагане на ДДС</translation>
     </message>
     <message>
         <source>Change:</source>
-        <translation type="unfinished"/>
+        <translation>Ресто</translation>
     </message>
     <message>
         <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
-        <translation type="unfinished"/>
+        <translation>Ако тази опция е активирана,но адресът на промяна е празен или невалиден,промяната ще бъде изпратена на новосъздаден адрес.</translation>
     </message>
     <message>
-        <source>Custom change address</source>
-        <translation type="unfinished"/>
+        <source>Transaction Fee:</source>
+        <translation>Такса за транзакцията:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Избери...</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Минимизирай</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>за килобайт</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>Крайна сума поне</translation>
+    </message>
+    <message>
+        <source>Recommended:</source>
+        <translation>Препоръчителна:</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>По избор:</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Време за потвърждение:</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>нормален</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>бърз</translation>
     </message>
     <message>
         <source>Send to multiple recipients at once</source>
@@ -1768,7 +1698,11 @@ Address: %4
     </message>
     <message>
         <source>Clear all fields of the form.</source>
-        <translation type="unfinished"/>
+        <translation>Изчисти всички полета от формуляра.</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Прах:</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1791,12 +1725,8 @@ Address: %4
         <translation>Потвърждаване</translation>
     </message>
     <message>
-        <source>%1 to %2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Copy quantity</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на количеството</translation>
     </message>
     <message>
         <source>Copy amount</source>
@@ -1804,31 +1734,23 @@ Address: %4
     </message>
     <message>
         <source>Copy fee</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy after fee</source>
-        <translation type="unfinished"/>
+        <translation>Копиране след прилагане на данък добавена стойност</translation>
     </message>
     <message>
         <source>Copy bytes</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на байтовете</translation>
     </message>
     <message>
         <source>Copy priority</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy low output</source>
-        <translation type="unfinished"/>
+        <translation>Копиране на приоритет</translation>
     </message>
     <message>
         <source>Copy change</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation type="unfinished"/>
+        <translation>Копирай рестото</translation>
     </message>
     <message>
         <source>or</source>
@@ -1848,23 +1770,23 @@ Address: %4
     </message>
     <message>
         <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation type="unfinished"/>
+        <translation>Сумата при добавяне на данък добавена стойност по %1 транзакцията надвишава сумата по вашата сметка.</translation>
     </message>
     <message>
         <source>Transaction creation failed!</source>
-        <translation>Грешка при създаването на трансакция!</translation>
+        <translation>Грешка при създаването на транзакция!</translation>
     </message>
     <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"/>
+        <source>A fee higher than %1 is considered an insanely high fee.</source>
+        <translation>Такса по-висока от %1 се смята за извънредно висока.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Платете минималната такса от %1</translation>
     </message>
     <message>
         <source>Warning: Invalid Quark address</source>
-        <translation type="unfinished"/>
+        <translation>Внимание: Невалиден Биткойн адрес</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1872,7 +1794,11 @@ Address: %4
     </message>
     <message>
         <source>Warning: Unknown change address</source>
-        <translation type="unfinished"/>
+        <translation>Внимание:Неизвестен адрес за промяна</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Копирай прахта:</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
@@ -1881,14 +1807,6 @@ Address: %4
     <message>
         <source>added as transaction fee</source>
         <translation>добавено като такса за трансакция</translation>
-    </message>
-    <message>
-        <source>Payment request expired</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1902,10 +1820,6 @@ Address: %4
         <translation>Плати &amp;На:</translation>
     </message>
     <message>
-        <source>The address to send the payment to (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Въведете име за този адрес, за да го добавите в списъка с адреси</translation>
     </message>
@@ -1915,7 +1829,7 @@ Address: %4
     </message>
     <message>
         <source>Choose previously used address</source>
-        <translation type="unfinished"/>
+        <translation>Изберете използван преди адрес</translation>
     </message>
     <message>
         <source>This is a normal payment.</source>
@@ -1943,19 +1857,11 @@ Address: %4
     </message>
     <message>
         <source>This is a verified payment request.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter a label for this address to add it to the list of used addresses</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>A message that was attached to the quark: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Quark network.</source>
-        <translation type="unfinished"/>
+        <translation>Това е потвърдена транзакция.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
-        <translation type="unfinished"/>
+        <translation>Това е непотвърдена заявка за плащане.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -1963,18 +1869,18 @@ Address: %4
     </message>
     <message>
         <source>Memo:</source>
-        <translation type="unfinished"/>
+        <translation>Бележка:</translation>
     </message>
 </context>
 <context>
     <name>ShutdownWindow</name>
     <message>
         <source>Quark Core is shutting down...</source>
-        <translation type="unfinished"/>
+        <translation>Биткойн ядрото се изключва...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
-        <translation type="unfinished"/>
+        <translation>Не изключвайте компютъра докато този прозорец не изчезне.</translation>
     </message>
 </context>
 <context>
@@ -1992,12 +1898,8 @@ Address: %4
         <translation>Можете да подпишете съобщение като доказателство, че притежавате определен адрес. Бъдете внимателни и не подписвайте съобщения, които биха разкрили лична информация без вашето съгласие.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Адресът, с който ще подпишете съобщението (например QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
         <source>Choose previously used address</source>
-        <translation type="unfinished"/>
+        <translation>Изберете използван преди адрес</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2029,11 +1931,7 @@ Address: %4
     </message>
     <message>
         <source>Sign &amp;Message</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation type="unfinished"/>
+        <translation>Подпиши &amp;съобщение</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -2044,32 +1942,16 @@ Address: %4
         <translation>&amp;Провери</translation>
     </message>
     <message>
-        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The address the message was signed with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Адресът, с който е подписано съобщението (например QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
         <source>Verify the message to ensure it was signed with the specified Quark address</source>
         <translation>Проверете съобщение, за да сте сигурни че е подписано с определен Биткоин адрес</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
-        <translation type="unfinished"/>
+        <translation>Потвърди &amp;съобщението</translation>
     </message>
     <message>
-        <source>Reset all verify message fields</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Въведете Биткоин адрес (например QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
-        <source>Click &quot;Sign Message&quot; to generate signature</source>
-        <translation>Натиснете &quot;Подписване на съобщение&quot; за да създадете подпис</translation>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Натиснете "Подписване на съобщение" за да създадете подпис</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -2081,11 +1963,11 @@ Address: %4
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation type="unfinished"/>
+        <translation>Въведеният адрес не може да се съпостави с валиден ключ.</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
-        <translation type="unfinished"/>
+        <translation>Отключването на портфейла беше отменено.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
@@ -2124,11 +2006,11 @@ Address: %4
     <name>SplashScreen</name>
     <message>
         <source>Quark Core</source>
-        <translation type="unfinished"/>
+        <translation>Биткойн ядро</translation>
     </message>
     <message>
         <source>The Quark Core developers</source>
-        <translation type="unfinished"/>
+        <translation>Разработчици на Quark Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2139,7 +2021,7 @@ Address: %4
     <name>TrafficGraphWidget</name>
     <message>
         <source>KB/s</source>
-        <translation type="unfinished"/>
+        <translation>Килобайта в секунда</translation>
     </message>
 </context>
 <context>
@@ -2150,7 +2032,7 @@ Address: %4
     </message>
     <message>
         <source>conflicted</source>
-        <translation type="unfinished"/>
+        <translation>припокриващ се</translation>
     </message>
     <message>
         <source>%1/offline</source>
@@ -2167,10 +2049,6 @@ Address: %4
     <message>
         <source>Status</source>
         <translation>Статус</translation>
-    </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -2204,17 +2082,21 @@ Address: %4
         <source>Credit</source>
         <translation>Кредит</translation>
     </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
     <message>
         <source>not accepted</source>
-        <translation type="unfinished"/>
+        <translation>не е приет</translation>
     </message>
     <message>
         <source>Debit</source>
         <translation>Дебит</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Общ дълг</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Общ дълг</translation>
     </message>
     <message>
         <source>Transaction fee</source>
@@ -2241,20 +2123,16 @@ Address: %4
         <translation>Търговец</translation>
     </message>
     <message>
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation type="unfinished"/>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>Генерираните монети трябва да отлежат %1 блока преди да могат да бъдат похарчени. Когато генерираш блока, той се разпространява в мрежата, за да се добави в блок-веригата. Ако не успее да се добави във веригата, неговия статус  ще се стане "неприет" и няма да може да се похарчи. Това е възможно да се случи случайно, ако друг възел генерира блок няколко секунди след твоя.</translation>
     </message>
     <message>
         <source>Debug information</source>
-        <translation type="unfinished"/>
+        <translation>Информация за грешките</translation>
     </message>
     <message>
         <source>Transaction</source>
         <translation>Трансакция</translation>
-    </message>
-    <message>
-        <source>Inputs</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Amount</source>
@@ -2271,10 +2149,6 @@ Address: %4
     <message>
         <source>, has not been successfully broadcast yet</source>
         <translation>, все още не е изпратено</translation>
-    </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <source>unknown</source>
@@ -2307,16 +2181,8 @@ Address: %4
         <translation>Адрес</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Сума</translation>
-    </message>
-    <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation>Неплатим (%1 потвърждения, ще бъде платим след %2)</translation>
     </message>
     <message>
         <source>Open until %1</source>
@@ -2336,7 +2202,7 @@ Address: %4
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Извън линия</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
@@ -2467,7 +2333,7 @@ Address: %4
     </message>
     <message>
         <source>Copy transaction ID</source>
-        <translation type="unfinished"/>
+        <translation>Копирай транзакция с ID</translation>
     </message>
     <message>
         <source>Edit label</source>
@@ -2486,16 +2352,12 @@ Address: %4
         <translation>Грешка при изнасянето</translation>
     </message>
     <message>
-        <source>There was an error trying to save the transaction history to %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Exporting Successful</source>
         <translation>Изнасянето е успешна</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Историята с транзакциите беше успешно запазена в %1.</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
@@ -2522,10 +2384,6 @@ Address: %4
         <translation>Адрес</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Сума</translation>
-    </message>
-    <message>
         <source>ID</source>
         <translation>ИД</translation>
     </message>
@@ -2538,6 +2396,9 @@ Address: %4
         <translation>до</translation>
     </message>
 </context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    </context>
 <context>
     <name>WalletFrame</name>
     <message>
@@ -2556,7 +2417,7 @@ Address: %4
     <name>WalletView</name>
     <message>
         <source>&amp;Export</source>
-        <translation type="unfinished"/>
+        <translation>Изнеси</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
@@ -2564,102 +2425,46 @@ Address: %4
     </message>
     <message>
         <source>Backup Wallet</source>
-        <translation type="unfinished"/>
+        <translation>Запазване на портфейла</translation>
     </message>
     <message>
         <source>Wallet Data (*.dat)</source>
-        <translation type="unfinished"/>
+        <translation>Информация за портфейла (*.dat)</translation>
     </message>
     <message>
         <source>Backup Failed</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно запазване на портфейла</translation>
     </message>
     <message>
         <source>There was an error trying to save the wallet data to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Възникна грешка при запазването на информацията за портфейла в %1.</translation>
     </message>
     <message>
         <source>The wallet data was successfully saved to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Информацията за портфейла беше успешно запазена в %1.</translation>
     </message>
     <message>
         <source>Backup Successful</source>
-        <translation type="unfinished"/>
+        <translation>Успешно запазване на портфейла</translation>
     </message>
 </context>
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Usage:</source>
-        <translation>Използване:</translation>
-    </message>
-    <message>
-        <source>List commands</source>
-        <translation>Вписване на команди</translation>
-    </message>
-    <message>
-        <source>Get help for a command</source>
-        <translation>Получете помощ за команда</translation>
-    </message>
-    <message>
         <source>Options:</source>
         <translation>Опции:</translation>
-    </message>
-    <message>
-        <source>Specify configuration file (default: quarkcoin.conf)</source>
-        <translation>Задаване на файл с настройки (по подразбиране quarkcoin.conf)</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Specify data directory</source>
         <translation>Определете директория за данните</translation>
     </message>
     <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Свържете се към сървър за да можете да извлечете адресите на пиърите след което се разкачете.</translation>
     </message>
     <message>
         <source>Specify your own public address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Праг на прекъсване на връзката при непорядъчно държащи се пиъри (по подразбиране:100)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>Брой секунди до възтановяване на връзката за зле държащите се пиъри (по подразбиране:86400)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Accept command line and JSON-RPC commands</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quark Core RPC client version</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Run in the background as a daemon and accept commands</source>
-        <translation type="unfinished"/>
+        <translation>Въведете Ваш публичен адрес</translation>
     </message>
     <message>
         <source>Use the test network</source>
@@ -2667,349 +2472,47 @@ Address: %4
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%s, you must set a rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=quarkrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
-</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:15)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer. Quark Core is probably already running.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation type="unfinished"/>
+        <translation>Приемайте връзки отвън.(по подразбиране:1 в противен случай -proxy или -connect)</translation>
     </message>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
-        <translation type="unfinished"/>
+        <translation>Внимание: -paytxfee има голяма стойност! Това е таксата за транзакциите, която ще платите ако направите транзакция.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quark will not work properly.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Warning: We do not appear to fully agree with our peers! You may need to upgrade, or other nodes may need to upgrade.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
-        <translation type="unfinished"/>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Сложете в бял списък пиъри,свързващи се от дадената интернет маска или айпи адрес.Може да бъде заложено неколкократно.</translation>
     </message>
     <message>
         <source>(default: 1)</source>
         <translation>(по подразбиране 1)</translation>
     </message>
     <message>
-        <source>(default: wallet.dat)</source>
-        <translation>(по подразбиране wallet.dat)</translation>
-    </message>
-    <message>
         <source>&lt;category&gt; can be:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Quark Core Daemon</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Block creation options:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connect through SOCKS proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation type="unfinished"/>
+        <translation>&lt;category&gt; може да бъде:</translation>
     </message>
     <message>
         <source>Connection options:</source>
         <translation>Настройки на връзката:</translation>
     </message>
     <message>
-        <source>Corrupted block database detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Debugging/Testing options:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disable safemode, override a real safe mode event (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do not load the wallet and disable wallet RPC calls</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Do you want to rebuild the block database now?</source>
-        <translation type="unfinished"/>
+        <translation>Желаете ли да пресъздадете базата данни с блокове сега?</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error initializing wallet database environment %s!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error loading block database</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error opening block database</source>
-        <translation type="unfinished"/>
+        <translation>Грешка в пускането на базата данни с блокове</translation>
     </message>
     <message>
         <source>Error: Disk space is low!</source>
         <translation>Грешка: мястото на диска е малко!</translation>
     </message>
     <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Error: system error: </source>
-        <translation>Грешка: системна грешка:</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to read block info</source>
-        <translation>Грешка при четене данни на блок</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>Грешка при четене на блок</translation>
-    </message>
-    <message>
-        <source>Failed to sync block index</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to write block index</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to write block info</source>
-        <translation>Грешка при запис данни на блок</translation>
-    </message>
-    <message>
-        <source>Failed to write block</source>
-        <translation>Грешка при запис на блок</translation>
-    </message>
-    <message>
-        <source>Failed to write file info</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to write to coin database</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to write transaction index</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to write undo data</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fee per kB to add to transactions you send</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Force safe mode (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
-        <translation type="unfinished"/>
+        <translation>Провалено "слушане" на всеки порт. Използвайте -listen=0 ако искате това.</translation>
     </message>
     <message>
         <source>Importing...</source>
         <translation>Внасяне...</translation>
-    </message>
-    <message>
-        <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Not enough file descriptors available.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Prepend debug output with timestamp (default: 1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>RPC client options:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rebuild block chain index from current blk000??.dat files</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set maximum block size in bytes (default: %d)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Specify wallet file (within data directory)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>This is intended for regression testing tools and app development.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Usage (deprecated, use quark-cli):</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3020,160 +2523,44 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
         <translation>Проверка на портфейла...</translation>
     </message>
     <message>
-        <source>Wait for RPC server to start</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Wallet %s resides outside data directory %s</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Wallet options:</source>
         <translation>Настройки на портфейла:</translation>
     </message>
     <message>
-        <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation type="unfinished"/>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>Заложете броя на нишки за генерация на монети ако е включено(-1 = всички ядра, по подразбиране: %d)</translation>
     </message>
     <message>
-        <source>You need to rebuild the database using -reindex to change -txindex</source>
-        <translation type="unfinished"/>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>Внимание: -maxtxfee има много висока стойност! Толкова високи такси могат да бъдат заплатени на една транзакция.</translation>
     </message>
     <message>
-        <source>Imports blocks from external blk000??.dat file</source>
-        <translation type="unfinished"/>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Свързване чрез SOCKS5  прокси</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Quark Core is probably already running.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
-        <translation type="unfinished"/>
+        <source>Copyright (C) 2009-%i The Quark Core and Quark Core Developers</source>
+        <translation>Всички права запазени (C) 2009-%i Доставчиците на Биткойн</translation>
     </message>
     <message>
         <source>Information</source>
         <translation>Данни</translation>
     </message>
     <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна сума за -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Print block on startup, if found in block index</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Print block tree on startup (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>RPC SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>RPC server options:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Send command to Quark Core</source>
-        <translation type="unfinished"/>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна сума за -mintxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Изпрати локализиращата или дебъг информацията към конзолата, вместо файлът debug.log</translation>
     </message>
     <message>
-        <source>Set minimum block size in bytes (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show all debugging options (usage: --help -help-debug)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show benchmark information (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Signing transaction failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Start Quark Core Daemon</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System error: </source>
-        <translation>Системна грешка:</translation>
+        <source>This is experimental software.</source>
+        <translation>Това е експериментален софтуер.</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -3188,14 +2575,6 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
         <translation>Трансакцията е твърде голяма</translation>
     </message>
     <message>
-        <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use UPnP to map the listening port (default: 1 when listening)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Username for JSON-RPC connections</source>
         <translation>Потребителско име за JSON-RPC връзките</translation>
     </message>
@@ -3205,47 +2584,19 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Zapping all transactions from wallet...</source>
-        <translation type="unfinished"/>
+        <translation>Внимание: Използвате остаряла версия, необходимо е обновление!</translation>
     </message>
     <message>
         <source>on startup</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>version</source>
-        <translation>версия</translation>
-    </message>
-    <message>
-        <source>wallet.dat corrupt, salvage failed</source>
-        <translation type="unfinished"/>
+        <translation>по време на стартирането</translation>
     </message>
     <message>
         <source>Password for JSON-RPC connections</source>
         <translation>Парола за  JSON-RPC връзките</translation>
     </message>
     <message>
-        <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Разреши  JSON-RPC връзките от отучнен IP адрес</translation>
-    </message>
-    <message>
-        <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Изпрати команди до възел функциониращ на &lt;ip&gt; (По подразбиране: 127.0.0.1)</translation>
-    </message>
-    <message>
-        <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Обновяване на портфейла до най-новия формат</translation>
-    </message>
-    <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
@@ -3256,24 +2607,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
         <translation>Използвайте OpenSSL (https) за JSON-RPC връзките</translation>
     </message>
     <message>
-        <source>Server certificate file (default: server.cert)</source>
-        <translation>Сертификатен файл на сървъра (По подразбиране:server.cert)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: server.pem)</source>
-        <translation>Поверителен ключ за сървъра (default: server.pem)</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Това помощно съобщение</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Loading addresses...</source>
@@ -3284,44 +2619,28 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
         <translation>Грешка при зареждане на wallet.dat: портфейлът е повреден</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Quark</source>
-        <translation>Грешка при зареждане на  wallet.dat: портфейлът изисква по-нова версия на Quark</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart Quark to complete</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Error loading wallet.dat</source>
         <translation>Грешка при зареждане на wallet.dat</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation>Невалиден -proxy address: &apos;%s&apos;</translation>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation>Невалиден -proxy address: '%s'</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Назовете конфигурационен файл(по подразбиране %s)</translation>
     </message>
     <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation type="unfinished"/>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Задайте време на изключване при проблеми със свързването в милисекунди(минимум:1, по подразбиране %d)</translation>
     </message>
     <message>
-        <source>Cannot resolve -bind address: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Задайте pid  файл(по подразбиране: %s)</translation>
     </message>
     <message>
-        <source>Cannot resolve -externalip address: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation type="unfinished"/>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Невалидна сума за -paytxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -3332,20 +2651,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
         <translation>Зареждане на блок индекса...</translation>
     </message>
     <message>
-        <source>Add a node to connect to and attempt to keep the connection open</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Loading wallet...</source>
         <translation>Зареждане на портфейла...</translation>
-    </message>
-    <message>
-        <source>Cannot downgrade wallet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cannot write default address</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rescanning...</source>
@@ -3356,18 +2663,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.co
         <translation>Зареждането е завършено</translation>
     </message>
     <message>
-        <source>To use the %s option</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Грешка</translation>
-    </message>
-    <message>
-        <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
-%s
-If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

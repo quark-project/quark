@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
+#include "config/bitcoin-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -11,20 +11,26 @@
 
 #include "bitcoinunits.h"
 #include "guiutil.h"
-#include "monitoreddatamapper.h"
 #include "optionsmodel.h"
 
-#include "main.h" // for CTransaction::nMinTxFee and MAX_SCRIPTCHECK_THREADS
+#include "main.h" // for MAX_SCRIPTCHECK_THREADS
 #include "netbase.h"
 #include "txdb.h" // for -dbcache defaults
 
+#ifdef ENABLE_WALLET
+#include "wallet.h" // for CWallet::minTxFee
+#endif
+
+#include <boost/thread.hpp>
+
+#include <QDataWidgetMapper>
 #include <QDir>
 #include <QIntValidator>
 #include <QLocale>
 #include <QMessageBox>
 #include <QTimer>
 
-OptionsDialog::OptionsDialog(QWidget *parent) :
+OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     QDialog(parent),
     ui(new Ui::OptionsDialog),
     model(0),
@@ -49,15 +55,8 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     ui->proxyPort->setEnabled(false);
     ui->proxyPort->setValidator(new QIntValidator(1, 65535, this));
 
-    /** SOCKS version is only selectable for default proxy and is always 5 for IPv6 and Tor */
-    ui->socksVersion->setEnabled(false);
-    ui->socksVersion->addItem("5", 5);
-    ui->socksVersion->addItem("4", 4);
-    ui->socksVersion->setCurrentIndex(0);
-
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyIp, SLOT(setEnabled(bool)));
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyPort, SLOT(setEnabled(bool)));
-    connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->socksVersion, SLOT(setEnabled(bool)));
 
     ui->proxyIp->installEventFilter(this);
 
@@ -66,6 +65,11 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     /* remove Window tab on Mac */
     ui->tabWidget->removeTab(ui->tabWidget->indexOf(ui->tabWindow));
 #endif
+
+    /* remove Wallet tab in case of -disablewallet */
+    if (!enableWallet) {
+        ui->tabWidget->removeTab(ui->tabWidget->indexOf(ui->tabWallet));
+    }
 
     /* Display elements init */
     QDir translations(":translations");
@@ -101,21 +105,9 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
 #endif
 
     ui->unit->setModel(new BitcoinUnits(this));
-    ui->transactionFee->setSingleStep(CTransaction::nMinTxFee);
 
-    ui->checkboxMiningEnabled->setEnabled(true);
-    
-    ui->comboMiningProcLimit->setEnabled(true);
-    ui->comboMiningProcLimit->addItem("Disabled", 0);
-    ui->comboMiningProcLimit->addItem("1 thread", 1);
-    ui->comboMiningProcLimit->addItem("2 threads", 2);
-    ui->comboMiningProcLimit->addItem("3 threads", 3);
-    ui->comboMiningProcLimit->addItem("4 threads", 4);
-    ui->comboMiningProcLimit->addItem("Maximum", -1);
-    ui->comboMiningProcLimit->setCurrentIndex(0);
-    
     /* Widget-to-option mapper */
-    mapper = new MonitoredDataMapper(this);
+    mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
     mapper->setOrientation(Qt::Vertical);
 
@@ -144,15 +136,10 @@ void OptionsDialog::setModel(OptionsModel *model)
             strLabel = tr("none");
         ui->overriddenByCommandLineLabel->setText(strLabel);
 
-        connect(model, SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
-
         mapper->setModel(model);
         setMapper();
         mapper->toFirst();
     }
-
-    /* update the display unit, to not use the default ("BTC") */
-    updateDisplayUnit();
 
     /* warn when one of the following settings changes by user action (placed here so init via mapper doesn't trigger them) */
 
@@ -162,6 +149,7 @@ void OptionsDialog::setModel(OptionsModel *model)
     /* Wallet */
     connect(ui->spendZeroConfChange, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
     /* Network */
+    connect(ui->allowIncoming, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
     connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning()));
     /* Display */
     connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning()));
@@ -176,17 +164,16 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
 
     /* Wallet */
-    mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
+    mapper->addMapping(ui->allowIncoming, OptionsModel::Listen);
 
     mapper->addMapping(ui->connectSocks, OptionsModel::ProxyUse);
     mapper->addMapping(ui->proxyIp, OptionsModel::ProxyIP);
     mapper->addMapping(ui->proxyPort, OptionsModel::ProxyPort);
-    mapper->addMapping(ui->socksVersion, OptionsModel::ProxySocksVersion);
 
     /* Window */
 #ifndef Q_OS_MAC
@@ -197,12 +184,7 @@ void OptionsDialog::setMapper()
     /* Display */
     mapper->addMapping(ui->lang, OptionsModel::Language);
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
-    mapper->addMapping(ui->displayAddresses, OptionsModel::DisplayAddresses);
     mapper->addMapping(ui->thirdPartyTxUrls, OptionsModel::ThirdPartyTxUrls);
-    
-    /* Mining */
-    mapper->addMapping(ui->checkboxMiningEnabled, OptionsModel::MiningEnabled);
-    mapper->addMapping(ui->comboMiningProcLimit, OptionsModel::MiningIntensity);    
 }
 
 void OptionsDialog::enableOkButton()
@@ -271,15 +253,6 @@ void OptionsDialog::showRestartWarning(bool fPersistent)
 void OptionsDialog::clearStatusLabel()
 {
     ui->statusLabel->clear();
-}
-
-void OptionsDialog::updateDisplayUnit()
-{
-    if(model)
-    {
-        /* Update transactionFee with the current unit */
-        ui->transactionFee->setDisplayUnit(model->getDisplayUnit());
-    }
 }
 
 void OptionsDialog::doProxyIpChecks(QValidatedLineEdit *pUiProxyIp, int nProxyPort)
