@@ -106,6 +106,16 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
 
     ui->unit->setModel(new BitcoinUnits(this));
 
+    /* Mining tab */
+    ui->comboMiningProcLimit->setEnabled(true);
+    ui->comboMiningProcLimit->addItem("Disabled", 0);
+    ui->comboMiningProcLimit->addItem("1 thread", 1);
+    ui->comboMiningProcLimit->addItem("2 threads", 2);
+    ui->comboMiningProcLimit->addItem("3 threads", 3);
+    ui->comboMiningProcLimit->addItem("4 threads", 4);
+    ui->comboMiningProcLimit->addItem("Maximum", -1);
+    ui->comboMiningProcLimit->setCurrentIndex(1);
+
     /* Widget-to-option mapper */
     mapper = new QDataWidgetMapper(this);
     mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
@@ -166,6 +176,9 @@ void OptionsDialog::setMapper()
     /* Wallet */
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
+
+    /* Mining */
+    mapper->addMapping(ui->comboMiningProcLimit, OptionsModel::MiningIntensity);
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);

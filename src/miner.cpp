@@ -411,6 +411,7 @@ void static BitcoinMiner(CWallet *pwallet)
     LogPrintf("QuarkMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("quark-miner");
+    MilliSleep(1000);
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -436,9 +437,13 @@ void static BitcoinMiner(CWallet *pwallet)
             //
             // Create new block
             //
-            unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
-            CBlockIndex* pindexPrev = chainActive.Tip();
-
+            unsigned int nTransactionsUpdatedLast;
+            CBlockIndex* pindexPrev;
+            {
+                LOCK(cs_main);
+                nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
+                pindexPrev = chainActive.Tip();
+            }
             auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey));
             if (!pblocktemplate.get())
             {
@@ -523,14 +528,22 @@ void static BitcoinMiner(CWallet *pwallet)
                 // Check for stop or if block needs to be rebuilt
                 boost::this_thread::interruption_point();
                 // Regtest mode doesn't require peers
-                if (vNodes.empty() && Params().MiningRequiresPeers())
+                bool nodeemp;
+                {
+                    LOCK(cs_vNodes);
+                    nodeemp = vNodes.empty();
+                }
+                if (nodeemp && Params().MiningRequiresPeers())
                     break;
                 if (pblock->nNonce >= 0xffff0000)
                     break;
-                if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
-                    break;
-                if (pindexPrev != chainActive.Tip())
-                    break;
+                {
+                    LOCK(cs_main);
+                    if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
+                        break;
+                    if (pindexPrev != chainActive.Tip())
+                        break;
+                }
 
                 // Update nTime every few seconds
                 UpdateTime(pblock, pindexPrev);

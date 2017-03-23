@@ -42,6 +42,7 @@ public:
         DatabaseCache,          // int
         SpendZeroConfChange,    // bool
         Listen,                 // bool
+        MiningIntensity,        // int
         OptionIDRowCount,
     };
 
@@ -75,6 +76,8 @@ private:
     int nDisplayUnit;
     QString strThirdPartyTxUrls;
     bool fCoinControlFeatures;
+    bool bMiningEnabled;
+    int nMiningIntensity;
     /* settings that were overriden by command-line */
     QString strOverriddenByCommandLine;
 

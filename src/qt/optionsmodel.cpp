@@ -96,6 +96,10 @@ void OptionsModel::Init()
         addOverriddenOption("-spendzeroconfchange");
 #endif
 
+    // Mining
+    if (!settings.contains("nMiningIntensity"))
+        settings.setValue("bMiningIntensity", 1);
+
     // Network
     if (!settings.contains("fUseUPnP"))
         settings.setValue("fUseUPnP", DEFAULT_UPNP);
@@ -124,6 +128,20 @@ void OptionsModel::Init()
         addOverriddenOption("-lang");
 
     language = settings.value("language").toString();
+
+    // Mining options
+    if (settings.contains("nMiningIntensity"))
+    {
+        int nMiningIntensity = settings.value("nMiningIntensity").toInt();
+        if (nMiningIntensity != 0)
+        {
+            SoftSetArg("-gen", "1");
+            SoftSetArg("-genproclimit", settings.value("nMiningIntensity").toString().toStdString());
+            addOverriddenOption("-gen");
+            addOverriddenOption("-genproclimit");
+        }
+    }
+
 }
 
 void OptionsModel::Reset()
@@ -196,6 +214,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("nThreadsScriptVerif");
         case Listen:
             return settings.value("fListen");
+        case MiningIntensity:
+            return settings.value("nMiningIntensity");
         default:
             return QVariant();
         }
@@ -306,6 +326,11 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
                 setRestartRequired(true);
             }
             break;
+        case MiningIntensity:
+            if (settings.value("nMiningIntensity") != value.toInt()) {
+                settings.setValue("nMiningIntensity", value.toInt());
+                setRestartRequired(true);
+            }
         default:
             break;
         }
