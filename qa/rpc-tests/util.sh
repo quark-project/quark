@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copyright (c) 2014 The Bitcoin Core developers
-# Distributed under the MIT/X11 software license, see the accompanying
+# Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 # Functions used by more than one test
@@ -38,6 +38,10 @@ function AssertEqual {
   if (( $( echo "$1 == $2" | bc ) == 0 ))
   then
     echoerr "AssertEqual: $1 != $2"
+    declare -f CleanUp > /dev/null 2>&1
+    if [[ $? -eq 0 ]] ; then
+        CleanUp
+    fi
     exit 1
   fi
 }
@@ -49,6 +53,10 @@ function CheckBalance {
   if (( $( echo "$B == $EXPECT" | bc ) == 0 ))
   then
     echoerr "bad balance: $B (expected $2)"
+    declare -f CleanUp > /dev/null 2>&1
+    if [[ $? -eq 0 ]] ; then
+        CleanUp
+    fi
     exit 1
   fi
 }

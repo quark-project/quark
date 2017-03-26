@@ -2,7 +2,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "main.h"
+#include "compressor.h"
 #include "util.h"
 
 #include <stdint.h>
@@ -38,7 +38,6 @@ bool static TestPair(uint64_t dec, uint64_t enc) {
 
 BOOST_AUTO_TEST_CASE(compress_amounts)
 {
-    /*
     BOOST_CHECK(TestPair(            0,       0x0));
     BOOST_CHECK(TestPair(            1,       0x1));
     BOOST_CHECK(TestPair(         CENT,       0x7));
@@ -60,7 +59,6 @@ BOOST_AUTO_TEST_CASE(compress_amounts)
 
     for (uint64_t i = 0; i < 100000; i++)
         BOOST_CHECK(TestDecode(i));
-    */
 }
 
 BOOST_AUTO_TEST_SUITE_END()

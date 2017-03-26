@@ -1,0 +1,22 @@
+[Unit]
+Description=Bitcoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=quark
+Group=quark
+
+Type=forking
+PIDFile=/var/lib/quarkd/quarkd.pid
+ExecStart=/usr/bin/quarkd -daemon -pid=/var/lib/quarkd/quarkd.pid \
+-conf=/etc/quark/quarkcoin.conf -datadir=/var/lib/quarkd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

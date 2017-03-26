@@ -20,12 +20,12 @@
 		<key>Applications</key>
 		<array>
 			<integer>370</integer>
-			<integer>156</integer>
+			<integer>132</integer>
 		</array>
-		<key>Bitcoin-Qt.app</key>
+		<key>Quark-Qt.app</key>
 		<array>
 			<integer>128</integer>
-			<integer>156</integer>
+			<integer>132</integer>
 		</array>
 	</dict>
 </dict>

@@ -1,50 +1,13 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
-<context>
-    <name>AboutDialog</name>
-    <message>
-        <source>About Quark Core</source>
-        <translation>Over Quark Core</translation>
-    </message>
-    <message>
-        <source>&lt;b&gt;Quark Core&lt;/b&gt; version</source>
-        <translation>&lt;b&gt; Quark Core&lt;/b&gt; versie</translation>
-    </message>
-    <message>
-        <source>
-This is experimental software.
-
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Dit is experimentele software.
-
-Gedistribueerd onder de MIT/X11 software licentie, zie het bijgevoegde bestand COPYING of http://www.opensource.org/licenses/mit-license.php.
-
-Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in de OpenSSL Toolkit (http://www.openssl.org/) en cryptografische software gemaakt door Eric Young (eay@cryptsoft.com) en UPnP software geschreven door Thomas Bernard.</translation>
-    </message>
-    <message>
-        <source>Copyright</source>
-        <translation>Auteursrecht</translation>
-    </message>
-    <message>
-        <source>The Quark Core developers</source>
-        <translation>De Quark Core ontwikkelaars</translation>
-    </message>
-    <message>
-        <source>(%1-bit)</source>
-        <translation>(%1-bit)</translation>
-    </message>
-</context>
+<TS language="nl" version="2.1">
 <context>
     <name>AddressBookPage</name>
     <message>
-        <source>Double-click to edit address or label</source>
-        <translation>Dubbelklik om adres of label te wijzigen</translation>
+        <source>Right-click to edit address or label</source>
+        <translation>Klik met de rechtermuisknop om het adres of label te wijzigen</translation>
     </message>
     <message>
         <source>Create a new address</source>
-        <translation>Maak een nieuw adres aan</translation>
+        <translation>Maak een nieuw adres</translation>
     </message>
     <message>
         <source>&amp;New</source>
@@ -52,7 +15,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
-        <translation>Kopieer het huidig geselecteerde adres naar het klembord</translation>
+        <translation>Kopieer het geselecteerde adres naar het klembord</translation>
     </message>
     <message>
         <source>&amp;Copy</source>
@@ -88,7 +51,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Kies het adres om munten voor te ontvangen</translation>
+        <translation>Kies het adres om munten op te ontvangen</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -96,15 +59,15 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <source>Sending addresses</source>
-        <translation>Bezig met versturen adressen</translation>
+        <translation>Verstuur adressen</translation>
     </message>
     <message>
         <source>Receiving addresses</source>
-        <translation>Adressen ontvangen</translation>
+        <translation>Ontvang adressen</translation>
     </message>
     <message>
         <source>These are your Quark addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dit zijn uw Quarkadressen om betalingen mee te verzenden. Check altijd het bedrag en het ontvangende adres voordat u uw quarks verzendt.</translation>
+        <translation>Dit zijn uw Quarkadressen om betalingen mee te verzenden. Controleer altijd het bedrag en het ontvang adres voordat u uw quarkcoins verzendt.</translation>
     </message>
     <message>
         <source>These are your Quark addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
@@ -131,8 +94,8 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Export Mislukt</translation>
     </message>
     <message>
-        <source>There was an error trying to save the address list to %1.</source>
-        <translation>Een fout is opgetreden tijdens het opslaan van deze adreslijst naar %1.</translation>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Een fout is opgetreden tijdens het opslaan van deze adreslijst naar %1. Probeer het nogmaals.</translation>
     </message>
 </context>
 <context>
@@ -154,7 +117,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation>Wachtwoorddialoogscherm</translation>
+        <translation>Wachtwoorddialoog</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
@@ -167,10 +130,6 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <source>Repeat new passphrase</source>
         <translation>Herhaal nieuw wachtwoord</translation>
-    </message>
-    <message>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Vul een nieuw wachtwoord in voor uw portemonnee. &lt;br/&gt; Gebruik een wachtwoord van &lt;b&gt;10 of meer lukrake karakters&lt;/b&gt;, of &lt;b&gt;acht of meer woorden&lt;/b&gt; . </translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -225,8 +184,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Portemonnee versleuteld</translation>
     </message>
     <message>
-        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarks from being stolen by malware infecting your computer.</source>
-        <translation>Quark zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw quarks stelen.</translation>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation>Voer een nieuw wachtwoord in voor uw portomonee.&lt;br/&gt;Gebruik een wachtwoord van &lt;b&gt;tien of meer willekeurige karakters&lt;/b&gt;, of &lt;b&gt;acht of meer woorden&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Quark will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your quarkcoins from being stolen by malware infecting your computer.</source>
+        <translation>Quark zal nu afsluiten om het versleutelingsproces te voltooien. Onthoudt dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw quarkcoins stelen.</translation>
     </message>
     <message>
         <source>Wallet encryption failed</source>
@@ -277,7 +240,7 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <source>Show general overview of wallet</source>
-        <translation>Toon algemeen overzicht van de portemonnee</translation>
+        <translation>Toon algemeen overzicht van uw portemonnee</translation>
     </message>
     <message>
         <source>&amp;Transactions</source>
@@ -294,10 +257,6 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     <message>
         <source>Quit application</source>
         <translation>Programma afsluiten</translation>
-    </message>
-    <message>
-        <source>Show information about Quark</source>
-        <translation>Laat informatie zien over Quark</translation>
     </message>
     <message>
         <source>About &amp;Qt</source>
@@ -325,15 +284,19 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <source>&amp;Sending addresses...</source>
-        <translation>&amp;Adressen aan het versturen.</translation>
+        <translation>V&amp;erstuur adressen...</translation>
     </message>
     <message>
         <source>&amp;Receiving addresses...</source>
-        <translation>&amp;Adressen aan het ontvangen...</translation>
+        <translation>O&amp;ntvang adressen...</translation>
     </message>
     <message>
         <source>Open &amp;URI...</source>
         <translation>Open &amp;URI...</translation>
+    </message>
+    <message>
+        <source>Quark Core client</source>
+        <translation>Quark Kern applicatie</translation>
     </message>
     <message>
         <source>Importing blocks from disk...</source>
@@ -388,6 +351,10 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>&amp;Ontvangen</translation>
     </message>
     <message>
+        <source>Show information about Quark Core</source>
+        <translation>Toon informatie over quark kern</translation>
+    </message>
+    <message>
         <source>&amp;Show / Hide</source>
         <translation>&amp;Toon / Verberg</translation>
     </message>
@@ -424,10 +391,6 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <translation>Tab-werkbalk</translation>
     </message>
     <message>
-        <source>[testnet]</source>
-        <translation>[testnetwerk]</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
         <translation>Quark Kern</translation>
     </message>
@@ -459,25 +422,13 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <source>Show the Quark Core help message to get a list with possible Quark command-line options</source>
         <translation>Toon het Quark Core hulpbericht om een lijst te krijgen met mogelijke Quark commandoregelopties</translation>
     </message>
-    <message>
-        <source>Quark client</source>
-        <translation>Quark client</translation>
-    </message>
     <message numerus="yes">
         <source>%n active connection(s) to Quark network</source>
-        <translation><numerusform>%n actieve connectie naar Quarknetwerk</numerusform><numerusform>%n actieve connecties naar Quarknetwerk</numerusform></translation>
+        <translation><numerusform>%n actieve connectie naar Quark netwerk</numerusform><numerusform>%n actieve connecties naar Quark netwerk</numerusform></translation>
     </message>
     <message>
         <source>No block source available...</source>
-        <translation>Geen bron van blokken beschikbaar...</translation>
-    </message>
-    <message>
-        <source>Processed %1 of %2 (estimated) blocks of transaction history.</source>
-        <translation>%1 van %2 (geschat) blokken van de transactiehistorie verwerkt.</translation>
-    </message>
-    <message>
-        <source>Processed %1 blocks of transaction history.</source>
-        <translation>%1 blokken van transactiehistorie verwerkt.</translation>
+        <translation>Geen bron voor blokken beschikbaar...</translation>
     </message>
     <message numerus="yes">
         <source>%n hour(s)</source>
@@ -527,6 +478,10 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
         <source>Up to date</source>
         <translation>Bijgewerkt</translation>
     </message>
+    <message numerus="yes">
+        <source>Processed %n blocks of transaction history.</source>
+        <translation><numerusform>%n Blok transactie geschiedenis verwerkt.</numerusform><numerusform>%n Blokken transactie geschiedenis verwerkt.</numerusform></translation>
+    </message>
     <message>
         <source>Catching up...</source>
         <translation>Aan het bijwerken...</translation>
@@ -559,10 +514,6 @@ Adres: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Portemonnee is &lt;b&gt;versleuteld&lt;/b&gt; en momenteel &lt;b&gt;gesloten&lt;/b&gt;</translation>
     </message>
-    <message>
-        <source>A fatal error occurred. Quark can no longer continue safely and will quit.</source>
-        <translation>Er is een fatale fout opgetreden. Quark kan niet meer veilig doorgaan en zal nu afgesloten worden.</translation>
-    </message>
 </context>
 <context>
     <name>ClientModel</name>
@@ -574,8 +525,8 @@ Adres: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <source>Coin Control Address Selection</source>
-        <translation>Coin controle adres selectie</translation>
+        <source>Coin Selection</source>
+        <translation>Munt Selectie</translation>
     </message>
     <message>
         <source>Quantity:</source>
@@ -598,8 +549,8 @@ Adres: %4
         <translation>Vergoeding:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>Lage uitvoer:</translation>
+        <source>Dust:</source>
+        <translation>Stof:</translation>
     </message>
     <message>
         <source>After Fee:</source>
@@ -626,8 +577,12 @@ Adres: %4
         <translation>Bedrag</translation>
     </message>
     <message>
-        <source>Address</source>
-        <translation>Adres</translation>
+        <source>Received with label</source>
+        <translation>Ontvangen met label</translation>
+    </message>
+    <message>
+        <source>Received with address</source>
+        <translation>Ontvangen met adres</translation>
     </message>
     <message>
         <source>Date</source>
@@ -663,7 +618,7 @@ Adres: %4
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation>Blokeer niet gebruikte</translation>
+        <translation>Blokeer ongebruikte</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
@@ -690,8 +645,8 @@ Adres: %4
         <translation>Kopieer prioriteit</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>Kopieer lage uitvoer</translation>
+        <source>Copy dust</source>
+        <translation>Kopieër stof</translation>
     </message>
     <message>
         <source>Copy change</source>
@@ -742,8 +697,8 @@ Adres: %4
         <translation>geen</translation>
     </message>
     <message>
-        <source>Dust</source>
-        <translation>Stof</translation>
+        <source>Can vary +/- %1 satoshi(s) per input.</source>
+        <translation>Kan per input +/- %1 satoshi(s)  variëren.</translation>
     </message>
     <message>
         <source>yes</source>
@@ -770,24 +725,12 @@ Adres: %4
         <translation>Transacties met een hogere prioriteit zullen eerder in een block gezet worden.</translation>
     </message>
     <message>
-        <source>This label turns red, if the priority is smaller than &quot;medium&quot;.</source>
-        <translation>Als dit label rood is, is de prioriteit minder dan &quot;medium&quot;.</translation>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Als dit label rood is, is de prioriteit minder dan "medium".</translation>
     </message>
     <message>
         <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
         <translation>Dit label wordt rood, als een ontvanger een bedrag van minder dan %1 gekregen heeft.</translation>
-    </message>
-    <message>
-        <source>This means a fee of at least %1 is required.</source>
-        <translation>Dit betekend dat een minimale vergoeding van %1 nodig is.</translation>
-    </message>
-    <message>
-        <source>Amounts below 0.546 times the minimum relay fee are shown as dust.</source>
-        <translation>Bedragen beneden 0.546 keer het minimum relais vergoeding, worden als stof aangemerkt.</translation>
-    </message>
-    <message>
-        <source>This label turns red, if the change is smaller than %1.</source>
-        <translation>Dit label wordt rood, als de wijziging is kleiner dan %1.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -841,12 +784,12 @@ Adres: %4
         <translation>Bewerk adres om naar te verzenden</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is already in the address book.</source>
-        <translation>Het opgegeven adres &quot;%1&quot; bestaat al in uw adresboek.</translation>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>Het opgegeven adres "%1" bestaat al in uw adresboek.</translation>
     </message>
     <message>
-        <source>The entered address &quot;%1&quot; is not a valid Quark address.</source>
-        <translation>Het opgegeven adres &quot;%1&quot; is een ongeldig Quarkadres</translation>
+        <source>The entered address "%1" is not a valid Quark address.</source>
+        <translation>Het opgegeven adres "%1" is een ongeldig Quarkadres</translation>
     </message>
     <message>
         <source>Could not unlock wallet.</source>
@@ -883,16 +826,24 @@ Adres: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Quark Core - Command-line options</source>
-        <translation>Quark Core - Commandoregel-opties</translation>
-    </message>
-    <message>
         <source>Quark Core</source>
         <translation>Quark Kern</translation>
     </message>
     <message>
         <source>version</source>
         <translation>versie</translation>
+    </message>
+    <message>
+        <source>(%1-bit)</source>
+        <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About Quark Core</source>
+        <translation>Over Quark Core</translation>
+    </message>
+    <message>
+        <source>Command-line options</source>
+        <translation>Commandoregel-opties</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -907,8 +858,8 @@ Adres: %4
         <translation>gebruikersinterfaceopties</translation>
     </message>
     <message>
-        <source>Set language, for example &quot;de_DE&quot; (default: system locale)</source>
-        <translation>Stel taal in, bijvoorbeeld &apos;&apos;de_DE&quot; (standaard: systeeminstellingen)</translation>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Stel taal in, bijvoorbeeld ''de_DE" (standaard: systeeminstellingen)</translation>
     </message>
     <message>
         <source>Start minimized</source>
@@ -954,24 +905,24 @@ Adres: %4
         <translation>Gebruik een persoonlijke gegevensmap:</translation>
     </message>
     <message>
-        <source>Quark</source>
-        <translation>Quark</translation>
+        <source>Quark Core</source>
+        <translation>Quark Kern</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
-        <translation>Fout: Opgegeven gegevensmap &quot;%1&quot; kan niet aangemaakt worden.</translation>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Fout: De gespecificeerde directory "%1" kan niet worden gecreëerd.</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
-    <message>
-        <source>GB of free space available</source>
-        <translation>GB aan vrije opslagruimte beschikbaar</translation>
+    <message numerus="yes">
+        <source>%n GB of free space available</source>
+        <translation><numerusform>%n GB aan vrije oplsagruimte beschikbaar</numerusform><numerusform>%n GB aan vrije oplsagruimte beschikbaar</numerusform></translation>
     </message>
-    <message>
-        <source>(of %1GB needed)</source>
-        <translation>(van %1GB benodigd)</translation>
+    <message numerus="yes">
+        <source>(of %n GB needed)</source>
+        <translation><numerusform>(van %n GB nodig)</numerusform><numerusform>(van %n GB nodig)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1008,14 +959,6 @@ Adres: %4
         <translation>&amp;Algemeen</translation>
     </message>
     <message>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB.</source>
-        <translation>Optionele transactiekosten per kB. Transactiekosten helpen ervoor te zorgen dat uw transacties snel verwerkt worden. De meeste transacties zijn 1kB.</translation>
-    </message>
-    <message>
-        <source>Pay transaction &amp;fee</source>
-        <translation>Betaal &amp;transactiekosten</translation>
-    </message>
-    <message>
         <source>Automatically start Quark after logging in to the system.</source>
         <translation>Start Quark automatisch na inloggen in het systeem</translation>
     </message>
@@ -1036,12 +979,12 @@ Adres: %4
         <translation>Aantal threads voor &amp;scriptverificatie</translation>
     </message>
     <message>
-        <source>Connect to the Quark network through a SOCKS proxy.</source>
-        <translation>Verbind met het Quark-netwerk via een SOCKS-proxy.</translation>
+        <source>Accept connections from outside</source>
+        <translation>Accepteer binnenkomende verbindingen</translation>
     </message>
     <message>
-        <source>&amp;Connect through SOCKS proxy (default proxy):</source>
-        <translation>&amp;Verbind via een SOCKS-proxy (standaardproxy):</translation>
+        <source>Allow incoming connections</source>
+        <translation>Sta inkomende verbindingen toe</translation>
     </message>
     <message>
         <source>IP address of the proxy (e.g. IPv4: 127.0.0.1 / IPv6: ::1)</source>
@@ -1049,7 +992,7 @@ Adres: %4
     </message>
     <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Derde partijen URL&apos;s (bijvoorbeeld block explorer) dat in de transacties tab verschijnen als contextmenu elementen. %s in de URL is vervangen door transactie hash. Verscheidene URL&apos;s zijn gescheiden door een verticale streep |.  </translation>
+        <translation>Derde partijen URL's (bijvoorbeeld block explorer) dat in de transacties tab verschijnen als contextmenu elementen. %s in de URL is vervangen door transactie hash. Verscheidene URL's zijn gescheiden door een verticale streep |.  </translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
@@ -1104,6 +1047,14 @@ Adres: %4
         <translation>Portmapping via &amp;UPnP</translation>
     </message>
     <message>
+        <source>Connect to the Quark network through a SOCKS5 proxy.</source>
+        <translation>Verbind met het Quark netwerk via een SOCKS5 proxy.</translation>
+    </message>
+    <message>
+        <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>&amp;Verbind via een SOCKS5-proxy (standaardproxy):</translation>
+    </message>
+    <message>
         <source>Proxy &amp;IP:</source>
         <translation>Proxy &amp;IP:</translation>
     </message>
@@ -1114,14 +1065,6 @@ Adres: %4
     <message>
         <source>Port of the proxy (e.g. 9050)</source>
         <translation>Poort van de proxy (bijv. 9050)</translation>
-    </message>
-    <message>
-        <source>SOCKS &amp;Version:</source>
-        <translation>SOCKS-&amp;Versie:</translation>
-    </message>
-    <message>
-        <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>SOCKS-versie van de proxy (bijv. 5)</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1162,14 +1105,6 @@ Adres: %4
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Kies de standaard onderverdelingseenheid om weer te geven in uw programma, en voor het versturen van munten</translation>
-    </message>
-    <message>
-        <source>Whether to show Quark addresses in the transaction list or not.</source>
-        <translation>Of Quarkadressen getoond worden in de transactielijst</translation>
-    </message>
-    <message>
-        <source>&amp;Display addresses in transaction list</source>
-        <translation>Toon a&amp;dressen in de transactielijst</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1223,8 +1158,8 @@ Adres: %4
         <translation>De weergegeven informatie kan verouderd zijn. Uw portemonnee synchroniseert automaticsh met het Quarknetwerk nadat een verbinding is gelegd, maar dit proces is nog niet voltooid.</translation>
     </message>
     <message>
-        <source>Wallet</source>
-        <translation>Portemonnee</translation>
+        <source>Watch-only:</source>
+        <translation>Alleen-bekijkbaar:</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1251,6 +1186,10 @@ Adres: %4
         <translation>Gedolven saldo dat nog niet tot wasdom is gekomen</translation>
     </message>
     <message>
+        <source>Balances</source>
+        <translation>Saldi</translation>
+    </message>
+    <message>
         <source>Total:</source>
         <translation>Totaal:</translation>
     </message>
@@ -1259,8 +1198,28 @@ Adres: %4
         <translation>Uw totale saldo</translation>
     </message>
     <message>
-        <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
-        <translation>&lt;b&gt;Recente transacties&lt;/b&gt;</translation>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Uw huidige balans in alleen-bekijkbare adressen</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Besteedbaar:</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Recente transacties</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions to watch-only addresses</source>
+        <translation>Onbevestigde transacties naar alleen-bekijkbare adressen</translation>
+    </message>
+    <message>
+        <source>Mined balance in watch-only addresses that has not yet matured</source>
+        <translation>Ontgonnen saldo dat nog niet tot wasdom is gekomen</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Huidige balans in alleen-bekijkbare adressen.</translation>
     </message>
     <message>
         <source>out of sync</source>
@@ -1274,8 +1233,24 @@ Adres: %4
         <translation>URI-behandeling</translation>
     </message>
     <message>
-        <source>URI can not be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
-        <translation>URI kan niet worden geïnterpreteerd. Dit kan komen door een ongeldig Quarkadres of misvormde URI-parameters.</translation>
+        <source>Invalid payment address %1</source>
+        <translation>Ongeldig betalingsadres %1</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Betalingsverzoek geweigerd</translation>
+    </message>
+    <message>
+        <source>Payment request network doesn't match client network.</source>
+        <translation>Betalingsaanvraagnetwerk komt niet overeen met klantennetwerk.</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>Betalingsverzoek is verlopen.</translation>
+    </message>
+    <message>
+        <source>Payment request is not initialized.</source>
+        <translation>Betalingsaanvraag is niet geïnitialiseerd.</translation>
     </message>
     <message>
         <source>Requested payment amount of %1 is too small (considered dust).</source>
@@ -1287,26 +1262,22 @@ Adres: %4
     </message>
     <message>
         <source>Cannot start quark: click-to-pay handler</source>
-        <translation>Kan bitcoin niet starten: click-to-pay handler</translation>
-    </message>
-    <message>
-        <source>Net manager warning</source>
-        <translation>Netmanager waarschuwing</translation>
-    </message>
-    <message>
-        <source>Your active proxy doesn&apos;t support SOCKS5, which is required for payment requests via proxy.</source>
-        <translation>Uw actieve proxy ondersteunt geen SOCKS5, dewelke vereist is voor betalingsverzoeken via proxy.</translation>
+        <translation>Kan quark niet starten: click-to-pay handler</translation>
     </message>
     <message>
         <source>Payment request fetch URL is invalid: %1</source>
         <translation>URL om betalingsverzoek te verkrijgen is ongeldig: %1</translation>
     </message>
     <message>
+        <source>URI cannot be parsed! This can be caused by an invalid Quark address or malformed URI parameters.</source>
+        <translation>URI kan niet verwerkt worden! Dit kan het gevolg zijn van een ongeldig Quark adres of misvormde URI parameters.</translation>
+    </message>
+    <message>
         <source>Payment request file handling</source>
         <translation>Betalingsverzoek bestandsafhandeling</translation>
     </message>
     <message>
-        <source>Payment request file can not be read or processed! This can be caused by an invalid payment request file.</source>
+        <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
         <translation>Betalingsverzoek-bestand kan niet gelezen of verwerkt worden! Dit kan veroorzaakt worden door een ongeldig betalingsverzoek-bestand.</translation>
     </message>
     <message>
@@ -1318,11 +1289,19 @@ Adres: %4
         <translation>Restitutie van %1</translation>
     </message>
     <message>
+        <source>Payment request %1 is too large (%2 bytes, allowed %3 bytes).</source>
+        <translation>Betalingsverzoek %1 is te groot (%2 bytes, toegestaan ​​%3 bytes).</translation>
+    </message>
+    <message>
+        <source>Payment request DoS protection</source>
+        <translation>Betalingsaanvraag DoS bescherming</translation>
+    </message>
+    <message>
         <source>Error communicating with %1: %2</source>
         <translation>Fout bij communiceren met %1: %2</translation>
     </message>
     <message>
-        <source>Payment request can not be parsed or processed!</source>
+        <source>Payment request cannot be parsed!</source>
         <translation>Betalingsverzoek kan niet juist worden ontleed of verwerkt!</translation>
     </message>
     <message>
@@ -1339,30 +1318,65 @@ Adres: %4
     </message>
 </context>
 <context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>User Agent</source>
+        <translation>User Agent</translation>
+    </message>
+    <message>
+        <source>Address/Hostname</source>
+        <translation>Adres/Hostnaam</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping tijd</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <source>Quark</source>
-        <translation>Quark</translation>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
     </message>
     <message>
-        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
-        <translation>Fout: Opgegeven gegevensmap &quot;%1&quot; bestaat niet.</translation>
+        <source>Enter a Quark address (e.g. %1)</source>
+        <translation>Voer een Quark-adres in (bijv. %1)</translation>
     </message>
     <message>
-        <source>Error: Cannot parse configuration file: %1. Only use key=value syntax.</source>
-        <translation>Fout: Kan configuratiebestand niet parsen: %1. Gebruik enkel de key=value syntax.</translation>
+        <source>%1 d</source>
+        <translation>%1d</translation>
     </message>
     <message>
-        <source>Error: Invalid combination of -regtest and -testnet.</source>
-        <translation>Fout: Ongeldige combinatie van -regtest en -testnet</translation>
+        <source>%1 h</source>
+        <translation>%1 uur</translation>
     </message>
     <message>
-        <source>Quark Core didn&apos;t yet exit safely...</source>
-        <translation>Quark Core is nog niet veilig uitgeschakeld...</translation>
+        <source>%1 m</source>
+        <translation>%1 m</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Vul een Quarkadres in (bijv. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
+        <source>%1 s</source>
+        <translation>%1s</translation>
+    </message>
+    <message>
+        <source>NETWORK</source>
+        <translation>Netwerk</translation>
+    </message>
+    <message>
+        <source>UNKNOWN</source>
+        <translation>ONBEKEND</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>Geen</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N.v.t.</translation>
+    </message>
+    <message>
+        <source>%1 ms</source>
+        <translation>%1 ms</translation>
     </message>
 </context>
 <context>
@@ -1415,6 +1429,10 @@ Adres: %4
         <translation>Gebruikt OpenSSL versie</translation>
     </message>
     <message>
+        <source>Using BerkeleyDB version</source>
+        <translation>Gebruikt BerkeleyDB versie</translation>
+    </message>
+    <message>
         <source>Startup time</source>
         <translation>Opstarttijd</translation>
     </message>
@@ -1439,8 +1457,72 @@ Adres: %4
         <translation>Huidig aantal blokken</translation>
     </message>
     <message>
-        <source>Estimated total blocks</source>
-        <translation>Geschat totaal aantal blokken</translation>
+        <source>Received</source>
+        <translation>Ontvangen</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Verstuurd</translation>
+    </message>
+    <message>
+        <source>&amp;Peers</source>
+        <translation>&amp;Peers</translation>
+    </message>
+    <message>
+        <source>Select a peer to view detailed information.</source>
+        <translation>Selecteer een peer om gedetailleerde informatie te bekijken.</translation>
+    </message>
+    <message>
+        <source>Direction</source>
+        <translation>Directie</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versie</translation>
+    </message>
+    <message>
+        <source>User Agent</source>
+        <translation>User Agent</translation>
+    </message>
+    <message>
+        <source>Services</source>
+        <translation>Services</translation>
+    </message>
+    <message>
+        <source>Starting Height</source>
+        <translation>Aanvangshoogte</translation>
+    </message>
+    <message>
+        <source>Sync Height</source>
+        <translation>Synchronisatiehoogte</translation>
+    </message>
+    <message>
+        <source>Ban Score</source>
+        <translation>Ban score</translation>
+    </message>
+    <message>
+        <source>Connection Time</source>
+        <translation>Connectie tijd</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Laatst verstuurd</translation>
+    </message>
+    <message>
+        <source>Last Receive</source>
+        <translation>Laatst ontvangen</translation>
+    </message>
+    <message>
+        <source>Bytes Sent</source>
+        <translation>Bytes Verzonden</translation>
+    </message>
+    <message>
+        <source>Bytes Received</source>
+        <translation>Bytes Ontvangen</translation>
+    </message>
+    <message>
+        <source>Ping Time</source>
+        <translation>Ping Tijd</translation>
     </message>
     <message>
         <source>Last block time</source>
@@ -1500,7 +1582,7 @@ Adres: %4
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
-        <translation>Typ &lt;b&gt;help&lt;/b&gt; voor een overzicht van de beschikbare commando&apos;s.</translation>
+        <translation>Typ &lt;b&gt;help&lt;/b&gt; voor een overzicht van de beschikbare commando's.</translation>
     </message>
     <message>
         <source>%1 B</source>
@@ -1519,16 +1601,28 @@ Adres: %4
         <translation>%1 Gb</translation>
     </message>
     <message>
-        <source>%1 m</source>
-        <translation>%1 m</translation>
+        <source>via %1</source>
+        <translation>via %1</translation>
     </message>
     <message>
-        <source>%1 h</source>
-        <translation>%1 uur</translation>
+        <source>never</source>
+        <translation>nooit</translation>
     </message>
     <message>
-        <source>%1 h %2 m</source>
-        <translation>%1 h %2 m</translation>
+        <source>Inbound</source>
+        <translation>Inkomend</translation>
+    </message>
+    <message>
+        <source>Outbound</source>
+        <translation>Uitgaand</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Onbekend</translation>
+    </message>
+    <message>
+        <source>Fetching...</source>
+        <translation>Ophalen...</translation>
     </message>
 </context>
 <context>
@@ -1743,10 +1837,6 @@ Adres: %4
         <translation>Vergoeding:</translation>
     </message>
     <message>
-        <source>Low Output:</source>
-        <translation>Lage uitvoer:</translation>
-    </message>
-    <message>
         <source>After Fee:</source>
         <translation>Na vergoeding:</translation>
     </message>
@@ -1763,6 +1853,78 @@ Adres: %4
         <translation>Aangepast wisselgeldadres</translation>
     </message>
     <message>
+        <source>Transaction Fee:</source>
+        <translation>Transactiekosten:</translation>
+    </message>
+    <message>
+        <source>Choose...</source>
+        <translation>Kies...</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>Transactiekosteninstellingen verbergen</translation>
+    </message>
+    <message>
+        <source>Minimize</source>
+        <translation>Minimaliseer</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Als de aangepaste toeslag is ingesteld op 1000 satoshis en de transactie is maar 250 bytes, dan wordt bij "per kilobyte" 250 satoshis aan toeslag berekend, terwijl er bij "tenminste" 1000 satoshis worden berekend. Voor transacties die groter zijn dan een kilobyte, wordt in beide gevallen per kilobyte de toeslag berekend.</translation>
+    </message>
+    <message>
+        <source>per kilobyte</source>
+        <translation>per kilobyte</translation>
+    </message>
+    <message>
+        <source>If the custom fee is set to 1000 satoshis and the transaction is only 250 bytes, then "per kilobyte" only pays 250 satoshis in fee, while "total at least" pays 1000 satoshis. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Als de aangepaste toeslag is ingesteld op 1000 satoshis en de transactie is maar 250 bytes, dan wordt bij "per kilobyte" 250 satoshis aan toeslag berekend, terwijl er bij "totaal tenminste" 1000 satoshis worden berekend. Voor transacties die groter zijn dan een kilobyte, wordt in beide gevallen per kilobyte de toeslag berekend.</translation>
+    </message>
+    <message>
+        <source>total at least</source>
+        <translation>totaal ten minste</translation>
+    </message>
+    <message>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks. But be aware that this can end up in a never confirming transaction once there is more demand for quark transactions than the network can process.</source>
+        <translation>De minimale toeslag betalen is prima mits het transactievolume kleiner is dan de ruimte in de blokken. Let wel op dat dit tot gevolg kan hebben dat een transactie nooit wordt bevestigd als er meer vraag is naar quarktransacties dan het netwerk kan verwerken.</translation>
+    </message>
+    <message>
+        <source>(read the tooltip)</source>
+        <translation>(lees de tooltip)</translation>
+    </message>
+    <message>
+        <source>Recommended:</source>
+        <translation>Aanbevolen:</translation>
+    </message>
+    <message>
+        <source>Custom:</source>
+        <translation>Handmatig:</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Slimme vergoeding is nog niet geïnitialiseerd. Dit duurt meestal een paar blokken...)</translation>
+    </message>
+    <message>
+        <source>Confirmation time:</source>
+        <translation>Bevestigings tijd:</translation>
+    </message>
+    <message>
+        <source>normal</source>
+        <translation>normaal</translation>
+    </message>
+    <message>
+        <source>fast</source>
+        <translation>snel</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>Verstuur als transactie zonder verzendkosten indien mogelijk</translation>
+    </message>
+    <message>
+        <source>(confirmation may take longer)</source>
+        <translation>(bevestiging kan langer duren)</translation>
+    </message>
+    <message>
         <source>Send to multiple recipients at once</source>
         <translation>Verstuur aan verschillende ontvangers ineens</translation>
     </message>
@@ -1773,6 +1935,10 @@ Adres: %4
     <message>
         <source>Clear all fields of the form.</source>
         <translation>Wis alle velden van het formulier.</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Stof:</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1823,16 +1989,8 @@ Adres: %4
         <translation>Kopieer prioriteit</translation>
     </message>
     <message>
-        <source>Copy low output</source>
-        <translation>Kopieer lage uitvoer</translation>
-    </message>
-    <message>
         <source>Copy change</source>
         <translation>Kopieer wijziging</translation>
-    </message>
-    <message>
-        <source>Total Amount %1 (= %2)</source>
-        <translation>Totaal bedrag %1 (= %2)</translation>
     </message>
     <message>
         <source>or</source>
@@ -1867,6 +2025,18 @@ Adres: %4
         <translation>De transactie was afgewezen. Dit kan gebeuren als u eerder uitgegeven munten opnieuw wilt versturen, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze munten zijn gemarkeerd als uitgegeven, maar in de huidige nog niet.</translation>
     </message>
     <message>
+        <source>A fee higher than %1 is considered an insanely high fee.</source>
+        <translation>Transactiekosten hoger dan %1 worden gezien als waanzinnig hoog.</translation>
+    </message>
+    <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Betaal alleen de minimale transactiekosten van %1</translation>
+    </message>
+    <message>
+        <source>Estimated to begin confirmation within %1 block(s).</source>
+        <translation>Beginnen van bevesting geschat binnen %1 blok(ken).</translation>
+    </message>
+    <message>
         <source>Warning: Invalid Quark address</source>
         <translation>Waarschuwing: Ongeldig Quark adres</translation>
     </message>
@@ -1879,20 +2049,16 @@ Adres: %4
         <translation>Waarschuwing: Onbekend wisselgeldadres</translation>
     </message>
     <message>
+        <source>Copy dust</source>
+        <translation>Kopieër stof</translation>
+    </message>
+    <message>
         <source>Are you sure you want to send?</source>
         <translation>Weet u zeker dat u wilt verzenden?</translation>
     </message>
     <message>
         <source>added as transaction fee</source>
         <translation>toegevoegd als transactiekosten</translation>
-    </message>
-    <message>
-        <source>Payment request expired</source>
-        <translation>Betalingsverzoek verlopen</translation>
-    </message>
-    <message>
-        <source>Invalid payment address %1</source>
-        <translation>Ongeldig betalingsadres %1</translation>
     </message>
 </context>
 <context>
@@ -1904,10 +2070,6 @@ Adres: %4
     <message>
         <source>Pay &amp;To:</source>
         <translation>Betaal &amp;Aan:</translation>
-    </message>
-    <message>
-        <source>The address to send the payment to (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Het adres waaraan u wilt betalen  (bijv. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
@@ -1924,6 +2086,10 @@ Adres: %4
     <message>
         <source>This is a normal payment.</source>
         <translation>Dit is een normale betaling.</translation>
+    </message>
+    <message>
+        <source>The Quark address to send the payment to</source>
+        <translation>Het Quark adres om betaling aan te voldoen</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1996,8 +2162,8 @@ Adres: %4
         <translation>U kunt berichten ondertekenen met een van uw adressen om te bewijzen dat u dit adres bezit. Pas op dat u geen onduidelijke dingen ondertekent, want phishingaanvallen zouden u kunnen misleiden om zo uw identiteit te stelen. Onderteken alleen berichten waarmee u het volledig eens bent.</translation>
     </message>
     <message>
-        <source>The address to sign the message with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Het adres om het bericht mee te ondertekenen (Vb.: QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS).</translation>
+        <source>The Quark address to sign the message with</source>
+        <translation>Het Quark adres om bericht mee te ondertekenen</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2052,8 +2218,8 @@ Adres: %4
         <translation>Voer het ondertekenende adres, bericht en handtekening hieronder in (let erop dat u nieuwe regels, spaties en tabs juist overneemt) om de handtekening te verifiëren. Let erop dat u niet meer uit het bericht interpreteert dan er daadwerkelijk staat,  om te voorkomen dat u wordt misleid in een man-in-the-middle-aanval.</translation>
     </message>
     <message>
-        <source>The address the message was signed with (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Het adres waarmee bet bericht was ondertekend (Vb.: QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS).</translation>
+        <source>The Quark address the message was signed with</source>
+        <translation>Het Quark adres waarmee het bericht ondertekend is</translation>
     </message>
     <message>
         <source>Verify the message to ensure it was signed with the specified Quark address</source>
@@ -2068,12 +2234,8 @@ Adres: %4
         <translation>Verwijder alles in de invulvelden</translation>
     </message>
     <message>
-        <source>Enter a Quark address (e.g. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</source>
-        <translation>Vul een Quarkadres in (bijv. QfgBvXopUwn3KtDnW4HHqX2L7KD37TigXS)</translation>
-    </message>
-    <message>
-        <source>Click &quot;Sign Message&quot; to generate signature</source>
-        <translation>Klik &quot;Onderteken Bericht&quot; om de handtekening te genereren</translation>
+        <source>Click "Sign Message" to generate signature</source>
+        <translation>Klik "Onderteken Bericht" om de handtekening te genereren</translation>
     </message>
     <message>
         <source>The entered address is invalid.</source>
@@ -2201,6 +2363,10 @@ Adres: %4
         <translation>eigen adres</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>alleen-bekijkbaar</translation>
+    </message>
+    <message>
         <source>label</source>
         <translation>label</translation>
     </message>
@@ -2219,6 +2385,14 @@ Adres: %4
     <message>
         <source>Debit</source>
         <translation>Debet</translation>
+    </message>
+    <message>
+        <source>Total debit</source>
+        <translation>Totaal debit</translation>
+    </message>
+    <message>
+        <source>Total credit</source>
+        <translation>Totaal credit</translation>
     </message>
     <message>
         <source>Transaction fee</source>
@@ -2245,8 +2419,8 @@ Adres: %4
         <translation>Handelaar</translation>
     </message>
     <message>
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Gegenereerde munten moeten %1 blokken rijpen voordat ze kunnen worden besteed. Toen dit blok gegenereerd werd, werd het uitgezonden naar het netwerk om aan de blokketen toegevoegd te worden. Als het niet lukt om in de keten toegevoegd te worden, zal de status te veranderen naar &quot;niet geaccepteerd&quot; en het zal deze niet besteedbaar zijn. Dit kan soms gebeuren als een ander knooppunt een blok genereert binnen een paar seconden na die van u.</translation>
+        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <translation>Gegenereerde munten moeten %1 blokken rijpen voordat ze kunnen worden besteed. Toen dit blok gegenereerd werd, werd het uitgezonden naar het netwerk om aan de blokketen toegevoegd te worden. Als het niet lukt om in de keten toegevoegd te worden, zal de status te veranderen naar "niet geaccepteerd" en het zal deze niet besteedbaar zijn. Dit kan soms gebeuren als een ander knooppunt een blok genereert binnen een paar seconden na die van u.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -2311,10 +2485,6 @@ Adres: %4
         <translation>Adres</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Bedrag</translation>
-    </message>
-    <message>
         <source>Immature (%1 confirmations, will be available after %2)</source>
         <translation>immatuur (%1 bevestigingen, zal beschikbaar zijn na %2)</translation>
     </message>
@@ -2375,6 +2545,10 @@ Adres: %4
         <translation>Gedolven</translation>
     </message>
     <message>
+        <source>watch-only</source>
+        <translation>alleen-bekijkbaar</translation>
+    </message>
+    <message>
         <source>(n/a)</source>
         <translation>(nvt)</translation>
     </message>
@@ -2389,6 +2563,10 @@ Adres: %4
     <message>
         <source>Type of transaction.</source>
         <translation>Type transactie.</translation>
+    </message>
+    <message>
+        <source>Whether or not a watch-only address is involved in this transaction.</source>
+        <translation>Of er een alleen-bekijken adres is betrokken bij deze transactie.</translation>
     </message>
     <message>
         <source>Destination address of transaction.</source>
@@ -2486,6 +2664,10 @@ Adres: %4
         <translation>Exporteer Transactieverleden</translation>
     </message>
     <message>
+        <source>Watch-only</source>
+        <translation>Alleen-bekijkbaar</translation>
+    </message>
+    <message>
         <source>Exporting Failed</source>
         <translation>Export Mislukt</translation>
     </message>
@@ -2526,10 +2708,6 @@ Adres: %4
         <translation>Adres</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Bedrag</translation>
-    </message>
-    <message>
         <source>ID</source>
         <translation>ID</translation>
     </message>
@@ -2540,6 +2718,13 @@ Adres: %4
     <message>
         <source>to</source>
         <translation>naar</translation>
+    </message>
+</context>
+<context>
+    <name>UnitDisplayStatusBarControl</name>
+    <message>
+        <source>Unit to show amounts in. Click to select another unit.</source>
+        <translation>Eenheid om bedragen uit te drukken. Klik om een andere eenheid te selecteren.</translation>
     </message>
 </context>
 <context>
@@ -2594,42 +2779,12 @@ Adres: %4
 <context>
     <name>bitcoin-core</name>
     <message>
-        <source>Usage:</source>
-        <translation>Gebruik:</translation>
-    </message>
-    <message>
-        <source>List commands</source>
-        <translation>Lijst van commando&apos;s</translation>
-    </message>
-    <message>
-        <source>Get help for a command</source>
-        <translation>Toon hulp voor een commando</translation>
-    </message>
-    <message>
         <source>Options:</source>
         <translation>Opties:</translation>
     </message>
     <message>
-        <source>Specify configuration file (default: quarkcoin.conf)</source>
-        <translation>Specificeer configuratiebestand (standaard: quarkcoin.conf)
-</translation>
-    </message>
-    <message>
-        <source>Specify pid file (default: quarkd.pid)</source>
-        <translation>Specificeer pid-bestand (standaard: quarkd.pid)
-</translation>
-    </message>
-    <message>
         <source>Specify data directory</source>
         <translation>Stel datamap in</translation>
-    </message>
-    <message>
-        <source>Listen for connections on &lt;port&gt; (default: 8333 or testnet: 18333)</source>
-        <translation>Luister voor verbindingen op &lt;poort&gt; (standaard: 8333 of testnet: 18333)</translation>
-    </message>
-    <message>
-        <source>Maintain at most &lt;n&gt; connections to peers (default: 125)</source>
-        <translation>Onderhoud maximaal &lt;n&gt; verbindingen naar peers (standaard: 125)</translation>
     </message>
     <message>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
@@ -2640,32 +2795,12 @@ Adres: %4
         <translation>Specificeer uw eigen publieke adres</translation>
     </message>
     <message>
-        <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
-        <translation>Drempel om verbinding te verbreken naar zich misdragende peers (standaard: 100)</translation>
-    </message>
-    <message>
-        <source>Number of seconds to keep misbehaving peers from reconnecting (default: 86400)</source>
-        <translation>Aantal seconden dat zich misdragende peers niet opnieuw mogen verbinden (standaard: 86400)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
-        <translation>Er is een fout opgetreden tijdens het instellen van de inkomende RPC-poort %u op IPv4: %s</translation>
-    </message>
-    <message>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Wacht op JSON-RPC-connecties op poort &lt;port&gt; (standaard: 8332 of testnet: 18332)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
-        <translation>Aanvaard commandoregel- en JSON-RPC-commando&apos;s</translation>
-    </message>
-    <message>
-        <source>Quark Core RPC client version</source>
-        <translation>Quark Core RPC-client versie</translation>
+        <translation>Aanvaard commandoregel- en JSON-RPC-commando's</translation>
     </message>
     <message>
         <source>Run in the background as a daemon and accept commands</source>
-        <translation>Draai in de achtergrond als daemon en aanvaard commando&apos;s</translation>
+        <translation>Draai in de achtergrond als daemon en aanvaard commando's</translation>
     </message>
     <message>
         <source>Use the test network</source>
@@ -2676,78 +2811,24 @@ Adres: %4
         <translation>Accepteer verbindingen van buitenaf (standaard: 1 als geen -proxy of -connect is opgegeven)</translation>
     </message>
     <message>
-        <source>%s, you must set a rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=quarkrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com
-</source>
-        <translation>%s, u moet een RPC-wachtwoord instellen in het configuratiebestand: %s
-U wordt aangeraden het volgende willekeurige wachtwoord te gebruiken:
-rpcuser=quarkrpc
-rpcpassword=%s
-(u hoeft dit wachtwoord niet te onthouden)
-De gebruikersnaam en wachtwoord mogen niet hetzelfde zijn.
-Als het bestand niet bestaat, make hem dan aan met leesrechten voor enkel de eigenaar.
-Het is ook aan te bevelen &quot;alertnotify&quot; in te stellen zodat u op de hoogte gesteld wordt van problemen;
-bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.com</translation>
-    </message>
-    <message>
-        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
-        <translation>Aanvaardbare cijfers (standaard: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</translation>
-    </message>
-    <message>
-        <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
-        <translation>Er is een fout opgetreden tijdens het instellen van de inkomende RPC-poort %u op IPv6, terugval naar IPv4: %s</translation>
-    </message>
-    <message>
         <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
         <translation>Bind aan opgegeven adres en luister er altijd op. Gebruik [host]:port notatie voor IPv6</translation>
     </message>
     <message>
-        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:15)</source>
-        <translation>Doorlopend tarief-limiet op gratis transacties toepassen tot &lt;n&gt;*1000 bytes per minuut (standaard: 15)</translation>
+        <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
+        <translation>Verwijder alle transacties van de portemonnee en herstel alleen de delen van de blockchain door -rescan tijdens het opstarten</translation>
     </message>
     <message>
-        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
-        <translation>Schakel regressietest-modus in, die een speciale blokketen gebruikt waarin blokken instantaan opgelost kunnen worden. Dit is bedoeld voor regressietestsoftware en app-ontwikkeling.</translation>
+        <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
+        <translation>Uitgegeven onder de MIT software licentie, zie het bijgevoegde bestand COPYING of &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
         <translation>Schakel regressietest-modus in, die een speciale blokketen gebruikt waarin blokken onmiddellijk opgelost kunnen worden.</translation>
     </message>
     <message>
-        <source>Error: Listening for incoming connections failed (listen returned error %d)</source>
-        <translation>Fout: Luisteren naar inkomende connecties mislukt (listen geeft fout terug %d)</translation>
-    </message>
-    <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fout: De transactie was afgewezen! Dit kan gebeuren als sommige munten in uw portemonnee al eerder uitgegeven zijn, zoals wanneer u een kopie van uw wallet.dat heeft gebruikt en in de kopie deze munten zijn uitgegeven, maar in deze portemonnee die munten nog niet als zodanig zijn gemarkeerd.</translation>
-    </message>
-    <message>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Fout: Deze transactie vereist transactiekosten van tenminste %s, vanwege zijn grootte, complexiteit, of het gebruik van onlangs ontvangen munten!</translation>
-    </message>
-    <message>
         <source>Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)</source>
         <translation>Voer opdracht uit zodra een portemonneetransactie verandert (%s in cmd wordt vervangen door TxID)</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for transaction creation) (default:</source>
-        <translation>Toeslagen kleiner dan dit worden beschouwd als geen vergoeding (voor transactie aanmaak) (standaard:</translation>
-    </message>
-    <message>
-        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: 100)</source>
-        <translation>Leeg database-activiteit uit de geheugenpool naar schijf log elke &lt;n&gt; megabytes (standaard: 100) </translation>
-    </message>
-    <message>
-        <source>How thorough the block verification of -checkblocks is (0-4, default: 3)</source>
-        <translation>Hoe grondig de blokverificatie van -checkblocks is (0-4, standaard: 3)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
@@ -2758,10 +2839,6 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Kies het aantal script verificatie processen (%u tot %d, 0 = auto, &lt;0 = laat dit aantal kernen vrij, standaard: %d)</translation>
     </message>
     <message>
-        <source>Set the processor limit for when generation is on (-1 = unlimited, default: -1)</source>
-        <translation>Kies de processorlimiet wanneer generation is aan (-1 = ongelimiteerd, standaard: -1)</translation>
-    </message>
-    <message>
         <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
         <translation>Dit is een pre-release testversie - gebruik op eigen risico! Gebruik deze niet voor het delven van munten of handelsdoeleinden</translation>
     </message>
@@ -2770,16 +2847,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Niet in staat om %s te verbinden op deze computer. Quark Core draait waarschijnlijk al.</translation>
     </message>
     <message>
-        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: -proxy)</source>
-        <translation>Gebruik een aparte SOCKS5 proxy om &apos;Tor hidden services&apos; te bereiken (standaard: hetzelfde als -proxy)</translation>
-    </message>
-    <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Waarschuwing: -paytxfee is zeer hoog ingesteld.  Dit zijn de transactiekosten die u betaalt bij het versturen van een transactie.</translation>
-    </message>
-    <message>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Quark will not work properly.</source>
-        <translation>Waarschuwing: Controleer dat de datum en tijd op uw computer correct zijn ingesteld. Als uw klok fout staat zal Quark niet correct werken.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -2791,19 +2860,19 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
     </message>
     <message>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
-        <translation>Waarschuwing: Fout bij het lezen van wallet.dat! Alle sleutels zijn in goede orde uitgelezen, maar transactiedata of adresboeklemma&apos;s zouden kunnen ontbreken of fouten bevatten.</translation>
+        <translation>Waarschuwing: Fout bij het lezen van wallet.dat! Alle sleutels zijn in goede orde uitgelezen, maar transactiedata of adresboeklemma's zouden kunnen ontbreken of fouten bevatten.</translation>
     </message>
     <message>
         <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
         <translation>Waarschuwing: wallet.dat is corrupt, data is veiliggesteld! Originele wallet.dat is opgeslagen als wallet.{tijdstip}.bak in %s; als uw balans of transacties incorrect zijn dient u een backup terug te zetten.</translation>
     </message>
     <message>
-        <source>(default: 1)</source>
-        <translation>(standaard: 1)</translation>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Goedgekeurde peers die verbinden van het ingegeven netmask of IP adres. Kan meerdere keren gespecificeerd worden.</translation>
     </message>
     <message>
-        <source>(default: wallet.dat)</source>
-        <translation>(standaard: wallet.dat)</translation>
+        <source>(default: 1)</source>
+        <translation>(standaard: 1)</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -2814,28 +2883,12 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Poog de geheime sleutels uit een corrupt wallet.dat bestand terug te halen</translation>
     </message>
     <message>
-        <source>Quark Core Daemon</source>
-        <translation>Quark Core Daemon</translation>
-    </message>
-    <message>
         <source>Block creation options:</source>
         <translation>Blokcreatie-opties:</translation>
     </message>
     <message>
-        <source>Clear list of wallet transactions (diagnostic tool; implies -rescan)</source>
-        <translation>Leeg lijst met wallet transacties (diagnostisch instrument; impliceert -rescan)</translation>
-    </message>
-    <message>
         <source>Connect only to the specified node(s)</source>
         <translation>Verbind alleen naar de gespecificeerde node(s)</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS proxy</source>
-        <translation>Verbind via een SOCKS-proxy</translation>
-    </message>
-    <message>
-        <source>Connect to JSON-RPC on &lt;port&gt; (default: 8332 or testnet: 18332)</source>
-        <translation>Verbinden met JSON-RPC op &lt;poort&gt; (standaard: 8332 of testnet: 18332)</translation>
     </message>
     <message>
         <source>Connection options:</source>
@@ -2848,10 +2901,6 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
     <message>
         <source>Debugging/Testing options:</source>
         <translation>Foutopsporing/Testopties:</translation>
-    </message>
-    <message>
-        <source>Disable safemode, override a real safe mode event (default: 0)</source>
-        <translation>Veilige modus uitschakelen, hef een echte veilige modus gebeurtenis uit (default: 0)</translation>
     </message>
     <message>
         <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
@@ -2886,80 +2935,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Fout: Weinig vrije diskruimte!</translation>
     </message>
     <message>
-        <source>Error: Wallet locked, unable to create transaction!</source>
-        <translation>Fout: Portemonnee vergrendeld, aanmaak transactie niet mogelijk!</translation>
-    </message>
-    <message>
-        <source>Error: system error: </source>
-        <translation>Fout: Systeemfout:</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Mislukt om op welke poort dan ook te luisteren. Gebruik -listen=0 as u dit wilt.</translation>
-    </message>
-    <message>
-        <source>Failed to read block info</source>
-        <translation>Lezen van blokinformatie mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>Lezen van blok mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to sync block index</source>
-        <translation>Synchroniseren van blokindex mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write block index</source>
-        <translation>Schrijven van blokindex mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write block info</source>
-        <translation>Schrijven van blokinformatie mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write block</source>
-        <translation>Schrijven van blok mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write file info</source>
-        <translation>Schrijven van bestandsinformatie mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write to coin database</source>
-        <translation>Schrijven naar coindatabase mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write transaction index</source>
-        <translation>Schrijven van transactieindex mislukt</translation>
-    </message>
-    <message>
-        <source>Failed to write undo data</source>
-        <translation>Schrijven van undo-data mislukt</translation>
-    </message>
-    <message>
-        <source>Fee per kB to add to transactions you send</source>
-        <translation>Transactiekosten per kB om toe te voegen aan transacties die u verzendt</translation>
-    </message>
-    <message>
-        <source>Fees smaller than this are considered zero fee (for relaying) (default:</source>
-        <translation>Toeslagen kleiner dan dit worden beschouwd als geen vergoeding (voor relaying) (standaard:</translation>
-    </message>
-    <message>
-        <source>Find peers using DNS lookup (default: 1 unless -connect)</source>
-        <translation>Vind andere nodes d.m.v. DNS-naslag (standaard: 1 tenzij -connect)</translation>
-    </message>
-    <message>
-        <source>Force safe mode (default: 0)</source>
-        <translation>Forceer veilige modus (default: 0)</translation>
-    </message>
-    <message>
-        <source>Generate coins (default: 0)</source>
-        <translation>Genereer munten (standaard: 0)</translation>
-    </message>
-    <message>
-        <source>How many blocks to check at startup (default: 288, 0 = all)</source>
-        <translation>Aantal te checken blokken bij het opstarten (standaard: 288, 0 = allemaal)</translation>
     </message>
     <message>
         <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
@@ -2974,28 +2951,20 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Incorrect of geen genesis-blok gevonden. Verkeerde datamap voor het netwerk?</translation>
     </message>
     <message>
-        <source>Invalid -onion address: &apos;%s&apos;</source>
-        <translation>Ongeldig -onion adres &apos;%s&apos;</translation>
+        <source>Invalid -onion address: '%s'</source>
+        <translation>Ongeldig -onion adres '%s'</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
         <translation>Niet genoeg file descriptors beschikbaar.</translation>
     </message>
     <message>
-        <source>Prepend debug output with timestamp (default: 1)</source>
-        <translation>Prepend debug output met tijdstempel (standaard: 1)</translation>
-    </message>
-    <message>
-        <source>RPC client options:</source>
-        <translation>RPC client opties:</translation>
+        <source>Only connect to nodes in network &lt;net&gt; (ipv4, ipv6 or onion)</source>
+        <translation>Verbind alleen met nodes in netwerk &lt;net&gt; (ipv4, ipv6 of onion)</translation>
     </message>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>Blokketen opnieuw opbouwen met behulp van huidige blk000??.dat-bestanden</translation>
-    </message>
-    <message>
-        <source>Select SOCKS version for -proxy (4 or 5, default: 5)</source>
-        <translation>Selecteer de versie van de SOCKS-proxy om te gebruiken (4 of 5, standaard is 5)</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
@@ -3006,24 +2975,16 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Stel maximum blokgrootte in in bytes (standaard: %d)</translation>
     </message>
     <message>
-        <source>Set the number of threads to service RPC calls (default: 4)</source>
-        <translation>Stel het aantal threads in om RPC-aanvragen mee te bedienen (standaard: 4)</translation>
-    </message>
-    <message>
         <source>Specify wallet file (within data directory)</source>
         <translation>Specificeer het portemonnee bestand (vanuit de gegevensmap)</translation>
-    </message>
-    <message>
-        <source>Spend unconfirmed change when sending transactions (default: 1)</source>
-        <translation>Spendeer onbevestigd wisselgeld wanneer transacties verstuurd worden (standaard: 1)</translation>
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Dit is bedoeld voor regressie test toepassingen en applicatie onwikkeling.</translation>
     </message>
     <message>
-        <source>Usage (deprecated, use quark-cli):</source>
-        <translation>Gebruik (vervangen; gebruik Quark-cli);</translation>
+        <source>Use UPnP to map the listening port (default: %u)</source>
+        <translation>Gebruik UPnP om de luisterende poort te mappen (standaard: %u)</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -3034,20 +2995,12 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Portemonnee aan het controleren...</translation>
     </message>
     <message>
-        <source>Wait for RPC server to start</source>
-        <translation>Wacht voor RPC server om te starten</translation>
-    </message>
-    <message>
         <source>Wallet %s resides outside data directory %s</source>
         <translation>Portemonnee %s bevindt zich buiten de gegevensmap %s</translation>
     </message>
     <message>
         <source>Wallet options:</source>
         <translation>Portemonnee instellingen:</translation>
-    </message>
-    <message>
-        <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
-        <translation>Waarschuwing: Afgekeurd argument -debugnet genegeerd, use -debug=net</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
@@ -3058,68 +3011,201 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Importeert blokken van extern blk000??.dat bestand</translation>
     </message>
     <message>
+        <source>Allow JSON-RPC connections from specified source. Valid for &lt;ip&gt; are a single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This option can be specified multiple times</source>
+        <translation>Sta JSON-RPC verbindingen toe vanuit een gespecificeerde bron. Geldig voor &lt;ip&gt; zijn een enkel IP (bijv. 1.2.3.4), een netwerk/netmask (bijv. 1.2.3.4/255.255.255.0) of een netwerk/CIDR (bijv. 1.2.3.4/24). Deze optie kan meerdere keren gespecificeerd worden.</translation>
+    </message>
+    <message>
+        <source>An error occurred while setting up the RPC address %s port %u for listening: %s</source>
+        <translation>Er is een fout opgetreden tijdens het opzetten van het RPC adres %s poort %u voor luisteren: %s</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>Bind aan opgegeven adres en keur peers die ermee verbinden goed. Gebruik [host]:poort notatie voor IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Bind aan gegeven adres om te luisteren voor JSON-RPC verbindingen. Gebruik [host]:poort notatie voor IPv6. Deze optie kan meerdere keren gespecificeerd worden (standaard: bind aan alle interfaces.</translation>
+    </message>
+    <message>
         <source>Cannot obtain a lock on data directory %s. Quark Core is probably already running.</source>
         <translation>Kan geen lock verkrijgen op gegevensmap %s. Quark Core draait waarschijnlijk al.</translation>
+    </message>
+    <message>
+        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
+        <translation>Doorlopend tarief-limiet op gratis transacties toepassen tot &lt;n&gt;*1000 bytes per minuut (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
+        <translation>Creër nieuwe bestanden met standaard systeem bestandsrechten in plaats van umask 077 (alleen effectief met uitgeschakelde portemonnee functionaliteit)</translation>
+    </message>
+    <message>
+        <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
+        <translation>Fout: luisteren naar binnenkomende verbindingen mislukt (luisteren gaf foutmelding %s)</translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
+        <translation>Fout: er is een niet-ondersteund argument -socks aangetroffen. Het instellen van de SOCKS-versie is niet langer mogelijk. Alleen SOCKS5-proxy's worden ondersteund.</translation>
     </message>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
         <translation>Voer commando uit zodra een waarschuwing is ontvangen of wanneer we een erg lange fork detecteren (%s in commando wordt vervangen door bericht)</translation>
     </message>
     <message>
-        <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
-        <translation>Output extra debugginginformatie (standaard: 0, het leveren van &lt;category&gt; is optioneel)</translation>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Toeslagen (in QRK/Kb) kleiner dan dit worden beschouwd als geen vergoeding (voor doorgeven) (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in QRK/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Toeslagen (in QRK/Kb) kleiner dan dit worden beschouwd als geen vergoeding transactieaanmaak (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
+        <translation>Als paytxfee niet is ingesteld, het pakket voldoende vergoeding zodat transacties beginnen bevestiging gemiddeld binnen in blokken (default: %u)</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
+        <translation>ongeldig bedrag voor -maxtxfee=&lt;amount&gt;: '%s' (moet ten minste de minrelay vergoeding van %s het voorkomen geplakt transacties voorkomen)</translation>
+    </message>
+    <message>
+        <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
+        <translation>Maximale grootte va  n de gegevens in gegevensdrager transacties we relais en de mijnen
+(default: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum total fees to use in a single wallet transaction, setting too low may abort large transactions (default: %s)</source>
+        <translation>Maximale totale kosten om te gebruiken in een enkele portemonnee transactie , vaststellen van een te laag kan grote transacties af te breken (default: %s)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Query voor peer- adressen via DNS- lookup , als laag op adressen  (default: 1 unless -connect)</translation>
+    </message>
+    <message>
+        <source>Require high priority for relaying free or low-fee transactions (default:%u)</source>
+        <translation>Vereisen een hoge prioriteit voor het doorgeven van gratis of tegen lage vergoeding transacties  (default:%u)</translation>
     </message>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Stel maximumgrootte in bytes in voor hoge-prioriteits-/lage-transactiekosten-transacties (standaard: %d)</translation>
     </message>
     <message>
+        <source>Set the number of threads for coin generation if enabled (-1 = all cores, default: %d)</source>
+        <translation>Stel het aantal threads in voor het genereren van coins indien ingesteld (-1 = alle kernen, standaard: %d)</translation>
+    </message>
+    <message>
+        <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
+        <translation>Dit product bevat software dat ontwikkeld is door het OpenSSL Project voor gebruik in de OpenSSL Toolkit &lt;https://www.openssl.org/&gt; en cryptografische software geschreven door Eric Young en UPnP software geschreven door Thomas Bernard.</translation>
+    </message>
+    <message>
+        <source>To use quarkd, or the -server option to quark-qt, you must set an rpcpassword in the configuration file:
+%s
+It is recommended you use the following random password:
+rpcuser=quarkrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s "Quark Alert" admin@foo.com
+</source>
+        <translation>Om quarkd of de -server optie naar quark-gt te gebruiken, dient u een rpcwachtwoord in te stellen in het configuratiebestand:
+ %s
+Wij raden u aan om het volgende wachtwoord willekeurig te gebruiken: 
+rpcuser=quarkrpc 
+rpcpassword=%s 
+(u hoeft dit wachtwoord niet te onthouden)
+De gebruikersnaam en het wachtwoorden moeten NIET hetzelfde zijn. 
+Indien het bestand niet bestaat, maak het bestand aan met bestandsrechten: alleen lezen voor eigenaar.
+Het is ook aan te raden om een alarmnotificatie in te stellen, zodat u op de hoogte bent van de problemen;
+Voorbeeld: alertnotify=echo %%s | mail -s "Quark Alert" admin@foo.com
+</translation>
+    </message>
+    <message>
+        <source>Warning: -maxtxfee is set very high! Fees this large could be paid on a single transaction.</source>
+        <translation>Let op: -maxtxfee is erg hoog ingesteld! Transactiekosten van dergelijke groottes kunnen in een enkele transactie worden betaald.</translation>
+    </message>
+    <message>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Quark Core will not work properly.</source>
+        <translation>Waarschuwing: Controleer dat de datum en tijd van uw computer correct zijn ingesteld! Bij een onjuist ingestelde klok zal Quark Core niet goed werken.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>Goedgekeurde peers kunnen niet ge-DoS-banned worden en hun transacties worden altijd doorgestuurd, zelfs als ze reeds in de mempool aanwezig zijn, nuttig voor bijv. een gateway</translation>
+    </message>
+    <message>
+        <source>Accept public REST requests (default: %u)</source>
+        <translation>Accepteer publieke REST-requests (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -whitebind address: '%s'</source>
+        <translation>Kan -whitebind adres niet herleiden: '%s'</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy</source>
+        <translation>Verbind door SOCKS5 proxy</translation>
+    </message>
+    <message>
+        <source>Copyright (C) 2009-%i The Quark Core and Quark Core Developers</source>
+        <translation>Auteursrecht (C) 2009-%i De Quark Core Ontwikkelaars</translation>
+    </message>
+    <message>
+        <source>Could not parse -rpcbind value %s as network address</source>
+        <translation>Niet mogelijk om -rpcbind waarde %s te verwerken als netwerk adres</translation>
+    </message>
+    <message>
+        <source>Error loading wallet.dat: Wallet requires newer version of Quark Core</source>
+        <translation>Fout bij laden wallet.dat: Portemonnee vereist een nieuwere versie van Quark Core</translation>
+    </message>
+    <message>
+        <source>Error reading from database, shutting down.</source>
+        <translation>Fout bij het lezen van de database, afsluiten. </translation>
+    </message>
+    <message>
+        <source>Error: Unsupported argument -tor found, use -onion.</source>
+        <translation>Fout: Niet ondersteund argument -tor gevonden, gebruik -onion.</translation>
+    </message>
+    <message>
+        <source>Fee (in QRK/kB) to add to transactions you send (default: %s)</source>
+        <translation>Transactiekosten (in QRK/kB) om toe te voegen aan transacties die u verstuurd (standaard: %s)</translation>
+    </message>
+    <message>
         <source>Information</source>
         <translation>Informatie</translation>
     </message>
     <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Ongeldig bedrag voor -minrelaytxfee=&lt;bedrag&gt;: &apos;%s&apos;</translation>
+        <source>Initialization sanity check failed. Quark Core is shutting down.</source>
+        <translation>Initialisatie sanity check mislukt. Quark Core is aan het afsluiten.</translation>
     </message>
     <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Ongeldig bedrag voor -mintxfee=&lt;bedrag&gt;: &apos;%s&apos;</translation>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldig bedrag voor -maxtxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: 50000)</source>
-        <translation>Limiteer grootte van de handtekening cache tot &lt;n&gt; entries (default: 50000)</translation>
+        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldig bedrag voor -minrelaytxfee=&lt;bedrag&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Log transaction priority and fee per kB when mining blocks (default: 0)</source>
-        <translation>Log transactieprioriteit en vergoeding per kB bij mijnen blocks (standaard: 0)</translation>
+        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldig bedrag voor -mintxfee=&lt;bedrag&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Maintain a full transaction index (default: 0)</source>
-        <translation>Onderhoud een volledige transactieindex (standaard: 0)</translation>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
+        <translation>Ongeldig bedrag voor -paytxfee=&lt;bedrag&gt;: '%s' (Minimum %s)</translation>
     </message>
     <message>
-        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
-        <translation>Maximum per-connectie ontvangstbuffer, &lt;n&gt;*1000 bytes (standaard: 5000)</translation>
+        <source>Invalid netmask specified in -whitelist: '%s'</source>
+        <translation>Ongeldig netmask gespecificeerd in -whitelist: '%s'</translation>
     </message>
     <message>
-        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: 1000)</source>
-        <translation>Maximum per-connectie zendbuffer, &lt;n&gt;*1000 bytes (standaard: 1000)</translation>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Houd maximaal &lt;n&gt; onverbonden transacties in geheugen (standaard: %u)</translation>
     </message>
     <message>
-        <source>Only accept block chain matching built-in checkpoints (default: 1)</source>
-        <translation>Accepteer alleen blokketen die overeenkomt met de ingebouwde checkpoints (standaard: 1)</translation>
+        <source>Need to specify a port with -whitebind: '%s'</source>
+        <translation>Verplicht een poort met -whitebind op te geven: '%s'</translation>
     </message>
     <message>
-        <source>Only connect to nodes in network &lt;net&gt; (IPv4, IPv6 or Tor)</source>
-        <translation>Verbind alleen naar nodes in netwerk &lt;net&gt; (IPv4, IPv6 of Tor)</translation>
-    </message>
-    <message>
-        <source>Print block on startup, if found in block index</source>
-        <translation>Toon block bij opstarten, wanneer gevonden in block index</translation>
-    </message>
-    <message>
-        <source>Print block tree on startup (default: 0)</source>
-        <translation>Toon block structuur bij opstarten (default: 0)</translation>
+        <source>Node relay options:</source>
+        <translation>Node relay opties:</translation>
     </message>
     <message>
         <source>RPC SSL options: (see the Quark Wiki for SSL setup instructions)</source>
@@ -3130,6 +3216,10 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>RPC server opties:</translation>
     </message>
     <message>
+        <source>RPC support for HTTP persistent connections (default: %d)</source>
+        <translation>RPC ondersteuning voor HTTP persisten verbindingen (default: %d)</translation>
+    </message>
+    <message>
         <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
         <translation>Laat willekeurig 1 elke &lt;n&gt; netwerkberichten vallen</translation>
     </message>
@@ -3138,36 +3228,16 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Fuzz willekeurig 1 van elke &lt;n&gt; netwerkberichten</translation>
     </message>
     <message>
-        <source>Run a thread to flush wallet periodically (default: 1)</source>
-        <translation>Draai een proces om de wallet periodiek te flushen (default: 1)</translation>
-    </message>
-    <message>
-        <source>SSL options: (see the Quark Wiki for SSL setup instructions)</source>
-        <translation>SSL-opties: (zie de Quark wiki voor SSL-instructies)</translation>
-    </message>
-    <message>
-        <source>Send command to Quark Core</source>
-        <translation>Stuur commando naar Quark Core</translation>
-    </message>
-    <message>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Stuur trace/debug-info naar de console in plaats van het debug.log bestand</translation>
     </message>
     <message>
-        <source>Set minimum block size in bytes (default: 0)</source>
-        <translation>Stel minimum blokgrootte in in bytes (standaard: 0)</translation>
-    </message>
-    <message>
-        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: 1)</source>
-        <translation>Plaatst de DB_PRIVATE vlag in de wallet db omgeving (default: 1)</translation>
+        <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
+        <translation>Verstuur transacties zonder verzendkosten indien mogelijk (standaard: %u)</translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
         <translation>Toon alle foutopsporingsopties (gebruik: --help -help-debug)</translation>
-    </message>
-    <message>
-        <source>Show benchmark information (default: 0)</source>
-        <translation>Toon benchmark-informatie (default: 0)</translation>
     </message>
     <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
@@ -3178,16 +3248,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Ondertekenen van transactie mislukt</translation>
     </message>
     <message>
-        <source>Specify connection timeout in milliseconds (default: 5000)</source>
-        <translation>Specificeer de time-outtijd in milliseconden (standaard: 5000)</translation>
-    </message>
-    <message>
-        <source>Start Quark Core Daemon</source>
-        <translation>Start Quark Core Daemon</translation>
-    </message>
-    <message>
-        <source>System error: </source>
-        <translation>Systeemfout:</translation>
+        <source>This is experimental software.</source>
+        <translation>Dit is experimentele software.</translation>
     </message>
     <message>
         <source>Transaction amount too small</source>
@@ -3198,12 +3260,16 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Transactiebedragen moeten positief zijn</translation>
     </message>
     <message>
+        <source>Transaction too large for fee policy</source>
+        <translation>De transactie is te groot voor het toeslagenbeleid</translation>
+    </message>
+    <message>
         <source>Transaction too large</source>
         <translation>Transactie te groot</translation>
     </message>
     <message>
-        <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation>Gebruik UPnP om de luisterende poort te mappen (standaard: 0)</translation>
+        <source>Unable to bind to %s on this computer (bind returned error %s)</source>
+        <translation>Niet in staat om aan %s te binden op deze computer (bind gaf error %s)</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
@@ -3214,12 +3280,24 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Gebruikersnaam voor JSON-RPC-verbindingen</translation>
     </message>
     <message>
+        <source>Wallet needed to be rewritten: restart Quark Core to complete</source>
+        <translation>Portemonnee moest herschreven worden: Herstart Quark Core om te voltooien</translation>
+    </message>
+    <message>
         <source>Warning</source>
         <translation>Waarschuwing</translation>
     </message>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation>Waarschuwing: Deze versie is verouderd, een upgrade is vereist!</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -benchmark ignored, use -debug=bench.</source>
+        <translation>Waarschuwing: Niet ondersteund argument -benchmark genegeerd, gebruik -debug=bench.</translation>
+    </message>
+    <message>
+        <source>Warning: Unsupported argument -debugnet ignored, use -debug=net.</source>
+        <translation>Waarschuwing: Niet ondersteund argument -debugnet genegeerd, gebruik -debug=net.</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
@@ -3230,24 +3308,12 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>bij opstarten</translation>
     </message>
     <message>
-        <source>version</source>
-        <translation>versie</translation>
-    </message>
-    <message>
         <source>wallet.dat corrupt, salvage failed</source>
         <translation>wallet.dat corrupt, veiligstellen mislukt</translation>
     </message>
     <message>
         <source>Password for JSON-RPC connections</source>
         <translation>Wachtwoord voor JSON-RPC-verbindingen</translation>
-    </message>
-    <message>
-        <source>Allow JSON-RPC connections from specified IP address</source>
-        <translation>Sta JSON-RPC verbindingen van opgegeven IP-adres toe</translation>
-    </message>
-    <message>
-        <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
-        <translation>Verstuur commando&apos;s naar proces dat op &lt;ip&gt; draait (standaard: 127.0.0.1)</translation>
     </message>
     <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
@@ -3258,10 +3324,6 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Vernieuw portemonnee naar nieuwste versie</translation>
     </message>
     <message>
-        <source>Set key pool size to &lt;n&gt; (default: 100)</source>
-        <translation>Stel sleutelpoelgrootte in op &lt;n&gt; (standaard: 100)</translation>
-    </message>
-    <message>
         <source>Rescan the block chain for missing wallet transactions</source>
         <translation>Doorzoek de blokketen op ontbrekende portemonnee-transacties</translation>
     </message>
@@ -3270,20 +3332,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Gebruik OpenSSL (https) voor JSON-RPC-verbindingen</translation>
     </message>
     <message>
-        <source>Server certificate file (default: server.cert)</source>
-        <translation>Certificaat-bestand voor server (standaard: server.cert)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: server.pem)</source>
-        <translation>Geheime sleutel voor server (standaard: server.pem)</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Dit helpbericht</translation>
-    </message>
-    <message>
-        <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
-        <translation>Niet in staat om aan %s te binden op deze computer (bind gaf error %d, %s)</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
@@ -3298,44 +3348,180 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Fout bij laden wallet.dat: Portemonnee corrupt</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Quark</source>
-        <translation>Fout bij laden wallet.dat: Portemonnee vereist een nieuwere versie van Quark</translation>
+        <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
+        <translation>(1 = behoudt tx meta data bijv. account eigenaar en betalingsverzoek informatie, 2. sla tx meta data niet op)</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Quark to complete</source>
-        <translation>Portemonnee moest herschreven worden: Herstart Quark om te voltooien</translation>
+        <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
+        <translation>Leeg database-activiteit uit de geheugen pool naar schijf log elke &lt;n&gt; megabytes (standaard: %u) </translation>
+    </message>
+    <message>
+        <source>How thorough the block verification of -checkblocks is (0-4, default: %u)</source>
+        <translation>Hoe grondig de blokverificatie van -checkblocks is (0-4, standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
+        <translation>Log transactieprioriteit en -kosten per kB bij het mijnen van blokken (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
+        <translation>Onderhoud een volledige transactieindex, gebruikt door de getrawtransaction rpc call (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Number of seconds to keep misbehaving peers from reconnecting (default: %u)</source>
+        <translation>Aantal seconden dat zich misdragende peers niet opnieuw kunnen verbinden (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
+        <translation>Output extra debugginginformatie (standaard: %u, het leveren van &lt;category&gt; is optioneel)</translation>
+    </message>
+    <message>
+        <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
+        <translation>Gebruik een aparte SOCKS5 proxy om 'Tor hidden services' te bereiken (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Acceptable ciphers (default: %s)</source>
+        <translation>Geaccepteerde versleutelingen (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Always query for peer addresses via DNS lookup (default: %u)</source>
+        <translation>Vind anderen door middel van een DNS-naslag (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>Veilige modus uitschakelen, hef een echte veilige modus gebeurtenis uit (default: %u)</translation>
     </message>
     <message>
         <source>Error loading wallet.dat</source>
         <translation>Fout bij laden wallet.dat</translation>
     </message>
     <message>
-        <source>Invalid -proxy address: &apos;%s&apos;</source>
-        <translation>Ongeldig -proxy adres: &apos;%s&apos;</translation>
+        <source>Force safe mode (default: %u)</source>
+        <translation>Forceer veilige modus (default: %u)</translation>
     </message>
     <message>
-        <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
-        <translation>Onbekend netwerk gespecificeerd in -onlynet: &apos;%s&apos;</translation>
+        <source>Generate coins (default: %u)</source>
+        <translation>Genereer munten (standaard: %u)</translation>
     </message>
     <message>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Onbekende -socks proxyversie aangegeven: %i</translation>
+        <source>How many blocks to check at startup (default: %u, 0 = all)</source>
+        <translation>Aantal te checken blokken bij het opstarten (standaard: %u, 0 = allemaal)</translation>
     </message>
     <message>
-        <source>Cannot resolve -bind address: &apos;%s&apos;</source>
-        <translation>Kan -bind adres niet herleiden: &apos;%s&apos;</translation>
+        <source>Include IP addresses in debug output (default: %u)</source>
+        <translation>IP-adressen toevoegen in de debuguitvoer (standaard: %u)</translation>
     </message>
     <message>
-        <source>Cannot resolve -externalip address: &apos;%s&apos;</source>
-        <translation>Kan -externlip adres niet herleiden: &apos;%s&apos;</translation>
+        <source>Invalid -proxy address: '%s'</source>
+        <translation>Ongeldig -proxy adres: '%s'</translation>
     </message>
     <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
-        <translation>Ongeldig bedrag voor -paytxfee=&lt;bedrag&gt;: &apos;%s&apos;</translation>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Limiteer grootte van de handtekening cache tot &lt;n&gt; entries (default: %u)</translation>
     </message>
     <message>
-        <source>Invalid amount</source>
-        <translation>Ongeldig bedrag</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Luister naar JSON-RPC-verbindingen op poort &lt;port&gt; (standaard: %u of testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Listen for connections on &lt;port&gt; (default: %u or testnet: %u)</source>
+        <translation>Luister naar verbindingen op &lt;poort&gt; (standaard: %u of testnet: %u)</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Onderhoud maximaal &lt;n&gt; verbindingen naar peers (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximum per-connectie ontvangstbuffer, &lt;n&gt;*1000 bytes (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Maximum per-connection send buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
+        <translation>Maximum per-connectie zendbuffer, &lt;n&gt;*1000 bytes (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
+        <translation>Accepteer alleen blokkenketen die overeenkomt met de ingebouwde checkpoints (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Prepend debug output with timestamp (default: %u)</source>
+        <translation>Prepend debug output met tijdstempel (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Gegevensdrager transacties relay en de mijnen (default: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Relay non-P2SH multisig (default: %u)</translation>
+    </message>
+    <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Draai een proces om de wallet periodiek te flushen (default: %u)</translation>
+    </message>
+    <message>
+        <source>Server certificate file (default: %s)</source>
+        <translation>Certificaat-bestand voor server (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Server private key (default: %s)</source>
+        <translation>Geheime sleutel voor server (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Set key pool size to &lt;n&gt; (default: %u)</source>
+        <translation>Stel sleutelpoelgrootte in op &lt;&amp;&gt; (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Stel minimum blokgrootte in in bytes (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Set the number of threads to service RPC calls (default: %d)</source>
+        <translation>Stel het aantal threads in om RPC-aanvragen mee te bedienen (standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Plaatst de DB_PRIVATE vlag in de wallet db omgeving (default: %u)</translation>
+    </message>
+    <message>
+        <source>Specify configuration file (default: %s)</source>
+        <translation>Specificeer configuratie bestand (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Specify connection timeout in milliseconds (minimum: 1, default: %d)</source>
+        <translation>Specificeer de time-out tijd in milliseconden (minimum: 1, standaard: %d)</translation>
+    </message>
+    <message>
+        <source>Specify pid file (default: %s)</source>
+        <translation>Specificeer pid-bestand (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Besteed onbevestigd wisselgeld bij het versturen van transacties (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Stop running after importing blocks from disk (default: %u)</source>
+        <translation>Stop uitvoeren na het importeren van blokken van de schijf (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
+        <translation>Drempel om verbinding te verbreken naar zich misdragende peers (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Unknown network specified in -onlynet: '%s'</source>
+        <translation>Onbekend netwerk gespecificeerd in -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -bind address: '%s'</source>
+        <translation>Kan -bind adres niet herleiden: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -externalip address: '%s'</source>
+        <translation>Kan -externlip adres niet herleiden: '%s'</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldig bedrag voor -paytxfee=&lt;bedrag&gt;: '%s'</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -3370,20 +3556,8 @@ bijvoorbeeld: alertnotify=echo %%s | mail -s &quot;Quark Alert&quot; admin@foo.c
         <translation>Klaar met laden</translation>
     </message>
     <message>
-        <source>To use the %s option</source>
-        <translation>Om de %s optie te gebruiken</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Fout</translation>
-    </message>
-    <message>
-        <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
-%s
-If the file does not exist, create it with owner-readable-only file permissions.</source>
-        <translation>U dient rpcpassword=&lt;wachtwoord&gt; in te stellen in het configuratiebestand:
-%s
-Als het bestand niet bestaat, maak het dan aan, met een alleen-lezen permissie.</translation>
     </message>
 </context>
 </TS>
