@@ -418,6 +418,7 @@ void static BitcoinMiner(CWallet *pwallet)
     unsigned int nExtraNonce = 0;
 
     try {
+        CBlockIndex* pindexPrev = NULL;
         while (true) {
             if (Params().MiningRequiresPeers()) {
                 // Busy-wait for the network to come online so we don't waste time mining
@@ -431,6 +432,21 @@ void static BitcoinMiner(CWallet *pwallet)
                     if (!fvNodesEmpty && !IsInitialBlockDownload())
                         break;
                     MilliSleep(1000);
+                    boost::this_thread::interruption_point();
+                } while (true);
+
+                // wait for download to complete
+                do
+                {
+                    {
+                        LOCK(cs_main);
+                        CBlockIndex* tip = chainActive.Tip();
+                        if (pindexPrev == tip)
+                            break;
+                        pindexPrev = tip;
+                    }
+                    MilliSleep(2000);
+                    boost::this_thread::interruption_point();
                 } while (true);
             }
 
@@ -438,7 +454,6 @@ void static BitcoinMiner(CWallet *pwallet)
             // Create new block
             //
             unsigned int nTransactionsUpdatedLast;
-            CBlockIndex* pindexPrev;
             {
                 LOCK(cs_main);
                 nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
@@ -467,7 +482,7 @@ void static BitcoinMiner(CWallet *pwallet)
                 // scan for solution
                 bool fFound = false;
                 int nHashesDone = 0;
-                for (int ite = 0; ite < 128; ite++)
+                for (int ite = 0; ite < 8192; ite++)
                 {
                     nHashesDone++;
                     pblock->nNonce++;
