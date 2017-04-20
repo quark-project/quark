@@ -98,7 +98,7 @@ void OptionsModel::Init()
 
     // Mining
     if (!settings.contains("nMiningIntensity"))
-        settings.setValue("bMiningIntensity", 1);
+        settings.setValue("bMiningIntensity", 0);
 
     // Network
     if (!settings.contains("fUseUPnP"))
