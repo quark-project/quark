@@ -11,9 +11,13 @@
 
 #include "addrman.h"
 #include "chainparams.h"
+#include "chainparams.h"
 #include "clientversion.h"
+#include "miner.h"
+#include "obfuscation.h"
 #include "primitives/transaction.h"
 #include "ui_interface.h"
+#include "wallet.h"
 
 #ifdef WIN32
 #include <string.h>
@@ -377,7 +381,7 @@ CNode* FindNode(const CService& addr)
     return NULL;
 }
 
-CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
+CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool obfuScationMaster)
 {
     if (pszDest == NULL) {
         if (IsLocal(addrConnect))
@@ -387,6 +391,8 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
         CNode* pnode = FindNode((CService)addrConnect);
         if (pnode)
         {
+            pnode->fObfuScationMaster = obfuScationMaster;
+
             pnode->AddRef();
             return pnode;
         }
@@ -421,6 +427,7 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
         }
 
         pnode->nTimeConnected = GetTime();
+        if (obfuScationMaster) pnode->fObfuScationMaster = true;
 
         return pnode;
     } else if (!proxyConnectionFailed) {
@@ -1760,7 +1767,13 @@ instance_of_cnetcleanup;
 
 
 
-
+void RelayInv(CInv& inv)
+{
+    LOCK(cs_vNodes);
+    BOOST_FOREACH (CNode* pnode, vNodes)
+        if (pnode->nVersion >= ActiveProtocol())
+            pnode->PushInventory(inv);
+}
 
 
 void RelayTransaction(const CTransaction& tx)
@@ -1799,6 +1812,20 @@ void RelayTransaction(const CTransaction& tx, const CDataStream& ss)
                 pnode->PushInventory(inv);
         } else
             pnode->PushInventory(inv);
+    }
+}
+
+void RelayTransactionLockReq(const CTransaction& tx, bool relayToAll)
+{
+    CInv inv(MSG_TXLOCK_REQUEST, tx.GetHash());
+
+    //broadcast the new lock
+    LOCK(cs_vNodes);
+    BOOST_FOREACH (CNode* pnode, vNodes) {
+        if (!relayToAll && !pnode->fRelayTxes)
+            continue;
+
+        pnode->PushMessage("ix", tx);
     }
 }
 
@@ -2000,6 +2027,7 @@ CNode::CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn, bool fIn
     nPingUsecStart = 0;
     nPingUsecTime = 0;
     fPingQueued = false;
+    fObfuScationMaster = false;
 
     {
         LOCK(cs_nLastNodeId);
