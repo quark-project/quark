@@ -15,6 +15,8 @@
 #include <string>
 #include <vector>
 
+typedef std::vector<unsigned char> valtype;
+
 static const unsigned int MAX_SCRIPT_ELEMENT_SIZE = 520; // bytes
 
 // Threshold for nLockTime: below this value it is interpreted as block number,
@@ -583,6 +585,7 @@ public:
      */
     unsigned int GetSigOpCount(const CScript& scriptSig) const;
 
+    bool IsNormalPaymentScript() const;
     bool IsPayToScriptHash() const;
 
     /** Called by IsStandardTx and P2SH/BIP62 VerifyScript (which makes it consensus-critical). */

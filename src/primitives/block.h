@@ -7,11 +7,14 @@
 #define BITCOIN_PRIMITIVES_BLOCK_H
 
 #include "primitives/transaction.h"
+#include "keystore.h"
 #include "serialize.h"
 #include "uint256.h"
 
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;
+
+typedef std::vector<unsigned char> valtype;
 
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
@@ -80,6 +83,9 @@ public:
     // network and disk
     std::vector<CTransaction> vtx;
 
+    // ppcoin: block signature - signed by one of the coin base txout[N]'s owner
+    std::vector<unsigned char> vchBlockSig;
+
     // memory only
     mutable std::vector<uint256> vMerkleTree;
 
@@ -100,6 +106,8 @@ public:
     inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(*(CBlockHeader*)this);
         READWRITE(vtx);
+        if(vtx.size() > 1 && vtx[1].IsCoinStake())
+		    READWRITE(vchBlockSig);
     }
 
     void SetNull()
@@ -107,6 +115,7 @@ public:
         CBlockHeader::SetNull();
         vtx.clear();
         vMerkleTree.clear();
+        vchBlockSig.clear();
     }
 
     CBlockHeader GetBlockHeader() const
@@ -119,6 +128,25 @@ public:
         block.nBits          = nBits;
         block.nNonce         = nNonce;
         return block;
+    }
+
+    // ppcoin: two types of block: proof-of-work or proof-of-stake
+    bool IsProofOfStake() const
+    {
+        return (vtx.size() > 1 && vtx[1].IsCoinStake());
+    }
+
+    bool IsProofOfWork() const
+    {
+        return !IsProofOfStake();
+    }
+
+    bool SignBlock(const CKeyStore& keystore);
+    bool CheckBlockSignature() const;
+
+    std::pair<COutPoint, unsigned int> GetProofOfStake() const
+    {
+        return IsProofOfStake()? std::make_pair(vtx[1].vin[0].prevout, nTime) : std::make_pair(COutPoint(), (unsigned int)0);
     }
 
     // Build the in-memory merkle tree for this block and return the merkle root.
