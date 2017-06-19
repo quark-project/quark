@@ -240,6 +240,7 @@ public:
     void UnlockCoin(COutPoint& output);
     void UnlockAllCoins();
     void ListLockedCoins(std::vector<COutPoint>& vOutpts);
+    int64_t GetTotalValue(std::vector<CTxIn> vCoins);
 
     /**
      * keystore implementation
@@ -1123,6 +1124,22 @@ public:
     COutput(const CWalletTx *txIn, int iIn, int nDepthIn, bool fSpendableIn)
     {
         tx = txIn; i = iIn; nDepth = nDepthIn; fSpendable = fSpendableIn;
+    }
+
+    //Used with Obfuscation. Will return largest nondenom, then denominations, then very small inputs
+    int Priority() const
+    {
+        BOOST_FOREACH (int64_t d, obfuScationDenominations)
+            if (tx->vout[i].nValue == d) return 10000;
+        if (tx->vout[i].nValue < 1 * COIN) return 20000;
+
+        //nondenom return largest first
+        return -(tx->vout[i].nValue / COIN);
+    }
+
+    CAmount Value() const
+    {
+        return tx->vout[i].nValue;
     }
 
     std::string ToString() const;

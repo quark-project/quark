@@ -45,6 +45,9 @@ using namespace std;
 CCriticalSection cs_main;
 
 BlockMap mapBlockIndex;
+map<uint256, uint256> mapProofOfStake;
+set<pair<COutPoint, unsigned int> > setStakeSeen;
+map<unsigned int, unsigned int> mapHashedBlocks;
 CChain chainActive;
 CBlockIndex *pindexBestHeader = NULL;
 int64_t nTimeBestReceived = 0;
@@ -1575,59 +1578,61 @@ static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
 
 CAmount GetBlockValue(int nHeight)
 {
-    // if (nHeight == 0)
-    // {
-    //     return nGenesisBlockRewardCoin;
-    // }
-
-    // CAmount nSubsidy = nBlockRewardStartCoin;
-
-    // // Subsidy is cut in half every 60480 blocks (21 days)
-    // nSubsidy >>= min((nHeight / Params().SubsidyHalvingInterval()), 63);
-
-    // // Minimum subsidy
-    // if (nSubsidy < nBlockRewardMinimumCoin)
-    // {
-    //     nSubsidy = nBlockRewardMinimumCoin;
-    int64_t nSubsidy = 0;
-
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200 && nHeight > 0)
-            return 250000 * COIN;
+    if (nHeight == 0)
+    {
+        return nGenesisBlockRewardCoin;
     }
 
-    if (nHeight == 0) {
-        nSubsidy = 60001 * COIN;
-    } else if (nHeight < 86400 && nHeight > 0) {
-        nSubsidy = 250 * COIN;
-    } else if (nHeight < 151200 && nHeight >= 86400) {
-        nSubsidy = 225 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 40.5 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 36 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 31.5 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 27 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 22.5 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 18 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 13.5 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 9 * COIN;
-    } else if (nHeight >= 648000) {
-        nSubsidy = 4.5 * COIN;
-    } else {
-        nSubsidy = 0 * COIN;
+    CAmount nSubsidy = nBlockRewardStartCoin;
+
+    // Subsidy is cut in half every 60480 blocks (21 days)
+    nSubsidy >>= min((nHeight / Params().SubsidyHalvingInterval()), 63);
+
+    // Minimum subsidy
+    if (nSubsidy < nBlockRewardMinimumCoin)
+    {
+        nSubsidy = nBlockRewardMinimumCoin;
     }
     return nSubsidy;
+    // int64_t nSubsidy = 0;
+
+    // if (Params().NetworkID() == CBaseChainParams::TESTNET) {
+    //     if (nHeight < 200 && nHeight > 0)
+    //         return 250000 * COIN;
+    // }
+
+    // if (nHeight == 0) {
+    //     nSubsidy = 60001 * COIN;
+    // } else if (nHeight < 86400 && nHeight > 0) {
+    //     nSubsidy = 250 * COIN;
+    // } else if (nHeight < 151200 && nHeight >= 86400) {
+    //     nSubsidy = 225 * COIN;
+    // } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 151200) {
+    //     nSubsidy = 45 * COIN;
+    // } else if (nHeight <= 302399 && nHeight > Params().LAST_POW_BLOCK()) {
+    //     nSubsidy = 45 * COIN;
+    // } else if (nHeight <= 345599 && nHeight >= 302400) {
+    //     nSubsidy = 40.5 * COIN;
+    // } else if (nHeight <= 388799 && nHeight >= 345600) {
+    //     nSubsidy = 36 * COIN;
+    // } else if (nHeight <= 431999 && nHeight >= 388800) {
+    //     nSubsidy = 31.5 * COIN;
+    // } else if (nHeight <= 475199 && nHeight >= 432000) {
+    //     nSubsidy = 27 * COIN;
+    // } else if (nHeight <= 518399 && nHeight >= 475200) {
+    //     nSubsidy = 22.5 * COIN;
+    // } else if (nHeight <= 561599 && nHeight >= 518400) {
+    //     nSubsidy = 18 * COIN;
+    // } else if (nHeight <= 604799 && nHeight >= 561600) {
+    //     nSubsidy = 13.5 * COIN;
+    // } else if (nHeight <= 647999 && nHeight >= 604800) {
+    //     nSubsidy = 9 * COIN;
+    // } else if (nHeight >= 648000) {
+    //     nSubsidy = 4.5 * COIN;
+    // } else {
+    //     nSubsidy = 0 * COIN;
+    // }
+    // return nSubsidy;
 }
 
 bool IsInitialBlockDownload()
@@ -3020,6 +3025,7 @@ CBlockIndex* AddToBlockIndex(const CBlockHeader& block)
     // Check for duplicate
     uint256 hash = block.GetHash();
     BlockMap::iterator it = mapBlockIndex.find(hash);
+
     if (it != mapBlockIndex.end())
         return it->second;
 
@@ -3031,6 +3037,11 @@ CBlockIndex* AddToBlockIndex(const CBlockHeader& block)
     // competitive advantage.
     pindexNew->nSequenceId = 0;
     BlockMap::iterator mi = mapBlockIndex.insert(make_pair(hash, pindexNew)).first;
+
+    //mark as PoS seen
+    if (pindexNew->IsProofOfStake())
+        setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nStakeTime));
+
     pindexNew->phashBlock = &((*mi).first);
     BlockMap::iterator miPrev = mapBlockIndex.find(block.hashPrevBlock);
     if (miPrev != mapBlockIndex.end())
@@ -3665,6 +3676,11 @@ CBlockIndex * InsertBlockIndex(uint256 hash)
     if (!pindexNew)
         throw runtime_error("LoadBlockIndex() : new CBlockIndex failed");
     mi = mapBlockIndex.insert(make_pair(hash, pindexNew)).first;
+
+    //mark as PoS seen
+    if (pindexNew->IsProofOfStake())
+        setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nStakeTime));
+
     pindexNew->phashBlock = &((*mi).first);
 
     return pindexNew;
