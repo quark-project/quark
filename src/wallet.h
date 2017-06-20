@@ -7,6 +7,7 @@
 #define BITCOIN_WALLET_H
 
 #include "amount.h"
+#include "base58.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
 #include "crypter.h"
@@ -61,6 +62,16 @@ enum AvailableCoinsType {
     ONLY_NOT10000IFMN = 3,
     ONLY_NONDENOMINATED_NOT10000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 PIV at the same time
     ONLY_10000 = 5                        // find masternode outputs including locked ones (use with caution)
+};
+
+struct CompactTallyItem {
+    CBitcoinAddress address;
+    CAmount nAmount;
+    std::vector<CTxIn> vecTxIn;
+    CompactTallyItem()
+    {
+        nAmount = 0;
+    }
 };
 
 /** (client) version numbers for particular wallet features */
@@ -119,7 +130,7 @@ public:
 class CWallet : public CCryptoKeyStore, public CValidationInterface
 {
 private:
-    bool SelectCoins(const CAmount& nTargetValue, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet, const CCoinControl *coinControl = NULL) const;
+    bool SelectCoins(const CAmount& nTargetValue, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet, const CCoinControl *coinControl = NULL, AvailableCoinsType coin_type = ALL_COINS, bool useIX = true) const;
 
     CWalletDB *pwalletdbEncryption;
 
@@ -165,6 +176,7 @@ public:
     mutable CCriticalSection cs_wallet;
 
     bool fFileBacked;
+    bool fWalletUnlockAnonymizeOnly;
     std::string strWalletFile;
 
     std::set<int64_t> setKeyPool;
@@ -173,6 +185,25 @@ public:
     typedef std::map<unsigned int, CMasterKey> MasterKeyMap;
     MasterKeyMap mapMasterKeys;
     unsigned int nMasterKeyMaxID;
+
+    // Stake Settings
+    unsigned int nHashDrift;
+    unsigned int nHashInterval;
+    uint64_t nStakeSplitThreshold;
+    int nStakeSetUpdateTime;
+
+    //MultiSend
+    std::vector<std::pair<std::string, int> > vMultiSend;
+    bool fMultiSendStake;
+    bool fMultiSendMasternodeReward;
+    bool fMultiSendNotify;
+    std::string strMultiSendChangeAddress;
+    int nLastMultiSendHeight;
+    std::vector<std::string> vDisabledAddresses;
+
+    //Auto Combine Inputs
+    bool fCombineDust;
+    CAmount nAutoCombineThreshold;
 
     CWallet()
     {
@@ -204,6 +235,38 @@ public:
         nNextResend = 0;
         nLastResend = 0;
         nTimeFirstKey = 0;
+
+        fWalletUnlockAnonymizeOnly = false;
+
+        // Stake Settings
+        nHashDrift = 45;
+        nStakeSplitThreshold = 2000;
+        nHashInterval = 22;
+        nStakeSetUpdateTime = 300; // 5 minutes
+
+        //MultiSend
+        vMultiSend.clear();
+        fMultiSendStake = false;
+        fMultiSendMasternodeReward = false;
+        fMultiSendNotify = false;
+        strMultiSendChangeAddress = "";
+        nLastMultiSendHeight = 0;
+        vDisabledAddresses.clear();
+
+        //Auto Combine Dust
+        fCombineDust = false;
+        nAutoCombineThreshold = 0;
+    }
+
+    bool isMultiSendEnabled()
+    {
+        return fMultiSendMasternodeReward || fMultiSendStake;
+    }
+
+    void setMultiSendDisabled()
+    {
+        fMultiSendMasternodeReward = false;
+        fMultiSendStake = false;
     }
 
     std::map<uint256, CWalletTx> mapWallet;
@@ -225,6 +288,7 @@ public:
     bool CanSupportFeature(enum WalletFeature wf) { AssertLockHeld(cs_wallet); return nWalletMaxVersion >= wf; }
 
     void AvailableCoins(std::vector<COutput>& vCoins, bool fOnlyConfirmed = true, const CCoinControl* coinControl = NULL, bool fIncludeZeroValue = false, AvailableCoinsType nCoinType = ALL_COINS, bool fUseIX = false) const;
+    std::map<CBitcoinAddress, std::vector<COutput> > AvailableCoinsByAddress(bool fConfirmed = true, CAmount maxCoinValue = 0);
     bool SelectCoinsMinConf(const CAmount& nTargetValue, int nConfMine, int nConfTheirs, std::vector<COutput> vCoins, std::set<std::pair<const CWalletTx*,unsigned int> >& setCoinsRet, CAmount& nValueRet) const;
 
     /// Get 1000DASH output and keys which can be used for the Masternode

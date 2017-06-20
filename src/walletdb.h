@@ -103,6 +103,15 @@ public:
 
     bool WriteOrderPosNext(int64_t nOrderPosNext);
 
+    // presstab
+    bool WriteStakeSplitThreshold(uint64_t nStakeSplitThreshold);
+    bool WriteMultiSend(std::vector<std::pair<std::string, int> > vMultiSend);
+    bool EraseMultiSend(std::vector<std::pair<std::string, int> > vMultiSend);
+    bool WriteMSettings(bool fMultiSendStake, bool fMultiSendMasternode, int nLastMultiSendHeight);
+    bool WriteMSDisabledAddresses(std::vector<std::string> vDisabledAddresses);
+    bool EraseMSDisabledAddresses(std::vector<std::string> vDisabledAddresses);
+    bool WriteAutoCombineSettings(bool fEnable, CAmount nCombineThreshold);
+
     bool WriteDefaultKey(const CPubKey& vchPubKey);
 
     bool ReadPool(int64_t nPool, CKeyPool& keypool);
