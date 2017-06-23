@@ -148,8 +148,7 @@ public:
         nTargetSpacing = 30; // 30 seconds
         nMaxTipAge = 24 * 60 * 60;
         nModifierUpdateBlock = 615800;
-        nTargetSpacing = 1 * 60;  // PIVX: 1 minute
-        nLastPOWBlock = 259200;
+        nFirstPOSBlock = 259200;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -242,7 +241,7 @@ public:
         nTargetSpacing = 30; // 30 seconds
         nMaxTipAge = 0x7fffffff;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
-        nLastPOWBlock = 200;
+        nFirstPOSBlock = 200;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1373481000;
@@ -272,7 +271,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKey = "04348C2F50F90267E64FACC65BFDC9D0EB147D090872FB97ABAE92E9A36E6CA60983E28E741F8E7277B11A7479B626AC115BA31463AC48178A5075C5A9319D4A38";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
+        nStartMasternodePayments = 1420837558; //Fri, 0fGenerate9 Jan 2015 21:05:58 GMT
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -300,13 +299,14 @@ public:
         nMinerThreads = 1;
         nTargetTimespan = 10 * 60; // ten minutes
         nTargetSpacing = 30; // 30 seconds
-        bnProofOfWorkLimit = ~uint256(0) >> 1;
+        bnProofOfWorkLimit = ~uint256(0);
         nMaxTipAge = 24 * 60 * 60;
         genesis.nTime = 1296688602;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 2;
+        genesis.nBits = bnProofOfWorkLimit.GetCompact();
+        genesis.nNonce = 3;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
+        nFirstPOSBlock = 20;
         // assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.

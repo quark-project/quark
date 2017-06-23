@@ -49,7 +49,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     // Limit adjustment step
     int64_t nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-    LogPrintf("  nActualTimespan = %d before bounds\n", nActualTimespan);
+    // LogPrintf("  nActualTimespan = %d before bounds\n", nActualTimespan);
     int64_t LimUp = nTargetTimespan * 100 / 110; // 110% up
     int64_t LimDown = nTargetTimespan * 2; // 200% down
     if (nActualTimespan < LimUp)
@@ -68,11 +68,6 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (bnNew > Params().ProofOfWorkLimit())
         bnNew = Params().ProofOfWorkLimit();
 
-    /// debug print
-    // LogPrintf("GetNextWorkRequired RETARGET\n");
-    // LogPrintf("nTargetTimespan = %d    nActualTimespan = %d\n", nTargetTimespan, nActualTimespan);
-    // LogPrintf("Before: %08x  %s\n", pindexLast->nBits, bnOld.ToString());
-    // LogPrintf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.ToString());
 
     return bnNew.GetCompact();
 }

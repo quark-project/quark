@@ -102,6 +102,7 @@ BITCOIN_CORE_H = \
   hash.h \
   hashblock.h \
   init.h \
+  kernel.h \
   swifttx.h \
   key.h \
   keystore.h \
@@ -223,6 +224,7 @@ libquark_wallet_a_SOURCES = \
   masternodeman.cpp \
   rpcdump.cpp \
   rpcwallet.cpp \
+  kernel.cpp \
   wallet.cpp \
   wallet_ismine.cpp \
   walletdb.cpp \
