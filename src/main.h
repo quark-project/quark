@@ -45,6 +45,7 @@ class CInv;
 class CScriptCheck;
 class CValidationInterface;
 class CValidationState;
+class CReserveScript;
 
 struct CBlockTemplate;
 struct CNodeStateStats;
@@ -131,6 +132,15 @@ extern unsigned int nCoinCacheSize;
 extern CFeeRate minRelayTxFee;
 extern bool fAlerts;
 
+extern unsigned int nStakeMinAge;
+extern int64_t nLastCoinStakeSearchInterval;
+extern int64_t nLastCoinStakeSearchTime;
+extern int64_t nReserveBalance;
+
+extern std::map<uint256, int64_t> mapRejectedBlocks;
+extern std::map<unsigned int, unsigned int> mapHashedBlocks;
+extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
+
 /** Best header we've seen so far (used for getheaders queries' starting points). */
 extern CBlockIndex *pindexBestHeader;
 
@@ -179,6 +189,8 @@ bool InitBlockIndex();
 bool LoadBlockIndex();
 /** Unload database information */
 void UnloadBlockIndex();
+
+int ActiveProtocol();
 /** Process protocol messages received from a given node */
 bool ProcessMessages(CNode* pfrom);
 /**
@@ -196,9 +208,17 @@ bool IsInitialBlockDownload();
 std::string GetWarnings(std::string strFor);
 /** Retrieve a transaction (from memory pool, or from disk, if possible) */
 bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, bool fAllowSlow = false);
+
+ bool DisconnectBlocksAndReprocess(int blocks);
+
+ // ***TODO***
+double ConvertBitsToDouble(unsigned int nBits);
+int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount = 0);
+
 /** Find the best known block, and make it the tip of the block chain */
 bool ActivateBestChain(CValidationState &state, CBlock *pblock = NULL);
-CAmount GetBlockValue(int nHeight, const CAmount& nFees);
+CAmount GetBlockValue(int nHeight);
+CAmount GetInflation(const CBlockIndex*);
 
 /** Create a new block index entry for a given block hash */
 CBlockIndex * InsertBlockIndex(uint256 hash);
@@ -214,8 +234,15 @@ void FlushStateToDisk();
 
 /** (try to) add transaction to memory pool **/
 bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransaction &tx, bool fLimitFree,
-                        bool* pfMissingInputs, bool fRejectInsaneFee=false);
+                        bool* pfMissingInputs, bool fRejectInsaneFee=false, bool ignoreFees = false);
 
+bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransaction& tx, bool fLimitFree, bool* pfMissingInputs, bool fRejectInsaneFee = false, bool isDSTX = false);
+
+
+int GetInputAge(CTxIn& vin);
+int GetInputAgeIX(uint256 nTXHash, CTxIn& vin);
+bool GetCoinAge(const CTransaction& tx, unsigned int nTxTime, uint64_t& nCoinAge);
+int GetIXConfirmations(uint256 nTXHash);
 
 struct CNodeStateStats {
     int nMisbehavior;
@@ -301,6 +328,16 @@ void UpdateCoins(const CTransaction& tx, CValidationState &state, CCoinsViewCach
 
 /** Context-independent validity checks */
 bool CheckTransaction(const CTransaction& tx, CValidationState& state);
+
+
+/**
+ * Check if transaction will be final in the next block to be created.
+ *
+ * Calls IsFinalTx() with current block height and appropriate block time.
+ *
+ * See consensus/consensus.h for flag definitions.
+ */
+bool CheckFinalTx(const CTransaction& tx, int flags = -1);
 
 /** Check for standard transaction types
  * @return True if all outputs (scriptPubKeys) use only standard transaction forms
@@ -553,13 +590,17 @@ struct CBlockTemplate
 
 class CValidationInterface {
 protected:
-    virtual void SyncTransaction(const CTransaction &tx, const CBlock *pblock) {};
-    virtual void EraseFromWallet(const uint256 &hash) {};
-    virtual void SetBestChain(const CBlockLocator &locator) {};
-    virtual void UpdatedTransaction(const uint256 &hash) {};
-    virtual void Inventory(const uint256 &hash) {};
-    virtual void ResendWalletTransactions() {};
-    virtual void BlockChecked(const CBlock&, const CValidationState&) {};
+    virtual void UpdatedBlockTip(const CBlockIndex *pindex) {}
+    virtual void SyncTransaction(const CTransaction &tx, const CBlock *pblock) {}
+    virtual void NotifyTransactionLock(const CTransaction &tx) {}
+    virtual void SetBestChain(const CBlockLocator &locator) {}
+    virtual bool UpdatedTransaction(const uint256 &hash) { return false;}
+    virtual void Inventory(const uint256 &hash) {}
+// XX42    virtual void ResendWalletTransactions(int64_t nBestBlockTime) {}
+    virtual void ResendWalletTransactions() {}
+    virtual void BlockChecked(const CBlock&, const CValidationState&) {}
+    virtual void GetScriptForMining(boost::shared_ptr<CReserveScript>&) {};
+    virtual void ResetRequestCount(const uint256 &hash) {};
     friend void ::RegisterValidationInterface(CValidationInterface*);
     friend void ::UnregisterValidationInterface(CValidationInterface*);
     friend void ::UnregisterAllValidationInterfaces();

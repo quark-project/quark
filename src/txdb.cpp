@@ -220,6 +220,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 // Construct block index object
                 CBlockIndex* pindexNew = InsertBlockIndex(diskindex.GetBlockHash());
                 pindexNew->pprev          = InsertBlockIndex(diskindex.hashPrev);
+                pindexNew->pnext          = InsertBlockIndex(diskindex.hashNext);
                 pindexNew->nHeight        = diskindex.nHeight;
                 pindexNew->nFile          = diskindex.nFile;
                 pindexNew->nDataPos       = diskindex.nDataPos;
@@ -232,8 +233,22 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 pindexNew->nStatus        = diskindex.nStatus;
                 pindexNew->nTx            = diskindex.nTx;
 
-                if (!CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits))
-                    return error("LoadBlockIndex() : CheckProofOfWork failed: %s", pindexNew->ToString());
+                //Proof Of Stake
+                pindexNew->nMint = diskindex.nMint;
+                pindexNew->nMoneySupply = diskindex.nMoneySupply;
+                pindexNew->nFlags = diskindex.nFlags;
+                pindexNew->nStakeModifier = diskindex.nStakeModifier;
+                pindexNew->prevoutStake = diskindex.prevoutStake;
+                pindexNew->nStakeTime = diskindex.nStakeTime;
+                pindexNew->hashProofOfStake = diskindex.hashProofOfStake;
+
+                if (!pindexNew->IsProofOfStake()) {
+                    if (!CheckProofOfWork(pindexNew->GetBlockHash(), pindexNew->nBits))
+                        return error("LoadBlockIndex() : CheckProofOfWork failed: %s", pindexNew->ToString());
+                }
+                // ppcoin: build setStakeSeen
+                if (pindexNew->IsProofOfStake())
+                    setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nStakeTime));
 
                 pcursor->Next();
             } else {

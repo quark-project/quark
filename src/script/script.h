@@ -9,11 +9,14 @@
 #include <assert.h>
 #include <climits>
 #include <limits>
+#include "pubkey.h"
 #include <stdexcept>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <vector>
+
+typedef std::vector<unsigned char> valtype;
 
 static const unsigned int MAX_SCRIPT_ELEMENT_SIZE = 520; // bytes
 
@@ -443,6 +446,12 @@ public:
         return *this;
     }
 
+    CScript& operator<<(const CPubKey& key)
+    {
+        std::vector<unsigned char> vchKey(key.begin(), key.end());
+        return (*this) << vchKey;
+    }
+
 
     bool GetOp(iterator& pc, opcodetype& opcodeRet, std::vector<unsigned char>& vchRet)
     {
@@ -583,6 +592,7 @@ public:
      */
     unsigned int GetSigOpCount(const CScript& scriptSig) const;
 
+    bool IsNormalPaymentScript() const;
     bool IsPayToScriptHash() const;
 
     /** Called by IsStandardTx and P2SH/BIP62 VerifyScript (which makes it consensus-critical). */
