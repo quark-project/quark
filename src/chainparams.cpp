@@ -149,6 +149,7 @@ public:
         nMaxTipAge = 24 * 60 * 60;
         nModifierUpdateBlock = 615800;
         nFirstPOSBlock = 259200;
+        nFirstMasternodePaymentBlock = 259200;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -242,6 +243,7 @@ public:
         nMaxTipAge = 0x7fffffff;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nFirstPOSBlock = 200;
+        nFirstMasternodePaymentBlock = 200;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1373481000;
@@ -307,6 +309,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         nFirstPOSBlock = 20;
+        nFirstMasternodePaymentBlock = 20;
         // assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
