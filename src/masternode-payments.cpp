@@ -191,6 +191,15 @@ bool IsBlockValueValid(const CBlock& block, int64_t nExpectedValue)
         LogPrintf("IsBlockValueValid() : WARNING: Couldn't find previous block");
     }
 
+    if (nHeight < Params().FirstMasternodePaymentBlock())
+    {
+        // Masternode payments not yet active
+        if (block.vtx[0].GetValueOut() > nExpectedValue)
+            return false;
+        else
+            return true;
+    }
+
     if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything
         //super blocks will always be on these blocks, max 100 per budgeting
         if (nHeight % GetBudgetPaymentCycleBlocks() < 100) {
@@ -294,7 +303,7 @@ bool CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         }
     }
 
-    CAmount blockValue = GetBlockValue(pindexPrev->nHeight) + GetInflation(pindexPrev);
+    CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
     CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
         if (fProofOfStake) {
             /**For Proof Of Stake vout[0] must be null

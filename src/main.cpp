@@ -1585,20 +1585,20 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 static const int64_t nBlockRewardStartCoin = 2048 * COIN;
 static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
-static const double nSecondsInYear = 365.242196 * 24 * 60 * 60; // seconds in year
-
-CAmount GetInflation(const CBlockIndex* pindex)
-{
-    unsigned int actBlockTime = pindex->nTime - pindex->pprev->nTime; 
-    CAmount nInflation = actBlockTime / nSecondsInYear * pindex->IsProofOfStake() ? .014 : .016 * pindex->nMoneySupply;
-    return nInflation;
-}
 
 CAmount GetBlockValue(int nHeight)
 {
     if (nHeight == 0)
     {
         return nGenesisBlockRewardCoin;
+    }
+
+    if (Params().NetworkID() == CBaseChainParams::TESTNET)
+    {
+        if (nHeight < 250)
+            return nBlockRewardStartCoin;
+        else
+            return nBlockRewardMinimumCoin;
     }
 
     CAmount nSubsidy = nBlockRewardStartCoin;
@@ -1615,45 +1615,6 @@ CAmount GetBlockValue(int nHeight)
 
 
     return nSubsidy;
-    // int64_t nSubsidy = 0;
-
-    // if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-    //     if (nHeight < 200 && nHeight > 0)
-    //         return 250000 * COIN;
-    // }
-
-    // if (nHeight == 0) {
-    //     nSubsidy = 60001 * COIN;
-    // } else if (nHeight < 86400 && nHeight > 0) {
-    //     nSubsidy = 250 * COIN;
-    // } else if (nHeight < 151200 && nHeight >= 86400) {
-    //     nSubsidy = 225 * COIN;
-    // } else if (nHeight <= Params().FIRST_POS_BLOCK() && nHeight >= 151200) {
-    //     nSubsidy = 45 * COIN;
-    // } else if (nHeight <= 302399 && nHeight > Params().FIRST_POS_BLOCK()) {
-    //     nSubsidy = 45 * COIN;
-    // } else if (nHeight <= 345599 && nHeight >= 302400) {
-    //     nSubsidy = 40.5 * COIN;
-    // } else if (nHeight <= 388799 && nHeight >= 345600) {
-    //     nSubsidy = 36 * COIN;
-    // } else if (nHeight <= 431999 && nHeight >= 388800) {
-    //     nSubsidy = 31.5 * COIN;
-    // } else if (nHeight <= 475199 && nHeight >= 432000) {
-    //     nSubsidy = 27 * COIN;
-    // } else if (nHeight <= 518399 && nHeight >= 475200) {
-    //     nSubsidy = 22.5 * COIN;
-    // } else if (nHeight <= 561599 && nHeight >= 518400) {
-    //     nSubsidy = 18 * COIN;
-    // } else if (nHeight <= 604799 && nHeight >= 561600) {
-    //     nSubsidy = 13.5 * COIN;
-    // } else if (nHeight <= 647999 && nHeight >= 604800) {
-    //     nSubsidy = 9 * COIN;
-    // } else if (nHeight >= 648000) {
-    //     nSubsidy = 4.5 * COIN;
-    // } else {
-    //     nSubsidy = 0 * COIN;
-    // }
-    // return nSubsidy;
 }
 
 bool IsInitialBlockDownload()
@@ -2194,10 +2155,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime1 = GetTimeMicros(); nTimeConnect += nTime1 - nTimeStart;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs-1), nTimeConnect * 0.000001);
 
-    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + GetInflation(pindex))) {
+    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight))) {
         return state.DoS(100,
             error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + GetInflation(pindex)),
+                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight)),
             REJECT_INVALID, "bad-cb-amount");
     }
 
@@ -2570,26 +2531,10 @@ bool DisconnectBlockAndInputs(CValidationState& state, CTransaction txLock)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = 0;
+    if (nHeight < Params().FirstMasternodePaymentBlock())
+        return 0;
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200)
-            return 0;
-    }
-
-
-    if (nHeight > Params().FIRST_POS_BLOCK()) {
-        int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
-        int64_t mNodeCoins = mnodeman.size() * 10000 * COIN;
-
-        //if a mn count is inserted into the function we are looking for a specific result for a masternode count
-        if(nMasternodeCount)
-            mNodeCoins = nMasternodeCount * 10000 * COIN;
-
-        ret = blockValue / 2;
-    }
-
-    return ret;
+    return blockValue / 2;
 }
 
 /**
@@ -4831,7 +4776,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CTransaction tx;
 
         //masternode signed transaction
-        bool ignoreFees = false;
+        // bool ignoreFees = false;
         CTxIn vin;
         vector<unsigned char> vchSig;
         int64_t sigTime;
@@ -4861,7 +4806,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
                 LogPrintf("dstx: Got Masternode transaction %s\n", tx.GetHash().ToString());
 
-                ignoreFees = true;
+                // ignoreFees = true;
                 pmn->allowFreeTx = false;
 
                 if (!mapObfuscationBroadcastTxes.count(tx.GetHash())) {
