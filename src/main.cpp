@@ -2523,26 +2523,10 @@ bool DisconnectBlockAndInputs(CValidationState& state, CTransaction txLock)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = 0;
+    if (nHeight < Params().FirstMasternodePaymentBlock())
+        return 0;
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200)
-            return 0;
-    }
-
-
-    if (nHeight > Params().FIRST_POS_BLOCK()) {
-        int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
-        int64_t mNodeCoins = mnodeman.size() * 10000 * COIN;
-
-        //if a mn count is inserted into the function we are looking for a specific result for a masternode count
-        if(nMasternodeCount)
-            mNodeCoins = nMasternodeCount * 10000 * COIN;
-
-        ret = blockValue / 2;
-    }
-
-    return ret;
+    return blockValue / 2;
 }
 
 /**
