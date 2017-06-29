@@ -1593,6 +1593,14 @@ CAmount GetBlockValue(int nHeight)
         return nGenesisBlockRewardCoin;
     }
 
+    if (Params().NetworkID() == CBaseChainParams::TESTNET))
+    {
+        if (nHeight < 250)
+            return nBlockRewardStartCoin;
+        else
+            return nBlockRewardMinimumCoin;
+    }
+
     CAmount nSubsidy = nBlockRewardStartCoin;
 
 
