@@ -1585,14 +1585,6 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 static const int64_t nBlockRewardStartCoin = 2048 * COIN;
 static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
-static const double nSecondsInYear = 365.242196 * 24 * 60 * 60; // seconds in year
-
-CAmount GetInflation(const CBlockIndex* pindex)
-{
-    unsigned int actBlockTime = pindex->nTime - pindex->pprev->nTime;
-    CAmount nInflation = actBlockTime / nSecondsInYear * pindex->IsProofOfStake() ? .014 : .016 * pindex->nMoneySupply;
-    return nInflation;
-}
 
 CAmount GetBlockValue(int nHeight)
 {
@@ -2155,10 +2147,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime1 = GetTimeMicros(); nTimeConnect += nTime1 - nTimeStart;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs-1), nTimeConnect * 0.000001);
 
-    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + GetInflation(pindex))) {
+    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight))) {
         return state.DoS(100,
             error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + GetInflation(pindex)),
+                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight)),
             REJECT_INVALID, "bad-cb-amount");
     }
 
