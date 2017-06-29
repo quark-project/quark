@@ -243,7 +243,7 @@ public:
         nMaxTipAge = 0x7fffffff;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nFirstPOSBlock = 200;
-        nFirstMasternodePaymentBlock = 200;
+        nFirstMasternodePaymentBlock = 300;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1373481000;
