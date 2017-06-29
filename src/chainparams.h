@@ -89,7 +89,7 @@ public:
     std::string SporkKey() const { return strSporkKey; }
     std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
-    int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
+    // int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
 protected:
     CChainParams() {}
 
@@ -131,7 +131,7 @@ protected:
     int64_t nStartMasternodePayments;
 };
 
-/** 
+/**
  * Modifiable parameters interface is used by test cases to adapt the parameters in order
  * to test specific features more easily. Test cases should always restore the previous
  * values after finalization.
