@@ -1586,6 +1586,22 @@ static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 static const int64_t nBlockRewardStartCoin = 2048 * COIN;
 static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
 
+// miner's coin stake reward
+CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
+{
+    int64_t nSubsidy;
+    // Force block reward to zero when right shift is undefined.
+    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
+
+    int64_t nMutiplier = COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+
+    nSubsidy = nCoinAge * nMutiplier;
+
+    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
+
+    return nSubsidy;
+}
+
 CAmount GetBlockValue(int nHeight)
 {
     if (nHeight == 0)
@@ -2130,6 +2146,18 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
             nFees += view.GetValueIn(tx)-tx.GetValueOut();
             nValueIn += view.GetValueIn(tx);
+
+            if (tx.IsCoinStake())
+            {
+                // ppcoin: coin stake tx earns reward instead of paying fee
+                uint64_t nCoinAge;
+                if (!GetCoinAge(tx, block.nTime, nCoinAge))
+                    return error("ConnectInputs() : %s unable to get coin age for coinstake", tx.GetHash().ToString().substr(0,10).c_str());
+                int64_t nStakeReward = tx.GetValueOut() - nValueIn;
+                CAmount nActualReward = GetProofOfStakeReward(pindex->nHeight, nCoinAge);
+                if (nStakeReward > nActualReward)
+                    return state.DoS(100, error("ConnectInputs() : %s stake reward exceeded", tx.GetHash().ToString().substr(0,10).c_str()));
+            }
 
             std::vector<CScriptCheck> vChecks;
             if (!CheckInputs(tx, state, view, fScriptChecks, flags, false, nScriptCheckThreads ? &vChecks : NULL))
