@@ -17,6 +17,7 @@ static const int64_t nTargetSpacing = 30; // 30 seconds
 static const int64_t nInterval = nTargetTimespan / nTargetSpacing; // 20 blocks
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock);
+unsigned int GetNextPoSTargetRequired(const CBlockIndex* pindexLast);
 
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
