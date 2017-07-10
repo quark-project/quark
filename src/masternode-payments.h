@@ -30,7 +30,7 @@ void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDa
 bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight);
 std::string GetRequiredPaymentsString(int nBlockHeight);
 bool IsBlockValueValid(const CBlock& block, int64_t nExpectedValue);
-bool FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake);
+bool FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake, int nTxNewTime);
 
 void DumpMasternodePayments();
 
@@ -283,7 +283,7 @@ public:
     int GetMinMasternodePaymentsProto();
     void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
     std::string GetRequiredPaymentsString(int nBlockHeight);
-    bool FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake);
+    bool FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake, int nTxNewTime);
     std::string ToString() const;
     int GetOldestBlock();
     int GetNewestBlock();

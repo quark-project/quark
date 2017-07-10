@@ -2519,7 +2519,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
     //Masternode payment
     if (pIndex0->nHeight >= Params().FirstMasternodePaymentBlock())
-        FillBlockPayee(txNew, nMinFee, true);
+        FillBlockPayee(txNew, nMinFee, true, nTxNewTime);
 
     // Sign
     int nIn = 0;
