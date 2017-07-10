@@ -1586,6 +1586,22 @@ static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 static const int64_t nBlockRewardStartCoin = 2048 * COIN;
 static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
 
+// miner's coin stake reward
+CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
+{
+    int64_t nSubsidy;
+    // Force block reward to zero when right shift is undefined.
+    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
+
+    int64_t nMutiplier = COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+
+    nSubsidy = nCoinAge * nMutiplier;
+
+    LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
+
+    return nSubsidy;
+}
+
 CAmount GetBlockValue(int nHeight)
 {
     if (nHeight == 0)
@@ -2131,6 +2147,18 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
             nFees += view.GetValueIn(tx)-tx.GetValueOut();
             nValueIn += view.GetValueIn(tx);
 
+            if (tx.IsCoinStake())
+            {
+                // ppcoin: coin stake tx earns reward instead of paying fee
+                uint64_t nCoinAge;
+                if (!GetCoinAge(tx, block.nTime, nCoinAge))
+                    return error("ConnectInputs() : %s unable to get coin age for coinstake", tx.GetHash().ToString().substr(0,10).c_str());
+                int64_t nStakeReward = tx.GetValueOut() - nValueIn;
+                CAmount nActualReward = GetProofOfStakeReward(pindex->nHeight, nCoinAge);
+                if (nStakeReward > nActualReward)
+                    return state.DoS(100, error("ConnectInputs() : %s stake reward exceeded", tx.GetHash().ToString().substr(0,10).c_str()));
+            }
+
             std::vector<CScriptCheck> vChecks;
             if (!CheckInputs(tx, state, view, fScriptChecks, flags, false, nScriptCheckThreads ? &vChecks : NULL))
                 return false;
@@ -2155,10 +2183,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime1 = GetTimeMicros(); nTimeConnect += nTime1 - nTimeStart;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs-1), nTimeConnect * 0.000001);
 
-    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight))) {
+    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees)) {
         return state.DoS(100,
             error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight)),
+                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
             REJECT_INVALID, "bad-cb-amount");
     }
 
@@ -3125,12 +3153,6 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
 
     int nHeight = pindexPrev->nHeight+1;
 
-    // Check proof of work
-    if ((!Params().SkipProofOfWorkCheck()) &&
-       (block.nBits != GetNextWorkRequired(pindexPrev, &block)))
-        return state.DoS(100, error("%s : incorrect proof of work", __func__),
-                         REJECT_INVALID, "bad-diffbits");
-
     // Check timestamp against prev
     if (block.GetBlockTime() <= pindexPrev->GetMedianTimePast())
         return state.Invalid(error("%s : block's timestamp is too early", __func__),
@@ -3237,6 +3259,19 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
 
     if (!AcceptBlockHeader(block, state, &pindex))
         return false;
+
+    // Check proof of work
+    if (block.IsProofOfWork() && (!Params().SkipProofOfWorkCheck()) &&
+       (block.nBits != GetNextWorkRequired(pindex->pprev, &block)))
+        return state.DoS(100, error("%s : incorrect proof of work", __func__),
+                         REJECT_INVALID, "bad-diffbits");
+
+    // Check proof of work
+    if (block.IsProofOfStake() &&
+       (block.nBits != GetNextPoSTargetRequired(pindex->pprev)))
+        return state.DoS(100, error("%s : incorrect proof of stake", __func__),
+                         REJECT_INVALID, "bad-pos-diffbits");
+
 
     if (pindex->nStatus & BLOCK_HAVE_DATA) {
         // TODO: deal better with duplicate blocks.
