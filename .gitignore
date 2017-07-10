@@ -1,6 +1,9 @@
 *.tar.gz
-
+*.lo
+*.la
+*.autosave
 *.exe
+src/.libs
 src/quark
 src/quarkd
 src/quark-cli

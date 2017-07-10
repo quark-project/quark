@@ -36,8 +36,8 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 public slots:
-    void setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance,
-                    const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
+    void setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& stake,
+                    const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance, const CAmount& watchOnlyStake);
 
 signals:
     void transactionClicked(const QModelIndex &index);
@@ -49,9 +49,14 @@ private:
     CAmount currentBalance;
     CAmount currentUnconfirmedBalance;
     CAmount currentImmatureBalance;
+
+    CAmount currentStake;
+
     CAmount currentWatchOnlyBalance;
     CAmount currentWatchUnconfBalance;
     CAmount currentWatchImmatureBalance;
+
+    CAmount currentWatchOnlyStake;
 
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;
