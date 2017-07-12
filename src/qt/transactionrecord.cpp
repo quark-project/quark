@@ -70,7 +70,9 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                     // Generated
                     sub.type = TransactionRecord::Generated;
                 }
-
+                if(wtx.IsCoinStake()){
+                    sub.type = TransactionRecord::stake;
+                }
                 parts.append(sub);
             }
         }

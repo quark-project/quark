@@ -374,6 +374,8 @@ public:
     void ReacceptWalletTransactions();
     void ResendWalletTransactions();
     CAmount GetBalance() const;
+    CAmount GetStake() const;
+    CAmount GetWatchOnlyStake() const;
     CAmount GetUnconfirmedBalance() const;
     CAmount GetImmatureBalance() const;
     CAmount GetAnonymizableBalance() const;
@@ -467,6 +469,7 @@ public:
     {
         return (GetDebit(tx, ISMINE_ALL) > 0);
     }
+
     CAmount GetDebit(const CTransaction& tx, const isminefilter& filter) const
     {
         CAmount nDebit = 0;
