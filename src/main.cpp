@@ -1586,14 +1586,14 @@ static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 static const int64_t nBlockRewardStartCoin = 2048 * COIN;
 static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
 
+static const int64_t nProofOfStakeInterest = 4;
+
 // miner's coin stake reward
 CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
 {
     int64_t nSubsidy;
-    // Force block reward to zero when right shift is undefined.
-    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
 
-    nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    nSubsidy = nProofOfStakeInterest * nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
 
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
 
@@ -2180,6 +2180,24 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
     int64_t nTime1 = GetTimeMicros(); nTimeConnect += nTime1 - nTimeStart;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs-1), nTimeConnect * 0.000001);
+
+    if (!IsInitialBlockDownload())
+    {
+        int64_t ExpectedPay = 0;
+        int64_t ActualPay = 0;
+        bool PayOk = true;
+        if (block.IsProofOfWork())
+        {
+            int64_t ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
+            int64_t ActualPay = block.vtx[0].GetValueOut();
+            PayOk = ActualPay <= ExpectedPay;
+        }
+        if (!PayOk)
+            return state.DoS(100,
+                error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
+                ActualPay, ExpectedPay),
+                REJECT_INVALID, "bad-cb-amount");
+    }
 
     // if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees + GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight)))) {
     //     return state.DoS(100,
