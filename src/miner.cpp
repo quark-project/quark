@@ -121,6 +121,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
     // ppcoin: if coinstake available add coinstake tx
     static int64_t nLastCoinStakeSearchTime = GetAdjustedTime(); // only initialized at startup
+    unsigned int nTxNewTime = 0;
 
     if (fProofOfStake) {
         boost::this_thread::interruption_point();
@@ -130,7 +131,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         int64_t nSearchTime = pblock->nTime; // search to current time
         bool fStakeFound = false;
         if (nSearchTime >= nLastCoinStakeSearchTime) {
-            unsigned int nTxNewTime = 0;
             if (pwallet->CreateCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime)) {
                 pblock->nTime = nTxNewTime;
                 pblock->vtx[0].vout[0].SetEmpty();
@@ -348,7 +348,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         bool fMasterPayment = false;
         if (!fProofOfStake && chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock()) {
             //Masternode and general budget payments
-            fMasterPayment = FillBlockPayee(txNew, nFees, fProofOfStake);
+            fMasterPayment = FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
 
             //Make payee
             if (txNew.vout.size() > 1) {

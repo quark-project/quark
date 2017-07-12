@@ -450,7 +450,7 @@ void CBudgetManager::CheckAndRemove()
     LogPrintf("CBudgetManager::CheckAndRemove - PASSED\n");
 }
 
-void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStake)
+void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, bool fProofOfStake, int nTxNewTime)
 {
     LOCK(cs);
 
@@ -476,9 +476,15 @@ void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, b
         ++it;
     }
 
-    CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
+    CAmount blockValue;
 
     if (fProofOfStake) {
+            //miners get the full amount on these blocks
+        uint64_t nCoinAge;
+        GetCoinAge(txNew, nTxNewTime, nCoinAge);
+
+        blockValue = GetProofOfStakeReward(pindexPrev->nHeight, nCoinAge);
+
         if (nHighestCount > 0) {
             unsigned int i = txNew.vout.size();
             txNew.vout.resize(i + 1);
@@ -490,7 +496,7 @@ void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, b
             CBitcoinAddress address2(address1);
         }
     } else {
-        //miners get the full amount on these blocks
+        blockValue = GetBlockValue(pindexPrev->nHeight);
         txNew.vout[0].nValue = blockValue;
 
         if (nHighestCount > 0) {

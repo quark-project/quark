@@ -916,7 +916,7 @@ int GetIXConfirmations(uint256 nTXHash)
 // age (trust score) of competing branches.
 bool GetCoinAge(const CTransaction& tx, const unsigned int nTxTime, uint64_t& nCoinAge)
 {
-    uint256 bnCentSecond = 0; // coin age in the unit of cent-seconds
+    uint64_t bnCentSecond = 0; // coin age in the unit of cent-seconds
     nCoinAge = 0;
 
     CBlockIndex* pindex = NULL;
@@ -948,13 +948,13 @@ bool GetCoinAge(const CTransaction& tx, const unsigned int nTxTime, uint64_t& nC
             return false; // Transaction timestamp violation
         }
 
-        int64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
-        bnCentSecond += uint256(nValueIn) * (nTxTime - prevblock.nTime);
+        uint64_t nValueIn = txPrev.vout[txin.prevout.n].nValue;
+        bnCentSecond += nValueIn * (nTxTime - prevblock.nTime) / CENT;
     }
 
-    uint256 bnCoinDay = bnCentSecond / COIN / (24 * 60 * 60);
-    LogPrintf("coin age bnCoinDay=%s\n", bnCoinDay.ToString().c_str());
-    nCoinAge = bnCoinDay.GetCompact();
+    uint64_t bnCoinDay = bnCentSecond  * CENT / COIN / (24 * 60 * 60);
+    LogPrintf("coin age bnCoinDay=%d\n", bnCoinDay);
+    nCoinAge = bnCoinDay;
     return true;
 }
 
@@ -1593,9 +1593,7 @@ CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
     // Force block reward to zero when right shift is undefined.
     // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
 
-    int64_t nMutiplier = COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
-
-    nSubsidy = nCoinAge * nMutiplier;
+    nSubsidy = nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
 
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
 
@@ -2183,12 +2181,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime1 = GetTimeMicros(); nTimeConnect += nTime1 - nTimeStart;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs-1), nTimeConnect * 0.000001);
 
-    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees)) {
-        return state.DoS(100,
-            error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
-            REJECT_INVALID, "bad-cb-amount");
-    }
+    // if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees + GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight)))) {
+    //     return state.DoS(100,
+    //         error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
+    //             block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
+    //         REJECT_INVALID, "bad-cb-amount");
+    // }
 
     if (!control.Wait())
         return state.DoS(100, false);
