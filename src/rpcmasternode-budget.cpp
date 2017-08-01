@@ -55,7 +55,7 @@ Value mnbudget(const Array& params, bool fHelp)
         CBlockIndex* pindexPrev = chainActive.Tip();
 
         if (params.size() != 7)
-            throw runtime_error("Correct usage is 'mnbudget prepare proposal-name url payment_count block_start chc_address monthly_payment_chc'");
+            throw runtime_error("Correct usage is 'mnbudget prepare proposal-name url payment_count block_start qrk_address monthly_payment_qrk'");
 
         std::string strProposalName = params[1].get_str();
         if (strProposalName.size() > 20)
@@ -88,7 +88,7 @@ Value mnbudget(const Array& params, bool fHelp)
 
         CBitcoinAddress address(params[5].get_str());
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid CHC address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid QRK address");
 
         // Parse address
         CScript scriptPubKey = GetScriptForDestination(address.Get());
@@ -128,7 +128,7 @@ Value mnbudget(const Array& params, bool fHelp)
         CBlockIndex* pindexPrev = chainActive.Tip();
 
         if (params.size() != 8)
-            throw runtime_error("Correct usage is 'mnbudget submit proposal-name url payment_count block_start chaincoin_address monthly_payment_chc fee_tx'");
+            throw runtime_error("Correct usage is 'mnbudget submit proposal-name url payment_count block_start quark_address monthly_payment_qrk fee_tx'");
 
         // Check these inputs the same way we check the vote commands:
         // **********************************************************
@@ -164,7 +164,7 @@ Value mnbudget(const Array& params, bool fHelp)
 
         CBitcoinAddress address(params[5].get_str());
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Chaincoin address");
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Quark address");
 
         // Parse address
         CScript scriptPubKey = GetScriptForDestination(address.Get());

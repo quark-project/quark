@@ -54,8 +54,8 @@ Value obfuscation(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "obfuscation <chaincoinaddress> <amount>\n"
-            "chaincoinaddress, reset, or auto (AutoDenominate)"
+            "obfuscation <quarkaddress> <amount>\n"
+            "quarkaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
@@ -76,14 +76,14 @@ Value obfuscation(const Array& params, bool fHelp)
 
     if (params.size() != 2)
         throw runtime_error(
-            "obfuscation <chaincoinaddress> <amount>\n"
-            "chaincoinaddress, denominate, or auto (AutoDenominate)"
+            "obfuscation <quarkaddress> <amount>\n"
+            "quarkaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
     CBitcoinAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Chaincoin address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Quark address");
 
     // Amount
     CAmount nAmount = AmountFromValue(params[1]);
