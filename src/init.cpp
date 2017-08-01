@@ -1263,6 +1263,12 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     // ********************************************************* Step 10: setup ObfuScation
 
+    fMasterNode = false;
+    fEnableObfuscation = false;
+    /*
+     * MASTERNODES
+     *
+     *
     uiInterface.InitMessage(_("Loading masternode cache..."));
 
     CMasternodeDB mndb;
@@ -1397,6 +1403,10 @@ bool AppInit2(boost::thread_group& threadGroup)
     LogPrintf("Obfuscation rounds %d\n", nObfuscationRounds);
     LogPrintf("Anonymize PIVX Amount %d\n", nAnonymizePivxAmount);
     LogPrintf("Budget Mode %s\n", strBudgetMode.c_str());
+     *
+     *
+     *
+     */
 
     /* Denominations
 
