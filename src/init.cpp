@@ -1378,7 +1378,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         nObfuscationRounds = 99999;
     }
 
-    nAnonymizePivxAmount = GetArg("-anonymizepivxamount", 0);
+    nAnonymizePivxAmount = GetArg("-anonymizeamount", 0);
     if (nAnonymizePivxAmount > 999999) nAnonymizePivxAmount = 999999;
     if (nAnonymizePivxAmount < 2) nAnonymizePivxAmount = 2;
 

@@ -305,17 +305,19 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "invalidateblock",        &invalidateblock,        true,      true,       false },
     { "hidden",             "reconsiderblock",        &reconsiderblock,        true,      true,       false },
     { "hidden",             "setmocktime",            &setmocktime,            true,      false,      false },
-    
-    /* Pivx features */
-    {"pivx", "masternode", &masternode, true, true, false},
-    {"pivx", "masternodelist", &masternodelist, true, true, false},
-    {"pivx", "mnbudget", &mnbudget, true, true, false},
-    {"pivx", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
-    {"pivx", "mnfinalbudget", &mnfinalbudget, true, true, false},
-    {"pivx", "mnsync", &mnsync, true, true, false},
-    {"pivx", "spork", &spork, true, true, false},
+
+    /* Masternode features */
+    /*
+    {"masternode", "masternode", &masternode, true, true, false},
+    {"masternode", "masternodelist", &masternodelist, true, true, false},
+    {"masternode", "mnbudget", &mnbudget, true, true, false},
+    {"masternode", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+    {"masternode", "mnfinalbudget", &mnfinalbudget, true, true, false},
+    {"masternode", "mnsync", &mnsync, true, true, false},
+    {"masternode", "spork", &spork, true, true, false},
+    */
 #ifdef ENABLE_WALLET
-    {"pivx", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+    //{"masternode", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
     /* Wallet */
     { "wallet",             "addmultisigaddress",     &addmultisigaddress,     true,      false,      true },
