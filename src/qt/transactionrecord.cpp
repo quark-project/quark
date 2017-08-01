@@ -38,7 +38,18 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
     uint256 hash = wtx.GetHash();
     std::map<std::string, std::string> mapValue = wtx.mapValue;
 
-    if (nNet > 0 || wtx.IsCoinBase())
+    if (wtx.IsCoinStake()) // ppcoin: coinstake transaction
+    {
+        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", -nDebit, wtx.GetValueOut());
+        CTxDestination address;
+        CTxOut txout = wtx.vout[1];
+
+        if(ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
+            sub.address = CBitcoinAddress(address).ToString();
+
+        parts.append(sub);
+    }
+    else if (nNet > 0 || wtx.IsCoinBase())
     {
         //
         // Credit
@@ -69,9 +80,6 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
                 {
                     // Generated
                     sub.type = TransactionRecord::Generated;
-                }
-                if(wtx.IsCoinStake()){
-                    sub.type = TransactionRecord::stake;
                 }
                 parts.append(sub);
             }
