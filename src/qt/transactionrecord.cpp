@@ -43,7 +43,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
         CTxOut txout = wtx.vout[1];
         CTxDestination address;
 
-        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", txout.nValue, 0 /*wtx.GetValueOut()*/);
+        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", wtx.GetValueOut(), 0);
 
         if(ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
             sub.address = CBitcoinAddress(address).ToString();
@@ -209,7 +209,7 @@ void TransactionRecord::updateStatus(const CWalletTx &wtx)
         }
     }
     // For generated transactions, determine maturity
-    else if(type == TransactionRecord::Generated)
+    else if ((type == TransactionRecord::Generated) || (type == TransactionRecord::StakeMint))
     {
         if (wtx.GetBlocksToMaturity() > 0)
         {
