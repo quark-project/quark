@@ -306,7 +306,19 @@ static const CRPCCommand vRPCCommands[] =
     { "hidden",             "reconsiderblock",        &reconsiderblock,        true,      true,       false },
     { "hidden",             "setmocktime",            &setmocktime,            true,      false,      false },
 
+    /* Masternode features */
+    /*
+    {"masternode", "masternode", &masternode, true, true, false},
+    {"masternode", "masternodelist", &masternodelist, true, true, false},
+    {"masternode", "mnbudget", &mnbudget, true, true, false},
+    {"masternode", "mnbudgetvoteraw", &mnbudgetvoteraw, true, true, false},
+    {"masternode", "mnfinalbudget", &mnfinalbudget, true, true, false},
+    {"masternode", "mnsync", &mnsync, true, true, false},
+    {"masternode", "spork", &spork, true, true, false},
+    */
 #ifdef ENABLE_WALLET
+    //{"masternode", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+
     /* Wallet */
     { "wallet",             "addmultisigaddress",     &addmultisigaddress,     true,      false,      true },
     { "wallet",             "backupwallet",           &backupwallet,           true,      false,      true },

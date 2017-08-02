@@ -12,6 +12,17 @@ class CCoinControl
 {
 public:
     CTxDestination destChange;
+    bool useObfuScation;
+    bool useSwiftTX;
+    bool fSplitBlock;
+    int nSplitBlock;
+    //! If false, allows unselected inputs, but requires all selected inputs be used
+    bool fAllowOtherInputs;
+    //! Includes watch only addresses which match the ISMINE_WATCH_SOLVABLE criteria
+    bool fAllowWatchOnly;
+    //! Minimum absolute fee (not per kilobyte)
+    CAmount nMinimumTotalFee;
+
 
     CCoinControl()
     {
