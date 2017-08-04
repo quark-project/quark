@@ -253,6 +253,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("testseed1.qrknet.info", "testseed1.qrknet.info"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(119);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(199);
