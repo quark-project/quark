@@ -43,7 +43,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
         CTxOut txout = wtx.vout[1];
         CTxDestination address;
 
-        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", wtx.GetValueOut(), 0);
+        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", -nDebit, wtx.GetValueOut());
 
         if(ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
             sub.address = CBitcoinAddress(address).ToString();

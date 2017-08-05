@@ -133,19 +133,18 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
     //
     if (wtx.IsCoinStake())
     {
-        CAmount nTot = 0;
-        BOOST_FOREACH(const CTxOut& txout, wtx.vout)
-            nTot += wallet->GetCredit(txout, ISMINE_ALL);
         int64_t nBlockToMaturity = wtx.GetBlocksToMaturity();
-        strHTML += "<b>" + tr("Stake") + ":</b> ";
+        strHTML += "<b>" + tr("Reward") + ":</b> ";
         if (wtx.IsInMainChain())
         {
-            strHTML += BitcoinUnits::formatHtmlWithUnit(unit, nTot);
+            strHTML += BitcoinUnits::formatHtmlWithUnit(unit, -nDebit + wtx.GetValueOut());
             if (nBlockToMaturity > 0)
                 strHTML += " (" + tr("matures in %n more block(s)", "", nBlockToMaturity) + ")";
         }
         else
             strHTML += "(" + tr("not accepted") + ")";
+        strHTML += "<br>";
+        strHTML += "<b>" + tr("Staked") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nDebit);
         strHTML += "<br>";
     } else
     if (wtx.IsCoinBase() && nCredit == 0)
@@ -251,7 +250,10 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
         }
     }
 
-    strHTML += "<b>" + tr("Net amount") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    if (!wtx.IsCoinStake())
+    {
+        strHTML += "<b>" + tr("Net amount") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    }
 
     //
     // Message
