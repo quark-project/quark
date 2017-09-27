@@ -545,8 +545,14 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, pwallet, fProofOfStake));
             if (!pblocktemplate.get())
             {
-                LogPrintf("Error in QuarkMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
-                return;
+                // Refill keypool
+                if (!pwallet->IsLocked()) {
+                    if (!pwallet->TopUpKeyPool()) {
+                        LogPrintf("Error in QuarkMiner: Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                        return;
+                    }
+                }
+                continue;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
