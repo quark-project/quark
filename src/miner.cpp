@@ -91,6 +91,12 @@ void UpdateTime(CBlockHeader* pblock, const CBlockIndex* pindexPrev, bool fProof
             pblock->nBits = fProofOfStake ? GetNextPoSTargetRequired(pindexPrev) :  GetNextWorkRequired(pindexPrev, pblock);
 }
 
+class TestBlockError: public std::runtime_error
+{
+  public:
+  TestBlockError(const char* m) : std::runtime_error(m) { }
+};
+
 CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, bool fProofOfStake)
 {
     // Create new block
@@ -380,7 +386,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         CValidationState state;
         if (!TestBlockValidity(state, *pblock, pindexPrev, false, false))
-            throw std::runtime_error("CreateNewBlock() : TestBlockValidity failed");
+            throw TestBlockError("CreateNewBlock() : TestBlockValidity failed");
     }
 
     return pblocktemplate.release();
@@ -463,6 +469,10 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
+    bool fRetry;
+    do {
+    fRetry = false;
+
     //control the amount of times the client will check for mintable coins
     static bool fMintableCoins = false;
     static int nMintableLastCheck = 0;
@@ -542,6 +552,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 
             if (!pindexPrev)
                 continue;
+
             auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, pwallet, fProofOfStake));
             if (!pblocktemplate.get())
             {
@@ -554,6 +565,7 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                 }
                 continue;
             }
+
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
@@ -682,11 +694,26 @@ void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
         LogPrintf("QuarkMiner terminated\n");
         throw;
     }
+    catch (const TestBlockError &e)
+    {
+        LogPrintf("TestBlockError error: %s\n", e.what());
+        if (fProofOfStake)
+        {
+            // possible ERROR: ConnectBlock() : inputs missing/spent
+            // PoS may need to recheck available coins as they may have been spent
+            fRetry = true;
+            MilliSleep(5000);
+        }
+        else
+            return;
+    }
     catch (const std::runtime_error &e)
     {
         LogPrintf("QuarkMiner runtime error: %s\n", e.what());
         return;
     }
+
+    } while (fRetry);
 }
 
 
