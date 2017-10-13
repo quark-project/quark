@@ -148,7 +148,7 @@ public:
         nTargetSpacing = 30; // 30 seconds
         nMaxTipAge = 24 * 60 * 60;
         nModifierUpdateBlock = 615800;
-        nFirstPOSBlock = 999999999;
+        nFirstPOSBlock = 4937000; // est 25 Nov 2017
         nFirstMasternodePaymentBlock = 999999999;
 
         /**
