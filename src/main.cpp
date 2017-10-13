@@ -1586,14 +1586,16 @@ static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 static const int64_t nBlockRewardStartCoin = 2048 * COIN;
 static const int64_t nBlockRewardMinimumCoin = 1 * COIN;
 
-static const int64_t nProofOfStakeInterest = 4;
+// 7/2 = 3.5%
+static const int64_t nProofOfStakeInterestMul = 7;
+static const int64_t nProofOfStakeInterestDiv = 2;
 
 // miner's coin stake reward
 CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
 {
     int64_t nSubsidy;
 
-    nSubsidy = nProofOfStakeInterest * nCoinAge * COIN_YEAR_REWARD * 33 / (365 * 33 + 8);
+    nSubsidy = (nProofOfStakeInterestMul * nCoinAge * COIN_YEAR_REWARD * 33) / (nProofOfStakeInterestDiv * 365 * 33 + 8);
 
     LogPrint("creation", "GetProofOfStakeReward(): create=%s nCoinAge=%d\n", FormatMoney(nSubsidy), nCoinAge);
 
