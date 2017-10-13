@@ -2575,10 +2575,15 @@ bool DisconnectBlockAndInputs(CValidationState& state, CTransaction txLock)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
+    /*
+     * Masternode code
+     *
     if (nHeight < Params().FirstMasternodePaymentBlock())
         return 0;
 
     return blockValue / 2;
+     */
+    return 0;
 }
 
 /**
