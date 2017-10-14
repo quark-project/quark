@@ -161,6 +161,7 @@ extern json_spirit::Value getblocktemplate(const json_spirit::Array& params, boo
 extern json_spirit::Value submitblock(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value estimatefee(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value estimatepriority(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value makekeypair(const json_spirit::Array& params, bool fHelp);
 
 extern json_spirit::Value getnewaddress(const json_spirit::Array& params, bool fHelp); // in rpcwallet.cpp
 extern json_spirit::Value getaccountaddress(const json_spirit::Array& params, bool fHelp);
@@ -224,6 +225,15 @@ extern json_spirit::Value verifychain(const json_spirit::Array& params, bool fHe
 extern json_spirit::Value getchaintips(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value invalidateblock(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value reconsiderblock(const json_spirit::Array& params, bool fHelp);
+
+extern json_spirit::Value obfuscation(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value spork(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value masternode(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value masternodelist(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value mnbudget(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value mnbudgetvoteraw(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value mnfinalbudget(const json_spirit::Array& params, bool fHelp);
+extern json_spirit::Value mnsync(const json_spirit::Array& params, bool fHelp);
 
 // in rest.cpp
 extern bool HTTPReq_REST(AcceptedConnection *conn,

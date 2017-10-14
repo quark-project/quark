@@ -80,6 +80,10 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
     {
         strHTML += "<b>" + tr("Source") + ":</b> " + tr("Generated") + "<br>";
     }
+    else if (wtx.IsCoinStake())
+    {
+        strHTML += "<b>" + tr("Source") + ":</b> " + tr("Minted") + "<br>";
+    }
     else if (wtx.mapValue.count("from") && !wtx.mapValue["from"].empty())
     {
         // Online transaction
@@ -127,6 +131,22 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
     //
     // Amount
     //
+    if (wtx.IsCoinStake())
+    {
+        int64_t nBlockToMaturity = wtx.GetBlocksToMaturity();
+        strHTML += "<b>" + tr("Reward") + ":</b> ";
+        if (wtx.IsInMainChain())
+        {
+            strHTML += BitcoinUnits::formatHtmlWithUnit(unit, -nDebit + wtx.GetValueOut());
+            if (nBlockToMaturity > 0)
+                strHTML += " (" + tr("matures in %n more block(s)", "", nBlockToMaturity) + ")";
+        }
+        else
+            strHTML += "(" + tr("not accepted") + ")";
+        strHTML += "<br>";
+        strHTML += "<b>" + tr("Staked") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nDebit);
+        strHTML += "<br>";
+    } else
     if (wtx.IsCoinBase() && nCredit == 0)
     {
         //
@@ -230,7 +250,10 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
         }
     }
 
-    strHTML += "<b>" + tr("Net amount") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    if (!wtx.IsCoinStake())
+    {
+        strHTML += "<b>" + tr("Net amount") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nNet, true) + "<br>";
+    }
 
     //
     // Message
@@ -266,6 +289,11 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
     {
         quint32 numBlocksToMaturity = COINBASE_MATURITY +  1;
         strHTML += "<br>" + tr("Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to \"not accepted\" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.").arg(QString::number(numBlocksToMaturity)) + "<br>";
+    }
+    if (wtx.IsCoinStake())
+    {
+        quint32 numBlocksToMaturity = COINBASE_MATURITY +  1;
+        strHTML += "<br>" + tr("Staked coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to \"not accepted\" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.").arg(QString::number(numBlocksToMaturity)) + "<br>";
     }
 
     //

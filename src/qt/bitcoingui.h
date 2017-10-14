@@ -15,6 +15,7 @@
 #include <QMainWindow>
 #include <QMap>
 #include <QMenu>
+#include <QCheckBox>
 #include <QPoint>
 #include <QSystemTrayIcon>
 
@@ -76,7 +77,7 @@ protected:
 private:
     ClientModel *clientModel;
     WalletFrame *walletFrame;
-
+    QCheckBox *mining;
     UnitDisplayStatusBarControl *unitDisplayControl;
     QLabel *labelEncryptionIcon;
     QLabel *labelConnectionsIcon;
@@ -114,7 +115,6 @@ private:
     /** Keep track of previous number of blocks, to detect progress */
     int prevBlocks;
     int spinnerFrame;
-
     /** Create the main UI actions. */
     void createActions(const NetworkStyle *networkStyle);
     /** Create the menu bar and sub-menus. */
@@ -167,7 +167,9 @@ public slots:
 #endif // ENABLE_WALLET
 
 private slots:
+
 #ifdef ENABLE_WALLET
+    void MiningModeChanged(int);
     /** Switch to overview (home) page */
     void gotoOverviewPage();
     /** Switch to history (transactions) page */

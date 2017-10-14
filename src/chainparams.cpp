@@ -147,6 +147,9 @@ public:
         nTargetTimespan = 10 * 60; // ten minutes
         nTargetSpacing = 30; // 30 seconds
         nMaxTipAge = 24 * 60 * 60;
+        nModifierUpdateBlock = 615800;
+        nFirstPOSBlock = 4937000; // est 25 Nov 2017
+        nFirstMasternodePaymentBlock = 999999999;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -203,6 +206,11 @@ public:
         fMineBlocksOnDemand = false;
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
+
+        nPoolMaxTransactions = 3;
+        strSporkKey = "044B4A273C4B3E0DB2B0953402D94335C636BA5517D2ACDC7AB7609DC0B86D1861698524A6305024A42318D4B46389EBEEB43CF26A255B0F86AC40F1D757E67527";
+        strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
+        nStartMasternodePayments = 2145916800; // 2038
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -233,6 +241,9 @@ public:
         nTargetTimespan = 10 * 60; // ten minutes
         nTargetSpacing = 30; // 30 seconds
         nMaxTipAge = 0x7fffffff;
+        nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
+        nFirstPOSBlock = 110;
+        nFirstMasternodePaymentBlock = 999999999;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1373481000;
@@ -242,6 +253,7 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("testseed1.qrknet.info", "testseed1.qrknet.info"));
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(119);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(199);
@@ -258,6 +270,11 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = false;
         fTestnetToBeDeprecatedFieldRPC = true;
+
+        nPoolMaxTransactions = 2;
+        strSporkKey = "046C0C49800E806FAC756EAC67C2A55196805589D30A54B2BF4129DCA75EFC0CBA5527E694BD1ED5606ADD47CE8A8C4A41984178EE38BA091604CD69FFCC77A2BD";
+        strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
+        // nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -285,13 +302,15 @@ public:
         nMinerThreads = 1;
         nTargetTimespan = 10 * 60; // ten minutes
         nTargetSpacing = 30; // 30 seconds
-        bnProofOfWorkLimit = ~uint256(0) >> 1;
+        bnProofOfWorkLimit = ~uint256(0);
         nMaxTipAge = 24 * 60 * 60;
         genesis.nTime = 1296688602;
-        genesis.nBits = 0x207fffff;
-        genesis.nNonce = 2;
+        genesis.nBits = bnProofOfWorkLimit.GetCompact();
+        genesis.nNonce = 3;
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
+        nFirstPOSBlock = 20;
+        nFirstMasternodePaymentBlock = 20;
         // assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.

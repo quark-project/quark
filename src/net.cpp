@@ -11,9 +11,14 @@
 
 #include "addrman.h"
 #include "chainparams.h"
+#include "chainparams.h"
 #include "clientversion.h"
+#include "miner.h"
+#include "obfuscation.h"
 #include "primitives/transaction.h"
 #include "ui_interface.h"
+#include "wallet.h"
+#include "miner.h"
 
 #ifdef WIN32
 #include <string.h>
@@ -377,7 +382,7 @@ CNode* FindNode(const CService& addr)
     return NULL;
 }
 
-CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
+CNode* ConnectNode(CAddress addrConnect, const char *pszDest, bool obfuScationMaster)
 {
     if (pszDest == NULL) {
         if (IsLocal(addrConnect))
@@ -387,6 +392,8 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
         CNode* pnode = FindNode((CService)addrConnect);
         if (pnode)
         {
+            pnode->fObfuScationMaster = obfuScationMaster;
+
             pnode->AddRef();
             return pnode;
         }
@@ -421,6 +428,7 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
         }
 
         pnode->nTimeConnected = GetTime();
+        if (obfuScationMaster) pnode->fObfuScationMaster = true;
 
         return pnode;
     } else if (!proxyConnectionFailed) {
@@ -1499,7 +1507,22 @@ void ThreadMessageHandler()
 
 
 
-
+// ppcoin: stake minter thread
+void static ThreadStakeMinter()
+{
+    boost::this_thread::interruption_point();
+    LogPrintf("ThreadStakeMinter started\n");
+    CWallet* pwallet = pwalletMain;
+    try {
+        BitcoinMiner(pwallet, true);
+        boost::this_thread::interruption_point();
+    } catch (std::exception& e) {
+        LogPrintf("ThreadStakeMinter() exception \n");
+    } catch (...) {
+        LogPrintf("ThreadStakeMinter() error \n");
+    }
+    LogPrintf("ThreadStakeMinter exiting,\n");
+}
 
 bool BindListenPort(const CService &addrBind, string& strError, bool fWhitelisted)
 {
@@ -1701,6 +1724,10 @@ void StartNode(boost::thread_group& threadGroup)
 
     // Dump network addresses
     threadGroup.create_thread(boost::bind(&LoopForever<void (*)()>, "dumpaddr", &DumpAddresses, DUMP_ADDRESSES_INTERVAL * 1000));
+
+    // ppcoin:mint proof-of-stake blocks in the background
+    if (GetBoolArg("-staking", true))
+        threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "stakemint", &ThreadStakeMinter));
 }
 
 bool StopNode()
@@ -1760,7 +1787,13 @@ instance_of_cnetcleanup;
 
 
 
-
+void RelayInv(CInv& inv)
+{
+    LOCK(cs_vNodes);
+    BOOST_FOREACH (CNode* pnode, vNodes)
+        if (pnode->nVersion >= ActiveProtocol())
+            pnode->PushInventory(inv);
+}
 
 
 void RelayTransaction(const CTransaction& tx)
@@ -1799,6 +1832,20 @@ void RelayTransaction(const CTransaction& tx, const CDataStream& ss)
                 pnode->PushInventory(inv);
         } else
             pnode->PushInventory(inv);
+    }
+}
+
+void RelayTransactionLockReq(const CTransaction& tx, bool relayToAll)
+{
+    CInv inv(MSG_TXLOCK_REQUEST, tx.GetHash());
+
+    //broadcast the new lock
+    LOCK(cs_vNodes);
+    BOOST_FOREACH (CNode* pnode, vNodes) {
+        if (!relayToAll && !pnode->fRelayTxes)
+            continue;
+
+        pnode->PushMessage("ix", tx);
     }
 }
 
@@ -2000,6 +2047,7 @@ CNode::CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn, bool fIn
     nPingUsecStart = 0;
     nPingUsecTime = 0;
     fPingQueued = false;
+    fObfuScationMaster = false;
 
     {
         LOCK(cs_nLastNodeId);

@@ -69,7 +69,12 @@ public:
     int64_t TargetTimespan() const { return nTargetTimespan; }
     int64_t TargetSpacing() const { return nTargetSpacing; }
     int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
+    int FIRST_POS_BLOCK() const { return nFirstPOSBlock; }
+    int FirstMasternodePaymentBlock() const { return nFirstMasternodePaymentBlock; }
     int64_t MaxTipAge() const { return nMaxTipAge; }
+    int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
+    /** The masternode count that we will allow the see-saw reward payments to be off by */
+    int MasternodeCountDrift() const { return nMasternodeCountDrift; }
     /** Make miner stop after a block is found. In RPC, don't return until nGenProcLimit blocks are generated */
     bool MineBlocksOnDemand() const { return fMineBlocksOnDemand; }
     /** In the future use NetworkIDString() for RPC fields */
@@ -80,6 +85,11 @@ public:
     const std::vector<unsigned char>& Base58Prefix(Base58Type type) const { return base58Prefixes[type]; }
     const std::vector<CAddress>& FixedSeeds() const { return vFixedSeeds; }
     virtual const Checkpoints::CCheckpointData& Checkpoints() const = 0;
+    int PoolMaxTransactions() const { return nPoolMaxTransactions; }
+    std::string SporkKey() const { return strSporkKey; }
+    std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
+    CBaseChainParams::Network NetworkID() const { return networkID; }
+    // int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
 protected:
     CChainParams() {}
 
@@ -95,6 +105,8 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
+    int nFirstPOSBlock;
+    int nFirstMasternodePaymentBlock;
     int nMinerThreads;
     long nMaxTipAge;
     std::vector<CDNSSeedData> vSeeds;
@@ -111,9 +123,15 @@ protected:
     bool fMineBlocksOnDemand;
     bool fSkipProofOfWorkCheck;
     bool fTestnetToBeDeprecatedFieldRPC;
+    int nPoolMaxTransactions;
+    std::string strSporkKey;
+    std::string strObfuscationPoolDummyAddress;
+    int nModifierUpdateBlock;
+    int nMasternodeCountDrift;
+    int64_t nStartMasternodePayments;
 };
 
-/** 
+/**
  * Modifiable parameters interface is used by test cases to adapt the parameters in order
  * to test specific features more easily. Test cases should always restore the previous
  * values after finalization.

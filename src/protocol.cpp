@@ -18,7 +18,20 @@ static const char* ppszTypeName[] =
     "ERROR",
     "tx",
     "block",
-    "filtered block"
+    "filtered block",
+    "tx lock request",
+    "tx lock vote",
+    "spork",
+    "mn winner",
+    "mn scan error",
+    "mn budget vote",
+    "mn budget proposal",
+    "mn budget finalized",
+    "mn budget finalized vote",
+    "mn quorum",
+    "mn announce",
+    "mn ping",
+    "dstx"
 };
 
 CMessageHeader::CMessageHeader()

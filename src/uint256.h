@@ -255,6 +255,11 @@ public:
         return sizeof(pn);
     }
 
+    uint64_t Get64(int n = 0) const
+    {
+        return pn[2 * n] | (uint64_t)pn[2 * n + 1] << 32;
+    }
+
     /**
      * Returns the position of the highest bit set plus one, or zero if the
      * value is zero.
@@ -329,6 +334,23 @@ public:
 
     uint64_t GetHash(const uint256& salt) const;
 };
+
+inline uint256 uint256S(const char* str)
+{
+    uint256 rv;
+    rv.SetHex(str);
+    return rv;
+}
+/* uint256 from std::string.
+ * This is a separate function because the constructor uint256(const std::string &str) can result
+ * in dangerously catching uint256(0) via std::string(const char*).
+ */
+inline uint256 uint256S(const std::string& str)
+{
+    uint256 rv;
+    rv.SetHex(str);
+    return rv;
+}
 
 /** 512-bit unsigned big integer. */
 class uint512 : public base_uint<512> {
