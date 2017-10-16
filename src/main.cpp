@@ -2201,12 +2201,12 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 REJECT_INVALID, "bad-cb-amount");
     }
 
-    // if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees + GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight)))) {
-    //     return state.DoS(100,
-    //         error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-    //             block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
-    //         REJECT_INVALID, "bad-cb-amount");
-    // }
+    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees + GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight)))) {
+        return state.DoS(100,
+            error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
+                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
+            REJECT_INVALID, "bad-cb-amount");
+    }
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -2577,15 +2577,10 @@ bool DisconnectBlockAndInputs(CValidationState& state, CTransaction txLock)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    /*
-     * Masternode code
-     *
     if (nHeight < Params().FirstMasternodePaymentBlock())
         return 0;
 
     return blockValue / 2;
-     */
-    return 0;
 }
 
 /**
