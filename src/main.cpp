@@ -1611,7 +1611,7 @@ CAmount GetBlockValue(int nHeight)
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET)
     {
-        if (nHeight < 250)
+        if (nHeight < 1000)
             return nBlockRewardStartCoin;
         else
             return nBlockRewardMinimumCoin;
