@@ -352,9 +352,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             }
         }
         bool fMasterPayment = false;
-        /*
-         * Masternode code
-         *
         if (!fProofOfStake && chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock()) {
             //Masternode and general budget payments
             fMasterPayment = FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
@@ -364,7 +361,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                 pblock->payee = txNew.vout[1].scriptPubKey;
             }
         }
-        */
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;

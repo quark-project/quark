@@ -305,41 +305,43 @@ bool CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
 
     CAmount blockValue;
     CAmount masternodePayment;
-        if (fProofOfStake) {
-            /**For Proof Of Stake vout[0] must be null
-             * Stake reward can be split into many different outputs, so we must
-             * use vout.size() to align with several different cases.
-             * An additional output is appended as the masternode payment
-             */
-                     //miners get the full amount on these blocks
-            uint64_t nCoinAge;
-            if (!GetCoinAge(txNew, nTxNewTime, nCoinAge))
-                return error("CreateCoinStake : failed to calculate coin age");
 
-            blockValue = GetProofOfStakeReward(pindexPrev->nHeight, nCoinAge);
-            masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
-            unsigned int i = txNew.vout.size();
-            txNew.vout.resize(i + 1);
-            txNew.vout[i].scriptPubKey = payee;
-            txNew.vout[i].nValue = masternodePayment;
+    if (fProofOfStake) {
+        /**For Proof Of Stake vout[0] must be null
+          * Stake reward can be split into many different outputs, so we must
+          * use vout.size() to align with several different cases.
+          */
+        //miners get the full amount on these blocks
+        //uint64_t nCoinAge;
+        //if (!GetCoinAge(txNew, nTxNewTime, nCoinAge))
+        //    return error("CreateCoinStake : failed to calculate coin age");
 
-            //subtract mn payment from the stake reward
-            txNew.vout[i - 1].nValue -= masternodePayment;
-        } else {
-            blockValue = GetBlockValue(pindexPrev->nHeight);
-            masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
-            txNew.vout.resize(2);
-            txNew.vout[1].scriptPubKey = payee;
-            txNew.vout[1].nValue = masternodePayment;
-            txNew.vout[0].nValue = blockValue - masternodePayment;
-        }
+        //blockValue = GetProofOfStakeReward(pindexPrev->nHeight, nCoinAge);
+        //masternodePayment = 0; //GetMasternodePayment(pindexPrev->nHeight, blockValue);
+        //unsigned int i = txNew.vout.size();
+        //txNew.vout.resize(i + 1);
+        //txNew.vout[i].scriptPubKey = payee;
+        //txNew.vout[i].nValue = masternodePayment;
 
-        CTxDestination address1;
-        ExtractDestination(payee, address1);
-        CBitcoinAddress address2(address1);
+        //subtract mn payment from the stake reward
+        //txNew.vout[i - 1].nValue -= masternodePayment;
+        return false;
+    } else {
+        // An additional output is appended as the masternode payment
+        blockValue = GetBlockValue(pindexPrev->nHeight);
+        masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
+        txNew.vout.resize(2);
+        txNew.vout[1].scriptPubKey = payee;
+        txNew.vout[1].nValue = masternodePayment;
+        txNew.vout[0].nValue = blockValue - masternodePayment;
+    }
 
-        LogPrintf("Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
-        return true;
+    CTxDestination address1;
+    ExtractDestination(payee, address1);
+    CBitcoinAddress address2(address1);
+
+    LogPrintf("Masternode payment of %s to %s\n", FormatMoney(masternodePayment).c_str(), address2.ToString().c_str());
+    return true;
 }
 
 int CMasternodePayments::GetMinMasternodePaymentsProto()
