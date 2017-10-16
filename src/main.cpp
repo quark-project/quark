@@ -2190,8 +2190,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         bool PayOk = true;
         if (block.IsProofOfWork())
         {
-            int64_t ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
-            int64_t ActualPay = block.vtx[0].GetValueOut();
+            ExpectedPay = GetBlockValue(pindex->nHeight) + nFees + 
+                GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight));
+            ActualPay = block.vtx[0].GetValueOut();
             PayOk = ActualPay <= ExpectedPay;
         }
         if (!PayOk)
@@ -2199,13 +2200,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
                 ActualPay, ExpectedPay),
                 REJECT_INVALID, "bad-cb-amount");
-    }
-
-    if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees + GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight)))) {
-        return state.DoS(100,
-            error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-                block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
-            REJECT_INVALID, "bad-cb-amount");
     }
 
     if (!control.Wait())
@@ -2580,7 +2574,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
     if (nHeight < Params().FirstMasternodePaymentBlock())
         return 0;
 
-    return blockValue / 2;
+    return 2 * COIN;
 }
 
 /**

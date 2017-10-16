@@ -312,20 +312,19 @@ bool CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
           * use vout.size() to align with several different cases.
           */
         //miners get the full amount on these blocks
-        //uint64_t nCoinAge;
-        //if (!GetCoinAge(txNew, nTxNewTime, nCoinAge))
-        //    return error("CreateCoinStake : failed to calculate coin age");
+        uint64_t nCoinAge;
+        if (!GetCoinAge(txNew, nTxNewTime, nCoinAge))
+            return error("CreateCoinStake : failed to calculate coin age");
 
-        //blockValue = GetProofOfStakeReward(pindexPrev->nHeight, nCoinAge);
-        //masternodePayment = 0; //GetMasternodePayment(pindexPrev->nHeight, blockValue);
-        //unsigned int i = txNew.vout.size();
-        //txNew.vout.resize(i + 1);
-        //txNew.vout[i].scriptPubKey = payee;
-        //txNew.vout[i].nValue = masternodePayment;
+        blockValue = GetProofOfStakeReward(pindexPrev->nHeight, nCoinAge);
+        masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
+        unsigned int i = txNew.vout.size();
+        txNew.vout.resize(i + 1);
+        txNew.vout[i].scriptPubKey = payee;
+        txNew.vout[i].nValue = masternodePayment;
 
         //subtract mn payment from the stake reward
         //txNew.vout[i - 1].nValue -= masternodePayment;
-        return false;
     } else {
         // An additional output is appended as the masternode payment
         blockValue = GetBlockValue(pindexPrev->nHeight);
@@ -333,7 +332,7 @@ bool CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         txNew.vout.resize(2);
         txNew.vout[1].scriptPubKey = payee;
         txNew.vout[1].nValue = masternodePayment;
-        txNew.vout[0].nValue = blockValue - masternodePayment;
+        //txNew.vout[0].nValue = blockValue - masternodePayment;
     }
 
     CTxDestination address1;
