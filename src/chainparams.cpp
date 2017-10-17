@@ -150,6 +150,7 @@ public:
         nModifierUpdateBlock = 615800;
         nFirstPOSBlock = 4937000; // est 25 Nov 2017
         nFirstMasternodePaymentBlock = 999999999;
+        nStakeMinAge = 30 * 24 * 60 * 60; // 30 days
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -244,6 +245,7 @@ public:
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nFirstPOSBlock = 110;
         nFirstMasternodePaymentBlock = 200;
+        nStakeMinAge = 60 * 60; // 1 hour
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1373481000;

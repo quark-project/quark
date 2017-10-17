@@ -90,6 +90,7 @@ public:
     std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
     // int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
+    unsigned int StakeMinAge() const { return nStakeMinAge; }
 protected:
     CChainParams() {}
 
@@ -129,6 +130,7 @@ protected:
     int nModifierUpdateBlock;
     int nMasternodeCountDrift;
     int64_t nStartMasternodePayments;
+    unsigned int nStakeMinAge;
 };
 
 /**

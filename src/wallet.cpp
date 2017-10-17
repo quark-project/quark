@@ -1603,6 +1603,8 @@ bool CWallet::SelectStakeCoins(std::set<std::pair<const CWalletTx*, unsigned int
     AvailableCoins(vCoins, true);
     int64_t nAmountSelected = 0;
 
+    unsigned int nStakeMinAge = Params().StakeMinAge();
+
     BOOST_FOREACH (const COutput& out, vCoins) {
         //make sure not to outrun target amount
         if (nAmountSelected + out.tx->vout[out.i].nValue > nTargetAmount)
@@ -1633,6 +1635,8 @@ bool CWallet::MintableCoins()
 
     vector<COutput> vCoins;
     AvailableCoins(vCoins, true);
+
+    unsigned int nStakeMinAge = Params().StakeMinAge();
 
     BOOST_FOREACH (const COutput& out, vCoins) {
         if (GetTime() - out.tx->GetTxTime() > nStakeMinAge)

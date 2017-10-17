@@ -63,7 +63,6 @@ bool fCheckBlockIndex = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
-unsigned int nStakeMinAge = 30 * 24 * 60 * 60; // 30 days
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
@@ -918,6 +917,8 @@ bool GetCoinAge(const CTransaction& tx, const unsigned int nTxTime, uint64_t& nC
 {
     uint64_t bnCentSecond = 0; // coin age in the unit of cent-seconds
     nCoinAge = 0;
+
+    unsigned int nStakeMinAge = Params().StakeMinAge();
 
     CBlockIndex* pindex = NULL;
     BOOST_FOREACH (const CTxIn& txin, tx.vin) {
