@@ -2154,6 +2154,13 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 if (!GetCoinAge(tx, block.nTime, nCoinAge))
                     return error("ConnectInputs() : %s unable to get coin age for coinstake", tx.GetHash().ToString().substr(0,10).c_str());
                 int64_t nStakeReward = tx.GetValueOut() - nValueIn;
+
+                // Exclude masternode payment from stake reward
+                if (pindex->nHeight >= Params().FirstMasternodePaymentBlock()) {
+                    CAmount blockValue = GetProofOfStakeReward(pindex->nHeight, nCoinAge);
+                    nStakeReward -= GetMasternodePayment(pindex->nHeight, blockValue);
+                }
+
                 CAmount nActualReward = GetProofOfStakeReward(pindex->nHeight, nCoinAge);
                 if (nStakeReward > nActualReward)
                     return state.DoS(100, error("ConnectInputs() : %s stake reward exceeded", tx.GetHash().ToString().substr(0,10).c_str()));
