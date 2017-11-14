@@ -2505,13 +2505,10 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     if (nBytes >= DEFAULT_BLOCK_MAX_SIZE / 5)
         return error("CreateCoinStake : exceeded coinstake size limit");
 
-    //Masternode payment
-    /*
-     * Masternode code
-     *
-    if (pIndex0->nHeight >= Params().FirstMasternodePaymentBlock())
-        FillBlockPayee(txNew, 0, true, nTxNewTime)
-    */
+    // Masternode payment
+    if (pIndex0->nHeight >= Params().FirstMasternodePaymentBlock()) {
+        FillBlockPayee(txNew, 0, true, nTxNewTime);
+    }
 
     // Sign
     int nIn = 0;
