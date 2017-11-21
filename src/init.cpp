@@ -1265,10 +1265,11 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     fMasterNode = false;
     fEnableObfuscation = false;
+
     /*
      * MASTERNODES
      *
-     *
+     */
     uiInterface.InitMessage(_("Loading masternode cache..."));
 
     CMasternodeDB mndb;
@@ -1403,10 +1404,6 @@ bool AppInit2(boost::thread_group& threadGroup)
     LogPrintf("Obfuscation rounds %d\n", nObfuscationRounds);
     LogPrintf("Anonymize Amount %d\n", nAnonymizePivxAmount);
     LogPrintf("Budget Mode %s\n", strBudgetMode.c_str());
-     *
-     *
-     *
-     */
 
     /* Denominations
 

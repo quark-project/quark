@@ -63,7 +63,6 @@ bool fCheckBlockIndex = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
-unsigned int nStakeMinAge = 30 * 24 * 60 * 60; // 30 days
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
@@ -919,6 +918,8 @@ bool GetCoinAge(const CTransaction& tx, const unsigned int nTxTime, uint64_t& nC
     uint64_t bnCentSecond = 0; // coin age in the unit of cent-seconds
     nCoinAge = 0;
 
+    unsigned int nStakeMinAge = Params().StakeMinAge();
+
     CBlockIndex* pindex = NULL;
     BOOST_FOREACH (const CTxIn& txin, tx.vin) {
         // First try finding the previous transaction in database
@@ -1611,7 +1612,7 @@ CAmount GetBlockValue(int nHeight)
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET)
     {
-        if (nHeight < 250)
+        if (nHeight < 1000)
             return nBlockRewardStartCoin;
         else
             return nBlockRewardMinimumCoin;
@@ -2190,8 +2191,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         bool PayOk = true;
         if (block.IsProofOfWork())
         {
-            int64_t ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
-            int64_t ActualPay = block.vtx[0].GetValueOut();
+            ExpectedPay = GetBlockValue(pindex->nHeight) + nFees + 
+                GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight));
+            ActualPay = block.vtx[0].GetValueOut();
             PayOk = ActualPay <= ExpectedPay;
         }
         if (!PayOk)
@@ -2200,13 +2202,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 ActualPay, ExpectedPay),
                 REJECT_INVALID, "bad-cb-amount");
     }
-
-    // if (!IsInitialBlockDownload() && !IsBlockValueValid(block, GetBlockValue(pindex->nHeight) + nFees + GetMasternodePayment(pindex->nHeight, GetBlockValue(pindex->nHeight)))) {
-    //     return state.DoS(100,
-    //         error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
-    //             block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
-    //         REJECT_INVALID, "bad-cb-amount");
-    // }
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -2577,15 +2572,10 @@ bool DisconnectBlockAndInputs(CValidationState& state, CTransaction txLock)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    /*
-     * Masternode code
-     *
     if (nHeight < Params().FirstMasternodePaymentBlock())
         return 0;
 
-    return blockValue / 2;
-     */
-    return 0;
+    return 2 * COIN;
 }
 
 /**
@@ -5288,8 +5278,16 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
     else
     {
+        //probably one the extensions
+        obfuScationPool.ProcessMessageObfuscation(pfrom, strCommand, vRecv);
+        mnodeman.ProcessMessage(pfrom, strCommand, vRecv);
+        budget.ProcessMessage(pfrom, strCommand, vRecv);
+        masternodePayments.ProcessMessageMasternodePayments(pfrom, strCommand, vRecv);
+        ProcessMessageSwiftTX(pfrom, strCommand, vRecv);
+        ProcessSpork(pfrom, strCommand, vRecv);
+        masternodeSync.ProcessMessage(pfrom, strCommand, vRecv);
         // Ignore unknown commands for extensibility
-        LogPrint("net", "Unknown command \"%s\" from peer=%d\n", SanitizeString(strCommand), pfrom->id);
+        //LogPrint("net", "Unknown command \"%s\" from peer=%d\n", SanitizeString(strCommand), pfrom->id);
     }
 
 
