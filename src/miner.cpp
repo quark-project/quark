@@ -351,31 +351,25 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             }
             }
         }
-        bool fMasterPayment = false;
-        /*
-         * Masternode code
-         *
-        if (!fProofOfStake && chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock()) {
-            //Masternode and general budget payments
-            fMasterPayment = FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
-
-            //Make payee
-            if (txNew.vout.size() > 1) {
-                pblock->payee = txNew.vout[1].scriptPubKey;
-            }
-        }
-        */
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
         LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize); 
 
         if (!fProofOfStake) {
-            if (chainActive.Tip()->nHeight < Params().FirstMasternodePaymentBlock() || !fMasterPayment)
-            {   
-                // Compute final coinbase transaction.
-                txNew.vout[0].nValue = GetBlockValue(nHeight) + nFees;
+            if (chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock()) {
+                // Masternode and general budget payments
+                if (FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime)) {
+                    // Make payee
+                    if (txNew.vout.size() > 1) {
+                        pblock->payee = txNew.vout[1].scriptPubKey;
+                    }
+                }
             }
+            
+            // Compute coinbase transaction with fees (FillBlockPayee computes w/o)
+            txNew.vout[0].nValue = GetBlockValue(nHeight) + nFees;
+
             pblock->vtx[0] = txNew;
             pblocktemplate->vTxFees[0] = -nFees;
         }
