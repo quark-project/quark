@@ -32,18 +32,22 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet *
 {
     QList<TransactionRecord> parts;
     int64_t nTime = wtx.GetTxTime();
-    CAmount nCredit = wtx.GetCredit(ISMINE_ALL);
-    CAmount nDebit = wtx.GetDebit(ISMINE_ALL);
-    CAmount nNet = nCredit - nDebit;
     uint256 hash = wtx.GetHash();
     std::map<std::string, std::string> mapValue = wtx.mapValue;
 
+    CAmount nCredit = 0;
+    BOOST_FOREACH(const CTxOut& txout, wtx.vout)
+        nCredit += wallet->GetCredit(txout, ISMINE_ALL);
+    CAmount nDebit = wtx.GetDebit(ISMINE_ALL);
+    CAmount nNet = nCredit - nDebit;
+
     if (wtx.IsCoinStake()) // ppcoin: coinstake transaction
     {
-        CTxOut txout = wtx.vout[1];
+        bool isMNPayment = wtx.GetDebit(ISMINE_ALL) == 0;
+        CTxOut txout = isMNPayment ? wtx.vout[wtx.vout.size() - 1] : wtx.vout[1];
         CTxDestination address;
 
-        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", -nDebit, wtx.GetValueOut());
+        TransactionRecord sub(hash, nTime, TransactionRecord::StakeMint, "", -nDebit, nCredit);
 
         if(ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
             sub.address = CBitcoinAddress(address).ToString();

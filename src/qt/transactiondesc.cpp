@@ -76,7 +76,12 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
     //
     // From
     //
-    if (wtx.IsCoinBase())
+    bool isMNPayment = nDebit == 0; 
+    if (isMNPayment)
+    {
+        strHTML += "<b>" + tr("Source") + ":</b> " + tr("Masternode reward") + "<br>";
+    }
+    else if (wtx.IsCoinBase())
     {
         strHTML += "<b>" + tr("Source") + ":</b> " + tr("Generated") + "<br>";
     }
@@ -131,36 +136,29 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
     //
     // Amount
     //
-    if (wtx.IsCoinStake())
-    {
+    if ((wtx.IsCoinBase() && nCredit == 0) || wtx.IsCoinStake()) {
         int64_t nBlockToMaturity = wtx.GetBlocksToMaturity();
-        strHTML += "<b>" + tr("Reward") + ":</b> ";
-        if (wtx.IsInMainChain())
-        {
-            strHTML += BitcoinUnits::formatHtmlWithUnit(unit, -nDebit + wtx.GetValueOut());
+
+        CAmount nAmount = wtx.IsCoinStake() ? -nDebit : 0;
+        BOOST_FOREACH(const CTxOut& txout, wtx.vout)
+            nAmount += wallet->GetCredit(txout, ISMINE_ALL);
+
+        if (wtx.IsCoinStake() || isMNPayment) strHTML += "<b>" + tr("Reward") + ":</b> ";
+        else strHTML += "<b>" + tr("Credit") + ":</b> ";
+
+        strHTML += BitcoinUnits::formatHtmlWithUnit(unit, nAmount);
+        if (wtx.IsInMainChain()) {
             if (nBlockToMaturity > 0)
                 strHTML += " (" + tr("matures in %n more block(s)", "", nBlockToMaturity) + ")";
         }
-        else
+        else {
             strHTML += "(" + tr("not accepted") + ")";
+        }
         strHTML += "<br>";
-        strHTML += "<b>" + tr("Staked") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nDebit);
-        strHTML += "<br>";
-    } else
-    if (wtx.IsCoinBase() && nCredit == 0)
-    {
-        //
-        // Coinbase
-        //
-        CAmount nUnmatured = 0;
-        BOOST_FOREACH(const CTxOut& txout, wtx.vout)
-            nUnmatured += wallet->GetCredit(txout, ISMINE_ALL);
-        strHTML += "<b>" + tr("Credit") + ":</b> ";
-        if (wtx.IsInMainChain())
-            strHTML += BitcoinUnits::formatHtmlWithUnit(unit, nUnmatured)+ " (" + tr("matures in %n more block(s)", "", wtx.GetBlocksToMaturity()) + ")";
-        else
-            strHTML += "(" + tr("not accepted") + ")";
-        strHTML += "<br>";
+        if (wtx.IsCoinStake() && !isMNPayment) {
+            strHTML += "<b>" + tr("Staked") + ":</b> " + BitcoinUnits::formatHtmlWithUnit(unit, nDebit);
+            strHTML += "<br>";
+        }
     }
     else if (nNet > 0)
     {
