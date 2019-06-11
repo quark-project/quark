@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -324,7 +324,7 @@ public:
     };
 
     // where collateral should be made out to
-    CScript collateralPubKey;
+   // CScript collateralPubKey;
 
     CMasternode* pSubmittedToMasternode;
     int sessionDenom;    //Users must submit an denom matching this
@@ -364,7 +364,7 @@ public:
 
     void InitCollateralAddress()
     {
-        SetCollateralAddress(Params().ObfuscationPoolDummyAddress());
+        //SetCollateralAddress(Params().ObfuscationPoolDummyAddress());
     }
 
     void SetMinBlockSpacing(int minBlockSpacingIn)

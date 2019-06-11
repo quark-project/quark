@@ -1,5 +1,4 @@
-// Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2014-2019 The Dash developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -210,16 +209,17 @@ bool IsBlockValueValid(const CBlock& block, int64_t nExpectedValue)
     } else { // we're synced and have data so check the budget schedule
 
         //are these blocks even enabled
+        /*
         if (!IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
             return block.vtx[0].GetValueOut() <= nExpectedValue;
         }
-
-        if (budget.IsBudgetPaymentBlock(nHeight)) {
+        */
+        //if (budget.IsBudgetPaymentBlock(nHeight)) {
             //the value of the block is evaluated in CheckBlock
-            return true;
-        } else {
+        //    return true;
+        //} else {
             if (block.vtx[0].GetValueOut() > nExpectedValue) return false;
-        }
+        //}
     }
 
     return true;
@@ -235,6 +235,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
     const CTransaction& txNew = (nBlockHeight > Params().FIRST_POS_BLOCK() ? block.vtx[1] : block.vtx[0]);
 
     //check if it's a budget block
+    /*
     if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
         if (budget.IsBudgetPaymentBlock(nBlockHeight)) {
             if (budget.IsTransactionValid(txNew, nBlockHeight))
@@ -248,40 +249,72 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
             return true;
         }
     }
+    */
 
     //check for masternode payee
     if (masternodePayments.IsTransactionValid(txNew, nBlockHeight))
         return true;
     LogPrintf("Invalid mn payment detected %s\n", txNew.ToString().c_str());
 
-    if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
+    if (false/*IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)*/)
         return false;
+
     LogPrintf("Masternode payment enforcement is disabled, accepting block\n");
 
     return true;
 }
 
 
+
+bool FillTreasuryPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake, int nTxNewTime)
+{
+    CBlockIndex* pindexPrev = chainActive.Tip();
+    if (!pindexPrev) return false;
+
+    int leadingPoSBlocks = GetLeadingPoSBlocks(pindexPrev->nHeight+1);
+    CScript payee = GetScriptForDestination(CBitcoinAddress(Params().TreasuryPaymentAddress()).Get());
+    CAmount blockValue = GetBlockValue(pindexPrev->nHeight+1);
+    CAmount singleBlockValue = blockValue / 0.75;
+    singleBlockValue /= leadingPoSBlocks?leadingPoSBlocks:1;
+    //Divided by 0.75 gets primitive value
+    CAmount treasuryPayment = GetTreasuryPayment(pindexPrev->nHeight+1, singleBlockValue);
+    txNew.vout.resize(2);
+    txNew.vout[1].scriptPubKey = payee;
+    txNew.vout[1].nValue = treasuryPayment; // Treasury block is a super block which can be any amount
+    txNew.vout[0].nValue = blockValue ;
+
+    CTxDestination address1;
+    ExtractDestination(payee, address1);
+    CBitcoinAddress address2(address1);
+
+    LogPrintf("Treasury payment of %s to %s\n", FormatMoney(treasuryPayment).c_str(), address2.ToString().c_str());
+    return true;
+}
+
 bool FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake, int nTxNewTime)
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return false;
 
-    if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(pindexPrev->nHeight + 1)) {
+    /*if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(pindexPrev->nHeight + 1)) {
         budget.FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
         return true;
-    } else {
+    }*/
+    if(IsTreasuryPaymentBlock(pindexPrev->nHeight + 1)){
+        return  FillTreasuryPayee(txNew, nFees, fProofOfStake, nTxNewTime);
+    }else {
         return masternodePayments.FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
     }
 }
 
 std::string GetRequiredPaymentsString(int nBlockHeight)
 {
-    if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(nBlockHeight)) {
+   /* if (IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(nBlockHeight)) {
         return budget.GetRequiredPaymentsString(nBlockHeight);
     } else {
+    */
         return masternodePayments.GetRequiredPaymentsString(nBlockHeight);
-    }
+    //}
 }
 
 bool CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfStake, int nTxNewTime)
@@ -326,8 +359,8 @@ bool CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
             //subtract mn payment from the stake reward
             txNew.vout[i - 1].nValue -= masternodePayment;
         } else {
-            blockValue = GetBlockValue(pindexPrev->nHeight);
-            masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue);
+            blockValue = GetBlockValue(pindexPrev->nHeight+1);
+            masternodePayment = GetMasternodePayment(pindexPrev->nHeight+1, blockValue/0.75);
             txNew.vout.resize(2);
             txNew.vout[1].scriptPubKey = payee;
             txNew.vout[1].nValue = masternodePayment;
