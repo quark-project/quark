@@ -70,7 +70,6 @@ public:
     int64_t TargetSpacing() const { return nTargetSpacing; }
     int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
     int FIRST_POS_BLOCK() const { return nFirstPOSBlock; }
-    int FirstMasternodePaymentBlock() const { return nFirstMasternodePaymentBlock; }
     int64_t MaxTipAge() const { return nMaxTipAge; }
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     /** The masternode count that we will allow the see-saw reward payments to be off by */
