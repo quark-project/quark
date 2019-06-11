@@ -35,7 +35,7 @@ int nCompleteTXLocks;
 void ProcessMessageSwiftTX(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 {
     if (fLiteMode) return; //disable all obfuscation/masternode related functionality
-    if (!IsSporkActive(SPORK_2_SWIFTTX)) return;
+    //if (!IsSporkActive(SPORK_2_SWIFTTX)) return;
     if (!masternodeSync.IsBlockchainSynced()) return;
 
     if (strCommand == "ix") {
@@ -186,7 +186,7 @@ bool IsIXTXValid(const CTransaction& txCollateral)
         }
     }
 
-    if (nValueOut > GetSporkValue(SPORK_5_MAX_VALUE) * COIN) {
+    if (nValueOut > 1000 /*GetSporkValue(SPORK_5_MAX_VALUE)*/ * COIN) {
         LogPrint("swifttx", "IsIXTXValid - Transaction value too high - %s\n", txCollateral.ToString().c_str());
         return false;
     }
