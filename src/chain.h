@@ -142,6 +142,7 @@ public:
         BLOCK_PROOF_OF_STAKE = (1 << 0), // is proof-of-stake block
         BLOCK_STAKE_ENTROPY = (1 << 1),  // entropy bit for stake modifier
         BLOCK_STAKE_MODIFIER = (1 << 2), // regenerated stake modifier
+        BLOCK_TREASURY_PAYMENT = (1 << 3 ), // is treasury payment block
     };
 
     // proof-of-stake specific fields
@@ -223,6 +224,9 @@ public:
             prevoutStake = block.vtx[1].vin[0].prevout;
             nStakeTime = block.nTime;
         } else {
+            if(block.IsTreasuryPaymentBlock())
+                SetTreasuryPayment();
+
             prevoutStake.SetNull();
             nStakeTime = 0;
         }
@@ -285,7 +289,17 @@ public:
         return pbegin[(pend - pbegin)*2/3];
     }
 
-        bool IsProofOfWork() const
+    bool IsTreasuryBlock() const
+    {
+        return (nFlags & BLOCK_TREASURY_PAYMENT );
+    }
+
+    void SetTreasuryPayment()
+    {
+        nFlags |= BLOCK_TREASURY_PAYMENT;
+    }
+
+    bool IsProofOfWork() const
     {
         return !(nFlags & BLOCK_PROOF_OF_STAKE);
     }

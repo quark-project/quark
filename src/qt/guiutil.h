@@ -14,6 +14,7 @@
 #include <QProgressBar>
 #include <QString>
 #include <QTableView>
+#include <QTableWidget>
 
 #include <boost/filesystem.hpp>
 
@@ -164,6 +165,21 @@ namespace GUIUtil
         private slots:
             void on_sectionResized(int logicalIndex, int oldSize, int newSize);
             void on_geometriesChanged();
+    };
+
+    /**
+         * Extension to QTableWidgetItem that facilitates proper ordering for "DHMS"
+         * strings (primarily used in the masternode's "active" listing).
+         */
+    class DHMSTableWidgetItem : public QTableWidgetItem
+    {
+    public:
+        DHMSTableWidgetItem(const int64_t seconds);
+        virtual bool operator<(QTableWidgetItem const& item) const;
+
+    private:
+        // Private backing value for DHMS string, used for sorting.
+        int64_t value;
     };
 
     bool GetStartOnSystemStartup();

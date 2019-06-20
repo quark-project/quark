@@ -10,6 +10,7 @@
 #include "primitives/transaction.h"
 #include "hash.h"
 #include "main.h"
+#include "masternode-sync.h"
 #include "net.h"
 #include "pow.h"
 #include "timedata.h"
@@ -18,6 +19,7 @@
 #ifdef ENABLE_WALLET
 #include "wallet.h"
 #endif
+#include "masternode-payments.h"
 
 #include <boost/thread.hpp>
 #include <boost/tuple/tuple.hpp>
@@ -349,14 +351,32 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             }
             }
         }
+        bool fMasterPayment = false;
+        /*
+         * Masternode code PoS doesn't pay for Masternode
+         */
+        if (!fProofOfStake && chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock() - 1 ) {
+            //Masternode and general terasury payments
+            fMasterPayment = FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
+
+            //Make payee
+            if (txNew.vout.size() > 1) {
+                pblock->payee = txNew.vout[1].scriptPubKey;
+            }
+        }
+
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
         LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize); 
 
         if (!fProofOfStake) {
-            // Compute final coinbase transaction.
-            txNew.vout[0].nValue = GetBlockValue(nHeight) + nFees;
+            int nHeight = chainActive.Tip()->nHeight + 1;
+            if ( nHeight < Params().FirstMasternodePaymentBlock() || !fMasterPayment)
+            {   
+                // Compute final coinbase transaction.
+                txNew.vout[0].nValue = GetBlockValue(nHeight) + nFees;
+            }
             pblock->vtx[0] = txNew;
             pblocktemplate->vTxFees[0] = -nFees;
         }
@@ -443,9 +463,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     return true;
 }
 
-void
-
-BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
+void BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
 {
     LogPrintf("QuarkMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
@@ -484,7 +502,6 @@ BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                     }
                     if (!fvNodesEmpty && !IsInitialBlockDownload())
                         break;
-
                     MilliSleep(1000);
                     boost::this_thread::interruption_point();
                 } while (true);
@@ -510,10 +527,8 @@ BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
                     continue;
                 }
 
-                while (vNodes.empty() ||
-                       pwallet->IsLocked() ||
-                       !fMintableCoins ||
-                       nReserveBalance >= pwallet->GetBalance()) {
+                while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || nReserveBalance >= pwallet->GetBalance() /*||
+                (!masternodeSync.IsSynced() && chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock())*/) {
                     nLastCoinStakeSearchInterval = 0;
                     MilliSleep(5000);
                     if (!fProofOfStake)
@@ -543,8 +558,7 @@ BitcoinMiner(CWallet *pwallet, bool fProofOfStake)
             if (!pindexPrev)
                 continue;
 
-            CBlockTemplate* newblocktemplate = CreateNewBlockWithKey(reservekey, pwallet, fProofOfStake);
-            auto_ptr<CBlockTemplate> pblocktemplate(newblocktemplate);
+            auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlockWithKey(reservekey, pwallet, fProofOfStake));
             if (!pblocktemplate.get())
             {
                 // Refill keypool
