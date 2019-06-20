@@ -27,20 +27,11 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/thread/exceptions.hpp>
 
-extern bool fMasterNode;
 extern bool fLiteMode;
-extern bool fEnableSwiftTX;
-extern int nSwiftTXDepth;
-extern int nObfuscationRounds;
-extern int nAnonymizePivxAmount;
 extern int nLiquidityProvider;
-extern bool fEnableObfuscation;
-extern int64_t enforceMasternodePaymentsTime;
-extern std::string strMasterNodeAddr;
+
 extern int keysLoaded;
 extern bool fSucessfullyLoaded;
-extern std::vector<int64_t> obfuScationDenominations;
-extern std::string strBudgetMode;
 
 extern std::map<std::string, std::string> mapArgs;
 extern std::map<std::string, std::vector<std::string> > mapMultiArgs;

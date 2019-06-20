@@ -8,13 +8,12 @@
 #endif
 
 #include "net.h"
-
+#include "init.h"
 #include "addrman.h"
 #include "chainparams.h"
 #include "chainparams.h"
 #include "clientversion.h"
 #include "miner.h"
-#include "obfuscation.h"
 #include "primitives/transaction.h"
 #include "ui_interface.h"
 #include "wallet.h"
@@ -1832,20 +1831,6 @@ void RelayTransaction(const CTransaction& tx, const CDataStream& ss)
                 pnode->PushInventory(inv);
         } else
             pnode->PushInventory(inv);
-    }
-}
-
-void RelayTransactionLockReq(const CTransaction& tx, bool relayToAll)
-{
-    CInv inv(MSG_TXLOCK_REQUEST, tx.GetHash());
-
-    //broadcast the new lock
-    LOCK(cs_vNodes);
-    BOOST_FOREACH (CNode* pnode, vNodes) {
-        if (!relayToAll && !pnode->fRelayTxes)
-            continue;
-
-        pnode->PushMessage("ix", tx);
     }
 }
 
