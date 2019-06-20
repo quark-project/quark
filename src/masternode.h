@@ -1,6 +1,6 @@
 
-// Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2014-2019 The Dash developers
+
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef MASTERNODE_H
@@ -17,9 +17,9 @@
 #define MASTERNODE_MIN_CONFIRMATIONS 15
 #define MASTERNODE_MIN_MNP_SECONDS (10 * 60)
 #define MASTERNODE_MIN_MNB_SECONDS (5 * 60)
-#define MASTERNODE_PING_SECONDS (5 * 60)
-#define MASTERNODE_EXPIRATION_SECONDS (120 * 60)
-#define MASTERNODE_REMOVAL_SECONDS (130 * 60)
+#define MASTERNODE_PING_SECONDS (1 * 60)
+#define MASTERNODE_EXPIRATION_SECONDS (24 * 60)
+#define MASTERNODE_REMOVAL_SECONDS (26 * 60)
 #define MASTERNODE_CHECK_SECONDS 5
 
 using namespace std;
@@ -61,7 +61,7 @@ public:
 
     bool CheckAndUpdate(int& nDos, bool fRequireEnabled = true);
     bool Sign(CKey& keyMasternode, CPubKey& pubKeyMasternode);
-    void Relay();
+    void mnpRelay();
 
     uint256 GetHash()
     {

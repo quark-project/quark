@@ -15,6 +15,7 @@
 #include "optionsmodel.h"
 #include "rpcconsole.h"
 #include "utilitydialog.h"
+#include "masternode-sync.h"
 
 #ifdef ENABLE_WALLET
 #include "walletframe.h"
@@ -74,6 +75,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent) :
     appMenuBar(0),
     overviewAction(0),
     historyAction(0),
+    masternodeAction(0),
     quitAction(0),
     sendCoinsAction(0),
     usedSendingAddressesAction(0),
@@ -189,10 +191,11 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent) :
 
     // Progress bar and label for blocks download
     progressBarLabel = new QLabel();
-    progressBarLabel->setVisible(false);
+    progressBarLabel->setVisible(true);
+    progressBarLabel->setObjectName("progressBarLabel");
     progressBar = new GUIUtil::ProgressBar();
     progressBar->setAlignment(Qt::AlignCenter);
-    progressBar->setVisible(false);
+    progressBar->setVisible(true);
 
     // Override style sheet for progress bar for styles that have a segmented progress bar,
     // as they make the text unreadable (workaround for issue #1071)
@@ -200,7 +203,7 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle *networkStyle, QWidget *parent) :
     QString curStyle = QApplication::style()->metaObject()->className();
     if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
     {
-        progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
+        progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #0F8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
     }
 
     statusBar()->addWidget(progressBarLabel);
@@ -235,10 +238,6 @@ void BitcoinGUI::createActions(const NetworkStyle *networkStyle)
 {
     QActionGroup *tabGroup = new QActionGroup(this);
 
-    mining =new QCheckBox(tr("mining mode"),this);
-    mining->setCheckState((Qt::CheckState)(2*GetBoolArg("-stake", false)));
-    mining->setEnabled(false);
-    connect(mining,SIGNAL(stateChanged(int)),this,SLOT(MiningModeChanged(int)));
     overviewAction = new QAction(QIcon(":/icons/overview"), tr("&Overview"), this);
     overviewAction->setStatusTip(tr("Show general overview of wallet"));
     overviewAction->setToolTip(overviewAction->statusTip());
@@ -267,7 +266,31 @@ void BitcoinGUI::createActions(const NetworkStyle *networkStyle)
     historyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_4));
     tabGroup->addAction(historyAction);
 
+    masternodeAction = new QAction(QIcon(":/icons/masternodes"), tr("&Masternodes"), this);
+    masternodeAction->setStatusTip(tr("Browse & maintain live masternodes"));
+    masternodeAction->setToolTip(historyAction->statusTip());
+    masternodeAction->setCheckable(true);
+    masternodeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+
+    tabGroup->addAction(masternodeAction);
+
 #ifdef ENABLE_WALLET
+    QSettings settings;
+    if (settings.value("fShowMasternodesTab").toBool()) {
+        masternodeAction = new QAction(QIcon(":/icons/masternodes"), tr("&Masternodes"), this);
+        masternodeAction->setStatusTip(tr("Browse masternodes"));
+        masternodeAction->setToolTip(masternodeAction->statusTip());
+        masternodeAction->setCheckable(true);
+#ifdef Q_OS_MAC
+        masternodeAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_6));
+#else
+        masternodeAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+#endif
+        tabGroup->addAction(masternodeAction);
+        connect(masternodeAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+        connect(masternodeAction, SIGNAL(triggered()), this, SLOT(gotoMasternodePage()));
+    }
+
     // These showNormalIfMinimized are needed because Send Coins and Receive Coins
     // can be triggered from the tray menu, and need to show the GUI to be useful.
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -403,11 +426,14 @@ void BitcoinGUI::createToolBars()
     {
         QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
         toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-        toolbar->addWidget(mining);
         toolbar->addAction(overviewAction);
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
+        QSettings settings;
+        if (settings.value("fShowMasternodesTab").toBool()) {
+            toolbar->addAction(masternodeAction);
+        }
         overviewAction->setChecked(true);
     }
 }
@@ -484,6 +510,10 @@ void BitcoinGUI::setWalletActionsEnabled(bool enabled)
     sendCoinsAction->setEnabled(enabled);
     receiveCoinsAction->setEnabled(enabled);
     historyAction->setEnabled(enabled);
+    QSettings settings;
+    if (settings.value("fShowMasternodesTab").toBool()) {
+        masternodeAction->setEnabled(enabled);
+    }
     encryptWalletAction->setEnabled(enabled);
     backupWalletAction->setEnabled(enabled);
     changePassphraseAction->setEnabled(enabled);
@@ -589,9 +619,6 @@ void BitcoinGUI::showHelpMessageClicked()
 }
 
 #ifdef ENABLE_WALLET
-void BitcoinGUI::MiningModeChanged(int mode){
-    SoftSetArg("-stake",(mode==Qt::Checked)?"1":"0");
-}
 void BitcoinGUI::openClicked()
 {
     OpenURIDialog dlg(this);
@@ -611,6 +638,15 @@ void BitcoinGUI::gotoHistoryPage()
 {
     historyAction->setChecked(true);
     if (walletFrame) walletFrame->gotoHistoryPage();
+}
+
+void BitcoinGUI::gotoMasternodePage()
+{
+    QSettings settings;
+    if (settings.value("fShowMasternodesTab").toBool()) {
+        masternodeAction->setChecked(true);
+        if (walletFrame) walletFrame->gotoMasternodePage();
+    }
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()
@@ -686,18 +722,41 @@ void BitcoinGUI::setNumBlocks(int count)
     tooltip = tr("Processed %n blocks of transaction history.", "", count);
 
     // Set icon state: spinning if catching up, tick otherwise
-    if(secs < 90*60)
-    {
+    if (masternodeSync.IsBlockchainSynced()) {
+        QString strSyncStatus;
         tooltip = tr("Up to date") + QString(".<br>") + tooltip;
-        labelBlocksIcon->setPixmap(QIcon(":/icons/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+
+        if (masternodeSync.IsSynced()) {
+            progressBarLabel->setVisible(false);
+            progressBar->setVisible(false);
+            labelBlocksIcon->setPixmap(QIcon(":/icons/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+        } else {
+            int nAttempt;
+            int progress = 0;
+
+            labelBlocksIcon->setPixmap(QIcon(QString(
+                                                 ":/movies/spinner-%1")
+                                                 .arg(spinnerFrame, 3, 10, QChar('0')))
+                                           .pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
+            spinnerFrame = (spinnerFrame + 1) % SPINNER_FRAMES;
 
 #ifdef ENABLE_WALLET
-        if(walletFrame)
-            walletFrame->showOutOfSyncWarning(false);
+            if (walletFrame)
+                walletFrame->showOutOfSyncWarning(false);
 #endif // ENABLE_WALLET
 
-        progressBarLabel->setVisible(false);
-        progressBar->setVisible(false);
+            nAttempt = masternodeSync.RequestedMasternodeAttempt < MASTERNODE_SYNC_THRESHOLD ?
+                           masternodeSync.RequestedMasternodeAttempt + 1 :
+                           MASTERNODE_SYNC_THRESHOLD;
+            progress = nAttempt + (masternodeSync.RequestedMasternodeAssets - 1) * MASTERNODE_SYNC_THRESHOLD;
+            progressBar->setMaximum(4 * MASTERNODE_SYNC_THRESHOLD);
+            progressBar->setFormat(tr("Synchronizing additional data: %p%"));
+            progressBar->setValue(progress);
+        }
+
+        strSyncStatus = QString(masternodeSync.GetSyncStatus().c_str());
+        progressBarLabel->setText(strSyncStatus);
+        tooltip = strSyncStatus + QString("<br>") + tooltip;
     }
     else
     {

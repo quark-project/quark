@@ -1,5 +1,4 @@
-// Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2014-2019 The Dash developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -208,6 +207,7 @@ void CMasternode::Check(bool forceCheck)
         return;
     }
 
+    /*
     if (!unitTest) {
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
@@ -225,6 +225,7 @@ void CMasternode::Check(bool forceCheck)
             }
         }
     }
+    */
 
     activeState = MASTERNODE_ENABLED; // OK
 }
@@ -516,8 +517,8 @@ bool CMasternodeBroadcast::CheckAndUpdate(int& nDos)
     }
 
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-        if (addr.GetPort() != 51472) return false;
-    } else if (addr.GetPort() == 51472)
+        if (addr.GetPort() != 11973) return false;
+    } else if (addr.GetPort() == 11973)
         return false;
 
     //search existing Masternode list, this is where we update existing Masternodes with new mnb broadcasts
@@ -570,6 +571,7 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
             mnodeman.Remove(pmn->vin);
     }
 
+    /*
     CValidationState state;
     CMutableTransaction tx = CMutableTransaction();
     CTxOut vout = CTxOut(9999.99 * COIN, obfuScationPool.collateralPubKey);
@@ -591,10 +593,11 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
             return false;
         }
     }
+    */
 
     LogPrint("masternode", "mnb - Accepted Masternode entry\n");
-
-    if (GetInputAge(vin) < MASTERNODE_MIN_CONFIRMATIONS) {
+    int age = GetInputAge(vin);
+    if ( age < MASTERNODE_MIN_CONFIRMATIONS) {
         LogPrintf("mnb - Input must have at least %d confirmations\n", MASTERNODE_MIN_CONFIRMATIONS);
         // maybe we miss few blocks, let this mnb to be checked again later
         mnodeman.mapSeenMasternodeBroadcast.erase(GetHash());
@@ -724,7 +727,7 @@ bool CMasternodePing::CheckAndUpdate(int& nDos, bool fRequireEnabled)
     if (pmn != NULL && pmn->protocolVersion >= masternodePayments.GetMinMasternodePaymentsProto()) {
         if (fRequireEnabled && !pmn->IsEnabled()) return false;
 
-        // LogPrintf("mnping - Found corresponding mn for vin: %s\n", vin.ToString());
+        LogPrintf("mnping - Found corresponding mn for vin: %s\n", vin.ToString());
         // update only if there is no known ping for this masternode or
         // last ping was more then MASTERNODE_MIN_MNP_SECONDS-60 ago comparing to this one
         if (!pmn->IsPingedWithin(MASTERNODE_MIN_MNP_SECONDS - 60, sigTime)) {
@@ -768,7 +771,7 @@ bool CMasternodePing::CheckAndUpdate(int& nDos, bool fRequireEnabled)
 
             LogPrint("masternode", "CMasternodePing::CheckAndUpdate - Masternode ping accepted, vin: %s\n", vin.ToString());
 
-            Relay();
+            mnpRelay();
             return true;
         }
         LogPrint("masternode", "CMasternodePing::CheckAndUpdate - Masternode ping arrived too early, vin: %s\n", vin.ToString());
@@ -780,7 +783,7 @@ bool CMasternodePing::CheckAndUpdate(int& nDos, bool fRequireEnabled)
     return false;
 }
 
-void CMasternodePing::Relay()
+void CMasternodePing::mnpRelay()
 {
     CInv inv(MSG_MASTERNODE_PING, GetHash());
     RelayInv(inv);

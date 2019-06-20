@@ -37,7 +37,6 @@ public:
         SECRET_KEY,
         EXT_PUBLIC_KEY,
         EXT_SECRET_KEY,
-
         MAX_BASE58_TYPES
     };
 
@@ -70,6 +69,19 @@ public:
     int64_t TargetSpacing() const { return nTargetSpacing; }
     int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
     int FIRST_POS_BLOCK() const { return nFirstPOSBlock; }
+    int FirstMasternodePaymentBlock() const { return nFirstMasternodePaymentBlock; }
+    int InflationCycleIntervalBlocks() const { return nInflationCycleIntervalBlocks; }
+
+    int TreasuryPaymentIntervalBlocks() const { return nTreasuryPaymentIntervalBlocks; }
+    std::string TreasuryPaymentAddress() const { return strTreasuryPaymentAddress; }
+    int COINBASE_MATURITY() const { return nCoinbaseMaturity; };
+
+    std::string SporkKey() const { return strSporkKey; }
+    std::string SporkKeyOld() const { return strSporkKeyOld; }
+    int64_t NewSporkStart() const { return nEnforceNewSporkKey; }
+    int64_t RejectOldSporkKey() const { return nRejectOldSporkKey; }
+    int STAKE_MIN_AGE() const { return nStakeMinAge; }
+
     int64_t MaxTipAge() const { return nMaxTipAge; }
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     /** The masternode count that we will allow the see-saw reward payments to be off by */
@@ -85,10 +97,10 @@ public:
     const std::vector<CAddress>& FixedSeeds() const { return vFixedSeeds; }
     virtual const Checkpoints::CCheckpointData& Checkpoints() const = 0;
     int PoolMaxTransactions() const { return nPoolMaxTransactions; }
-    std::string SporkKey() const { return strSporkKey; }
-    std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
+    //std::string SporkKey() const { return strSporkKey; }
+    //std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
-    // int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
+
 protected:
     CChainParams() {}
 
@@ -106,6 +118,12 @@ protected:
     int64_t nTargetSpacing;
     int nFirstPOSBlock;
     int nFirstMasternodePaymentBlock;
+    int nTreasuryPaymentIntervalBlocks;
+    int nInflationCycleIntervalBlocks;
+
+    int nCoinbaseMaturity;
+    int nStakeMinAge;
+
     int nMinerThreads;
     long nMaxTipAge;
     std::vector<CDNSSeedData> vSeeds;
@@ -123,11 +141,16 @@ protected:
     bool fSkipProofOfWorkCheck;
     bool fTestnetToBeDeprecatedFieldRPC;
     int nPoolMaxTransactions;
+
     std::string strSporkKey;
-    std::string strObfuscationPoolDummyAddress;
+    std::string strSporkKeyOld;
+    int64_t nEnforceNewSporkKey;
+    int64_t nRejectOldSporkKey;
+
+    //std::string strObfuscationPoolDummyAddress;
+    std::string strTreasuryPaymentAddress;
     int nModifierUpdateBlock;
     int nMasternodeCountDrift;
-    int64_t nStartMasternodePayments;
 };
 
 /**
