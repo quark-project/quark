@@ -16,8 +16,7 @@ void CActiveMasternode::ManageStatus()
 
     if (!fMasterNode) return;
 
-    if (fDebug)
-        LogPrintf("CActiveMasternode::ManageStatus() - Begin\n");
+    if (fDebug) LogPrintf("CActiveMasternode::ManageStatus() - Begin\n");
 
     //need correct blocks to send ping
     if (Params().NetworkID() != CBaseChainParams::REGTEST && !masternodeSync.IsBlockchainSynced()) {
@@ -33,8 +32,7 @@ void CActiveMasternode::ManageStatus()
         pmn = mnodeman.Find(pubKeyMasternode);
         if (pmn != NULL) {
             pmn->Check();
-            if (pmn->IsEnabled() && pmn->protocolVersion == PROTOCOL_VERSION)
-                EnableHotColdMasterNode(pmn->vin, pmn->addr);
+            if (pmn->IsEnabled() && pmn->protocolVersion == PROTOCOL_VERSION) EnableHotColdMasterNode(pmn->vin, pmn->addr);
         }
     }
 
@@ -56,38 +54,36 @@ void CActiveMasternode::ManageStatus()
         }
 
         if (strMasterNodeAddr.empty()) {
-            if (!GetLocal(mservice)) {
+            if (!GetLocal(service)) {
                 notCapableReason = "Can't detect external address. Please use the masternodeaddr configuration option.";
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
                 return;
             }
         } else {
-            mservice = CService(strMasterNodeAddr);
+            service = CService(strMasterNodeAddr);
         }
 
-        std::string ipport = mservice.ToStringIPPort();
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
-            if (mservice.GetPort() != 11973) {
-                notCapableReason = strprintf("Invalid port: %u - only 11973 is supported on mainnet.", mservice.GetPort());
+            if (service.GetPort() != 51472) {
+                notCapableReason = strprintf("Invalid port: %u - only 51472 is supported on mainnet.", service.GetPort());
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
                 return;
             }
-        } else if (mservice.GetPort() == 11973) {
-            notCapableReason = strprintf("Invalid port: %u - 11973 is only supported on mainnet.", mservice.GetPort());
+        } else if (service.GetPort() == 51472) {
+            notCapableReason = strprintf("Invalid port: %u - 51472 is only supported on mainnet.", service.GetPort());
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
 
-        /*
-        LogPrintf("CActiveMasternode::ManageStatus() - Checking inbound connection to '%s'\n", mservice.ToString());
-        CNode* pnode = ConnectNode(CAddress(mservice), NULL, false);
+        LogPrintf("CActiveMasternode::ManageStatus() - Checking inbound connection to '%s'\n", service.ToString());
+
+        CNode* pnode = ConnectNode((CAddress)service, NULL, false);
         if (!pnode) {
-            notCapableReason = "Could not connect to " + mservice.ToString();
+            notCapableReason = "Could not connect to " + service.ToString();
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
         pnode->Release();
-        */
 
         // Choose coins to use
         CPubKey pubKeyCollateralAddress;
@@ -114,7 +110,7 @@ void CActiveMasternode::ManageStatus()
                 return;
             }
 
-            if (!Register(vin, mservice, keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage)) {
+            if (!Register(vin, service, keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage)) {
                 notCapableReason = "Error on Register: " + errorMessage;
                 LogPrintf("Register::ManageStatus() - %s\n", notCapableReason);
                 return;
@@ -132,7 +128,6 @@ void CActiveMasternode::ManageStatus()
     }
 
     //send to all peers
-    LogPrintf("CActiveMasternode::ManageStatus() - ******** Ping all Masternodes... \n");
     if (!SendMasternodePing(errorMessage)) {
         LogPrintf("CActiveMasternode::ManageStatus() - Error on Ping: %s\n", errorMessage);
     }
@@ -195,7 +190,7 @@ bool CActiveMasternode::SendMasternodePing(std::string& errorMessage)
         uint256 hash = mnb.GetHash();
         if (mnodeman.mapSeenMasternodeBroadcast.count(hash)) mnodeman.mapSeenMasternodeBroadcast[hash].lastPing = mnp;
 
-        mnp.mnpRelay();
+        mnp.Relay();
 
         /*
          * IT'S SAFE TO REMOVE THIS IN FURTHER VERSIONS
@@ -208,7 +203,7 @@ bool CActiveMasternode::SendMasternodePing(std::string& errorMessage)
         std::vector<unsigned char> vchMasterNodeSignature;
         int64_t masterNodeSignatureTime = GetAdjustedTime();
 
-        std::string strMessage = mservice.ToString() + boost::lexical_cast<std::string>(masterNodeSignatureTime) + boost::lexical_cast<std::string>(false);
+        std::string strMessage = service.ToString() + boost::lexical_cast<std::string>(masterNodeSignatureTime) + boost::lexical_cast<std::string>(false);
 
         if (!obfuScationSigner.SignMessage(strMessage, retErrorMessage, vchMasterNodeSignature, keyMasternode)) {
             errorMessage = "dseep sign message failed: " + retErrorMessage;
@@ -268,13 +263,13 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
 
     CService service = CService(strService);
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-        if (service.GetPort() != 11973) {
-            errorMessage = strprintf("Invalid port %u for masternode %s - only 11973 is supported on mainnet.", service.GetPort(), strService);
+        if (service.GetPort() != 51472) {
+            errorMessage = strprintf("Invalid port %u for masternode %s - only 51472 is supported on mainnet.", service.GetPort(), strService);
             LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
             return false;
         }
-    } else if (service.GetPort() == 11973) {
-        errorMessage = strprintf("Invalid port %u for masternode %s - 11973 is only supported on mainnet.", service.GetPort(), strService);
+    } else if (service.GetPort() == 51472) {
+        errorMessage = strprintf("Invalid port %u for masternode %s - 51472 is only supported on mainnet.", service.GetPort(), strService);
         LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
         return false;
     }
@@ -489,7 +484,7 @@ bool CActiveMasternode::EnableHotColdMasterNode(CTxIn& newVin, CService& newServ
 
     //The values below are needed for signing mnping messages going forward
     vin = newVin;
-    mservice = newService;
+    service = newService;
 
     LogPrintf("CActiveMasternode::EnableHotColdMasterNode() - Enabled! You may shut down the cold daemon.\n");
 
