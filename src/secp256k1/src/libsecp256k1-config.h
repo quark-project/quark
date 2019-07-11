@@ -6,7 +6,7 @@
 #define LIBSECP256K1_CONFIG_H
 
 /* Define this symbol if OpenSSL EC functions are available */
-/* #undef ENABLE_OPENSSL_TESTS */
+#define ENABLE_OPENSSL_TESTS 1
 
 /* Define this symbol if __builtin_expect is available */
 #define HAVE_BUILTIN_EXPECT 1
@@ -18,7 +18,7 @@
 #define HAVE_INTTYPES_H 1
 
 /* Define this symbol if libcrypto is installed */
-/* #undef HAVE_LIBCRYPTO */
+#define HAVE_LIBCRYPTO 1
 
 /* Define this symbol if libgmp is installed */
 /* #undef HAVE_LIBGMP */

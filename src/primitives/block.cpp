@@ -12,7 +12,6 @@
 #include "tinyformat.h"
 #include "utilstrencodings.h"
 #include "util.h"
-#include "base58.h"
 
 uint256 CBlockHeader::GetHash() const
 {
@@ -254,18 +253,5 @@ bool CBlock::CheckBlockSignature() const
     }
 
     return false;
-}
-
-bool CBlock::IsTreasuryPaymentBlock() const
-{
-    if(!IsProofOfWork()) return false;
-    if(vtx.size()<1 || vtx[0].vout.size()!=2) return false;
-
-    const CTxOut& txout = vtx[0].vout[1];
-
-
-    CScript treasuryScriptPubKey = GetScriptForDestination(CBitcoinAddress(Params().TreasuryPaymentAddress()).Get());
-
-    return treasuryScriptPubKey == txout.scriptPubKey ;
 }
 
