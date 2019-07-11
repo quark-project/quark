@@ -12,9 +12,6 @@
 #include "checkqueue.h"
 #include "init.h"
 #include "kernel.h"
-#include "masternode-budget.h"
-#include "masternode-payments.h"
-#include "masternodeman.h"
 #include "merkleblock.h"
 #include "net.h"
 #include "pow.h"
@@ -23,10 +20,11 @@
 #include "ui_interface.h"
 #include "util.h"
 #include "utilmoneystr.h"
-#include "swifttx.h"
+#include "wallet.h"
 
 #include <sstream>
 
+#include <boost/lexical_cast.hpp>
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
@@ -63,6 +61,7 @@ bool fCheckBlockIndex = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
+unsigned int nStakeMinAge = 30 * 24 * 60 * 60; // 30 days
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining) */
@@ -556,6 +555,7 @@ CBlockIndex* FindForkInGlobalIndex(const CChain& chain, const CBlockLocator& loc
 
 CCoinsViewCache *pcoinsTip = NULL;
 CBlockTreeDB *pblocktree = NULL;
+
 //////////////////////////////////////////////////////////////////////////////
 //
 // mapOrphanTransactions
@@ -871,40 +871,6 @@ int GetInputAge(CTxIn& vin)
     }
 }
 
-int GetInputAgeIX(uint256 nTXHash, CTxIn& vin)
-{
-    int sigs = 0;
-    int nResult = GetInputAge(vin);
-    if (nResult < 0) nResult = 0;
-
-    if (nResult < 6) {
-        std::map<uint256, CTransactionLock>::iterator i = mapTxLocks.find(nTXHash);
-        if (i != mapTxLocks.end()) {
-            sigs = (*i).second.CountSignatures();
-        }
-        if (sigs >= SWIFTTX_SIGNATURES_REQUIRED) {
-            return nSwiftTXDepth + nResult;
-        }
-    }
-
-    return -1;
-}
-
-int GetIXConfirmations(uint256 nTXHash)
-{
-    int sigs = 0;
-
-    std::map<uint256, CTransactionLock>::iterator i = mapTxLocks.find(nTXHash);
-    if (i != mapTxLocks.end()) {
-        sigs = (*i).second.CountSignatures();
-    }
-    if (sigs >= SWIFTTX_SIGNATURES_REQUIRED) {
-        return nSwiftTXDepth;
-    }
-
-    return 0;
-}
-
 // ppcoin: total coin age spent in transaction, in the unit of coin-days.
 // Only those coins meeting minimum age requirement counts. As those
 // transactions not in main chain are not currently indexed so we
@@ -938,7 +904,7 @@ bool GetCoinAge(const CTransaction& tx, const unsigned int nTxTime, uint64_t& nC
         // Read block header
         CBlockHeader prevblock = pindex->GetBlockHeader();
 
-        if (prevblock.nTime + Params().STAKE_MIN_AGE() > nTxTime)
+        if (prevblock.nTime + nStakeMinAge > nTxTime)
             continue; // only count coins meeting min age requirement
 
         if (nTxTime < prevblock.nTime) {
@@ -1189,9 +1155,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState &state, const CTransa
         unsigned int nSize = entry.GetTxSize();
 
         // Don't accept it if it can't get into a block
-            if (mapObfuscationBroadcastTxes.count(hash)) {
-            mempool.PrioritiseTransaction(hash, hash.ToString(), 1000, 0.1 * COIN);
-        } else if (!ignoreFees) {
+        if (!ignoreFees) {
             CAmount txMinFee = GetMinRelayFee(tx, nSize, true);
             if (fLimitFree && nFees < txMinFee)
                 return state.DoS(0, error("AcceptToMemoryPool : not enough fees %s, %d < %d",
@@ -1289,18 +1253,6 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
     uint256 hash = tx.GetHash();
     if (pool.exists(hash))
         return false;
-
-    // ----------- swiftTX transaction scanning -----------
-
-    BOOST_FOREACH (const CTxIn& in, tx.vin) {
-        if (mapLockedInputs.count(in.prevout)) {
-            if (mapLockedInputs[in.prevout] != tx.GetHash()) {
-                return state.DoS(0,
-                    error("AcceptableInputs : conflicts with existing transaction lock: %s", reason),
-                    REJECT_INVALID, "tx-lock-conflict");
-            }
-        }
-    }
 
     // Check for conflicts with in-memory transactions
     {
@@ -1600,40 +1552,6 @@ CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
     return nSubsidy;
 }
 
-int GetLeadingPoSBlocks(int nHeight){
-    int countPoS = 0;
-    CBlockIndex *pprevIndex = chainActive.Tip();
-    if(pprevIndex&&nHeight-1<=pprevIndex->nHeight)
-    {
-        while(pprevIndex && pprevIndex->IsProofOfStake()){
-            countPoS++;
-            pprevIndex = pprevIndex->pprev;
-        }
-    }
-    return countPoS;
-}
-
-CAmount GetBlockValueAfterMasternodeStarted(int nHeight)
-{
-    //Anyways, we have to check
-    if( nHeight < Params().FirstMasternodePaymentBlock())
-        return 0;
-
-    CBlockIndex *pprevIndex = chainActive.Tip();
-    int countPoS = GetLeadingPoSBlocks(nHeight);
-
-    int nGap = nHeight - Params().FirstMasternodePaymentBlock();
-    int  nBaseHeight = nGap / Params().InflationCycleIntervalBlocks() * Params().InflationCycleIntervalBlocks() + Params().FirstMasternodePaymentBlock() - 1;
-    if( !pprevIndex || pprevIndex->nHeight < nBaseHeight )
-        return 0;
-
-    pprevIndex = chainActive[nBaseHeight];
-    CAmount nShouldSubsidy = (pprevIndex->nMoneySupply * 0.02 )/Params().InflationCycleIntervalBlocks()*(countPoS+1);
-    CAmount nSubsidy = nShouldSubsidy * 0.75; //Treasury 25% is subtracted from each block
-
-    return nSubsidy;
-}
-
 CAmount GetBlockValue(int nHeight)
 {
     if (nHeight == 0)
@@ -1641,20 +1559,16 @@ CAmount GetBlockValue(int nHeight)
         return nGenesisBlockRewardCoin;
     }
 
-    if( nHeight >= Params().FirstMasternodePaymentBlock() ){
-        return GetBlockValueAfterMasternodeStarted(nHeight);
-    }
-
-    if (Params().NetworkID() == CBaseChainParams::TESTNET ||
-        Params().NetworkID() == CBaseChainParams::REGTEST )
+    if (Params().NetworkID() == CBaseChainParams::TESTNET)
     {
-        if (nHeight == 1)
-            return 100000*COIN;
+        if (nHeight < 250)
+            return nBlockRewardStartCoin;
         else
             return nBlockRewardMinimumCoin;
     }
 
     CAmount nSubsidy = nBlockRewardStartCoin;
+
 
     // Subsidy is cut in half every 60480 blocks (21 days)
     nSubsidy >>= min((nHeight / Params().SubsidyHalvingInterval()), 63);
@@ -1869,7 +1783,7 @@ bool CheckInputs(const CTransaction& tx, CValidationState &state, const CCoinsVi
 
             // If prev is coinbase, check that it's matured
             if (coins->IsCoinBase() || coins->IsCoinStake()) {
-                if (nSpendHeight - coins->nHeight < Params().COINBASE_MATURITY())
+                if (nSpendHeight - coins->nHeight < COINBASE_MATURITY)
                     return state.Invalid(
                         error("CheckInputs() : tried to spend coinbase at depth %d, coinstake=%d", nSpendHeight - coins->nHeight, coins->IsCoinStake()),
                         REJECT_INVALID, "bad-txns-premature-spend-of-coinbase");
@@ -2227,9 +2141,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         if (block.IsProofOfWork())
         {
             int64_t ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
-            if(IsTreasuryPaymentBlock(pindex->nHeight))
-               ExpectedPay += GetTreasuryPayment(pindex->nHeight,(ExpectedPay-nFees)/0.75);
-
             int64_t ActualPay = block.vtx[0].GetValueOut();
             PayOk = ActualPay <= ExpectedPay;
         }
@@ -2369,7 +2280,8 @@ void static UpdateTip(CBlockIndex *pindexNew) {
     nTimeBestReceived = GetTime();
     mempool.AddTransactionsUpdated(1);
 
-    LogPrintf("UpdateTip: new best=%s  height=%d  log2_work=%.8g  tx=%lu  date=%s progress=%f  cache=%u\n",
+    LogPrintf("UpdateTip: new best=%s  height=%d  "
+              "log2_work=%.8g  tx=%lu  date=%s progress=%f  cache=%u\n",
       chainActive.Tip()->GetBlockHash().ToString(), chainActive.Height(), log(chainActive.Tip()->nChainWork.getdouble())/log(2.0), (unsigned long)chainActive.Tip()->nChainTx,
       DateTimeStrFormat("%Y-%m-%d %H:%M:%S", chainActive.Tip()->GetBlockTime()),
       Checkpoints::GuessVerificationProgress(chainActive.Tip()), (unsigned int)pcoinsTip->GetCacheSize());
@@ -2618,56 +2530,13 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 {
     /*
      * Masternode code
-     */
+     *
     if (nHeight < Params().FirstMasternodePaymentBlock())
         return 0;
 
     return blockValue / 2;
-}
-
-CBlockIndex* GetPrevTreasuryBlock(){
-
-    CBlockIndex *pprevIndex = chainActive.Tip();
-
-    while(pprevIndex){
-        if(pprevIndex->IsTreasuryBlock())
-            return pprevIndex;
-        pprevIndex = pprevIndex->pprev;
-    }
-    return NULL;
-}
-
-bool IsTreasuryPaymentBlock(int nHeight){
-
-    if( nHeight < Params().FirstMasternodePaymentBlock() )
-        return false;
-
-    bool isTreasuryBlock =  !((nHeight - Params().FirstMasternodePaymentBlock()) % Params().TreasuryPaymentIntervalBlocks());
-    if(!isTreasuryBlock){
-        CBlockIndex *pIndex = GetPrevTreasuryBlock();
-        int lastTreasuryBlock = 0;
-        if(pIndex)
-            lastTreasuryBlock = pIndex->nHeight;
-
-        if(nHeight-lastTreasuryBlock>=Params().TreasuryPaymentIntervalBlocks())
-            isTreasuryBlock = true;
-    }
-
-    return isTreasuryBlock;
-}
-
-int64_t GetTreasuryPayment(int nHeight, int64_t blockValue)
-{
-    /*
-     * Treasury code
      */
-    if (nHeight < Params().FirstMasternodePaymentBlock())
-        return 0;
-
-    if(!IsTreasuryPaymentBlock(nHeight))
-        return 0;
-
-    return blockValue / 4 * Params().TreasuryPaymentIntervalBlocks();
+    return 0;
 }
 
 /**
@@ -2719,8 +2588,7 @@ static void PruneBlockIndexCandidates() {
     // Note that we can't delete the current block itself, as we may need to return to it later in case a
     // reorganization to a better block fails.
     std::set<CBlockIndex*, CBlockIndexWorkComparator>::iterator it = setBlockIndexCandidates.begin();
-    while (it != setBlockIndexCandidates.end() &&
-           setBlockIndexCandidates.value_comp()(*it, chainActive.Tip())) {
+    while (it != setBlockIndexCandidates.end() && setBlockIndexCandidates.value_comp()(*it, chainActive.Tip())) {
         setBlockIndexCandidates.erase(it++);
     }
     // Either the current tip or a successor of it we're working towards is left in setBlockIndexCandidates.
@@ -2991,9 +2859,6 @@ bool ReceivedBlockTransactions(const CBlock &block, CValidationState& state, CBl
 {
     if (block.IsProofOfStake())
         pindexNew->SetProofOfStake();
-    if (block.IsTreasuryPaymentBlock())
-        pindexNew->SetTreasuryPayment();
-
     pindexNew->nTx = block.vtx.size();
     pindexNew->nChainTx = 0;
     pindexNew->nFile = pos.nFile;
@@ -3200,54 +3065,6 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     if (nSigOps > MAX_BLOCK_SIGOPS)
         return state.DoS(100, error("CheckBlock() : out-of-bounds SigOpCount"),
                          REJECT_INVALID, "bad-blk-sigops", true);
-
-    // ----------- swiftTX transaction scanning -----------
-
-    //if (IsSporkActive(SPORK_3_SWIFTTX_BLOCK_FILTERING)) {
-        BOOST_FOREACH (const CTransaction& tx, block.vtx) {
-            if (!tx.IsCoinBase()) {
-                //only reject blocks when it's based on complete consensus
-                BOOST_FOREACH (const CTxIn& in, tx.vin) {
-                    if (mapLockedInputs.count(in.prevout)) {
-                        if (mapLockedInputs[in.prevout] != tx.GetHash()) {
-                            mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
-                            LogPrintf("CheckBlock() : found conflicting transaction with transaction lock %s %s\n", mapLockedInputs[in.prevout].ToString(), tx.GetHash().ToString());
-                            return state.DoS(0, error("CheckBlock() : found conflicting transaction with transaction lock"),
-                                REJECT_INVALID, "conflicting-tx-ix");
-                        }
-                    }
-                }
-            }
-        }
-    //} else {
-    //    LogPrintf("CheckBlock() : skipping transaction locking checks\n");
-    //}
-
-    // ----------- masternode payments / budgets -----------
-
-    CBlockIndex* pindexPrev = chainActive.Tip();
-    if (pindexPrev != NULL) {
-        int nHeight = 0;
-        if (pindexPrev->GetBlockHash() == block.hashPrevBlock) {
-            nHeight = pindexPrev->nHeight + 1;
-        } else { //out of order
-            BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
-            if (mi != mapBlockIndex.end() && (*mi).second)
-                nHeight = (*mi).second->nHeight + 1;
-        }
-
-        if (nHeight != 0 && !IsInitialBlockDownload()) {
-            if (!IsBlockPayeeValid(block, nHeight)) {
-                mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
-                return state.DoS(100, error("CheckBlock() : Couldn't find masternode/budget payment"));
-            }
-        } else {
-            if (fDebug)
-                LogPrintf("CheckBlock(): Masternode payment check skipped on sync - skipping IsBlockPayeeValid()\n");
-        }
-    }
-
-    // -------------------------------------------
 
     return true;
 }
@@ -3524,14 +3341,6 @@ bool ProcessNewBlock(CValidationState &state, CNode* pfrom, CBlock* pblock, CDis
 
     if (!ActivateBestChain(state, pblock))
         return error("%s : ActivateBestChain failed", __func__);
-
-    if (!fLiteMode) {
-        if (masternodeSync.RequestedMasternodeAssets > MASTERNODE_SYNC_LIST) {
-            obfuScationPool.NewBlock();
-            masternodePayments.ProcessBlock(GetHeight() + 10);
-            budget.NewBlock();
-        }
-    }
 
     if (pwalletMain) {
         // If turned on MultiSend will send a transaction (or more) on the after maturity of a stake
@@ -4235,53 +4044,6 @@ bool static AlreadyHave(const CInv& inv)
         }
     case MSG_BLOCK:
         return mapBlockIndex.count(inv.hash);
-    case MSG_DSTX:
-        return mapObfuscationBroadcastTxes.count(inv.hash);
-    case MSG_TXLOCK_REQUEST:
-        return mapTxLockReq.count(inv.hash) ||
-               mapTxLockReqRejected.count(inv.hash);
-    case MSG_TXLOCK_VOTE:
-        return mapTxLockVote.count(inv.hash);
-    case MSG_SPORK:
-        return mapSporks.count(inv.hash);
-    case MSG_MASTERNODE_WINNER:
-        if (masternodePayments.mapMasternodePayeeVotes.count(inv.hash)) {
-            masternodeSync.AddedMasternodeWinner(inv.hash);
-            return true;
-        }
-        return false;
-    case MSG_BUDGET_VOTE:
-        if (budget.mapSeenMasternodeBudgetVotes.count(inv.hash)) {
-            masternodeSync.AddedBudgetItem(inv.hash);
-            return true;
-        }
-        return false;
-    case MSG_BUDGET_PROPOSAL:
-        if (budget.mapSeenMasternodeBudgetProposals.count(inv.hash)) {
-            masternodeSync.AddedBudgetItem(inv.hash);
-            return true;
-        }
-        return false;
-    case MSG_BUDGET_FINALIZED_VOTE:
-        if (budget.mapSeenFinalizedBudgetVotes.count(inv.hash)) {
-            masternodeSync.AddedBudgetItem(inv.hash);
-            return true;
-        }
-        return false;
-    case MSG_BUDGET_FINALIZED:
-        if (budget.mapSeenFinalizedBudgets.count(inv.hash)) {
-            masternodeSync.AddedBudgetItem(inv.hash);
-            return true;
-        }
-        return false;
-    case MSG_MASTERNODE_ANNOUNCE:
-        if (mnodeman.mapSeenMasternodeBroadcast.count(inv.hash)) {
-            masternodeSync.AddedMasternodeList(inv.hash);
-            return true;
-        }
-        return false;
-    case MSG_MASTERNODE_PING:
-        return mnodeman.mapSeenMasternodePing.count(inv.hash);
     }
     // Don't know what it is, just say we already got one
     return true;
@@ -4306,7 +4068,7 @@ void static ProcessGetData(CNode* pfrom)
             boost::this_thread::interruption_point();
             it++;
 
-            if (inv.type == MSG_BLOCK || inv.type == MSG_FILTERED_BLOCK)
+            if (inv.type == MSG_BLOCK )
             {
                 bool send = false;
                 BlockMap::iterator mi = mapBlockIndex.find(inv.hash);
@@ -4390,112 +4152,7 @@ void static ProcessGetData(CNode* pfrom)
                         pushed = true;
                     }
                 }
-                if (!pushed && inv.type == MSG_TXLOCK_VOTE) {
-                    if (mapTxLockVote.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << mapTxLockVote[inv.hash];
-                        pfrom->PushMessage("txlvote", ss);
-                        pushed = true;
-                    }
-                }
-                if (!pushed && inv.type == MSG_TXLOCK_REQUEST) {
-                    if (mapTxLockReq.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << mapTxLockReq[inv.hash];
-                        pfrom->PushMessage("ix", ss);
-                        pushed = true;
-                    }
-                }
-                if (!pushed && inv.type == MSG_SPORK) {
-                    if (mapSporks.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << mapSporks[inv.hash];
-                        pfrom->PushMessage("spork", ss);
-                        pushed = true;
-                    }
-                }
-                if (!pushed && inv.type == MSG_MASTERNODE_WINNER) {
-                    if (masternodePayments.mapMasternodePayeeVotes.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << masternodePayments.mapMasternodePayeeVotes[inv.hash];
-                        pfrom->PushMessage("mnw", ss);
-                        pushed = true;
-                    }
-                }
-                if (!pushed && inv.type == MSG_BUDGET_VOTE) {
-                    if (budget.mapSeenMasternodeBudgetVotes.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << budget.mapSeenMasternodeBudgetVotes[inv.hash];
-                        pfrom->PushMessage("mvote", ss);
-                        pushed = true;
-                    }
-                }
 
-                if (!pushed && inv.type == MSG_BUDGET_PROPOSAL) {
-                    if (budget.mapSeenMasternodeBudgetProposals.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << budget.mapSeenMasternodeBudgetProposals[inv.hash];
-                        pfrom->PushMessage("mprop", ss);
-                        pushed = true;
-                    }
-                }
-
-                if (!pushed && inv.type == MSG_BUDGET_FINALIZED_VOTE) {
-                    if (budget.mapSeenFinalizedBudgetVotes.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << budget.mapSeenFinalizedBudgetVotes[inv.hash];
-                        pfrom->PushMessage("fbvote", ss);
-                        pushed = true;
-                    }
-                }
-
-                if (!pushed && inv.type == MSG_BUDGET_FINALIZED) {
-                    if (budget.mapSeenFinalizedBudgets.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << budget.mapSeenFinalizedBudgets[inv.hash];
-                        pfrom->PushMessage("fbs", ss);
-                        pushed = true;
-                    }
-                }
-
-                if (!pushed && inv.type == MSG_MASTERNODE_ANNOUNCE) {
-                    if (mnodeman.mapSeenMasternodeBroadcast.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << mnodeman.mapSeenMasternodeBroadcast[inv.hash];
-                        pfrom->PushMessage("mnb", ss);
-                        pushed = true;
-                    }
-                }
-
-                if (!pushed && inv.type == MSG_MASTERNODE_PING) {
-                    if (mnodeman.mapSeenMasternodePing.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << mnodeman.mapSeenMasternodePing[inv.hash];
-                        pfrom->PushMessage("mnp", ss);
-                        pushed = true;
-                    }
-                }
-
-                if (!pushed && inv.type == MSG_DSTX) {
-                    if (mapObfuscationBroadcastTxes.count(inv.hash)) {
-                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
-                        ss.reserve(1000);
-                        ss << mapObfuscationBroadcastTxes[inv.hash].tx << mapObfuscationBroadcastTxes[inv.hash].vin << mapObfuscationBroadcastTxes[inv.hash].vchSig << mapObfuscationBroadcastTxes[inv.hash].sigTime;
-
-                        pfrom->PushMessage("dstx", ss);
-                        pushed = true;
-                    }
-                }
                 if (!pushed) {
                     vNotFound.push_back(inv);
                 }
@@ -4504,7 +4161,7 @@ void static ProcessGetData(CNode* pfrom)
             // Track requests for our stuff.
             g_signals.Inventory(inv.hash);
 
-            if (inv.type == MSG_BLOCK || inv.type == MSG_FILTERED_BLOCK)
+            if (inv.type == MSG_BLOCK)
                 break;
         }
     }
@@ -4525,11 +4182,6 @@ void static ProcessGetData(CNode* pfrom)
 
 int ActiveProtocol()
 {
-    //if (IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
-    //    if (chainActive.Tip()->nHeight >= Params().ModifierUpgradeBlock())
-    //        return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
-    //}
-
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
 }
 
@@ -4542,6 +4194,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         LogPrintf("dropmessagestest DROPPING RECV MESSAGE\n");
         return true;
     }
+
+
+
 
     if (strCommand == "version")
     {
@@ -4910,7 +4565,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
     }
 
 
-    else if (strCommand == "tx"  || strCommand == "dstx")
+    else if (strCommand == "tx")
     {
         vector<uint256> vWorkQueue;
         vector<uint256> vEraseQueue;
@@ -4927,39 +4582,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         } else if (strCommand == "dstx") {
             //these allow masternodes to publish a limited amount of free transactions
             vRecv >> tx >> vin >> vchSig >> sigTime;
-
-            CMasternode* pmn = mnodeman.Find(vin);
-            if (pmn != NULL) {
-                if (!pmn->allowFreeTx) {
-                    //multiple peers can send us a valid masternode transaction
-                    if (fDebug) LogPrintf("dstx: Masternode sending too many transactions %s\n", tx.GetHash().ToString());
-                    return true;
-                }
-
-                std::string strMessage = tx.GetHash().ToString() + boost::lexical_cast<std::string>(sigTime);
-
-                std::string errorMessage = "";
-                if (!obfuScationSigner.VerifyMessage(pmn->pubKeyMasternode, vchSig, strMessage, errorMessage)) {
-                    LogPrintf("dstx: Got bad masternode address signature %s \n", vin.ToString());
-                    //pfrom->Misbehaving(20);
-                    return false;
-                }
-
-                LogPrintf("dstx: Got Masternode transaction %s\n", tx.GetHash().ToString());
-
-                // ignoreFees = true;
-                pmn->allowFreeTx = false;
-
-                if (!mapObfuscationBroadcastTxes.count(tx.GetHash())) {
-                    CObfuscationBroadcastTx dstx;
-                    dstx.tx = tx;
-                    dstx.vin = vin;
-                    dstx.vchSig = vchSig;
-                    dstx.sigTime = sigTime;
-
-                    mapObfuscationBroadcastTxes.insert(make_pair(tx.GetHash(), dstx));
-                }
-            }
         }
 
         CInv inv(MSG_TX, tx.GetHash());
@@ -5048,11 +4670,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             // if they are already in the mempool (allowing the node to function
             // as a gateway for nodes hidden behind it).
             RelayTransaction(tx);
-        }
-
-        if (strCommand == "dstx") {
-            CInv inv(MSG_DSTX, tx.GetHash());
-            RelayInv(inv);
         }
 
         int nDoS = 0;
@@ -5371,15 +4988,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
     else
     {
-        //probably one the extensions
-        //obfuScationPool.ProcessMessageObfuscation(pfrom, strCommand, vRecv);
-        mnodeman.ProcessMessage(pfrom, strCommand, vRecv);
-        budget.ProcessMessage(pfrom, strCommand, vRecv);
-        masternodePayments.ProcessMessageMasternodePayments(pfrom, strCommand, vRecv);
-        ProcessMessageSwiftTX(pfrom, strCommand, vRecv);
-        ProcessSpork(pfrom, strCommand, vRecv);
-        masternodeSync.ProcessMessage(pfrom, strCommand, vRecv);
+        // Ignore unknown commands for extensibility
+        LogPrint("net", "Unknown command \"%s\" from peer=%d\n", SanitizeString(strCommand), pfrom->id);
     }
+
+
 
     return true;
 }

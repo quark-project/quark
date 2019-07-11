@@ -395,7 +395,6 @@ bool static Socks5(string strDest, int port, SOCKET& hSocket)
 bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRet, int nTimeout)
 {
     hSocketRet = INVALID_SOCKET;
-    std::string ipport = addrConnect.ToStringIPPort();
 
     struct sockaddr_storage sockaddr;
     socklen_t len = sizeof(sockaddr);

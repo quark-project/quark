@@ -27,7 +27,6 @@
 #include <QProgressDialog>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include <QSettings>
 
 WalletView::WalletView(QWidget *parent):
     QStackedWidget(parent),
@@ -60,11 +59,6 @@ WalletView::WalletView(QWidget *parent):
     addWidget(receiveCoinsPage);
     addWidget(sendCoinsPage);
 
-    QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
-        masternodeListPage = new MasternodeList();
-        addWidget(masternodeListPage);
-    }
     // Clicking on a transaction on the overview pre-selects the transaction on the transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
 
@@ -108,10 +102,6 @@ void WalletView::setClientModel(ClientModel *clientModel)
 
     overviewPage->setClientModel(clientModel);
     sendCoinsPage->setClientModel(clientModel);
-    QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
-        masternodeListPage->setClientModel(clientModel);
-    }
 }
 
 void WalletView::setWalletModel(WalletModel *walletModel)
@@ -123,10 +113,6 @@ void WalletView::setWalletModel(WalletModel *walletModel)
     overviewPage->setWalletModel(walletModel);
     receiveCoinsPage->setModel(walletModel);
     sendCoinsPage->setModel(walletModel);
-    QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
-        masternodeListPage->setWalletModel(walletModel);
-    }
 
     if (walletModel)
     {
@@ -175,14 +161,6 @@ void WalletView::gotoOverviewPage()
 void WalletView::gotoHistoryPage()
 {
     setCurrentWidget(transactionsPage);
-}
-
-void WalletView::gotoMasternodePage()
-{
-    QSettings settings;
-    if (settings.value("fShowMasternodesTab").toBool()) {
-        setCurrentWidget(masternodeListPage);
-    }
 }
 
 void WalletView::gotoReceiveCoinsPage()

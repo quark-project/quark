@@ -564,33 +564,6 @@ TableViewLastColumnResizingFixer::TableViewLastColumnResizingFixer(QTableView* t
     setViewHeaderResizeMode(lastColumnIndex, QHeaderView::Interactive);
 }
 
-/**
- * Class constructor.
- * @param[in] seconds   Number of seconds to convert to a DHMS string
- */
-DHMSTableWidgetItem::DHMSTableWidgetItem(const int64_t seconds) : QTableWidgetItem(),
-                                                                  value(seconds)
-{
-    this->setText(QString::fromStdString(DurationToDHMS(seconds)));
-}
-
-/**
- * Comparator overload to ensure that the "DHMS"-type durations as used in
- * the "active-since" list in the masternode tab are sorted by the elapsed
- * duration (versus the string value being sorted).
- * @param[in] item      Right hand side of the less than operator
- */
-bool DHMSTableWidgetItem::operator<(QTableWidgetItem const& item) const
-{
-    DHMSTableWidgetItem const* rhs =
-        dynamic_cast<DHMSTableWidgetItem const*>(&item);
-
-    if (!rhs)
-        return QTableWidgetItem::operator<(item);
-
-    return value < rhs->value;
-}
-
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {

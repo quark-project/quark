@@ -1,4 +1,5 @@
-// Copyright (c) 2014-2018 The Dash developers
+// Copyright (c) 2014-2015 The Dash developers
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +15,6 @@
 #include "util.h"
 #include <boost/filesystem.hpp>
 #include <boost/lexical_cast.hpp>
-
 
 CBudgetManager budget;
 CCriticalSection cs_budget;
@@ -479,7 +479,7 @@ void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, b
     CAmount blockValue;
 
     if (fProofOfStake) {
-        //miners get the full amount on these blocks
+            //miners get the full amount on these blocks
         uint64_t nCoinAge;
         GetCoinAge(txNew, nTxNewTime, nCoinAge);
 

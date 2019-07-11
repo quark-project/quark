@@ -149,10 +149,7 @@ public:
         nMaxTipAge = 24 * 60 * 60;
         nModifierUpdateBlock = 615800;
         nFirstPOSBlock = 4937000; // est 25 Nov 2017
-        nFirstMasternodePaymentBlock = 7070000;
-        nInflationCycleIntervalBlocks = 2*60*24*365;// approximately blocks in a inflation cycle (one year)
-        nTreasuryPaymentIntervalBlocks = 2*60*24*30;// approximately treasury peyment interval one month
-        nCoinbaseMaturity = 100;
+        nFirstMasternodePaymentBlock = 999999999;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -211,15 +208,9 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
 
         nPoolMaxTransactions = 3;
-        nStakeMinAge = 30 * 24 * 60 * 60;//about 30 days
-
-        strSporkKey = "0499A7AF4806FC6DE640D23BC5936C29B77ADF2174B4F45492727F897AE63CF8D27B2F05040606E0D14B547916379FA10716E344E745F880EDC037307186AA25B7";
-        strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
-        nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
-
-        //strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        strTreasuryPaymentAddress = "QVvYypXoiRXcJpJpRVkftKEjMkXbd6UKJv";
+        strSporkKey = "044B4A273C4B3E0DB2B0953402D94335C636BA5517D2ACDC7AB7609DC0B86D1861698524A6305024A42318D4B46389EBEEB43CF26A255B0F86AC40F1D757E67527";
+        strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
+        nStartMasternodePayments = 2145916800; // 2038
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
@@ -251,11 +242,8 @@ public:
         nTargetSpacing = 30; // 30 seconds
         nMaxTipAge = 0x7fffffff;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
-        nFirstPOSBlock = 20;
-        nFirstMasternodePaymentBlock = 30;
-        nInflationCycleIntervalBlocks = 12*30;// approximately blocks in a inflation cycle (120 minutes)
-        nTreasuryPaymentIntervalBlocks = 30; //approximately 10 minutes
-        nCoinbaseMaturity = 2;
+        nFirstPOSBlock = 110;
+        nFirstMasternodePaymentBlock = 999999999;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1373481000;
@@ -284,15 +272,9 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        nStakeMinAge = 30*60 ;// about 30 minutes
-
-        strSporkKey = "0499A7AF4806FC6DE640D23BC5936C29B77ADF2174B4F45492727F897AE63CF8D27B2F05040606E0D14B547916379FA10716E344E745F880EDC037307186AA25B7";
-        strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
-        nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
-
-        //strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        strTreasuryPaymentAddress = "q4GiYqMebegEkmzD9CxUiV4WmtSP1Kyo23";
+        strSporkKey = "046C0C49800E806FAC756EAC67C2A55196805589D30A54B2BF4129DCA75EFC0CBA5527E694BD1ED5606ADD47CE8A8C4A41984178EE38BA091604CD69FFCC77A2BD";
+        strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
+        // nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
@@ -328,13 +310,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 18444;
         nFirstPOSBlock = 20;
-        nFirstMasternodePaymentBlock = 30;
-        nInflationCycleIntervalBlocks = 12*30;// approximately blocks in a inflation cycle (120 minutes)
-        nTreasuryPaymentIntervalBlocks = 30; //approximately 10 minutes
-        nCoinbaseMaturity = 2;
-
-        nStakeMinAge = 60;// 10 minutes
-        strTreasuryPaymentAddress = "q2MXaSB7XGz51ZYCeGHBAYDWVsTsKUgxut";
+        nFirstMasternodePaymentBlock = 20;
         // assert(hashGenesisBlock == uint256("0x0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"));
 
         vFixedSeeds.clear(); //! Regtest mode doesn't have any fixed seeds.
@@ -347,17 +323,6 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
-
-        nPoolMaxTransactions = 2;
-        nStakeMinAge = 30*60 ;// about 30 minutes
-
-        strSporkKey = "0499A7AF4806FC6DE640D23BC5936C29B77ADF2174B4F45492727F897AE63CF8D27B2F05040606E0D14B547916379FA10716E344E745F880EDC037307186AA25B7";
-        strSporkKeyOld = "04B433E6598390C992F4F022F20D3B4CBBE691652EE7C48243B81701CBDB7CC7D7BF0EE09E154E6FCBF2043D65AF4E9E97B89B5DBAF830D83B9B7F469A6C45A717";
-        nEnforceNewSporkKey = 1525158000; //!> Sporks signed after (GMT): Tuesday, May 1, 2018 7:00:00 AM GMT must use the new spork key
-        nRejectOldSporkKey = 1527811200; //!> Fully reject old spork key after (GMT): Friday, June 1, 2018 12:00:00 AM
-
-        //strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        strTreasuryPaymentAddress = "q4GiYqMebegEkmzD9CxUiV4WmtSP1Kyo23";
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {

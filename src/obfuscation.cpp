@@ -1,4 +1,5 @@
-// Copyright (c) 2014-2018 The Dash developers
+// Copyright (c) 2014-2015 The Dash developers
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,7 +37,7 @@ map<uint256, CObfuscationBroadcastTx> mapObfuscationBroadcastTxes;
 // Keep track of the active Masternode
 CActiveMasternode activeMasternode;
 
-/* *** BEGIN OBFUSCATION MAGIC - **********
+/* *** BEGIN OBFUSCATION MAGIC - PIV **********
     Copyright (c) 2014-2015, Dash Developers
         eduffield - evan@dashpay.io
         udjinm6   - udjinm6@dashpay.io
@@ -421,7 +422,7 @@ bool CObfuscationPool::SetCollateralAddress(std::string strAddress)
         LogPrintf("CObfuscationPool::SetCollateralAddress - Invalid Obfuscation collateral address\n");
         return false;
     }
-    //collateralPubKey = GetScriptForDestination(address.Get());
+    collateralPubKey = GetScriptForDestination(address.Get());
     return true;
 }
 
@@ -776,7 +777,7 @@ void CObfuscationPool::ChargeRandomFees()
 
                 Being that Obfuscation has "no fees" we need to have some kind of cost associated
                 with using it to stop abuse. Otherwise it could serve as an attack vector and
-                allow endless transaction that would bloat DASH and make it unusable. To
+                allow endless transaction that would bloat PIVX and make it unusable. To
                 stop these kinds of attacks 1 in 10 successful transactions are charged. This
                 adds up to a cost of 0.001 PIV per transaction on average.
             */
@@ -2299,8 +2300,7 @@ void ThreadCheckObfuScationPool()
 
             // check if we should activate or ping every few minutes,
             // start right after sync is considered to be done
-            if (c % MASTERNODE_PING_SECONDS == 1)
-                activeMasternode.ManageStatus();
+            if (c % MASTERNODE_PING_SECONDS == 1) activeMasternode.ManageStatus();
 
             if (c % 60 == 0) {
                 mnodeman.CheckAndRemove();

@@ -1,5 +1,5 @@
 #! /bin/bash
-# Generated automatically by config.status (quark) 0.10.7
+# Generated automatically by config.status (quark) 0.10.6
 # Libtool was configured on host wxl-MS-7B48:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 
@@ -165,7 +165,7 @@ lock_old_archive_extraction=no
 LTCC="gcc"
 
 # LTCC compiler flags.
-LTCFLAGS="-g3 -O0 -DDEBUG"
+LTCFLAGS="-g -O2"
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"
