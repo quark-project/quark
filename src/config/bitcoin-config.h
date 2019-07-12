@@ -9,7 +9,7 @@
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
 
 /* Version Build */
-#define CLIENT_VERSION_BUILD 5
+#define CLIENT_VERSION_BUILD 0
 
 /* Version is release */
 #define CLIENT_VERSION_IS_RELEASE true
@@ -21,7 +21,7 @@
 #define CLIENT_VERSION_MINOR 10
 
 /* Build revision */
-#define CLIENT_VERSION_REVISION 6
+#define CLIENT_VERSION_REVISION 7
 
 /* Version is release */
 #define COPYRIGHT_YEAR 2019
@@ -51,7 +51,7 @@
 #define HAVE_BOOST_THREAD /**/
 
 /* define if the Boost::Unit_Test_Framework library is available */
-#define HAVE_BOOST_UNIT_TEST_FRAMEWORK /**/
+/* #undef HAVE_BOOST_UNIT_TEST_FRAMEWORK */
 
 /* Define this symbol if the consensus lib has been built */
 #define HAVE_CONSENSUS_LIB 1
@@ -274,7 +274,7 @@
 #define PACKAGE_NAME "Quark Core"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "Quark Core 0.10.6"
+#define PACKAGE_STRING "Quark Core 0.10.7"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "quark"
@@ -283,7 +283,7 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.10.6"
+#define PACKAGE_VERSION "0.10.7"
 
 /* Define to necessary symbol if this constant uses a non-standard name on
    your system. */

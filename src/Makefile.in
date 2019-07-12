@@ -157,6 +157,7 @@ TESTS = $(am__EXEEXT_6) $(am__EXEEXT_5)
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/transactionrecord.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/transactiontablemodel.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/transactionview.cpp \
+@ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/masternodelist.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/walletframe.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/walletmodel.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@  qt/walletmodeltransaction.cpp \
@@ -262,7 +263,7 @@ am_libquark_common_a_OBJECTS = libquark_common_a-allocators.$(OBJEXT) \
 	script/libquark_common_a-sign.$(OBJEXT) \
 	script/libquark_common_a-standard.$(OBJEXT) \
 	script/libquark_common_a-script_error.$(OBJEXT) \
-	$(am__objects_1)
+	libquark_common_a-spork.$(OBJEXT) $(am__objects_1)
 libquark_common_a_OBJECTS = $(am_libquark_common_a_OBJECTS)
 libquark_server_a_AR = $(AR) $(ARFLAGS)
 libquark_server_a_LIBADD =
@@ -280,6 +281,8 @@ am_libquark_server_a_OBJECTS = libquark_server_a-addrman.$(OBJEXT) \
 	libquark_server_a-noui.$(OBJEXT) \
 	libquark_server_a-rest.$(OBJEXT) \
 	libquark_server_a-rpcblockchain.$(OBJEXT) \
+	libquark_server_a-rpcmasternode.$(OBJEXT) \
+	libquark_server_a-rpcmasternode-budget.$(OBJEXT) \
 	libquark_server_a-rpcmining.$(OBJEXT) \
 	libquark_server_a-rpcmisc.$(OBJEXT) \
 	libquark_server_a-rpcnet.$(OBJEXT) \
@@ -297,26 +300,28 @@ am__libquark_util_a_SOURCES_DIST = compat/strnlen.cpp \
 	compat/glibc_sanity.cpp compat/glibcxx_sanity.cpp \
 	chainparamsbase.cpp clientversion.cpp random.cpp \
 	rpcprotocol.cpp sync.cpp uint256.cpp util.cpp \
-	utilstrencodings.cpp utilmoneystr.cpp utiltime.cpp addrman.h \
-	alert.h allocators.h amount.h base58.h bloom.h chain.h \
-	chainparams.h chainparamsbase.h chainparamsseeds.h \
-	checkpoints.h checkqueue.h clientversion.h coincontrol.h \
-	coins.h compat.h compressor.h core_io.h crypter.h \
-	crypto/sph_types.h crypto/sph_blake.h crypto/sph_groestl.h \
-	crypto/sph_keccak.h crypto/sph_bmw.h crypto/sph_jh.h \
-	crypto/sph_skein.h db.h eccryptoverify.h ecwrapper.h hash.h \
-	hashblock.h init.h kernel.h key.h keystore.h leveldbwrapper.h \
-	limitedmap.h main.h merkleblock.h miner.h mruset.h netbase.h \
-	net.h noui.h pow.h protocol.h primitives/block.h \
-	primitives/transaction.h pubkey.h random.h rpcclient.h \
-	rpcprotocol.h rpcserver.h script/interpreter.h script/script.h \
-	script/sigcache.h script/sign.h script/standard.h \
-	script/script_error.h serialize.h streams.h sync.h \
-	threadsafety.h timedata.h tinyformat.h txdb.h txmempool.h \
-	ui_interface.h uint256.h undo.h util.h utilstrencodings.h \
-	utilmoneystr.h utiltime.h version.h wallet.h wallet_ismine.h \
-	walletdb.h compat/sanity.h compat/glibc_compat.cpp \
-	compat/glibcxx_compat.cpp
+	utilstrencodings.cpp utilmoneystr.cpp utiltime.cpp \
+	activemasternode.h addrman.h alert.h allocators.h amount.h \
+	base58.h bloom.h chain.h chainparams.h chainparamsbase.h \
+	chainparamsseeds.h checkpoints.h checkqueue.h clientversion.h \
+	coincontrol.h coins.h compat.h compressor.h core_io.h \
+	crypter.h crypto/sph_types.h crypto/sph_blake.h \
+	crypto/sph_groestl.h crypto/sph_keccak.h crypto/sph_bmw.h \
+	crypto/sph_jh.h crypto/sph_skein.h db.h eccryptoverify.h \
+	ecwrapper.h hash.h hashblock.h init.h kernel.h swifttx.h key.h \
+	keystore.h leveldbwrapper.h limitedmap.h main.h masternode.h \
+	masternode-payments.h masternode-budget.h masternode-sync.h \
+	masternodeman.h masternodeconfig.h merkleblock.h miner.h \
+	mruset.h netbase.h net.h noui.h pow.h protocol.h \
+	primitives/block.h primitives/transaction.h pubkey.h random.h \
+	rpcclient.h rpcprotocol.h rpcserver.h script/interpreter.h \
+	script/script.h script/sigcache.h script/sign.h \
+	script/standard.h script/script_error.h serialize.h spork.h \
+	streams.h sync.h threadsafety.h timedata.h tinyformat.h txdb.h \
+	txmempool.h ui_interface.h uint256.h undo.h util.h \
+	utilstrencodings.h utilmoneystr.h utiltime.h version.h \
+	wallet.h wallet_ismine.h walletdb.h compat/sanity.h \
+	compat/glibc_compat.cpp compat/glibcxx_compat.cpp
 @GLIBC_BACK_COMPAT_TRUE@am__objects_2 = compat/libquark_util_a-glibc_compat.$(OBJEXT) \
 @GLIBC_BACK_COMPAT_TRUE@	compat/libquark_util_a-glibcxx_compat.$(OBJEXT)
 am_libquark_util_a_OBJECTS = compat/libquark_util_a-strnlen.$(OBJEXT) \
@@ -338,8 +343,19 @@ libquark_util_a_OBJECTS = $(am_libquark_util_a_OBJECTS) \
 	$(nodist_libquark_util_a_OBJECTS)
 libquark_wallet_a_AR = $(AR) $(ARFLAGS)
 libquark_wallet_a_LIBADD =
-am_libquark_wallet_a_OBJECTS = libquark_wallet_a-db.$(OBJEXT) \
+am_libquark_wallet_a_OBJECTS =  \
+	libquark_wallet_a-activemasternode.$(OBJEXT) \
+	libquark_wallet_a-obfuscation.$(OBJEXT) \
+	libquark_wallet_a-obfuscation-relay.$(OBJEXT) \
+	libquark_wallet_a-db.$(OBJEXT) \
 	libquark_wallet_a-crypter.$(OBJEXT) \
+	libquark_wallet_a-swifttx.$(OBJEXT) \
+	libquark_wallet_a-masternode.$(OBJEXT) \
+	libquark_wallet_a-masternode-budget.$(OBJEXT) \
+	libquark_wallet_a-masternode-payments.$(OBJEXT) \
+	libquark_wallet_a-masternode-sync.$(OBJEXT) \
+	libquark_wallet_a-masternodeconfig.$(OBJEXT) \
+	libquark_wallet_a-masternodeman.$(OBJEXT) \
 	libquark_wallet_a-rpcdump.$(OBJEXT) \
 	libquark_wallet_a-rpcwallet.$(OBJEXT) \
 	libquark_wallet_a-kernel.$(OBJEXT) \
@@ -368,7 +384,8 @@ am__qt_libquarkqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 	qt/signverifymessagedialog.cpp qt/transactiondesc.cpp \
 	qt/transactiondescdialog.cpp qt/transactionfilterproxy.cpp \
 	qt/transactionrecord.cpp qt/transactiontablemodel.cpp \
-	qt/transactionview.cpp qt/walletframe.cpp qt/walletmodel.cpp \
+	qt/transactionview.cpp qt/masternodelist.cpp \
+	qt/walletframe.cpp qt/walletmodel.cpp \
 	qt/walletmodeltransaction.cpp qt/walletview.cpp \
 	qt/addressbookpage.h qt/addresstablemodel.h \
 	qt/askpassphrasedialog.h qt/bitcoinaddressvalidator.h \
@@ -388,19 +405,19 @@ am__qt_libquarkqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 	qt/trafficgraphwidget.h qt/transactiondesc.h \
 	qt/transactiondescdialog.h qt/transactionfilterproxy.h \
 	qt/transactionrecord.h qt/transactiontablemodel.h \
-	qt/transactionview.h qt/utilitydialog.h qt/walletframe.h \
-	qt/walletmodel.h qt/walletmodeltransaction.h qt/walletview.h \
-	qt/winshutdownmonitor.h qt/forms/addressbookpage.ui \
-	qt/forms/askpassphrasedialog.ui qt/forms/coincontroldialog.ui \
-	qt/forms/editaddressdialog.ui qt/forms/helpmessagedialog.ui \
-	qt/forms/intro.ui qt/forms/openuridialog.ui \
-	qt/forms/optionsdialog.ui qt/forms/overviewpage.ui \
-	qt/forms/receivecoinsdialog.ui \
+	qt/transactionview.h qt/masternodelist.h qt/utilitydialog.h \
+	qt/walletframe.h qt/walletmodel.h qt/walletmodeltransaction.h \
+	qt/walletview.h qt/winshutdownmonitor.h \
+	qt/forms/addressbookpage.ui qt/forms/askpassphrasedialog.ui \
+	qt/forms/coincontroldialog.ui qt/forms/editaddressdialog.ui \
+	qt/forms/helpmessagedialog.ui qt/forms/intro.ui \
+	qt/forms/openuridialog.ui qt/forms/optionsdialog.ui \
+	qt/forms/overviewpage.ui qt/forms/receivecoinsdialog.ui \
 	qt/forms/receiverequestdialog.ui qt/forms/rpcconsole.ui \
 	qt/forms/sendcoinsdialog.ui qt/forms/sendcoinsentry.ui \
 	qt/forms/signverifymessagedialog.ui \
-	qt/forms/transactiondescdialog.ui qt/bitcoin.qrc \
-	qt/bitcoin_locale.qrc qt/locale/bitcoin_ach.ts \
+	qt/forms/transactiondescdialog.ui qt/forms/masternodelist.ui \
+	qt/bitcoin.qrc qt/bitcoin_locale.qrc qt/locale/bitcoin_ach.ts \
 	qt/locale/bitcoin_af_ZA.ts qt/locale/bitcoin_ar.ts \
 	qt/locale/bitcoin_be_BY.ts qt/locale/bitcoin_bg.ts \
 	qt/locale/bitcoin_bs.ts qt/locale/bitcoin_ca_ES.ts \
@@ -450,12 +467,13 @@ am__qt_libquarkqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 	qt/res/icons/export.png qt/res/icons/eye.png \
 	qt/res/icons/eye_minus.png qt/res/icons/eye_plus.png \
 	qt/res/icons/filesave.png qt/res/icons/history.png \
-	qt/res/icons/key.png qt/res/icons/lock_closed.png \
-	qt/res/icons/lock_open.png qt/res/icons/overview.png \
-	qt/res/icons/qrcode.png qt/res/icons/quit.png \
-	qt/res/icons/receive.png qt/res/icons/remove.png \
-	qt/res/icons/send.png qt/res/icons/synced.png \
-	qt/res/icons/transaction0.png qt/res/icons/transaction2.png \
+	qt/res/icons/masternodes.png qt/res/icons/key.png \
+	qt/res/icons/lock_closed.png qt/res/icons/lock_open.png \
+	qt/res/icons/overview.png qt/res/icons/qrcode.png \
+	qt/res/icons/quit.png qt/res/icons/receive.png \
+	qt/res/icons/remove.png qt/res/icons/send.png \
+	qt/res/icons/synced.png qt/res/icons/transaction0.png \
+	qt/res/icons/transaction2.png \
 	qt/res/icons/transaction_conflicted.png \
 	qt/res/icons/tx_inout.png qt/res/icons/tx_input.png \
 	qt/res/icons/tx_output.png qt/res/icons/tx_mined.png \
@@ -485,6 +503,7 @@ am__qt_libquarkqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-transactionrecord.$(OBJEXT) \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-transactiontablemodel.$(OBJEXT) \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-transactionview.$(OBJEXT) \
+@ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-masternodelist.$(OBJEXT) \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-walletframe.$(OBJEXT) \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-walletmodel.$(OBJEXT) \
 @ENABLE_QT_TRUE@@ENABLE_WALLET_TRUE@	qt/qt_libquarkqt_a-walletmodeltransaction.$(OBJEXT) \
@@ -555,6 +574,7 @@ am__qt_libquarkqt_a_SOURCES_DIST = qt/bitcoinaddressvalidator.cpp \
 @ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_transactionfilterproxy.$(OBJEXT) \
 @ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_transactiontablemodel.$(OBJEXT) \
 @ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_transactionview.$(OBJEXT) \
+@ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_masternodelist.$(OBJEXT) \
 @ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_utilitydialog.$(OBJEXT) \
 @ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_walletframe.$(OBJEXT) \
 @ENABLE_QT_TRUE@	qt/qt_libquarkqt_a-moc_walletmodel.$(OBJEXT) \
@@ -1427,6 +1447,7 @@ EXTRA_LIBRARIES = crypto/libquark_crypto.a libquark_util.a \
 @BUILD_BITCOIN_LIBS_TRUE@LIBBITCOIN_CONSENSUS = libquarkconsensus.la
 # quark core #
 BITCOIN_CORE_H = \
+  activemasternode.h \
   addrman.h \
   alert.h \
   allocators.h \
@@ -1460,11 +1481,18 @@ BITCOIN_CORE_H = \
   hashblock.h \
   init.h \
   kernel.h \
+  swifttx.h \
   key.h \
   keystore.h \
   leveldbwrapper.h \
   limitedmap.h \
   main.h \
+  masternode.h \
+  masternode-payments.h \
+  masternode-budget.h \
+  masternode-sync.h \
+  masternodeman.h \
+  masternodeconfig.h \
   merkleblock.h \
   miner.h \
   mruset.h \
@@ -1487,6 +1515,7 @@ BITCOIN_CORE_H = \
   script/standard.h \
   script/script_error.h \
   serialize.h \
+  spork.h \
   streams.h \
   sync.h \
   threadsafety.h \
@@ -1536,6 +1565,8 @@ libquark_server_a_SOURCES = \
   noui.cpp \
   rest.cpp \
   rpcblockchain.cpp \
+  rpcmasternode.cpp \
+  rpcmasternode-budget.cpp \
   rpcmining.cpp \
   rpcmisc.cpp \
   rpcnet.cpp \
@@ -1553,8 +1584,18 @@ libquark_server_a_SOURCES = \
 # when wallet enabled
 libquark_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libquark_wallet_a_SOURCES = \
+  activemasternode.cpp \
+  obfuscation.cpp \
+  obfuscation-relay.cpp \
   db.cpp \
   crypter.cpp \
+  swifttx.cpp \
+  masternode.cpp \
+  masternode-budget.cpp \
+  masternode-payments.cpp \
+  masternode-sync.cpp \
+  masternodeconfig.cpp \
+  masternodeman.cpp \
   rpcdump.cpp \
   rpcwallet.cpp \
   kernel.cpp \
@@ -1634,6 +1675,7 @@ libquark_common_a_SOURCES = \
   script/sign.cpp \
   script/standard.cpp \
   script/script_error.cpp \
+  spork.cpp \
   $(BITCOIN_CORE_H)
 
 
@@ -1865,7 +1907,8 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@  qt/forms/sendcoinsdialog.ui \
 @ENABLE_QT_TRUE@  qt/forms/sendcoinsentry.ui \
 @ENABLE_QT_TRUE@  qt/forms/signverifymessagedialog.ui \
-@ENABLE_QT_TRUE@  qt/forms/transactiondescdialog.ui
+@ENABLE_QT_TRUE@  qt/forms/transactiondescdialog.ui \
+@ENABLE_QT_TRUE@  qt/forms/masternodelist.ui
 
 @ENABLE_QT_TRUE@QT_MOC_CPP = \
 @ENABLE_QT_TRUE@  qt/moc_addressbookpage.cpp \
@@ -1907,6 +1950,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@  qt/moc_transactionfilterproxy.cpp \
 @ENABLE_QT_TRUE@  qt/moc_transactiontablemodel.cpp \
 @ENABLE_QT_TRUE@  qt/moc_transactionview.cpp \
+@ENABLE_QT_TRUE@  qt/moc_masternodelist.cpp \
 @ENABLE_QT_TRUE@  qt/moc_utilitydialog.cpp \
 @ENABLE_QT_TRUE@  qt/moc_walletframe.cpp \
 @ENABLE_QT_TRUE@  qt/moc_walletmodel.cpp \
@@ -1974,6 +2018,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@  qt/transactionrecord.h \
 @ENABLE_QT_TRUE@  qt/transactiontablemodel.h \
 @ENABLE_QT_TRUE@  qt/transactionview.h \
+@ENABLE_QT_TRUE@  qt/masternodelist.h \
 @ENABLE_QT_TRUE@  qt/utilitydialog.h \
 @ENABLE_QT_TRUE@  qt/walletframe.h \
 @ENABLE_QT_TRUE@  qt/walletmodel.h \
@@ -2009,6 +2054,7 @@ EXTRA_DIST = leveldb $(am__append_16)
 @ENABLE_QT_TRUE@  qt/res/icons/eye_plus.png \
 @ENABLE_QT_TRUE@  qt/res/icons/filesave.png \
 @ENABLE_QT_TRUE@  qt/res/icons/history.png \
+@ENABLE_QT_TRUE@  qt/res/icons/masternodes.png \
 @ENABLE_QT_TRUE@  qt/res/icons/key.png \
 @ENABLE_QT_TRUE@  qt/res/icons/lock_closed.png \
 @ENABLE_QT_TRUE@  qt/res/icons/lock_open.png \
@@ -2345,6 +2391,8 @@ qt/qt_libquarkqt_a-transactiontablemodel.$(OBJEXT):  \
 	qt/$(am__dirstamp) qt/$(DEPDIR)/$(am__dirstamp)
 qt/qt_libquarkqt_a-transactionview.$(OBJEXT): qt/$(am__dirstamp) \
 	qt/$(DEPDIR)/$(am__dirstamp)
+qt/qt_libquarkqt_a-masternodelist.$(OBJEXT): qt/$(am__dirstamp) \
+	qt/$(DEPDIR)/$(am__dirstamp)
 qt/qt_libquarkqt_a-walletframe.$(OBJEXT): qt/$(am__dirstamp) \
 	qt/$(DEPDIR)/$(am__dirstamp)
 qt/qt_libquarkqt_a-walletmodel.$(OBJEXT): qt/$(am__dirstamp) \
@@ -2430,6 +2478,8 @@ qt/qt_libquarkqt_a-moc_transactionfilterproxy.$(OBJEXT):  \
 qt/qt_libquarkqt_a-moc_transactiontablemodel.$(OBJEXT):  \
 	qt/$(am__dirstamp) qt/$(DEPDIR)/$(am__dirstamp)
 qt/qt_libquarkqt_a-moc_transactionview.$(OBJEXT): qt/$(am__dirstamp) \
+	qt/$(DEPDIR)/$(am__dirstamp)
+qt/qt_libquarkqt_a-moc_masternodelist.$(OBJEXT): qt/$(am__dirstamp) \
 	qt/$(DEPDIR)/$(am__dirstamp)
 qt/qt_libquarkqt_a-moc_utilitydialog.$(OBJEXT): qt/$(am__dirstamp) \
 	qt/$(DEPDIR)/$(am__dirstamp)
@@ -2755,6 +2805,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_common_a-pow.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_common_a-protocol.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_common_a-pubkey.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_common_a-spork.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-addrman.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-alert.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-bloom.Po@am__quote@
@@ -2769,6 +2820,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-noui.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rpcblockchain.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rpcmasternode-budget.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rpcmasternode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rpcmining.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rpcmisc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_server_a-rpcnet.Po@am__quote@
@@ -2787,11 +2840,21 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_util_a-utilmoneystr.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_util_a-utilstrencodings.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_util_a-utiltime.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-activemasternode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-crypter.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-db.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-kernel.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-masternode-budget.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-masternode-payments.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-masternode-sync.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-masternode.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-masternodeconfig.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-masternodeman.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-obfuscation-relay.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-obfuscation.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-rpcdump.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-rpcwallet.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-swifttx.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-wallet.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-wallet_ismine.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libquark_wallet_a-walletdb.Po@am__quote@
@@ -2846,6 +2909,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-editaddressdialog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-guiutil.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-intro.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_addressbookpage.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_addresstablemodel.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_askpassphrasedialog.Po@am__quote@
@@ -2862,6 +2926,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_intro.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_macdockiconhandler.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_macnotificationhandler.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_notificator.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_openuridialog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@qt/$(DEPDIR)/qt_libquarkqt_a-moc_optionsdialog.Po@am__quote@
@@ -3565,6 +3630,20 @@ script/libquark_common_a-script_error.obj: script/script_error.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o script/libquark_common_a-script_error.obj `if test -f 'script/script_error.cpp'; then $(CYGPATH_W) 'script/script_error.cpp'; else $(CYGPATH_W) '$(srcdir)/script/script_error.cpp'; fi`
 
+libquark_common_a-spork.o: spork.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_common_a-spork.o -MD -MP -MF $(DEPDIR)/libquark_common_a-spork.Tpo -c -o libquark_common_a-spork.o `test -f 'spork.cpp' || echo '$(srcdir)/'`spork.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_common_a-spork.Tpo $(DEPDIR)/libquark_common_a-spork.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='spork.cpp' object='libquark_common_a-spork.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_common_a-spork.o `test -f 'spork.cpp' || echo '$(srcdir)/'`spork.cpp
+
+libquark_common_a-spork.obj: spork.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_common_a-spork.obj -MD -MP -MF $(DEPDIR)/libquark_common_a-spork.Tpo -c -o libquark_common_a-spork.obj `if test -f 'spork.cpp'; then $(CYGPATH_W) 'spork.cpp'; else $(CYGPATH_W) '$(srcdir)/spork.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_common_a-spork.Tpo $(DEPDIR)/libquark_common_a-spork.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='spork.cpp' object='libquark_common_a-spork.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_common_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_common_a-spork.obj `if test -f 'spork.cpp'; then $(CYGPATH_W) 'spork.cpp'; else $(CYGPATH_W) '$(srcdir)/spork.cpp'; fi`
+
 libquark_server_a-addrman.o: addrman.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_server_a-addrman.o -MD -MP -MF $(DEPDIR)/libquark_server_a-addrman.Tpo -c -o libquark_server_a-addrman.o `test -f 'addrman.cpp' || echo '$(srcdir)/'`addrman.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_server_a-addrman.Tpo $(DEPDIR)/libquark_server_a-addrman.Po
@@ -3760,6 +3839,34 @@ libquark_server_a-rpcblockchain.obj: rpcblockchain.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcblockchain.cpp' object='libquark_server_a-rpcblockchain.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_server_a-rpcblockchain.obj `if test -f 'rpcblockchain.cpp'; then $(CYGPATH_W) 'rpcblockchain.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcblockchain.cpp'; fi`
+
+libquark_server_a-rpcmasternode.o: rpcmasternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_server_a-rpcmasternode.o -MD -MP -MF $(DEPDIR)/libquark_server_a-rpcmasternode.Tpo -c -o libquark_server_a-rpcmasternode.o `test -f 'rpcmasternode.cpp' || echo '$(srcdir)/'`rpcmasternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_server_a-rpcmasternode.Tpo $(DEPDIR)/libquark_server_a-rpcmasternode.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcmasternode.cpp' object='libquark_server_a-rpcmasternode.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_server_a-rpcmasternode.o `test -f 'rpcmasternode.cpp' || echo '$(srcdir)/'`rpcmasternode.cpp
+
+libquark_server_a-rpcmasternode.obj: rpcmasternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_server_a-rpcmasternode.obj -MD -MP -MF $(DEPDIR)/libquark_server_a-rpcmasternode.Tpo -c -o libquark_server_a-rpcmasternode.obj `if test -f 'rpcmasternode.cpp'; then $(CYGPATH_W) 'rpcmasternode.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcmasternode.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_server_a-rpcmasternode.Tpo $(DEPDIR)/libquark_server_a-rpcmasternode.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcmasternode.cpp' object='libquark_server_a-rpcmasternode.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_server_a-rpcmasternode.obj `if test -f 'rpcmasternode.cpp'; then $(CYGPATH_W) 'rpcmasternode.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcmasternode.cpp'; fi`
+
+libquark_server_a-rpcmasternode-budget.o: rpcmasternode-budget.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_server_a-rpcmasternode-budget.o -MD -MP -MF $(DEPDIR)/libquark_server_a-rpcmasternode-budget.Tpo -c -o libquark_server_a-rpcmasternode-budget.o `test -f 'rpcmasternode-budget.cpp' || echo '$(srcdir)/'`rpcmasternode-budget.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_server_a-rpcmasternode-budget.Tpo $(DEPDIR)/libquark_server_a-rpcmasternode-budget.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcmasternode-budget.cpp' object='libquark_server_a-rpcmasternode-budget.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_server_a-rpcmasternode-budget.o `test -f 'rpcmasternode-budget.cpp' || echo '$(srcdir)/'`rpcmasternode-budget.cpp
+
+libquark_server_a-rpcmasternode-budget.obj: rpcmasternode-budget.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_server_a-rpcmasternode-budget.obj -MD -MP -MF $(DEPDIR)/libquark_server_a-rpcmasternode-budget.Tpo -c -o libquark_server_a-rpcmasternode-budget.obj `if test -f 'rpcmasternode-budget.cpp'; then $(CYGPATH_W) 'rpcmasternode-budget.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcmasternode-budget.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_server_a-rpcmasternode-budget.Tpo $(DEPDIR)/libquark_server_a-rpcmasternode-budget.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcmasternode-budget.cpp' object='libquark_server_a-rpcmasternode-budget.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_server_a-rpcmasternode-budget.obj `if test -f 'rpcmasternode-budget.cpp'; then $(CYGPATH_W) 'rpcmasternode-budget.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcmasternode-budget.cpp'; fi`
 
 libquark_server_a-rpcmining.o: rpcmining.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_server_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_server_a-rpcmining.o -MD -MP -MF $(DEPDIR)/libquark_server_a-rpcmining.Tpo -c -o libquark_server_a-rpcmining.o `test -f 'rpcmining.cpp' || echo '$(srcdir)/'`rpcmining.cpp
@@ -4097,6 +4204,48 @@ compat/libquark_util_a-glibcxx_compat.obj: compat/glibcxx_compat.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_util_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o compat/libquark_util_a-glibcxx_compat.obj `if test -f 'compat/glibcxx_compat.cpp'; then $(CYGPATH_W) 'compat/glibcxx_compat.cpp'; else $(CYGPATH_W) '$(srcdir)/compat/glibcxx_compat.cpp'; fi`
 
+libquark_wallet_a-activemasternode.o: activemasternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-activemasternode.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-activemasternode.Tpo -c -o libquark_wallet_a-activemasternode.o `test -f 'activemasternode.cpp' || echo '$(srcdir)/'`activemasternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-activemasternode.Tpo $(DEPDIR)/libquark_wallet_a-activemasternode.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='activemasternode.cpp' object='libquark_wallet_a-activemasternode.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-activemasternode.o `test -f 'activemasternode.cpp' || echo '$(srcdir)/'`activemasternode.cpp
+
+libquark_wallet_a-activemasternode.obj: activemasternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-activemasternode.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-activemasternode.Tpo -c -o libquark_wallet_a-activemasternode.obj `if test -f 'activemasternode.cpp'; then $(CYGPATH_W) 'activemasternode.cpp'; else $(CYGPATH_W) '$(srcdir)/activemasternode.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-activemasternode.Tpo $(DEPDIR)/libquark_wallet_a-activemasternode.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='activemasternode.cpp' object='libquark_wallet_a-activemasternode.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-activemasternode.obj `if test -f 'activemasternode.cpp'; then $(CYGPATH_W) 'activemasternode.cpp'; else $(CYGPATH_W) '$(srcdir)/activemasternode.cpp'; fi`
+
+libquark_wallet_a-obfuscation.o: obfuscation.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-obfuscation.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-obfuscation.Tpo -c -o libquark_wallet_a-obfuscation.o `test -f 'obfuscation.cpp' || echo '$(srcdir)/'`obfuscation.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-obfuscation.Tpo $(DEPDIR)/libquark_wallet_a-obfuscation.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='obfuscation.cpp' object='libquark_wallet_a-obfuscation.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-obfuscation.o `test -f 'obfuscation.cpp' || echo '$(srcdir)/'`obfuscation.cpp
+
+libquark_wallet_a-obfuscation.obj: obfuscation.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-obfuscation.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-obfuscation.Tpo -c -o libquark_wallet_a-obfuscation.obj `if test -f 'obfuscation.cpp'; then $(CYGPATH_W) 'obfuscation.cpp'; else $(CYGPATH_W) '$(srcdir)/obfuscation.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-obfuscation.Tpo $(DEPDIR)/libquark_wallet_a-obfuscation.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='obfuscation.cpp' object='libquark_wallet_a-obfuscation.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-obfuscation.obj `if test -f 'obfuscation.cpp'; then $(CYGPATH_W) 'obfuscation.cpp'; else $(CYGPATH_W) '$(srcdir)/obfuscation.cpp'; fi`
+
+libquark_wallet_a-obfuscation-relay.o: obfuscation-relay.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-obfuscation-relay.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-obfuscation-relay.Tpo -c -o libquark_wallet_a-obfuscation-relay.o `test -f 'obfuscation-relay.cpp' || echo '$(srcdir)/'`obfuscation-relay.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-obfuscation-relay.Tpo $(DEPDIR)/libquark_wallet_a-obfuscation-relay.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='obfuscation-relay.cpp' object='libquark_wallet_a-obfuscation-relay.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-obfuscation-relay.o `test -f 'obfuscation-relay.cpp' || echo '$(srcdir)/'`obfuscation-relay.cpp
+
+libquark_wallet_a-obfuscation-relay.obj: obfuscation-relay.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-obfuscation-relay.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-obfuscation-relay.Tpo -c -o libquark_wallet_a-obfuscation-relay.obj `if test -f 'obfuscation-relay.cpp'; then $(CYGPATH_W) 'obfuscation-relay.cpp'; else $(CYGPATH_W) '$(srcdir)/obfuscation-relay.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-obfuscation-relay.Tpo $(DEPDIR)/libquark_wallet_a-obfuscation-relay.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='obfuscation-relay.cpp' object='libquark_wallet_a-obfuscation-relay.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-obfuscation-relay.obj `if test -f 'obfuscation-relay.cpp'; then $(CYGPATH_W) 'obfuscation-relay.cpp'; else $(CYGPATH_W) '$(srcdir)/obfuscation-relay.cpp'; fi`
+
 libquark_wallet_a-db.o: db.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-db.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-db.Tpo -c -o libquark_wallet_a-db.o `test -f 'db.cpp' || echo '$(srcdir)/'`db.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-db.Tpo $(DEPDIR)/libquark_wallet_a-db.Po
@@ -4124,6 +4273,104 @@ libquark_wallet_a-crypter.obj: crypter.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='crypter.cpp' object='libquark_wallet_a-crypter.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-crypter.obj `if test -f 'crypter.cpp'; then $(CYGPATH_W) 'crypter.cpp'; else $(CYGPATH_W) '$(srcdir)/crypter.cpp'; fi`
+
+libquark_wallet_a-swifttx.o: swifttx.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-swifttx.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-swifttx.Tpo -c -o libquark_wallet_a-swifttx.o `test -f 'swifttx.cpp' || echo '$(srcdir)/'`swifttx.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-swifttx.Tpo $(DEPDIR)/libquark_wallet_a-swifttx.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='swifttx.cpp' object='libquark_wallet_a-swifttx.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-swifttx.o `test -f 'swifttx.cpp' || echo '$(srcdir)/'`swifttx.cpp
+
+libquark_wallet_a-swifttx.obj: swifttx.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-swifttx.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-swifttx.Tpo -c -o libquark_wallet_a-swifttx.obj `if test -f 'swifttx.cpp'; then $(CYGPATH_W) 'swifttx.cpp'; else $(CYGPATH_W) '$(srcdir)/swifttx.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-swifttx.Tpo $(DEPDIR)/libquark_wallet_a-swifttx.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='swifttx.cpp' object='libquark_wallet_a-swifttx.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-swifttx.obj `if test -f 'swifttx.cpp'; then $(CYGPATH_W) 'swifttx.cpp'; else $(CYGPATH_W) '$(srcdir)/swifttx.cpp'; fi`
+
+libquark_wallet_a-masternode.o: masternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode.Tpo -c -o libquark_wallet_a-masternode.o `test -f 'masternode.cpp' || echo '$(srcdir)/'`masternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode.Tpo $(DEPDIR)/libquark_wallet_a-masternode.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode.cpp' object='libquark_wallet_a-masternode.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode.o `test -f 'masternode.cpp' || echo '$(srcdir)/'`masternode.cpp
+
+libquark_wallet_a-masternode.obj: masternode.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode.Tpo -c -o libquark_wallet_a-masternode.obj `if test -f 'masternode.cpp'; then $(CYGPATH_W) 'masternode.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode.Tpo $(DEPDIR)/libquark_wallet_a-masternode.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode.cpp' object='libquark_wallet_a-masternode.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode.obj `if test -f 'masternode.cpp'; then $(CYGPATH_W) 'masternode.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode.cpp'; fi`
+
+libquark_wallet_a-masternode-budget.o: masternode-budget.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode-budget.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode-budget.Tpo -c -o libquark_wallet_a-masternode-budget.o `test -f 'masternode-budget.cpp' || echo '$(srcdir)/'`masternode-budget.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode-budget.Tpo $(DEPDIR)/libquark_wallet_a-masternode-budget.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode-budget.cpp' object='libquark_wallet_a-masternode-budget.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode-budget.o `test -f 'masternode-budget.cpp' || echo '$(srcdir)/'`masternode-budget.cpp
+
+libquark_wallet_a-masternode-budget.obj: masternode-budget.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode-budget.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode-budget.Tpo -c -o libquark_wallet_a-masternode-budget.obj `if test -f 'masternode-budget.cpp'; then $(CYGPATH_W) 'masternode-budget.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode-budget.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode-budget.Tpo $(DEPDIR)/libquark_wallet_a-masternode-budget.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode-budget.cpp' object='libquark_wallet_a-masternode-budget.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode-budget.obj `if test -f 'masternode-budget.cpp'; then $(CYGPATH_W) 'masternode-budget.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode-budget.cpp'; fi`
+
+libquark_wallet_a-masternode-payments.o: masternode-payments.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode-payments.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode-payments.Tpo -c -o libquark_wallet_a-masternode-payments.o `test -f 'masternode-payments.cpp' || echo '$(srcdir)/'`masternode-payments.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode-payments.Tpo $(DEPDIR)/libquark_wallet_a-masternode-payments.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode-payments.cpp' object='libquark_wallet_a-masternode-payments.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode-payments.o `test -f 'masternode-payments.cpp' || echo '$(srcdir)/'`masternode-payments.cpp
+
+libquark_wallet_a-masternode-payments.obj: masternode-payments.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode-payments.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode-payments.Tpo -c -o libquark_wallet_a-masternode-payments.obj `if test -f 'masternode-payments.cpp'; then $(CYGPATH_W) 'masternode-payments.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode-payments.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode-payments.Tpo $(DEPDIR)/libquark_wallet_a-masternode-payments.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode-payments.cpp' object='libquark_wallet_a-masternode-payments.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode-payments.obj `if test -f 'masternode-payments.cpp'; then $(CYGPATH_W) 'masternode-payments.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode-payments.cpp'; fi`
+
+libquark_wallet_a-masternode-sync.o: masternode-sync.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode-sync.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode-sync.Tpo -c -o libquark_wallet_a-masternode-sync.o `test -f 'masternode-sync.cpp' || echo '$(srcdir)/'`masternode-sync.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode-sync.Tpo $(DEPDIR)/libquark_wallet_a-masternode-sync.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode-sync.cpp' object='libquark_wallet_a-masternode-sync.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode-sync.o `test -f 'masternode-sync.cpp' || echo '$(srcdir)/'`masternode-sync.cpp
+
+libquark_wallet_a-masternode-sync.obj: masternode-sync.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternode-sync.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternode-sync.Tpo -c -o libquark_wallet_a-masternode-sync.obj `if test -f 'masternode-sync.cpp'; then $(CYGPATH_W) 'masternode-sync.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode-sync.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternode-sync.Tpo $(DEPDIR)/libquark_wallet_a-masternode-sync.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternode-sync.cpp' object='libquark_wallet_a-masternode-sync.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternode-sync.obj `if test -f 'masternode-sync.cpp'; then $(CYGPATH_W) 'masternode-sync.cpp'; else $(CYGPATH_W) '$(srcdir)/masternode-sync.cpp'; fi`
+
+libquark_wallet_a-masternodeconfig.o: masternodeconfig.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternodeconfig.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternodeconfig.Tpo -c -o libquark_wallet_a-masternodeconfig.o `test -f 'masternodeconfig.cpp' || echo '$(srcdir)/'`masternodeconfig.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternodeconfig.Tpo $(DEPDIR)/libquark_wallet_a-masternodeconfig.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternodeconfig.cpp' object='libquark_wallet_a-masternodeconfig.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternodeconfig.o `test -f 'masternodeconfig.cpp' || echo '$(srcdir)/'`masternodeconfig.cpp
+
+libquark_wallet_a-masternodeconfig.obj: masternodeconfig.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternodeconfig.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternodeconfig.Tpo -c -o libquark_wallet_a-masternodeconfig.obj `if test -f 'masternodeconfig.cpp'; then $(CYGPATH_W) 'masternodeconfig.cpp'; else $(CYGPATH_W) '$(srcdir)/masternodeconfig.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternodeconfig.Tpo $(DEPDIR)/libquark_wallet_a-masternodeconfig.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternodeconfig.cpp' object='libquark_wallet_a-masternodeconfig.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternodeconfig.obj `if test -f 'masternodeconfig.cpp'; then $(CYGPATH_W) 'masternodeconfig.cpp'; else $(CYGPATH_W) '$(srcdir)/masternodeconfig.cpp'; fi`
+
+libquark_wallet_a-masternodeman.o: masternodeman.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternodeman.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternodeman.Tpo -c -o libquark_wallet_a-masternodeman.o `test -f 'masternodeman.cpp' || echo '$(srcdir)/'`masternodeman.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternodeman.Tpo $(DEPDIR)/libquark_wallet_a-masternodeman.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternodeman.cpp' object='libquark_wallet_a-masternodeman.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternodeman.o `test -f 'masternodeman.cpp' || echo '$(srcdir)/'`masternodeman.cpp
+
+libquark_wallet_a-masternodeman.obj: masternodeman.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-masternodeman.obj -MD -MP -MF $(DEPDIR)/libquark_wallet_a-masternodeman.Tpo -c -o libquark_wallet_a-masternodeman.obj `if test -f 'masternodeman.cpp'; then $(CYGPATH_W) 'masternodeman.cpp'; else $(CYGPATH_W) '$(srcdir)/masternodeman.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libquark_wallet_a-masternodeman.Tpo $(DEPDIR)/libquark_wallet_a-masternodeman.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='masternodeman.cpp' object='libquark_wallet_a-masternodeman.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libquark_wallet_a-masternodeman.obj `if test -f 'masternodeman.cpp'; then $(CYGPATH_W) 'masternodeman.cpp'; else $(CYGPATH_W) '$(srcdir)/masternodeman.cpp'; fi`
 
 libquark_wallet_a-rpcdump.o: rpcdump.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libquark_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libquark_wallet_a-rpcdump.o -MD -MP -MF $(DEPDIR)/libquark_wallet_a-rpcdump.Tpo -c -o libquark_wallet_a-rpcdump.o `test -f 'rpcdump.cpp' || echo '$(srcdir)/'`rpcdump.cpp
@@ -4797,6 +5044,20 @@ qt/qt_libquarkqt_a-transactionview.obj: qt/transactionview.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_libquarkqt_a-transactionview.obj `if test -f 'qt/transactionview.cpp'; then $(CYGPATH_W) 'qt/transactionview.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/transactionview.cpp'; fi`
 
+qt/qt_libquarkqt_a-masternodelist.o: qt/masternodelist.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_libquarkqt_a-masternodelist.o -MD -MP -MF qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Tpo -c -o qt/qt_libquarkqt_a-masternodelist.o `test -f 'qt/masternodelist.cpp' || echo '$(srcdir)/'`qt/masternodelist.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Tpo qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/masternodelist.cpp' object='qt/qt_libquarkqt_a-masternodelist.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_libquarkqt_a-masternodelist.o `test -f 'qt/masternodelist.cpp' || echo '$(srcdir)/'`qt/masternodelist.cpp
+
+qt/qt_libquarkqt_a-masternodelist.obj: qt/masternodelist.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_libquarkqt_a-masternodelist.obj -MD -MP -MF qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Tpo -c -o qt/qt_libquarkqt_a-masternodelist.obj `if test -f 'qt/masternodelist.cpp'; then $(CYGPATH_W) 'qt/masternodelist.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/masternodelist.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Tpo qt/$(DEPDIR)/qt_libquarkqt_a-masternodelist.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/masternodelist.cpp' object='qt/qt_libquarkqt_a-masternodelist.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_libquarkqt_a-masternodelist.obj `if test -f 'qt/masternodelist.cpp'; then $(CYGPATH_W) 'qt/masternodelist.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/masternodelist.cpp'; fi`
+
 qt/qt_libquarkqt_a-walletframe.o: qt/walletframe.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_libquarkqt_a-walletframe.o -MD -MP -MF qt/$(DEPDIR)/qt_libquarkqt_a-walletframe.Tpo -c -o qt/qt_libquarkqt_a-walletframe.o `test -f 'qt/walletframe.cpp' || echo '$(srcdir)/'`qt/walletframe.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_libquarkqt_a-walletframe.Tpo qt/$(DEPDIR)/qt_libquarkqt_a-walletframe.Po
@@ -5398,6 +5659,20 @@ qt/qt_libquarkqt_a-moc_transactionview.obj: qt/moc_transactionview.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/moc_transactionview.cpp' object='qt/qt_libquarkqt_a-moc_transactionview.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_libquarkqt_a-moc_transactionview.obj `if test -f 'qt/moc_transactionview.cpp'; then $(CYGPATH_W) 'qt/moc_transactionview.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/moc_transactionview.cpp'; fi`
+
+qt/qt_libquarkqt_a-moc_masternodelist.o: qt/moc_masternodelist.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_libquarkqt_a-moc_masternodelist.o -MD -MP -MF qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Tpo -c -o qt/qt_libquarkqt_a-moc_masternodelist.o `test -f 'qt/moc_masternodelist.cpp' || echo '$(srcdir)/'`qt/moc_masternodelist.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Tpo qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/moc_masternodelist.cpp' object='qt/qt_libquarkqt_a-moc_masternodelist.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_libquarkqt_a-moc_masternodelist.o `test -f 'qt/moc_masternodelist.cpp' || echo '$(srcdir)/'`qt/moc_masternodelist.cpp
+
+qt/qt_libquarkqt_a-moc_masternodelist.obj: qt/moc_masternodelist.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_libquarkqt_a-moc_masternodelist.obj -MD -MP -MF qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Tpo -c -o qt/qt_libquarkqt_a-moc_masternodelist.obj `if test -f 'qt/moc_masternodelist.cpp'; then $(CYGPATH_W) 'qt/moc_masternodelist.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/moc_masternodelist.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Tpo qt/$(DEPDIR)/qt_libquarkqt_a-moc_masternodelist.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='qt/moc_masternodelist.cpp' object='qt/qt_libquarkqt_a-moc_masternodelist.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o qt/qt_libquarkqt_a-moc_masternodelist.obj `if test -f 'qt/moc_masternodelist.cpp'; then $(CYGPATH_W) 'qt/moc_masternodelist.cpp'; else $(CYGPATH_W) '$(srcdir)/qt/moc_masternodelist.cpp'; fi`
 
 qt/qt_libquarkqt_a-moc_utilitydialog.o: qt/moc_utilitydialog.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(qt_libquarkqt_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT qt/qt_libquarkqt_a-moc_utilitydialog.o -MD -MP -MF qt/$(DEPDIR)/qt_libquarkqt_a-moc_utilitydialog.Tpo -c -o qt/qt_libquarkqt_a-moc_utilitydialog.o `test -f 'qt/moc_utilitydialog.cpp' || echo '$(srcdir)/'`qt/moc_utilitydialog.cpp
