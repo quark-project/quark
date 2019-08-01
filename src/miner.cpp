@@ -356,7 +356,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
          * Masternode code PoS doesn't pay for Masternode
          */
         if (!fProofOfStake && chainActive.Tip()->nHeight >= Params().FirstMasternodePaymentBlock() - 1 ) {
-            //Masternode and general terasury payments
+            //Masternode and general treasury payments
             fMasterPayment = FillBlockPayee(txNew, nFees, fProofOfStake, nTxNewTime);
 
             //Make payee

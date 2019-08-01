@@ -207,6 +207,7 @@ bool RecvLine(SOCKET hSocket, string& strLine)
                 // socket error
                 int nErr = WSAGetLastError();
                 LogPrint("net", "recv failed: %s\n", NetworkErrorString(nErr));
+
                 return false;
             }
         }
@@ -973,7 +974,7 @@ void ThreadSocketHandler()
                             if (nErr != WSAEWOULDBLOCK && nErr != WSAEMSGSIZE && nErr != WSAEINTR && nErr != WSAEINPROGRESS)
                             {
                                 if (!pnode->fDisconnect)
-                                    LogPrintf("socket recv error %s\n", NetworkErrorString(nErr));
+                                    LogPrintf("%s socket recv error %s\n", pnode->addrName, NetworkErrorString(nErr));
                                 pnode->CloseSocketDisconnect();
                             }
                         }

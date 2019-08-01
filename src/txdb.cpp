@@ -254,6 +254,7 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
 
                 pcursor->Next();
             } else {
+
                 break; // if shutdown requested or finished loading block index
             }
         } catch (std::exception &e) {

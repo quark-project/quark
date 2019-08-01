@@ -979,9 +979,11 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state)
         if (txout.IsEmpty() && !tx.IsCoinBase() && !tx.IsCoinStake())
             return state.DoS(100, error("CheckTransaction(): txout empty for user transaction"));
 
-        if (txout.nValue < 0)
+        if (txout.nValue < 0){
+            LogPrintf("txout.nValue = %s\n", FormatMoney(txout.nValue));
             return state.DoS(100, error("CheckTransaction() : txout.nValue negative"),
                              REJECT_INVALID, "bad-txns-vout-negative");
+        }
         if (txout.nValue > MAX_MONEY)
             return state.DoS(100, error("CheckTransaction() : txout.nValue too high"),
                              REJECT_INVALID, "bad-txns-vout-toolarge");
@@ -1680,8 +1682,8 @@ bool IsInitialBlockDownload()
         return false;
     if (!pindexBestHeader)
         return true;
-    bool state = (chainActive.Height() < pindexBestHeader->nHeight - 24 * 6 ||
-            pindexBestHeader->GetBlockTime() < GetTime() - chainParams.MaxTipAge());
+    bool state = chainActive.Height() < pindexBestHeader->nHeight - 24 * 6 ;
+         state |= pindexBestHeader->GetBlockTime() < GetTime() - chainParams.MaxTipAge();
     if (!state)
         lockIBDState = true;
     return state;
@@ -2226,16 +2228,22 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         bool PayOk = true;
         if (block.IsProofOfWork())
         {
-            int64_t ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
-            if(IsTreasuryPaymentBlock(pindex->nHeight))
-               ExpectedPay += GetTreasuryPayment(pindex->nHeight,(ExpectedPay-nFees)/0.75);
+            ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
+            if(block.IsTreasuryPaymentBlock()){
+                LogPrintf("Is Treasury Payment Block!\n");
+                int64_t treasuryPayAmount = GetTreasuryPayment(pindex->nHeight,(ExpectedPay-nFees)/0.75);
+                ExpectedPay += treasuryPayAmount;
+            }else{
+                LogPrintf("Non Treasury Payment Block!\n");
+            }
 
-            int64_t ActualPay = block.vtx[0].GetValueOut();
+            ActualPay = block.vtx[0].GetValueOut();
             PayOk = ActualPay <= ExpectedPay;
+
         }
         if (!PayOk)
             return state.DoS(100,
-                error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
+                error("ConnectBlock() : reward pays too much (actual=%d vs Expected=%d)",
                 ActualPay, ExpectedPay),
                 REJECT_INVALID, "bad-cb-amount");
     }
@@ -2653,6 +2661,7 @@ bool IsTreasuryPaymentBlock(int nHeight){
             isTreasuryBlock = true;
     }
 
+
     return isTreasuryBlock;
 }
 
@@ -2992,7 +3001,9 @@ bool ReceivedBlockTransactions(const CBlock &block, CValidationState& state, CBl
     if (block.IsProofOfStake())
         pindexNew->SetProofOfStake();
     if (block.IsTreasuryPaymentBlock())
+    {
         pindexNew->SetTreasuryPayment();
+    }
 
     pindexNew->nTx = block.vtx.size();
     pindexNew->nChainTx = 0;
@@ -3381,6 +3392,23 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         return state.DoS(100, error("%s : incorrect proof of stake", __func__),
                          REJECT_INVALID, "bad-pos-diffbits");
 
+    // Check Treasury playment
+    if (block.IsTreasuryPaymentBlock() )
+    {
+       bool bstate = pindex->nHeight < Params().FirstMasternodePaymentBlock();
+       if(!bstate){
+           int prevtreasuryHeight = 0;
+           CBlockIndex *pprevTreasuryBlcok = GetPrevTreasuryBlock();
+           if(pprevTreasuryBlcok)
+               prevtreasuryHeight = pprevTreasuryBlcok->nHeight;
+           if( prevtreasuryHeight + Params().TreasuryPaymentIntervalBlocks() > pindex->nHeight )
+               bstate = true;
+       }
+
+       if(bstate)
+        return state.DoS(100, error("%s : incorrect treasury payment blcok", __func__),
+                         REJECT_INVALID, "bad-pay-treasury");
+    }
 
     if (pindex->nStatus & BLOCK_HAVE_DATA) {
         // TODO: deal better with duplicate blocks.
@@ -3552,12 +3580,16 @@ bool TestBlockValidity(CValidationState &state, const CBlock& block, CBlockIndex
     AssertLockHeld(cs_main);
     assert(pindexPrev == chainActive.Tip());
 
+    if(pindexPrev->nHeight + 1==7072569){
+        int nHeight = pindexPrev->nHeight + 1;
+    }
     CCoinsViewCache viewNew(pcoinsTip);
     CBlockIndex indexDummy(block);
     indexDummy.pprev = pindexPrev;
     indexDummy.nHeight = pindexPrev->nHeight + 1;
 
     // NOTE: CheckBlockHeader is called by CheckBlock
+
     if (!ContextualCheckBlockHeader(block, state, pindexPrev))
         return false;
     if (!CheckBlock(block, state, fCheckPOW, fCheckMerkleRoot))
@@ -3700,6 +3732,9 @@ bool static LoadBlockIndexDB()
             pindex->BuildSkip();
         if (pindex->IsValid(BLOCK_VALID_TREE) && (pindexBestHeader == NULL || CBlockIndexWorkComparator()(pindexBestHeader, pindex)))
             pindexBestHeader = pindex;
+
+        //if(pindex->nHeight>=7069999)
+        //    break;
     }
 
     // Load block file info
@@ -3858,7 +3893,8 @@ void UnloadBlockIndex()
     pindexBestInvalid = NULL;
 }
 
-bool LoadBlockIndex()
+bool
+LoadBlockIndex()
 {
     // Load block index from databases
     if (!fReindex && !LoadBlockIndexDB())

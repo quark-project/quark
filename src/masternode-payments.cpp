@@ -274,8 +274,8 @@ bool FillTreasuryPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfS
     int leadingPoSBlocks = GetLeadingPoSBlocks(pindexPrev->nHeight+1);
     CScript payee = GetScriptForDestination(CBitcoinAddress(Params().TreasuryPaymentAddress()).Get());
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight+1);
-    CAmount singleBlockValue = blockValue / 0.75;
-    singleBlockValue /= leadingPoSBlocks?leadingPoSBlocks:1;
+    CAmount singleBlockValue = blockValue / (leadingPoSBlocks+1);
+    singleBlockValue /= 0.75;
     //Divided by 0.75 gets primitive value
     CAmount treasuryPayment = GetTreasuryPayment(pindexPrev->nHeight+1, singleBlockValue);
     txNew.vout.resize(2);
