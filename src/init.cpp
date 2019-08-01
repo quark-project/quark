@@ -1040,6 +1040,7 @@ bool AppInit2(boost::thread_group& threadGroup)
                     pblocktree->WriteReindexing(true);
 
                 if (!LoadBlockIndex()) {
+
                     strLoadError = _("Error loading block database");
                     break;
                 }

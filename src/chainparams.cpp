@@ -90,12 +90,13 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
         (3235865, uint256("0x000000010f18f93a614a12dfe936319f52aa447f752836f4fa896310741dd32b"))
         (4101607, uint256("0x00000000228a00758187ef66622ca31893c2614a053e2e46efd955222d7fdf57"))
         (4223071, uint256("0x000000010f385d545029761683a3063c554e5f127a44e1cda99c9909ea4ff549"))
-        (4256000, uint256("0x0000000024cfefc26f5c55f04e78a27816081b29b3fd0cb4ff812032bf95befd "))
+        (4256000, uint256("0x0000000024cfefc26f5c55f04e78a27816081b29b3fd0cb4ff812032bf95befd"))
+        (7080827, uint256("0x000000000051756ae28645408c5220cb31ef78435c9f379ac49acb5156cac000"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
-        1493621657, // * UNIX timestamp of last checkpoint block
-        5076713,    // * total number of transactions between genesis and last checkpoint
+        1564249020, // * UNIX timestamp of last checkpoint block
+        7990566,    // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
         2880.0      // * estimated number of transactions per day after checkpoint
     };
@@ -132,12 +133,17 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xfe;
-        pchMessageStart[1] = 0xa5;
-        pchMessageStart[2] = 0x03;
-        pchMessageStart[3] = 0xdd;
+        //pchMessageStart[0] = 0xfe;
+        //pchMessageStart[1] = 0xa5;
+        //pchMessageStart[2] = 0x03;
+        //pchMessageStart[3] = 0xdd;
+        pchMessageStart[0] = 0xfc;
+        pchMessageStart[1] = 0xa4;
+        pchMessageStart[2] = 0x02;
+        pchMessageStart[3] = 0xdc;
+
         vAlertPubKey = ParseHex("0493e6dc310a0e444cfb20f3234a238f77699806d47909a42481010c5ce68ff04d3babc959cd037bd3aa6ded929f2b9b4aa2f626786cd7f8495e5bb61e9cfebbc4");
-        nDefaultPort = 11973;
+        nDefaultPort = 13721;
         bnProofOfWorkLimit = nMainProofOfWorkLimit;
         nSubsidyHalvingInterval = 60480;
         nEnforceBlockUpgradeMajority = 7500;
@@ -184,7 +190,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == hashMainGenesisBlock);
 
-        vSeeds.push_back(CDNSSeedData("seed1.qrknet.info", "seed1.qrknet.info"));
+        /*vSeeds.push_back(CDNSSeedData("seed1.qrknet.info", "seed1.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed2.qrknet.info", "seed2.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed3.qrknet.info", "seed3.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed4.qrknet.info", "seed4.qrknet.info"));
@@ -192,6 +198,7 @@ public:
         vSeeds.push_back(CDNSSeedData("seed6.qrknet.info", "seed6.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed7.qrknet.info", "seed7.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed8.qrknet.info", "seed8.qrknet.info"));
+        */
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(58);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(9);
@@ -199,7 +206,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
 
-        convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
+        //convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fRequireRPCPassword = true;
         fMiningRequiresPeers = true;
@@ -207,7 +214,7 @@ public:
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
-        fSkipProofOfWorkCheck = false;
+        fSkipProofOfWorkCheck = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
         nPoolMaxTransactions = 3;
@@ -237,12 +244,16 @@ public:
     CTestNetParams() {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x01;
-        pchMessageStart[1] = 0x1a;
-        pchMessageStart[2] = 0x39;
-        pchMessageStart[3] = 0xf7;
+        //pchMessageStart[0] = 0x01;
+        //pchMessageStart[1] = 0x1a;
+        //pchMessageStart[2] = 0x39;
+        //pchMessageStart[3] = 0xf7;
+        pchMessageStart[0] = 0x02;
+        pchMessageStart[1] = 0x1b;
+        pchMessageStart[2] = 0x3a;
+        pchMessageStart[3] = 0xf8;
         vAlertPubKey = ParseHex("04218bc3f08237baa077cb1b0e5a81695fcf3f5b4e220b4ad274d05a31d762dd4e191efa7b736a24a32d6fd9ac1b5ebb2787c70e9dfad0016a8b32f7bd2520dbd5");
-        nDefaultPort = 21973;
+        nDefaultPort = 23721;
         nEnforceBlockUpgradeMajority = 51;
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
