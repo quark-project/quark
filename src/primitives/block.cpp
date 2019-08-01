@@ -14,6 +14,8 @@
 #include "util.h"
 #include "base58.h"
 
+using namespace std;
+
 uint256 CBlockHeader::GetHash() const
 {
     return Hash9(BEGIN(nVersion), END(nNonce));
@@ -258,14 +260,38 @@ bool CBlock::CheckBlockSignature() const
 
 bool CBlock::IsTreasuryPaymentBlock() const
 {
-    if(!IsProofOfWork()) return false;
+    if(!IsProofOfWork()) {
+        LogPrintf("Is not PoW!");
+        return false;
+    }
+    LogPrintf("vtx.size() = %d !",vtx.size());
+    if(vtx.size()>=1) LogPrintf("vtx[0].vout.size() = %d!\n",vtx[0].vout.size());
+
     if(vtx.size()<1 || vtx[0].vout.size()!=2) return false;
 
-    const CTxOut& txout = vtx[0].vout[1];
+    string address = Params().TreasuryPaymentAddress();
+    CScript treasuryScriptPubKey = GetScriptForDestination(CBitcoinAddress(address).Get());
+
+    LogPrintf("Treasury Address: %s\n",address.c_str());
+
+    CTxDestination address1,address2;
+    ExtractDestination(vtx[0].vout[0].scriptPubKey, address1);
+    CBitcoinAddress addr1(address1);
 
 
-    CScript treasuryScriptPubKey = GetScriptForDestination(CBitcoinAddress(Params().TreasuryPaymentAddress()).Get());
+    string dest1 = addr1.ToString();
+    LogPrintf("Address1: %s\n",dest1.c_str());
 
-    return treasuryScriptPubKey == txout.scriptPubKey ;
+    ExtractDestination(vtx[0].vout[1].scriptPubKey, address2);
+    CBitcoinAddress addr2(address2);
+
+    string dest2 = addr2.ToString();
+    LogPrintf("Address2: %s\n",dest2.c_str());
+
+    bool bTreasuryPlayment = (dest2 == address || dest1 == address ) ;
+
+    LogPrintf("bTreasuryPlayment: %s\n",bTreasuryPlayment?"True":"False");
+
+    return bTreasuryPlayment;
 }
 
