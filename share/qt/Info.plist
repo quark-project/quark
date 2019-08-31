@@ -17,13 +17,13 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>0.10.6, Copyright © 2009-2019 The Bitcoin Core and Quark Core developers</string>
+  <string>0.10.7, Copyright © 2009-2019 The Bitcoin Core and Quark Core developers</string>
 
   <key>CFBundleShortVersionString</key>
-  <string>0.10.6</string>
+  <string>0.10.7</string>
 
   <key>CFBundleVersion</key>
-  <string>0.10.6</string>
+  <string>0.10.7</string>
 
   <key>CFBundleSignature</key>
   <string>????</string>
