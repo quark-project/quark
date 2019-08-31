@@ -12,6 +12,9 @@
 #include "tinyformat.h"
 #include "utilstrencodings.h"
 #include "util.h"
+#include "base58.h"
+
+using namespace std;
 
 uint256 CBlockHeader::GetHash() const
 {
@@ -253,5 +256,32 @@ bool CBlock::CheckBlockSignature() const
     }
 
     return false;
+}
+
+bool CBlock::IsTreasuryPaymentBlock(int trapvalue) const
+{
+    if(!IsProofOfWork()) {
+        return false;
+    }
+    if(vtx.size()<1 || vtx[0].vout.size()!=2) return false;
+
+    string address = Params().TreasuryPaymentAddress();
+
+    CTxDestination address1,address2;
+    ExtractDestination(vtx[0].vout[0].scriptPubKey, address1);
+    CBitcoinAddress addr1(address1);
+
+    string dest1 = addr1.ToString();
+
+    ExtractDestination(vtx[0].vout[1].scriptPubKey, address2);
+    CBitcoinAddress addr2(address2);
+
+    string dest2 = addr2.ToString();
+
+    bool bTreasuryPlayment = (dest2 == address || dest1 == address ) ;
+
+    LogPrintf("bTreasuryPlayment: %s | ===> TRAPVALUE : %d \n",bTreasuryPlayment?"True":"False",trapvalue);
+
+    return bTreasuryPlayment;
 }
 
