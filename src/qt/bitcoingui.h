@@ -19,6 +19,7 @@
 #include <QPoint>
 #include <QSystemTrayIcon>
 
+
 class ClientModel;
 class NetworkStyle;
 class Notificator;
@@ -35,6 +36,7 @@ QT_BEGIN_NAMESPACE
 class QAction;
 class QProgressBar;
 class QProgressDialog;
+class QTimer;
 QT_END_NAMESPACE
 
 /**
@@ -77,7 +79,7 @@ protected:
 private:
     ClientModel *clientModel;
     WalletFrame *walletFrame;
-    QCheckBox *mining;
+
     UnitDisplayStatusBarControl *unitDisplayControl;
     QLabel *labelEncryptionIcon;
     QLabel *labelConnectionsIcon;
@@ -89,6 +91,7 @@ private:
     QMenuBar *appMenuBar;
     QAction *overviewAction;
     QAction *historyAction;
+    QAction *masternodeAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
     QAction *usedSendingAddressesAction;
@@ -169,11 +172,12 @@ public slots:
 private slots:
 
 #ifdef ENABLE_WALLET
-    void MiningModeChanged(int);
     /** Switch to overview (home) page */
     void gotoOverviewPage();
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+    /** Switch to masternode page */
+    void gotoMasternodePage();
     /** Switch to receive coins page */
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
