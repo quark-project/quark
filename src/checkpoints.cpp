@@ -29,7 +29,9 @@ namespace Checkpoints {
     {
         if (!fEnabled)
             return true;
-
+        if(nHeight==7080827){
+            int k=201;
+        }
         const MapCheckpoints& checkpoints = *Params().Checkpoints().mapCheckpoints;
 
         MapCheckpoints::const_iterator i = checkpoints.find(nHeight);
