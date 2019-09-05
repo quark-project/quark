@@ -2228,7 +2228,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         bool PayOk = true;
         if (block.IsProofOfWork())
         {
-            if(pindex->nHeight > 9140000 && block.vtx[0].vout.size() < 2)
+            if(pindex->nHeight > 7200000 && block.vtx[0].vout.size() < 2)
                 return state.DoS(100,
                     error("ConnectBlock() : coinbase output should be greater than 2"),
                     REJECT_INVALID, "bad-co-count");
