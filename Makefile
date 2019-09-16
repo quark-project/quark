@@ -195,7 +195,8 @@ am__DIST_COMMON = $(srcdir)/Makefile.in \
 	$(top_srcdir)/src/config/bitcoin-config.h.in \
 	$(top_srcdir)/src/test/buildenv.py.in COPYING INSTALL \
 	build-aux/compile build-aux/config.guess build-aux/config.sub \
-	build-aux/install-sh build-aux/ltmain.sh build-aux/missing
+	build-aux/depcomp build-aux/install-sh build-aux/ltmain.sh \
+	build-aux/missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -237,14 +238,14 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/wxl/quark-0.10.7.0/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /home/wxl/quark-0.10.7.4/build-aux/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
 AR = /usr/bin/ar
-AUTOCONF = ${SHELL} /home/wxl/quark-0.10.7.0/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /home/wxl/quark-0.10.7.0/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /home/wxl/quark-0.10.7.0/build-aux/missing automake-1.15
-AWK = mawk
+AUTOCONF = ${SHELL} /home/wxl/quark-0.10.7.4/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /home/wxl/quark-0.10.7.4/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /home/wxl/quark-0.10.7.4/build-aux/missing automake-1.15
+AWK = gawk
 BDB_CPPFLAGS = 
 BDB_LIBS = -ldb_cxx-4.8
 BOOST_CHRONO_LIB = -lboost_chrono
@@ -263,8 +264,8 @@ BUILD_TEST_QT =
 CC = gcc
 CCACHE = 
 CCDEPMODE = depmode=gcc3
-CFLAGS = -g3 -O0 -DDEBUG
-CLIENT_VERSION_BUILD = 0
+CFLAGS = -g -O2
+CLIENT_VERSION_BUILD = 4
 CLIENT_VERSION_IS_RELEASE = true
 CLIENT_VERSION_MAJOR = 0
 CLIENT_VERSION_MINOR = 10
@@ -278,7 +279,7 @@ CRYPTO_LIBS = -lcrypto
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -g3 -O0 -DDEBUG  -Wstack-protector -fstack-protector-all -fPIE -fvisibility=hidden
+CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -Wno-self-assign  -Wstack-protector -fstack-protector-all -fPIE -fvisibility=hidden
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
@@ -323,7 +324,7 @@ LTLIBOBJS =
 LT_SYS_LIBRARY_PATH = 
 LUPDATE = /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate
 MAINT = 
-MAKEINFO = ${SHELL} /home/wxl/quark-0.10.7.0/build-aux/missing makeinfo
+MAKEINFO = ${SHELL} /home/wxl/quark-0.10.7.4/build-aux/missing makeinfo
 MAKENSIS = 
 MANIFEST_TOOL = :
 MINIUPNPC_CPPFLAGS = 
@@ -335,7 +336,7 @@ NM = /usr/bin/nm -B
 NMEDIT = 
 OBJCXX = g++
 OBJCXXDEPMODE = depmode=gcc3
-OBJCXXFLAGS = -g3 -O0 -DDEBUG  -Wstack-protector -fstack-protector-all -fPIE
+OBJCXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter -Wno-self-assign  -Wstack-protector -fstack-protector-all -fPIE
 OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
@@ -395,10 +396,10 @@ WINDRES =
 X11XCB_CFLAGS = 
 X11XCB_LIBS = 
 XGETTEXT = /usr/bin/xgettext
-abs_builddir = /home/wxl/quark-0.10.7.0
-abs_srcdir = /home/wxl/quark-0.10.7.0
-abs_top_builddir = /home/wxl/quark-0.10.7.0
-abs_top_srcdir = /home/wxl/quark-0.10.7.0
+abs_builddir = /home/wxl/quark-0.10.7.4
+abs_srcdir = /home/wxl/quark-0.10.7.4
+abs_top_builddir = /home/wxl/quark-0.10.7.4
+abs_top_srcdir = /home/wxl/quark-0.10.7.4
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -430,7 +431,7 @@ host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/wxl/quark-0.10.7.0/build-aux/install-sh
+install_sh = ${SHELL} /home/wxl/quark-0.10.7.4/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
