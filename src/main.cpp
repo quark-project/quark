@@ -2255,7 +2255,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         }
     }
 
-     if (!IsInitialBlockDownload())
+     if (!IsInitialBlockDownload() && block.IsProofOfWork())
      {
          int64_t blockValue = GetBlockValue(pindex->nHeight);
          int64_t mnPayAmount = GetMasternodePayment(pindex->nHeight, blockValue/0.75);
@@ -3262,7 +3262,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                 nHeight = (*mi).second->nHeight + 1;
         }
 
-        if (nHeight != 0 && !IsInitialBlockDownload()) {
+        if (nHeight != 0 && !IsInitialBlockDownload() && !block.IsProofOfStake()) {
             if (!IsBlockPayeeValid(block, nHeight)) {
                 mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
                 return state.DoS(100, error("CheckBlock() : Couldn't find masternode/budget payment"));
