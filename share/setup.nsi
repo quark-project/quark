@@ -10,11 +10,11 @@ SetCompressor /SOLID lzma
 !define URL http://www.qrknet.info/
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/wxl/quark-0.10.7.0/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/wxl/quark-0.10.7.0/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/home/wxl/quark-0.10.7.4/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/wxl/quark-0.10.7.4/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/wxl/quark-0.10.7.0/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/home/wxl/quark-0.10.7.4/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,7 +22,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Quark Core"
 !define MUI_FINISHPAGE_RUN $INSTDIR\quark-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/wxl/quark-0.10.7.0/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/wxl/quark-0.10.7.4/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -48,7 +48,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/wxl/quark-0.10.7.0/quark-${VERSION}-win-setup.exe
+OutFile /home/wxl/quark-0.10.7.4/quark-${VERSION}-win-setup.exe
 !if "" == "64"
 InstallDir $PROGRAMFILES64\Quark
 !else
@@ -58,7 +58,7 @@ CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion ${VERSION}.0
+VIProductVersion ${VERSION}.4
 VIAddVersionKey ProductName "Quark Core"
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -73,14 +73,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/wxl/quark-0.10.7.0/release/quark-qt.exe
-    File /oname=COPYING.txt /home/wxl/quark-0.10.7.0/COPYING
-    File /oname=readme.txt /home/wxl/quark-0.10.7.0/doc/README_windows.txt
+    File /home/wxl/quark-0.10.7.4/release/quark-qt.exe
+    File /oname=COPYING.txt /home/wxl/quark-0.10.7.4/COPYING
+    File /oname=readme.txt /home/wxl/quark-0.10.7.4/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/wxl/quark-0.10.7.0/release/quarkd.exe
-    File /home/wxl/quark-0.10.7.0/release/quark-cli.exe
+    File /home/wxl/quark-0.10.7.4/release/quarkd.exe
+    File /home/wxl/quark-0.10.7.4/release/quark-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /home/wxl/quark-0.10.7.0/doc\*.*
+    File /r /home/wxl/quark-0.10.7.4/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
