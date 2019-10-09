@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2017 The PIVX developers
+
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -435,7 +435,7 @@ Value masternode(const Array& params, bool fHelp)
         CMasternode* pmn = mnodeman.Find(activeMasternode.vin);
 
         mnObj.push_back(Pair("vin", activeMasternode.vin.ToString()));
-        mnObj.push_back(Pair("service", activeMasternode.service.ToString()));
+        mnObj.push_back(Pair("service", activeMasternode.mservice.ToString()));
         if (pmn) mnObj.push_back(Pair("pubkey", CBitcoinAddress(pmn->pubKeyCollateralAddress.GetID()).ToString()));
         mnObj.push_back(Pair("status", activeMasternode.GetStatus()));
         return mnObj;

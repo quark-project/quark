@@ -8,12 +8,13 @@
 #endif
 
 #include "net.h"
-#include "init.h"
+
 #include "addrman.h"
 #include "chainparams.h"
 #include "chainparams.h"
 #include "clientversion.h"
 #include "miner.h"
+#include "obfuscation.h"
 #include "primitives/transaction.h"
 #include "ui_interface.h"
 #include "wallet.h"
@@ -206,6 +207,7 @@ bool RecvLine(SOCKET hSocket, string& strLine)
                 // socket error
                 int nErr = WSAGetLastError();
                 LogPrint("net", "recv failed: %s\n", NetworkErrorString(nErr));
+
                 return false;
             }
         }
@@ -972,7 +974,7 @@ void ThreadSocketHandler()
                             if (nErr != WSAEWOULDBLOCK && nErr != WSAEMSGSIZE && nErr != WSAEINTR && nErr != WSAEINPROGRESS)
                             {
                                 if (!pnode->fDisconnect)
-                                    LogPrintf("socket recv error %s\n", NetworkErrorString(nErr));
+                                    LogPrintf("%s socket recv error %s\n", pnode->addrName, NetworkErrorString(nErr));
                                 pnode->CloseSocketDisconnect();
                             }
                         }
@@ -1831,6 +1833,20 @@ void RelayTransaction(const CTransaction& tx, const CDataStream& ss)
                 pnode->PushInventory(inv);
         } else
             pnode->PushInventory(inv);
+    }
+}
+
+void RelayTransactionLockReq(const CTransaction& tx, bool relayToAll)
+{
+    CInv inv(MSG_TXLOCK_REQUEST, tx.GetHash());
+
+    //broadcast the new lock
+    LOCK(cs_vNodes);
+    BOOST_FOREACH (CNode* pnode, vNodes) {
+        if (!relayToAll && !pnode->fRelayTxes)
+            continue;
+
+        pnode->PushMessage("ix", tx);
     }
 }
 
