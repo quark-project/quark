@@ -190,7 +190,7 @@ public:
         hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == hashMainGenesisBlock);
 
-        /*vSeeds.push_back(CDNSSeedData("seed1.qrknet.info", "seed1.qrknet.info"));
+        vSeeds.push_back(CDNSSeedData("seed1.qrknet.info", "seed1.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed2.qrknet.info", "seed2.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed3.qrknet.info", "seed3.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed4.qrknet.info", "seed4.qrknet.info"));
@@ -198,7 +198,6 @@ public:
         vSeeds.push_back(CDNSSeedData("seed6.qrknet.info", "seed6.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed7.qrknet.info", "seed7.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed8.qrknet.info", "seed8.qrknet.info"));
-        */
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(58);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(9);
