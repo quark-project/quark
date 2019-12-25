@@ -199,11 +199,11 @@ public:
         vSeeds.push_back(CDNSSeedData("seed7.qrknet.info", "seed7.qrknet.info"));
         vSeeds.push_back(CDNSSeedData("seed8.qrknet.info", "seed8.qrknet.info"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(58);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(9);
-        base58Prefixes[SECRET_KEY] =     list_of(186);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,58);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,9);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,186);
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
         //convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
@@ -277,11 +277,11 @@ public:
         vSeeds.clear();
         vSeeds.push_back(CDNSSeedData("testseed1.qrknet.info", "testseed1.qrknet.info"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = list_of(119);
-        base58Prefixes[SCRIPT_ADDRESS] = list_of(199);
-        base58Prefixes[SECRET_KEY]     = list_of(247);
-        base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x35)(0x87)(0xCF);
-        base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x35)(0x83)(0x94);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,119);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,199);
+        base58Prefixes[SECRET_KEY]     = std::vector<unsigned char>(1,247);
+        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
 
