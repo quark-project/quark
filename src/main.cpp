@@ -2669,7 +2669,11 @@ bool IsTreasuryPaymentBlock(int nHeight){
     if( nHeight < Params().FirstMasternodePaymentBlock() )
         return false;
 
-    bool isTreasuryBlock =  !((nHeight - Params().FirstMasternodePaymentBlock()) % Params().TreasuryPaymentIntervalBlocks());
+    // 0.10.7.5 begin
+    //bool isTreasuryBlock =  !((nHeight - Params().FirstMasternodePaymentBlock()) % Params().TreasuryPaymentIntervalBlocks());
+    bool isTreasuryBlock = false;
+	// 0.10.7.5 end
+
     if(!isTreasuryBlock){
         CBlockIndex *pIndex = GetPrevTreasuryBlock();
         int lastTreasuryBlock = 0;
@@ -3401,7 +3405,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         return state.DoS(100, error("%s : incorrect proof of work", __func__),
                          REJECT_INVALID, "bad-diffbits");
 
-    // Check proof of work
+    // Check proof of stake
     if (block.IsProofOfStake() &&
        (block.nBits != GetNextPoSTargetRequired(pindex->pprev)))
         return state.DoS(100, error("%s : incorrect proof of stake", __func__),
@@ -3413,15 +3417,15 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
        bool bstate = pindex->nHeight < Params().FirstMasternodePaymentBlock();
        if(!bstate){
            int prevtreasuryHeight = 0;
-           CBlockIndex *pprevTreasuryBlcok = GetPrevTreasuryBlock();
-           if(pprevTreasuryBlcok)
-               prevtreasuryHeight = pprevTreasuryBlcok->nHeight;
+           CBlockIndex *pprevTreasuryBlock = GetPrevTreasuryBlock();
+           if(pprevTreasuryBlock)
+               prevtreasuryHeight = pprevTreasuryBlock->nHeight;
            if( prevtreasuryHeight + Params().TreasuryPaymentIntervalBlocks() > pindex->nHeight )
                bstate = true;
        }
 
        if(bstate)
-        return state.DoS(100, error("%s : incorrect treasury payment blcok", __func__),
+           return state.DoS(100, error("%s : incorrect treasury payment block", __func__),
                          REJECT_INVALID, "bad-pay-treasury");
     }
 

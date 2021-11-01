@@ -118,3 +118,96 @@ Quark Core is a multithreaded application, and deadlocks or other multithreading
 can be very difficult to track down. Compiling with -DDEBUG_LOCKORDER (configure
 CXXFLAGS="-DDEBUG_LOCKORDER -g") inserts run-time checks to keep track of which locks
 are held, and adds warnings to the debug.log file if inconsistencies are detected.
+
+
+How To Build
+--------------
+
+**Ubuntu 16.04**
+
+```
+# Install gcc-7 g++-7
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt-get update 
+sudo apt-get install gcc-7
+sudo apt-get install g++-7
+
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100
+sudo update-alternatives --config gcc
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100
+sudo update-alternatives --config g++
+
+sudo apt-get update
+sudo apt-get install git build-essential libtool autotools-dev automake pkg-config libevent-dev bsdmainutils python3
+sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
+
+sudo apt-get install libqrencode-dev
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+sudo apt-get install libssl-dev
+
+
+git clone https://github.com/mutalisk999/quark.git
+
+cd quark
+git checkout 0.10.7.5
+
+sh autogen.sh
+./configure --enable-tests=no --with-gui=no
+make -j 4
+```
+
+**Ubuntu 18.04**
+
+```
+sudo apt-get update
+sudo apt-get install git build-essential libtool autotools-dev automake pkg-config libevent-dev bsdmainutils python3
+sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install libdb4.8-dev libdb4.8++-dev
+
+sudo apt-get install libqrencode-dev
+sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+sudo apt-get install libssl1.0-dev
+
+
+git clone https://github.com/mutalisk999/quark.git
+
+cd quark
+git checkout 0.10.7.5
+
+sh autogen.sh
+./configure --enable-tests=no --with-gui=no
+make -j 4
+```
+
+**Win64 (Cross-compilation on Ubuntu 18.04)**
+```
+sudo apt install build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git cmake
+
+sudo apt install g++-mingw-w64-x86-64
+sudo update-alternatives --config x86_64-w64-mingw32-g++   
+sudo update-alternatives --config x86_64-w64-mingw32-gcc    
+# Select the option that includes `posix`, e.g. `/usr/bin/x86_64-w64-mingw32-g++-posix`
+
+git clone https://github.com/mutalisk999/quark.git
+
+cd quark
+git checkout 0.10.7.5
+
+PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')      
+cd depends       
+make HOST=x86_64-w64-mingw32 -j 4
+
+cd ..       
+sh autogen.sh      
+CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --enable-tests=no --prefix=/         
+make -j 4
+```
