@@ -151,10 +151,9 @@ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-d
 sudo apt-get install libssl-dev
 
 
-git clone https://github.com/mutalisk999/quark.git
+git clone https://github.com/quark-project/quark.git
 
 cd quark
-git checkout 0.10.7.5
 
 sh autogen.sh
 ./configure --enable-tests=no --with-gui=no
@@ -178,10 +177,9 @@ sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-d
 sudo apt-get install libssl1.0-dev
 
 
-git clone https://github.com/mutalisk999/quark.git
+git clone https://github.com/quark-project/quark.git
 
 cd quark
-git checkout 0.10.7.5
 
 sh autogen.sh
 ./configure --enable-tests=no --with-gui=no
@@ -197,10 +195,9 @@ sudo update-alternatives --config x86_64-w64-mingw32-g++
 sudo update-alternatives --config x86_64-w64-mingw32-gcc    
 # Select the option that includes `posix`, e.g. `/usr/bin/x86_64-w64-mingw32-g++-posix`
 
-git clone https://github.com/mutalisk999/quark.git
+git clone https://github.com/quark-project/quark.git
 
 cd quark
-git checkout 0.10.7.5
 
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')      
 cd depends       
