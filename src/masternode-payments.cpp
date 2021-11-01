@@ -228,12 +228,19 @@ bool IsBlockValueValid(const CBlock& block, int64_t nExpectedValue)
 bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
 {
     if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything -- find the longest chain
-        LogPrint("mnpayments", "Client not synced, skipping block payee checks\n");
+        LogPrintf("mnpayments: Client not synced, skipping block payee checks\n");
         return true;
     }
     //const CTransaction& txNew = (nBlockHeight > Params().FIRST_POS_BLOCK() ? block.vtx[1] : block.vtx[0]);
     if(block.vtx.size()<1) return false;
 
+    // 0.10.7.5 begin
+    if(block.IsTreasuryPaymentBlock(4)) {
+        LogPrintf("Is Treasury Payment Block, Skip\n");
+	    return true;
+    }
+    // 0.10.7.5 end
+	
     const CTransaction& txNew = block.vtx[0];
     //check if it's a budget block
     /*
