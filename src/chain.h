@@ -228,7 +228,7 @@ public:
             if(block.IsTreasuryPaymentBlock(0))
                 SetTreasuryPayment();
 
-            LogPrintf("RUN-KEY-0010, KEY==========> %d\n",key);
+            //LogPrintf("RUN-KEY-0010, KEY==========> %d\n",key);
             prevoutStake.SetNull();
             nStakeTime = 0;
         }

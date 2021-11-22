@@ -36,7 +36,7 @@ src/qt/test/moc*.cpp
 *.orig
 *.o
 *.o-*
-*.patch
+*.si4project
 .quark
 *.a
 *.pb.cc

@@ -3268,7 +3268,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 
         if (nHeight != 0 && !IsInitialBlockDownload() && !block.IsProofOfStake()) {
             if (!IsBlockPayeeValid(block, nHeight)) {
-                mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
+                //mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
                 return state.DoS(100, error("CheckBlock() : Couldn't find masternode/budget payment"));
             }
         } else {
