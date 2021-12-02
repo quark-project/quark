@@ -3285,6 +3285,8 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 					LogPrintf("CheckBlock(): ActivateBestChain\n");
 					ActivateBestChain(state);
 				}
+			} else if  (pindexPrev->IsProofOfWork() && block.IsProofOfStake()) {
+				return state.DoS(100, error("CheckBlock() : ignore pos-block check"));
 			}
 		}
 
