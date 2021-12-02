@@ -3255,6 +3255,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     //}
 
     // ----------- masternode payments / budgets -----------
+
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (pindexPrev != NULL) {
         int nHeight = 0;
@@ -3265,6 +3266,29 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
             if (mi != mapBlockIndex.end() && (*mi).second)
                 nHeight = (*mi).second->nHeight + 1;
         }
+
+		// 0.10.7.6 start
+
+		// if different pow-block and pos-block generated at same height, deprecate pos block
+		if (nHeight == pindexPrev->nHeight) {
+			if (pindexPrev->IsProofOfStake() && block.IsProofOfWork()) {
+				LogPrintf("CheckBlock(): different pow-block and pos-block generated at same height\n");
+
+				CValidationState state;
+				{
+					LogPrintf("CheckBlock(): InvalidateBlock\n");
+					LOCK(cs_main);
+					InvalidateBlock(state, pindexPrev);
+				}
+
+				if (state.IsValid()) {
+					LogPrintf("CheckBlock(): ActivateBestChain\n");
+					ActivateBestChain(state);
+				}
+			}
+		}
+
+		// 0.10.7.6 end
 
         if (nHeight != 0 && !IsInitialBlockDownload() && !block.IsProofOfStake()) {
             if (!IsBlockPayeeValid(block, nHeight)) {
