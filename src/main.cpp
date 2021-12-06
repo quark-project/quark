@@ -2273,7 +2273,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
      if (!IsInitialBlockDownload() && block.IsProofOfWork())
      {
-         int64_t blockValue = GetBlockValue(pindex->nHeight);
+         int64_t blockValue = GetBlockValue(pindex->nHeight, pindex->pprev);
          int64_t mnPayAmount = GetMasternodePayment(pindex->nHeight, blockValue/0.75);
          int64_t treasuryPayAmount = GetTreasuryPayment(pindex->nHeight,blockValue/0.75);
          bool IsTreasury = block.IsTreasuryPaymentBlock(1);
@@ -2284,7 +2284,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
          {
              return state.DoS(100,
                  error("ConnectBlock() :[2] reward pays too much (actual=%d vs limit=%d)",
-                     block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
+                     block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight, pindex->pprev) + nFees),
                  REJECT_INVALID, "bad-cb-amount");
          }
      }
