@@ -262,7 +262,7 @@ public:
     int LastPayment(CMasternode& mn);
 
     bool GetBlockPayee(int nBlockHeight, CScript& payee);
-    bool IsTransactionValid(const CTransaction& txNew, int nBlockHeight);
+    bool IsTransactionValid(const CTransaction& txNew, int nBlockHeight, CBlockIndex* pprev);
     bool IsScheduled(CMasternode& mn, int nNotBlockHeight);
 
     bool CanVote(COutPoint outMasternode, int nBlockHeight)

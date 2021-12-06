@@ -261,7 +261,7 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
 
 
 	BlockMap::iterator it = mapBlockIndex.find(block.hashPrevBlock);
-	if (it == mapBlockIndex.end) {
+	if (it == mapBlockIndex.end()) {
         LogPrintf("IsBlockPayeeValid, can not find hashPrevBlock %s.\n", block.hashPrevBlock.GetHex().c_str());
 	    return false;
 	}
