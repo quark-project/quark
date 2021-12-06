@@ -217,7 +217,7 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, b
  // ***TODO***
 double ConvertBitsToDouble(unsigned int nBits);
 
-int GetLeadingPoSBlocks(int nHeight);
+int GetLeadingPoSBlocks(int nHeight, CBlockIndex* pprev);
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount = 0);
 int64_t GetTreasuryPayment(int nHeight, int64_t blockValue);
 bool IsTreasuryPaymentBlock(int nHeight);

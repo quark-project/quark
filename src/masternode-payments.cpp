@@ -290,7 +290,7 @@ bool FillTreasuryPayee(CMutableTransaction& txNew, int64_t nFees, bool fProofOfS
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return false;
 
-    int leadingPoSBlocks = GetLeadingPoSBlocks(pindexPrev->nHeight+1);
+    int leadingPoSBlocks = GetLeadingPoSBlocks(pindexPrev->nHeight+1, pindexPrev);
     CScript payee = GetScriptForDestination(CBitcoinAddress(Params().TreasuryPaymentAddress()).Get());
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight+1, pindexPrev);
     CAmount singleBlockValue = blockValue / (leadingPoSBlocks+1);
