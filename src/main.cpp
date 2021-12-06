@@ -1602,8 +1602,10 @@ CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
     return nSubsidy;
 }
 
-int GetLeadingPoSBlocks(int nHeight){
+int GetLeadingPoSBlocks(int nHeight, CBlockIndex* pprev){
     int countPoS = 0;
+
+	/*
     CBlockIndex *pprevIndex = chainActive.Tip();
 
     if(pprevIndex) {
@@ -1617,19 +1619,26 @@ int GetLeadingPoSBlocks(int nHeight){
             pprevIndex = pprevIndex->pprev;
         }
     }
+    */
+
+    while(pprev && pprev->IsProofOfStake()){
+        countPoS++;
+        pprev = pprev->pprev;
+    }
+
     LogPrintf("GetLeadingPoSBlocks: countPoS: %d\n", countPoS);
 
     return countPoS;
 }
 
-CAmount GetBlockValueAfterMasternodeStarted(int nHeight)
+CAmount GetBlockValueAfterMasternodeStarted(int nHeight, CBlockIndex* pprev)
 {
     //Anyways, we have to check
     if( nHeight < Params().FirstMasternodePaymentBlock())
         return 0;
 
     CBlockIndex *pprevIndex = chainActive.Tip();
-    int countPoS = GetLeadingPoSBlocks(nHeight);
+    int countPoS = GetLeadingPoSBlocks(nHeight, pprev);
 
     int nGap = nHeight - Params().FirstMasternodePaymentBlock();
     int  nBaseHeight = nGap / Params().InflationCycleIntervalBlocks() * Params().InflationCycleIntervalBlocks() + Params().FirstMasternodePaymentBlock() - 1;
@@ -1643,7 +1652,7 @@ CAmount GetBlockValueAfterMasternodeStarted(int nHeight)
     return nSubsidy;
 }
 
-CAmount GetBlockValue(int nHeight)
+CAmount GetBlockValue(int nHeight, CBlockIndex* pprev)
 {
     if (nHeight == 0)
     {
@@ -1651,7 +1660,7 @@ CAmount GetBlockValue(int nHeight)
     }
 
     if( nHeight >= Params().FirstMasternodePaymentBlock() ){
-        return GetBlockValueAfterMasternodeStarted(nHeight);
+        return GetBlockValueAfterMasternodeStarted(nHeight, pprev);
     }
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET ||
@@ -2240,7 +2249,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                     error("ConnectBlock() : coinbase output should be greater than 2"),
                     REJECT_INVALID, "bad-co-count");
 
-            ExpectedPay = GetBlockValue(pindex->nHeight) + nFees;
+            ExpectedPay = GetBlockValue(pindex->nHeight, pindex->pprev) + nFees;
             if(block.IsTreasuryPaymentBlock(1)){
                 LogPrintf("Is Treasury Payment Block!\n");
                 int64_t treasuryPayAmount = GetTreasuryPayment(pindex->nHeight,(ExpectedPay-nFees)/0.75);
@@ -2256,7 +2265,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 
         if (!PayOk){
             return state.DoS(100,
-                error("ConnectBlock() : reward pays too much (actual=%d vs Expected=%d)",
+                error("ConnectBlock() :[1] reward pays too much (actual=%d vs Expected=%d)",
                 ActualPay, ExpectedPay),
                 REJECT_INVALID, "bad-cb-amount");
         }
@@ -2274,7 +2283,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
          if(!IsBlockValueValid(block, ExpectedPay ))
          {
              return state.DoS(100,
-                 error("ConnectBlock() : reward pays too much (actual=%d vs limit=%d)",
+                 error("ConnectBlock() :[2] reward pays too much (actual=%d vs limit=%d)",
                      block.vtx[0].GetValueOut(), GetBlockValue(pindex->nHeight) + nFees),
                  REJECT_INVALID, "bad-cb-amount");
          }
@@ -3277,6 +3286,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 		// 0.10.7.6 start
 
 		// if different pow-block and pos-block generated at same height, deprecate pos block
+        /*
 		if (nHeight == pindexPrev->nHeight) {
 			if (pindexPrev->IsProofOfStake() && block.IsProofOfWork()) {
 				LogPrintf("CheckBlock(): different pow-block and pos-block generated at same height\n");
@@ -3296,6 +3306,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
 				return state.DoS(100, error("CheckBlock() : ignore pos-block check"));
 			}
 		}
+        */
 
 		// 0.10.7.6 end
 

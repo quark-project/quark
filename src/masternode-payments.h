@@ -145,7 +145,7 @@ public:
         return false;
     }
 
-    bool IsTransactionValid(const CTransaction& txNew);
+    bool IsTransactionValid(const CTransaction& txNew, CBlockIndex* pprev);
     std::string GetRequiredPaymentsString();
 
     ADD_SERIALIZE_METHODS;
