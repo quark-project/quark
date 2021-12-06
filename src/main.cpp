@@ -1605,6 +1605,11 @@ CAmount GetProofOfStakeReward(const int nHeight, int64_t nCoinAge)
 int GetLeadingPoSBlocks(int nHeight){
     int countPoS = 0;
     CBlockIndex *pprevIndex = chainActive.Tip();
+
+    if(pprevIndex) {
+        LogPrintf("GetLeadingPoSBlocks: tip height: %d, nHeight: %d\n", pprevIndex->nHeight, nHeight);
+    }
+
     if(pprevIndex&&nHeight-1<=pprevIndex->nHeight)
     {
         while(pprevIndex && pprevIndex->IsProofOfStake()){
@@ -1612,6 +1617,8 @@ int GetLeadingPoSBlocks(int nHeight){
             pprevIndex = pprevIndex->pprev;
         }
     }
+    LogPrintf("GetLeadingPoSBlocks: countPoS: %d\n", countPoS);
+
     return countPoS;
 }
 
