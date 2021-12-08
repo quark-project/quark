@@ -3283,33 +3283,6 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                 nHeight = (*mi).second->nHeight + 1;
         }
 
-		// 0.10.7.6 start
-
-		// if different pow-block and pos-block generated at same height, deprecate pos block
-        /*
-		if (nHeight == pindexPrev->nHeight) {
-			if (pindexPrev->IsProofOfStake() && block.IsProofOfWork()) {
-				LogPrintf("CheckBlock(): different pow-block and pos-block generated at same height\n");
-
-				CValidationState state;
-				{
-					LogPrintf("CheckBlock(): InvalidateBlock\n");
-					LOCK(cs_main);
-					InvalidateBlock(state, pindexPrev);
-				}
-
-				if (state.IsValid()) {
-					LogPrintf("CheckBlock(): ActivateBestChain\n");
-					ActivateBestChain(state);
-				}
-			} else if  (pindexPrev->IsProofOfWork() && block.IsProofOfStake()) {
-				return state.DoS(100, error("CheckBlock() : ignore pos-block check"));
-			}
-		}
-        */
-
-		// 0.10.7.6 end
-
         if (nHeight != 0 && !IsInitialBlockDownload() && !block.IsProofOfStake()) {
             if (!IsBlockPayeeValid(block, nHeight)) {
                 mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
