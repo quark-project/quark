@@ -217,14 +217,14 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock, b
  // ***TODO***
 double ConvertBitsToDouble(unsigned int nBits);
 
-int GetLeadingPoSBlocks(int nHeight);
+int GetLeadingPoSBlocks(int nHeight, CBlockIndex* pprev);
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount = 0);
 int64_t GetTreasuryPayment(int nHeight, int64_t blockValue);
 bool IsTreasuryPaymentBlock(int nHeight);
 
 /** Find the best known block, and make it the tip of the block chain */
 bool ActivateBestChain(CValidationState &state, CBlock *pblock = NULL);
-CAmount GetBlockValue(int nHeight);
+CAmount GetBlockValue(int nHeight, CBlockIndex* pprev);
 
 /** Create a new block index entry for a given block hash */
 CBlockIndex * InsertBlockIndex(uint256 hash);
