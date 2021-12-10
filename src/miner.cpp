@@ -87,7 +87,7 @@ void UpdateTime(CBlockHeader* pblock, const CBlockIndex* pindexPrev, bool fProof
     pblock->nTime = std::max(pindexPrev->GetMedianTimePast()+1, GetAdjustedTime());
 
     // Updating time can change work required on testnet:
-        if (Params().AllowMinDifficultyBlocks())    
+        if (Params().AllowMinDifficultyBlocks())
             pblock->nBits = fProofOfStake ? GetNextPoSTargetRequired(pindexPrev) :  GetNextWorkRequired(pindexPrev, pblock);
 }
 
@@ -368,14 +368,14 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-        LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize); 
+        LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize);
 
         if (!fProofOfStake) {
             int nHeight = chainActive.Tip()->nHeight + 1;
             if ( nHeight < Params().FirstMasternodePaymentBlock() || !fMasterPayment)
-            {   
+            {
                 // Compute final coinbase transaction.
-                txNew.vout[0].nValue = GetBlockValue(nHeight) + nFees;
+                txNew.vout[0].nValue = GetBlockValue(nHeight, pindexPrev) + nFees;
             }
             pblock->vtx[0] = txNew;
             pblocktemplate->vTxFees[0] = -nFees;
