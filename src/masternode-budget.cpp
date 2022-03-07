@@ -496,7 +496,7 @@ void CBudgetManager::FillBlockPayee(CMutableTransaction& txNew, CAmount nFees, b
             CBitcoinAddress address2(address1);
         }
     } else {
-        blockValue = GetBlockValue(pindexPrev->nHeight);
+        blockValue = GetBlockValue(pindexPrev->nHeight, pindexPrev->pprev);
         txNew.vout[0].nValue = blockValue;
 
         if (nHighestCount > 0) {
