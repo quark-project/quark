@@ -3284,10 +3284,24 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         }
 
         if (nHeight != 0 && !IsInitialBlockDownload() && !block.IsProofOfStake()) {
-            if (!IsBlockPayeeValid(block, nHeight)) {
+			// v0.10.7.7 - begin
+			int diffSec = GetAdjustedTime() - block.nTime;
+			if (diffSec < 600) {
+	            if (!IsBlockPayeeValid(block, nHeight)) {
+	                mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
+	                return state.DoS(100, error("CheckBlock() : Couldn't find masternode/budget payment"));
+	            }
+			} else {
+				LogPrintf("CheckBlock(): diffSec >= 600 - skipping IsBlockPayeeValid()\n");
+			}
+			// v0.10.7.7 - end
+
+            /*
+			if (!IsBlockPayeeValid(block, nHeight)) {
                 mapRejectedBlocks.insert(make_pair(block.GetHash(), GetTime()));
                 return state.DoS(100, error("CheckBlock() : Couldn't find masternode/budget payment"));
             }
+            */
         } else {
             if (fDebug)
                 LogPrintf("CheckBlock(): Masternode payment check skipped on sync - skipping IsBlockPayeeValid()\n");
